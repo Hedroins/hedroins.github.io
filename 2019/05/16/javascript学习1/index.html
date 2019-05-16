@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>javascript学习1 | Hedroins&#39;S blog</title>
+  <title>javascript学习1(变量--条件语句) | Hedroins&#39;S blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="####注意，JavaScript 的变量名区分大小写，A和a是两个不同的变量。 12var a;a // undefined ####如果只是声明变量而没有赋值，则该变量的值是undefined。undefined是一个 JavaScript 关键字，表示“无定义”。 ####如果变量赋值的时候，忘了写var命令，这条语句也是有效的。 123var a = 1;// 基本等同a = 1; 但是，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript学习1">
+<meta property="og:title" content="javascript学习1(变量--条件语句)">
 <meta property="og:url" content="http://yoursite.com/2019/05/16/javascript学习1/index.html">
 <meta property="og:site_name" content="Hedroins&#39;S blog">
 <meta property="og:description" content="####注意，JavaScript 的变量名区分大小写，A和a是两个不同的变量。 12var a;a // undefined ####如果只是声明变量而没有赋值，则该变量的值是undefined。undefined是一个 JavaScript 关键字，表示“无定义”。 ####如果变量赋值的时候，忘了写var命令，这条语句也是有效的。 123var a = 1;// 基本等同a = 1; 但是，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-16T05:39:18.126Z">
+<meta property="og:image" content="file:///C:/Users/he/AppData/Roaming/Tencent/Users/1047867332/QQ/WinTemp/RichOle/[3%P%7BHV]%7D%7B7EY_UQTPQ7%2F.png">
+<meta property="og:updated_time" content="2019-05-16T17:01:10.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript学习1">
+<meta name="twitter:title" content="javascript学习1(变量--条件语句)">
 <meta name="twitter:description" content="####注意，JavaScript 的变量名区分大小写，A和a是两个不同的变量。 12var a;a // undefined ####如果只是声明变量而没有赋值，则该变量的值是undefined。undefined是一个 JavaScript 关键字，表示“无定义”。 ####如果变量赋值的时候，忘了写var命令，这条语句也是有效的。 123var a = 1;// 基本等同a = 1; 但是，">
+<meta name="twitter:image" content="file:///C:/Users/he/AppData/Roaming/Tencent/Users/1047867332/QQ/WinTemp/RichOle/[3%P%7BHV]%7D%7B7EY_UQTPQ7%2F.png">
   
     <link rel="alternative" href="/atom.xml" title="Hedroins&#39;S blog" type="application/atom+xml">
   
@@ -161,7 +163,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      javascript学习1
+      javascript学习1(变量--条件语句)
     </h1>
   
 
@@ -198,6 +200,36 @@
 <p>上面代码首先使用<code>console.log</code>方法，在控制台（console）显示变量<code>a</code>的值。这时变量<code>a</code>还没有声明和赋值，所以这是一种错误的做法，但是实际上不会报错。因为存在变量提升，真正运行的是下面的代码。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <p>最后的结果是显示<code>undefined</code>，表示变量<code>a</code>已声明，但还未赋值。</p>
+<h1 id="标识符命名规则"><a href="#标识符命名规则" class="headerlink" title="标识符命名规则"></a>标识符命名规则</h1><ul>
+<li>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（<code>$</code>）和下划线（<code>_</code>）。</li>
+<li>第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字<code>0-9</code></li>
+</ul>
+<p>中文是合法的标识符，可以用作变量名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 临时变量 = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>J<strong>avaScript有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。</strong></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>一种是单行注释，用//起头；另一种是多行注释，放在/*和*/之间</p>
+<p>此外，由于历史上 JavaScript 可以兼容 HTML 代码的注释，所以<code>&lt;!--</code>和<code>--&gt;</code>也被视为合法的单行注释。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span>; &lt;!-- x = 2;</span><br><span class="line">--&gt; x = 3;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，只有<code>x = 1</code>会执行，其他的部分都被注释掉了。</p>
+<p>需要注意的是，<code>--&gt;</code>只有在行首，才会被当成单行注释，否则会当作正常的运算。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">countdown</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (n --&gt; <span class="number">0</span>) <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line">countdown(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>n --&gt; 0</code>实际上会当作<code>n-- &gt; 0</code>，因此输出2、1、0。</p>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><p>JavaScript 使用大括号，将多个相关的语句组合在一起，称为“区块”（block）。</p>
+<p>对于<code>var</code>命令来说，JavaScript 的区块不构成单独的作用域（scope）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">a <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>上面代码在区块内部，使用<code>var</code>命令声明并赋值了变量<code>a</code>，然后在区块外部，变量<code>a</code>依然有效，区块对于<code>var</code>命令不构成单独的作用域，与不使用区块的情况没有任何区别。在 JavaScript 语言中，单独使用区块并不常见，区块往往用来构成其他更复杂的语法结构，比如<code>for</code>、<code>if</code>、<code>while</code>、<code>function</code>等。</p>
+<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>不要混淆赋值表达式（<code>=</code>）、严格相等运算符（<code>===</code>）和相等运算符（<code>==</code>）。尤其是赋值表达式不具有比较作用。</p>
+<h1 id="Switch-Case"><a href="#Switch-Case" class="headerlink" title="Switch-Case"></a>Switch-Case</h1><p><code>switch</code>语句部分和<code>case</code>语句部分，都可以使用表达式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(<span class="number">1</span> + <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span> + <span class="number">2</span>:</span><br><span class="line">    f();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    neverHappens();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>switch</code>语句后面的表达式，与<code>case</code>语句后面的表示式比较运行结果时，采用的是严格相等运算符（<code>===</code>），而不是相等运算符（<code>==</code>），这意味着比较时不会发生类型转换。</p>
+<h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符?:"></a>三元运算符?:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(条件) ? 表达式1 : 表达式2</span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果“条件”为<code>true</code>，则返回“表达式1”的值，否则返回“表达式2”的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> even = (n % <span class="number">2</span> === <span class="number">0</span>) ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果<code>n</code>可以被2整除，则<code>even</code>等于<code>true</code>，否则等于<code>false</code>。它等同于下面的形式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> even;</span><br><span class="line"><span class="keyword">if</span> (n % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">  even = <span class="literal">true</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  even = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码利用三元运算符，输出相应的提示。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> msg = <span class="string">'数字'</span> + n + <span class="string">'是'</span> + (n % <span class="number">2</span> === <span class="number">0</span> ? <span class="string">'偶数'</span> : <span class="string">'奇数'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="file:///C:\Users\he\AppData\Roaming\Tencent\Users\1047867332\QQ\WinTemp\RichOle\[3%P{HV]}{7EY_UQTPQ7%2F.png" alt="img"></p>
 
       
 
