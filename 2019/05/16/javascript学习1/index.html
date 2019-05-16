@@ -22,7 +22,7 @@
 
     <!-- Bootstrap Core CSS -->
 
-   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     
 
@@ -97,8 +97,6 @@
         <div class="container">
             <div class=" row">
 			
-			<canvas id="particles-js-canvas" style="position:absolute;z-index:1;top:0px;left:0px;" width="100%" height="50%"></canvas>
-			
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
                 
                     <div class="post-heading" style="padding:40px">
@@ -118,62 +116,6 @@
         </div>
   
 </header>
-
-<script>
-    document.addEventListener('touchmove', function (e) {
-        e.preventDefault()
-    })
-	var hder = document.getElementById('headerid');
-    var c = document.getElementsByTagName('canvas')[0],
-        x = c.getContext('2d'),
-        pr = window.devicePixelRatio || 1,
-        w = window.innerWidth,
-		
-        h = window.innerHeight/2,
-        f = 90,
-        q,
-        m = Math,
-        r = 0,
-        u = m.PI*2,
-        v = m.cos,
-        z = m.random
-    c.width = w*pr
-    c.height = h*pr
-    x.scale(pr, pr)
-    x.globalAlpha = 0.6
-    function i(){
-	    var hder = document.getElementById('headerid');
-		if(hder)
-	    {
-   		h = hder.clientHeight;
-		c.height = h*pr;
-		}
-        x.clearRect(0,0,w,h)
-        q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
-        while(q[1].x<w+f) d(q[0], q[1])
-    }
-    function d(i,j){   
-        x.beginPath()
-        x.moveTo(i.x, i.y)
-        x.lineTo(j.x, j.y)
-        var k = j.x + (z()*2-0.25)*f,
-            n = y(j.y)
-        x.lineTo(k, n)
-        x.closePath()
-        r-=u/-50
-        x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
-        x.fill()
-        q[0] = q[1]
-        q[1] = {x:k,y:n}
-    }
-    function y(p){
-        var t = p + (z()*2-1.1)*f
-        return (t>h||t<0) ? y(p) : t
-    }
-    document.onclick = i
-    document.ontouchstart = i
-    i()
-</script>
 
 	
     <!-- Navigation -->
@@ -200,7 +142,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">主页</a>
+                        <a href="/">Homepage</a>
                     </li>
 
                     
@@ -289,7 +231,7 @@
 <p>J<strong>avaScript有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。</strong></p>
 <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>一种是单行注释，用//起头；另一种是多行注释，放在/*和*/之间</p>
 <p>此外，由于历史上 JavaScript 可以兼容 HTML 代码的注释，所以<code>&lt;!--</code>和<code>--&gt;</code>也被视为合法的单行注释。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span>; &lt;!-- x = 2;</span><br><span class="line">--&gt; x = 3;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span>; <span class="xml"><span class="comment">&lt;!-- x = 2;</span></span></span><br><span class="line"><span class="xml">--&gt; x = 3;</span></span><br></pre></td></tr></table></figure>
 <p>上面代码中，只有<code>x = 1</code>会执行，其他的部分都被注释掉了。</p>
 <p>需要注意的是，<code>--&gt;</code>只有在行首，才会被当成单行注释，否则会当作正常的运算。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">countdown</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (n --&gt; <span class="number">0</span>) <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line">countdown(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
@@ -318,12 +260,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2019/05/16/正则表达式学习/" data-toggle="tooltip" data-placement="top" title="正则表达式学习">&larr; 上一篇</a>
+                            <a href="/2019/05/16/正则表达式学习/" data-toggle="tooltip" data-placement="top" title="正则表达式学习">&larr; Previous post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2019/05/11/android实验总结1/" data-toggle="tooltip" data-placement="top" title="android实验总结1">下一篇 &rarr;</a>
+                            <a href="/2019/05/11/android实验总结1/" data-toggle="tooltip" data-placement="top" title="android实验总结1">Next post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -336,11 +278,6 @@
 
                 <br>
                 <!--分享-->
-                
-                    <div class="social-share" data-wechat-qrcode-helper align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
                 
                 <!--分享-->
                 <br>                       
@@ -368,25 +305,8 @@
 
                 <!-- Featured Tags -->
                 
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">标签云</a></h5>
-                    <div class="tags">
-                       
-                    </div>
-                </section>
-                
 
                 <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="http://www.sumoon.com" target="_blank">ACE theme</a></li>
-                    
-                </ul>
                 
             </div>
         </div>
@@ -397,40 +317,6 @@
 
 
 
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
 
 
 
@@ -450,15 +336,6 @@
                 
 
                 
-                    <li>
-                        <a target="_blank" href="https://github.com/Hedroins">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
 
                 
 
@@ -473,8 +350,6 @@
                     Theme by <a href="https://github.com/kinggozhang/hexo-theme-ace">ACE</a> 
 					
 					
-					<i class="fa fa-eye" id="leancounter"></i>
-					
                 </p>
             </div>
         </div>
@@ -483,21 +358,18 @@
 
 <!-- jQuery -->
 
-   <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+   <script src="/js/jquery.min.js"></script>
 
 
 
 <!-- Bootstrap Core JavaScript -->
 
-   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="/js/bootstrap.min.js"></script>
 
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>
 
-
-	<script src="/js/particles.js"></script>
-	<script src="/js/particles_config.js"></script>
 
 
 
@@ -558,39 +430,9 @@
 <!-- Google Analytics -->
 
 
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'yoursite';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
-
 
 
 <!-- Baidu Tongji -->
-
-<script>
-    // dynamic User by Hux
-    var _baId = 'xxx';
-
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
 
 
