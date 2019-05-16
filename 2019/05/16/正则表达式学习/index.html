@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hedroins&#39;S blog</title>
+  <title>正则表达式学习 | Hedroins&#39;S blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hedroins&#39;S blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="正则表达式的符号“*”      匹配前面的字符、表达式或括号里的字符0次或多次 “+”       匹配前面的字符、表达式、或括号里的字符至少一次 “?”        匹配前面的字符一次或0次 “.”        匹配任意单个字符串 “[]”       匹配任意的单个字符串 “\”         转义符，用于把具有特殊意义的符号原样输出 “^”        指字符串开始位置的字符或子表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式学习">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/正则表达式学习/index.html">
 <meta property="og:site_name" content="Hedroins&#39;S blog">
+<meta property="og:description" content="正则表达式的符号“*”      匹配前面的字符、表达式或括号里的字符0次或多次 “+”       匹配前面的字符、表达式、或括号里的字符至少一次 “?”        匹配前面的字符一次或0次 “.”        匹配任意单个字符串 “[]”       匹配任意的单个字符串 “\”         转义符，用于把具有特殊意义的符号原样输出 “^”        指字符串开始位置的字符或子表">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-16T16:15:56.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hedroins&#39;S blog">
+<meta name="twitter:title" content="正则表达式学习">
+<meta name="twitter:description" content="正则表达式的符号“*”      匹配前面的字符、表达式或括号里的字符0次或多次 “+”       匹配前面的字符、表达式、或括号里的字符至少一次 “?”        匹配前面的字符一次或0次 “.”        匹配任意单个字符串 “[]”       匹配任意的单个字符串 “\”         转义符，用于把具有特殊意义的符号原样输出 “^”        指字符串开始位置的字符或子表">
   
     <link rel="alternative" href="/atom.xml" title="Hedroins&#39;S blog" type="application/atom+xml">
   
@@ -150,157 +154,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-正则表达式学习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      正则表达式学习
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/16/正则表达式学习/" class="archive-article-date">
+
+        
+        <a href="/2019/05/16/正则表达式学习/" class="archive-article-date">
   	<time datetime="2019-05-16T10:33:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/16/正则表达式学习/">正则表达式学习</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="正则表达式的符号"><a href="#正则表达式的符号" class="headerlink" title="正则表达式的符号"></a>正则表达式的符号</h2><p>“*”      匹配前面的字符、表达式或括号里的字符0次或多次</p>
+<p>“+”       匹配前面的字符、表达式、或括号里的字符至少一次</p>
+<p>“?”        匹配前面的字符一次或0次</p>
+<p>“.”        匹配任意单个字符串</p>
+<p>“[]”       匹配任意的单个字符串</p>
+<p>“\”         转义符，用于把具有特殊意义的符号原样输出</p>
+<p>“^”        指字符串开始位置的字符或子表达式。</p>
+<p>“$”        经常用在表达式的末尾，表示从字符串的末端匹配。如果不用他，则每个正则表达式都带有.*作为结尾，      这个符号可以看作^的反义词。</p>
+<p>”|“         匹配任意一个有|的部分</p>
+<p>”?!“          不包含。这个组合经常放在字符或者正则表达式前面，表示这些字符不能出现，如果在某整个字符串中全  部排除某个字符，就要加上^和$符号。</p>
+<p>“()”        表达式编组，()内的正则表达式会优先运行。</p>
+<p>“{m,n}”     匹配前面的字符m到n次，包括m、n</p>
+<p>“[^]”          匹配任意一个不在中括号内的字符</p>
+<p>“\d”            匹配一位数字</p>
+<p>“\D”            匹配一位非数字</p>
+<p>“\w”            匹配一位数字或字母</p>
+<p>##示例</p>
+<p>a*b*                                   aaaaaa,aaaaabbbbb</p>
+<p>a+b+                                    aabbb,abbbbbbb,aaaaaabbb</p>
+<p>Ab?                                        A,Ab</p>
+<p>b.d                                          b2d,b@d</p>
+<p>[a-z]*                                   ajdx,sdsa,dsf</p>
+<p>\.\|\\                                      .|\</p>
+<p>^a                                            apple ,aply ,adds</p>
+<p> [A-Z]*[a-z]*\$                         ASFSDFdfd,ASDFsfs,SFssdd</p>
+<p>b(a|d|r)d                                bad,bdd,brd</p>
+<p>^((?![A-Z]).)*$                          除了大写字母以外的所有字母，字符均可，如nu-here,&amp;hu238-@</p>
+<p>(a*b)*                                      aaabab,aaabaaaab,abaaaab</p>
+<p>go{2,5}gle                                gooogle,gooooogle</p>
+<p>[^A-Z]*                                    sed,sdffd@,sfsd-</p>
+<p>a\d                                              a3,a5,a7</p>
+<p>3\D                                            3@,3-,3)</p>
+<p>\w                                                3,S,e</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/16/正则表达式学习/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/16/javascript学习1/" class="archive-article-date">
-  	<time datetime="2019-05-16T05:18:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/16/javascript学习1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript学习1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/16/javascript学习1/">javascript学习1</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/11/android实验总结1/" class="archive-article-date">
-  	<time datetime="2019-05-11T08:21:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/11/android实验总结1/">android实验总结1</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/05/工程实践4总结-1/" class="archive-article-date">
-  	<time datetime="2019-05-05T00:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/05/工程实践4总结-1/">工程实践4总结(1)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/layui学习心得（一）/" class="archive-article-date">
-  	<time datetime="2019-04-27T23:23:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/28/layui学习心得（一）/">layui学习心得（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -323,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
