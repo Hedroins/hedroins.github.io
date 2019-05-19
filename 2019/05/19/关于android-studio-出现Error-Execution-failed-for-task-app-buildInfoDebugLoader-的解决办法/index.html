@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Myblog
+          关于android studio 出现Error:Execution failed for task &#39;:app:buildInfoDebugLoader&#39;.的解决办法 - Myblog
         
     </title>
 
-    <link rel="canonical" href="http://hedroins.github.io/tags/工程实践4/">
+    <link rel="canonical" href="http://hedroins.github.io/2019/05/19/关于android-studio-出现Error-Execution-failed-for-task-app-buildInfoDebugLoader-的解决办法/">
 
     <!-- Bootstrap Core CSS -->
 
@@ -101,13 +101,19 @@
 			
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
                 
-				
-                    <div class="site-heading" style="padding:40px">
-                        <h1>Hedroins</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">just,Try!</span>
+                    <div class="post-heading" style="padding:40px">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#android Studio运行错误" title="android Studio运行错误">android Studio运行错误</a>
+                            
+                        </div>
+                        <h1>关于android studio 出现Error:Execution failed for task &#39;:app:buildInfoDebugLoader&#39;.的解决办法</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Hedroins on
+                            2019-05-19
+                        </span>
                     </div>
-                
                 
                 </div>
             </div>
@@ -242,307 +248,144 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
-            
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <p>今天在使用androidstudio的过程中，改了代码点击运行的时候发现android studio总是报</p>
+<p>Error:Execution failed for task ‘:app:buildInfoDebugLoader’.<br>> Exception while doing past iteration backup : Source /home/ruiqin/AndroidStudioProjects/DouTuGaoShou/app/build/intermediates/builds/debug/5818437215551/classes.dex and destination /home/ruiqin/AndroidStudioProjects/DouTuGaoShou/app/build/intermediates/builds/debug/5818437215551/classes.dex must be different</p>
+<p>在网上搜索无果后，最后自己找出解决办法，那就是重新加载工程。</p>
+<p>点击菜单栏Build—&gt;RebuildProject</p>
+<p>重新加载一下，再点击运行，就搞定了！</p>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-                <ul>
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    05-19
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/05/19/关于android-studio-出现Error-Execution-failed-for-task-app-buildInfoDebugLoader-的解决办法/" style="color: #0085a1">
-                        <span>
-                            关于android studio 出现Error:Execution failed for task ':app:buildInfoDebugLoader'.的解决办法
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    05-16
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/05/16/正则表达式学习/" style="color: #0085a1">
-                        <span>
-                            正则表达式学习
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    05-16
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/05/16/javascript学习1/" style="color: #0085a1">
-                        <span>
-                            javascript学习1(变量--条件语句)
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    05-11
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/05/11/android实验总结1/" style="color: #0085a1">
-                        <span>
-                            android实验总结1
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    05-06
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/05/06/安卓移动终端开发学习心得1/" style="color: #0085a1">
-                        <span>
-                            安卓移动终端开发学习心得1
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    05-05
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/05/05/工程实践4总结-1/" style="color: #0085a1">
-                        <span>
-                            工程实践4总结(1)
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    04-28
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/04/28/layui学习心得（一）/" style="color: #0085a1">
-                        <span>
-                            layui学习心得（一）
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/05/16/正则表达式学习/" data-toggle="tooltip" data-placement="top" title="正则表达式学习">下一篇 &rarr;</a>
+                        </li>
+                    
                 </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share" data-wechat-qrcode-helper align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+				
             </div>
-            
 
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">标签云</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#android Studio运行错误" title="android Studio运行错误">android Studio运行错误</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.google.com.hk" target="_blank">google</a></li>
+                    
+                </ul>
+                
+            </div>
         </div>
     </div>
-</div>
+</article>
 
 
 
-                <!-- 如果开启评论功能 -->
-                
-            </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">标签云</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#android Studio运行错误" title="android Studio运行错误" rel="1">android Studio运行错误</a>
-            
-        
-            
-            <a href="/tags/#adroind 移动终端" title="adroind 移动终端" rel="1">adroind 移动终端</a>
-            
-        
-            
-            <a href="/tags/#android" title="android" rel="1">android</a>
-            
-        
-            
-            <a href="/tags/#javascript , 前端语法" title="javascript , 前端语法" rel="1">javascript , 前端语法</a>
-            
-        
-            
-            <a href="/tags/#工程实践4" title="工程实践4" rel="1">工程实践4</a>
-            
-        
-            
-            <a href="/tags/#正则表达式" title="正则表达式" rel="1">正则表达式</a>
-            
-        
-            
-            <a href="/tags/#layui" title="layui" rel="1">layui</a>
-            
-        
-    </div>
-</section>
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">关于</a></h5>
-    <div class="short-about">
-
-        
-            <img id="avatar_pic" src="/img/avatar/logo.png">
-        
-
-        
-            <p>INNOVATION IS KING!</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
-
-            
-
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://github.com/Hedroins">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
-
-        <hr>
-    
-        
-  <h5>最近发表
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/2019/05/19/关于android-studio-出现Error-Execution-failed-for-task-app-buildInfoDebugLoader-的解决办法/">关于android studio 出现Error:Execution failed for task &#39;:app:buildInfoDebugLoader&#39;.的解决办法</a>
-        </li>
-      
-        <li>
-          <a href="/2019/05/16/正则表达式学习/">正则表达式学习</a>
-        </li>
-      
-        <li>
-          <a href="/2019/05/16/javascript学习1/">javascript学习1(变量--条件语句)</a>
-        </li>
-      
-        <li>
-          <a href="/2019/05/11/android实验总结1/">android实验总结1</a>
-        </li>
-      
-        <li>
-          <a href="/2019/05/06/安卓移动终端开发学习心得1/">安卓移动终端开发学习心得1</a>
-        </li>
-      
-    </ul>
-  </div>
-</h5>
-        <hr>
-    
-        
-    <h5>归档</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5>友链</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="http://www.google.com.hk" target="_blank">google</a></li>
-    
-</ul>
 
 
-        <hr>
-    
-</div>
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        
-    </div>
-</div>
 
 
     <!-- Footer -->
@@ -647,7 +490,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://hedroins.github.io/tags/工程实践4/index.html/js/jquery.tagcloud.js",function(){
+        async("http://hedroins.github.io/2019/05/19/关于android-studio-出现Error-Execution-failed-for-task-app-buildInfoDebugLoader-的解决办法/index.html/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
