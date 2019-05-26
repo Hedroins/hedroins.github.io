@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          js学习总结----数值 - Myblog
+        
+    </title>
+
+    <link rel="canonical" href="http://hedroins.github.io/2019/05/24/js学习总结-数值/">
+
+    <!-- Bootstrap Core CSS -->
+
+   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+
+    
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+	<link rel="stylesheet" href="/css/w3.css">
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+    }
+   .post-heading{
+    padding:20px;
+    }
+  .person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+    opacity: 0.7;
+  }
+  .person:hover {
+    border-color: #f1f1f1;
+  }
+
+</style>
+
+<header id="headerid" class="w3-indigo intro-header" style="position:relative;">
+    <!-- Signature -->
+	
+        <div class="container">
+            <div class=" row">
+			
+			<canvas id="particles-js-canvas" style="position:absolute;z-index:1;top:0px;left:0px;" width="100%" height="50%"></canvas>
+			
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
+                
+                    <div class="post-heading" style="padding:40px">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#JS" title="JS">JS</a>
+                            
+                        </div>
+                        <h1>js学习总结----数值</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Hedroins on
+                            2019-05-24
+                        </span>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+  
+</header>
+
+<script>
+    document.addEventListener('touchmove', function (e) {
+        e.preventDefault()
+    })
+	var hder = document.getElementById('headerid');
+    var c = document.getElementsByTagName('canvas')[0],
+        x = c.getContext('2d'),
+        pr = window.devicePixelRatio || 1,
+        w = window.innerWidth,
+		
+        h = window.innerHeight/2,
+        f = 90,
+        q,
+        m = Math,
+        r = 0,
+        u = m.PI*2,
+        v = m.cos,
+        z = m.random
+    c.width = w*pr
+    c.height = h*pr
+    x.scale(pr, pr)
+    x.globalAlpha = 0.6
+    function i(){
+	    var hder = document.getElementById('headerid');
+		if(hder)
+	    {
+   		h = hder.clientHeight;
+		c.height = h*pr;
+		}
+        x.clearRect(0,0,w,h)
+        q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
+        while(q[1].x<w+f) d(q[0], q[1])
+    }
+    function d(i,j){   
+        x.beginPath()
+        x.moveTo(i.x, i.y)
+        x.lineTo(j.x, j.y)
+        var k = j.x + (z()*2-0.25)*f,
+            n = y(j.y)
+        x.lineTo(k, n)
+        x.closePath()
+        r-=u/-50
+        x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
+        x.fill()
+        q[0] = q[1]
+        q[1] = {x:k,y:n}
+    }
+    function y(p){
+        var t = p + (z()*2-1.1)*f
+        return (t>h||t<0) ? y(p) : t
+    }
+    document.onclick = i
+    document.ontouchstart = i
+    i()
+</script>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hedroins</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">主页</a>
+                    </li>
+
+                    
+
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="整数和浮点数"><a href="#整数和浮点数" class="headerlink" title="整数和浮点数"></a>整数和浮点数</h1><p>==JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，<code>1</code>与<code>1.0</code>是相同的，是同一个数。==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> === <span class="number">1.0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>==某些运算只有整数才能完成，此时 JavaScript 会自动把64位浮点数，转成32位整数，然后再进行运算，参见《运算符》一章的”位运算“部分。==</p>
+<p>由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="number">0.3</span> / <span class="number">0.1</span></span><br><span class="line"><span class="comment">// 2.9999999999999996</span></span><br><span class="line"></span><br><span class="line">(<span class="number">0.3</span> - <span class="number">0.2</span>) === (<span class="number">0.2</span> - <span class="number">0.1</span>)</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span>+<span class="number">0.2</span></span><br><span class="line"><span class="number">0.30000000000000004</span></span><br></pre></td></tr></table></figure>
+<h1 id="数值精度"><a href="#数值精度" class="headerlink" title="数值精度"></a>数值精度</h1><h2 id="IEEE754格式"><a href="#IEEE754格式" class="headerlink" title="IEEE754格式"></a>IEEE754格式</h2><p>根据国际标准 IEEE 754，JavaScript 浮点数的64个二进制位，从最左边开始，是这样组成的。</p>
+<ul>
+<li><p>==第1位：符号位，<code>0</code>表示正数，<code>1</code>表示负数==</p>
+</li>
+<li><p>==第2位到第12位（共11位）：指数部分==</p>
+</li>
+<li><p>==第13位到第64位（共52位）：小数部分（即有效数字）==</p>
+<p>​</p>
+<p>指数部分一共有11个二进制位，因此大小范围就是0到2047。==IEEE 754 规定，如果指数部分的值在0到2047之间（不含两个端点），那么有效数字的第一位默认总是1==，不保存在64位浮点数之中。也就是说，有效数字这时总是<code>1.xx...xx</code>的形式，其中<code>xx..xx</code>的部分保存在64位浮点数之中，最长可能为52位。因此，JavaScript 提供的有效数字最长为53个二进制位。</p>
+<p>==即-2^53^到2^53^，都可以精确表示。==</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Math.pow(2, 53)</span><br><span class="line">// 9007199254740992</span><br><span class="line"> </span><br><span class="line">Math.pow(2, 53) + 1</span><br><span class="line">// 9007199254740992</span><br><span class="line"></span><br><span class="line">Math.pow(2, 53) + 2</span><br><span class="line">// 9007199254740994</span><br><span class="line"></span><br><span class="line">Math.pow(2, 53) + 3</span><br><span class="line">// 9007199254740996</span><br><span class="line"></span><br><span class="line">Math.pow(2, 53) + 4</span><br><span class="line">// 9007199254740996</span><br></pre></td></tr></table></figure>
+<p>上面代码中，大于2的53次方以后，整数运算的结果开始出现错误。所以，大于2的53次方的数值，都无法保持精度。由于2的53次方是一个16位的十进制数值，所以简单的法则就是，JavaScript 对15位的十进制数都可以精确处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Math.pow(2, 53)</span><br><span class="line">// 9007199254740992</span><br><span class="line"></span><br><span class="line">// 多出的三个有效数字，将无法保存</span><br><span class="line">9007199254740992111</span><br><span class="line">// 9007199254740992000</span><br></pre></td></tr></table></figure>
+<p>上面示例表明，大于2的53次方以后，多出来的有效数字（最后三位的<code>111</code>）都会无法保存，变成0。</p>
+<h1 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h1><p>64位浮点数的指数部分的长度是11个二进制位，意味着指数部分的最大值是2047（2的11次方减1）。也就是说，==64位浮点数的指数部分的值最大为2047，分出一半表示负数，则 JavaScript 能够表示的数值范围为2^1024^到2^-1023^（开区间）==</p>
+<p>如果一个数大于等于2的1024次方，那么就会发生“正向溢出”，即 JavaScript 无法表示这么大的数，这时就会返回<code>Infinity</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">1024</span>) <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
+<p>如果一个数小于等于2的-1075次方（指数部分最小值-1023，再加上小数部分的52位），那么就会发生为“负向溢出”，即 JavaScript 无法表示这么小的数，这时会直接返回0。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">-1075</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h2 id="Number对象的MAX-VALUE和MIN-VALUE属性"><a href="#Number对象的MAX-VALUE和MIN-VALUE属性" class="headerlink" title="Number对象的MAX_VALUE和MIN_VALUE属性"></a>Number对象的MAX_VALUE和MIN_VALUE属性</h2><p>JavaScript 提供<code>Number</code>对象的<code>MAX_VALUE</code>和<code>MIN_VALUE</code>属性，返回可以表示的具体的最大值和最小值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_VALUE <span class="comment">// 1.7976931348623157e+308</span></span><br><span class="line"><span class="built_in">Number</span>.MIN_VALUE <span class="comment">// 5e-324</span></span><br></pre></td></tr></table></figure>
+<h1 id="数值的表示法"><a href="#数值的表示法" class="headerlink" title="数值的表示法"></a>数值的表示法</h1><p>数值也可以采用科学计数法表示，下面是几个科学计数法的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123e3</span> <span class="comment">// 123000</span></span><br><span class="line"><span class="number">123e-3</span> <span class="comment">// 0.123</span></span><br><span class="line"><span class="number">-3.1E+12</span></span><br><span class="line"><span class="number">.1e-23</span></span><br></pre></td></tr></table></figure>
+<p>以下两种情况，JavaScript 会自动将数值转为科学计数法表示，其他情况都采用字面形式直接表示。</p>
+<p><strong>（1）小数点前的数字多于21位。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1234567890123456789012</span></span><br><span class="line"><span class="comment">// 1.2345678901234568e+21</span></span><br><span class="line"></span><br><span class="line"><span class="number">123456789012345678901</span></span><br><span class="line"><span class="comment">// 123456789012345680000</span></span><br></pre></td></tr></table></figure>
+<p><strong>（2）小数点后的零多于5个。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 小数点后紧跟5个以上的零，</span></span><br><span class="line"><span class="comment">// 就自动转为科学计数法</span></span><br><span class="line"><span class="number">0.0000003</span> <span class="comment">// 3e-7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 否则，就保持原来的字面形式</span></span><br><span class="line"><span class="number">0.000003</span> <span class="comment">// 0.000003</span></span><br></pre></td></tr></table></figure>
+<h1 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h1><p>JavaScript 对整数提供四种进制的表示方法：十进制、十六进制、八进制、二进制。</p>
+<ul>
+<li>==十进制：没有前导0的数值。==</li>
+<li>==八进制：有前缀0o或0O的数值，或者有前导0、且只用到0-7的八个阿拉伯数字的数值。==</li>
+<li>==十六进制：有前缀0x或0X的数值。==</li>
+<li>==二进制：有前缀0b或0B的数值。==</li>
+</ul>
+<p><strong>通常来说，有前导0的数值会被视为八进制，但是如果前导0后面有数字<code>8</code>和<code>9</code>，则该数值被视为十进制。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0888</span> <span class="comment">// 888</span></span><br><span class="line"><span class="number">0777</span> <span class="comment">// 511</span></span><br></pre></td></tr></table></figure>
+<h1 id="特殊数值"><a href="#特殊数值" class="headerlink" title="特殊数值"></a>特殊数值</h1><h2 id="正0和负0"><a href="#正0和负0" class="headerlink" title="正0和负0"></a>正0和负0</h2><p>JavaScript 内部实际上存在2个<code>0</code>：一个是<code>+0</code>，一个是<code>-0</code>，区别就是64位浮点数表示法的符号位不同。它们是等价的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-0</span> === +<span class="number">0</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> === <span class="number">-0</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> === +<span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>几乎所有场合，正零和负零都会被当作正常的<code>0</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+<span class="number">0</span> <span class="comment">// 0</span></span><br><span class="line"><span class="number">-0</span> <span class="comment">// 0</span></span><br><span class="line">(<span class="number">-0</span>).toString() <span class="comment">// '0'</span></span><br><span class="line">(+<span class="number">0</span>).toString() <span class="comment">// '0'</span></span><br></pre></td></tr></table></figure>
+<p>唯一有区别的场合是，<code>+0</code>或<code>-0</code>当作分母，返回的值是不相等的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span> / +<span class="number">0</span>) === (<span class="number">1</span> / <span class="number">-0</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>==是因为除以正零得到<code>+Infinity</code>，除以负零得到<code>-Infinity</code>，这两者是不相等的==</p>
+<h2 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h2><p><code>NaN</code>是 JavaScript 的特殊值，表示“非数字”（Not a Number），主要出现在将字符串解析成数字出错的场合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> - <span class="string">'x'</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>上面代码运行时，会自动将字符串<code>x</code>转为数值，但是由于<code>x</code>不是数值，所以最后得到结果为<code>NaN</code>，表示它是“非数字”（<code>NaN</code>）。</p>
+<p>另外，一些数学函数的运算结果会出现<code>NaN</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.acos(<span class="number">2</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.log(<span class="number">-1</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.sqrt(<span class="number">-1</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p><code>0</code>除以<code>0</code>也会得到<code>NaN</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> / <span class="number">0</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，==<code>NaN</code>不是独立的数据类型，而是一个特殊数值，它的数据类型依然属于<code>Number</code>==，使用<code>typeof</code>运算符可以看得很清楚。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> <span class="comment">// 'number'</span></span><br></pre></td></tr></table></figure>
+<h3 id="运算规则"><a href="#运算规则" class="headerlink" title="运算规则"></a>运算规则</h3><p>NaN不等于任何值，包括它本身。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span> <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>数组的<code>indexOf</code>方法内部使用的是严格相等运算符，所以该方法对<code>NaN</code>不成立。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">NaN</span>].indexOf(<span class="literal">NaN</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p>==<code>NaN</code>在布尔运算时被当作<code>false</code>。==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(<span class="literal">NaN</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p><code>NaN</code>与任何数（包括它自己）的运算，得到的都是<code>NaN</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> + <span class="number">32</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">NaN</span> - <span class="number">32</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">NaN</span> * <span class="number">32</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">NaN</span> / <span class="number">32</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id="Infinity"><a href="#Infinity" class="headerlink" title="Infinity"></a>Infinity</h2><p>==Infinity表示“无穷”，用来表示两种场景。一种是一个正的数值太大，或一个负的数值太小，无法表示；另一种是非0数值除以0，得到Infinity==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 场景一</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">1024</span>)</span><br><span class="line"><span class="comment">// Infinity</span></span><br><span class="line"><span class="comment">// 场景二</span></span><br><span class="line"><span class="number">0</span> / <span class="number">0</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="number">1</span> / <span class="number">0</span> <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
+<p><strong><em><code>0</code>除以<code>0</code>会得到<code>NaN</code>，而非0数值除以<code>0</code>，会返回`Infinity</em></strong>`</p>
+<p><code>Infinity</code>大于一切数值（除了<code>NaN</code>），<code>-Infinity</code>小于一切数值（除了<code>NaN</code>）。</p>
+<p><code>Infinity</code>与<code>NaN</code>比较，总是返回<code>false</code>。</p>
+<h3 id="运算规则-1"><a href="#运算规则-1" class="headerlink" title="运算规则"></a>运算规则</h3><p><u>0乘以<code>Infinity</code>，返回<code>NaN</code>；0除以<code>Infinity</code>，返回<code>0</code>；<code>Infinity</code>除以0，返回<code>Infinity</code>。</u></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> * <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="number">0</span> / <span class="literal">Infinity</span> <span class="comment">// 0</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="number">0</span> <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
+<p>==Infinity加上或乘以Infinity，返回的还是Infinity==。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">Infinity</span> + <span class="literal">Infinity</span> <span class="comment">// Infinity</span></span><br><span class="line"><span class="literal">Infinity</span> * <span class="literal">Infinity</span> <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
+<p>==Infinity减去或除以Infinity，得到NaN。==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">Infinity</span> - <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>==Infinity与null计算时，null会转成0，等同于与0的计算。==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> * <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">null</span> / <span class="literal">Infinity</span> <span class="comment">// 0</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="literal">null</span> <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
+<p>==Infinity与undefined计算，返回的都是NaN。==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> + <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">undefined</span> - <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">undefined</span> * <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">undefined</span> / <span class="literal">Infinity</span> <span class="comment">// NaN</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="literal">undefined</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/05/24/JS学习总结2/" data-toggle="tooltip" data-placement="top" title="JS学习总结2">下一篇 &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share" data-wechat-qrcode-helper align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+				
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">标签云</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#JS" title="JS">JS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.google.com.hk" target="_blank">google</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/Hedroins">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Hedroins 2019 
+                    <br>
+                    Powered by <a href="http://www.hexo.io">Hexo</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Theme by <a href="https://github.com/kinggozhang/hexo-theme-ace">ACE</a> 
+					
+					
+					<i class="fa fa-eye" id="leancounter"></i>
+					
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+   <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+
+
+<!-- Bootstrap Core JavaScript -->
+
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+	<script src="/js/particles.js"></script>
+	<script src="/js/particles_config.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://hedroins.github.io/2019/05/24/js学习总结-数值/index.html/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://hedroins.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
