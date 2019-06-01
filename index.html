@@ -17,8 +17,6 @@
     <title>Hedroins | just,Try!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
-    
     
     <meta name="keywords" content="Myblog">
     <meta name="keywords" content="Myblog">
@@ -30,8 +28,8 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hedroins">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -47,68 +45,19 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+          <img src="/">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Hedroins</h5>
-          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
-        </hgroup>
+          <a href="mailto:undefined" class="mail">
+        </a></hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
-        
-            <li class="waves-block waves-effect active">
-              <a href="/">
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives">
-                <i class="icon icon-lg icon-archives"></i>
-                写了什么
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags">
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories">
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/Hedroins" target="_blank">
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom">
-                <i class="icon icon-lg icon-link"></i>
-                测试
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/dream">
-                <i class="icon icon-lg icon-dream"></i>
-                Dream
-              </a>
-            </li>
         
       </ul>
     </div>
@@ -123,20 +72,6 @@
         </a>
         <div class="flex-col header-title ellipsis">Hedroins</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -186,9 +121,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1.linux操作系统将所有的物理设备都视作一个文件。
-2.SATA/USB/SCSI等磁盘接口都是使用SCSI模块来驱动的，接口的磁盘的设备都是/dev/sd[a-p]的格式，IDE接口的磁盘在linux系统中的名称为/dev/hd[a-d]  IDE接口电缆可以同时链接两个磁盘设备，一个为主设备，一个为从设备。
-3.计算机开启操作系统的步骤：首先计算机启动时会执行嵌入在主板的CMOS存储...
+        1.linux操作系统将所有的物理设备都视作一个文件。...
     
 
         <a href="/2019/05/29/linux学习1/" class="post-more waves-effect waves-button">
@@ -232,12 +165,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        与数值有关的全局方法parseInt()返回十进制整数parseInt方法用于将字符串转为整数。
-1parseInt('123') // 123
-如果字符串头部有空格，空格会被自动去除。
-1parseInt('   81') // 81
-如果parseInt的参数不是字符串，则会先转为字符串再转换。
-123parseInt(1.23) // 1// 等同于parseInt('1.23') /...
+        与数值有关的全局方法parseInt()返回十进制整数...
     
 
         <a href="/2019/05/27/JS学习总结-数值有关的全局方法/" class="post-more waves-effect waves-button">
@@ -281,10 +209,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        整数和浮点数==JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，1与1.0是相同的，是同一个数。==
-11 === 1.0 // true
-==某些运算只有整数才能完成，此时 JavaScript 会自动把64位浮点数，转成32位整数，然后再进行运算，参见《运算符》一章的”位运算“部分。==
-由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。...
+        整数和浮点数==JavaScript 内部，所有数字都...
     
 
         <a href="/2019/05/24/js学习总结-数值/" class="post-more waves-effect waves-button">
@@ -329,17 +254,7 @@
 
     
         数据类型
-==数值（number）：整数和小数（比如1和3.14）==
-
-==字符串（string）：文本（比如Hello World）。==
-
-==布尔值（boolean）：表示真伪的两个特殊值，即true（真）和false（假）==
-
-==undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值==
-
-==null：表示空值，即此处的值为空。==
-
-==对象...
+==数值（number）：整数和小数（比如1...
     
 
         <a href="/2019/05/24/js学习总结3/" class="post-more waves-effect waves-button">
@@ -383,10 +298,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        循环js支持循环结构，while,for与JAVA,C没什么分别。重点提一下do…while循环：
-​                   do...while循环与while循环类似，唯一的区别就是先运行一次循环体，然后判断循环条件。
-12345678do  语句while (条件);// 或者do &#123;  语句&#125; while (条件);
-不管条件是否为真，do...wh...
+        循环js支持循环结构，while,for与JAVA,C...
     
 
         <a href="/2019/05/24/JS学习总结2/" class="post-more waves-effect waves-button">
@@ -430,7 +342,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1234567891011121314151617181920212223242526st=&gt;start: 开始执行e=&gt;end: 结束执行op1=&gt;operation: 载入MainActivity界面st(right)-&gt;op1op2=&gt;operation: 点击按钮&quot;第三次作业&quot;op1(right)-&gt;op2op3=&gt;ope...
+        123456789101112131415161718...
     
 
         <a href="/2019/05/20/流程图1/" class="post-more waves-effect waves-button">
@@ -474,8 +386,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        今天在使用androidstudio的过程中，改了代码点击运行的时候发现android studio总是报
-Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception while doing past iteration backup : Source /home/ruiqin/AndroidStudioPr...
+        今天在使用androidstudio的过程中，改了代码...
     
 
         <a href="/2019/05/19/关于android-studio-出现Error-Execution-failed-for-task-app-buildInfoDebugLoader-的解决办法/" class="post-more waves-effect waves-button">
@@ -519,13 +430,7 @@ Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception whil
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        正则表达式的符号“*”      匹配前面的字符、表达式或括号里的字符0次或多次
-“+”       匹配前面的字符、表达式、或括号里的字符至少一次
-“?”        匹配前面的字符一次或0次
-“.”        匹配任意单个字符串
-“[]”       匹配任意的单个字符串
-“\”         转义符，用于把具有特殊意义的符号原样输出
-“^”        指字符串开始位置的字符...
+        正则表达式的符号“*”      匹配前面的字符、表达...
     
 
         <a href="/2019/05/16/正则表达式学习/" class="post-more waves-effect waves-button">
@@ -569,12 +474,7 @@ Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception whil
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        ####注意，JavaScript 的变量名区分大小写，A和a是两个不同的变量。
-12var a;a // undefined
-####如果只是声明变量而没有赋值，则该变量的值是undefined。undefined是一个 JavaScript 关键字，表示“无定义”。
-####如果变量赋值的时候，忘了写var命令，这条语句也是有效的。
-123var a = 1;// 基本等同a = 1;
-...
+        ####注意，JavaScript 的变量名区分大小写...
     
 
         <a href="/2019/05/16/javascript学习1/" class="post-more waves-effect waves-button">
@@ -618,7 +518,7 @@ Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception whil
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        第一次实验从这次上机实验中，我获得了一些很宝贵的收获。通过搭建Android开发环境，我初步体会到了Android项目的运行机制，在Android studio上创建第一个项目，并基于布局文件添加View组件，实现按钮切换两个布局，让我认识了Android项目的基本框架结构，以及为按钮添加响应事件的基本方法。作为一个Android开发的入门者，这次实验激发了我对学习android编程的兴趣，...
+        第一次实验从这次上机实验中，我获得了一些很宝贵的收获。...
     
 
         <a href="/2019/05/11/android实验总结1/" class="post-more waves-effect waves-button">
@@ -651,15 +551,6 @@ Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception whil
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style="display:none">
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
             
@@ -667,7 +558,7 @@ Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception whil
         </p>
     </div>
     <div class="bottom">
-        <p><span>Hedroins &copy; 2015 - 2019</span>
+        <p><span>Hedroins &copy; 2019</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -681,106 +572,21 @@ Error:Execution failed for task ‘:app:buildInfoDebugLoader’.> Exception whil
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/&title=Hedroins&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/&title=Hedroins&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Hedroins&url=http://hedroins.github.io/&via=http://hedroins.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
 
 
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/main.min.js?v=1.7.2"></script>
 
 
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '死鬼去哪里了！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(つェ⊂)咦!又好了!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
-</script>
 
 
 
