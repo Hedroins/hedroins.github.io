@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="Hedroins">
 <meta property="og:description" content="第一次实验从这次上机实验中，我获得了一些很宝贵的收获。通过搭建Android开发环境，我初步体会到了Android项目的运行机制，在Android studio上创建第一个项目，并基于布局文件添加View组件，实现按钮切换两个布局，让我认识了Android项目的基本框架结构，以及为按钮添加响应事件的基本方法。作为一个Android开发的入门者，这次实验激发了我对学习android编程的兴趣，感觉a">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-16T18:38:28.766Z">
+<meta property="og:updated_time" content="2019-06-01T07:51:41.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android实验总结1">
 <meta name="twitter:description" content="第一次实验从这次上机实验中，我获得了一些很宝贵的收获。通过搭建Android开发环境，我初步体会到了Android项目的运行机制，在Android studio上创建第一个项目，并基于布局文件添加View组件，实现按钮切换两个布局，让我认识了Android项目的基本框架结构，以及为按钮添加响应事件的基本方法。作为一个Android开发的入门者，这次实验激发了我对学习android编程的兴趣，感觉a">
@@ -201,7 +201,8 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="第一次实验"><a href="#第一次实验" class="headerlink" title="第一次实验"></a>第一次实验</h2><p>从这次上机实验中，我获得了一些很宝贵的收获。通过搭建Android开发环境，我初步体会到了Android项目的运行机制，在Android studio上创建第一个项目，并基于布局文件添加View组件，实现按钮切换两个布局，让我认识了Android项目的基本框架结构，以及为按钮添加响应事件的基本方法。作为一个Android开发的入门者，这次实验激发了我对学习android编程的兴趣，感觉android编程其乐无穷。</p>
-<h2 id="第二次实验"><a href="#第二次实验" class="headerlink" title="第二次实验"></a>第二次实验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这次实验对于我来说是一次具有特殊意义的实验，基于实验一的进一步开发，虽然花费了不少时间，但是也获得了不少的收获。在为按钮添加单击事件的问题上，我除了尝试了在布局文件中设置onClick属性在Activity中添加响应函数以外，还学习了用setOnClickListener添加按钮点击事件，并且我觉得在效率上后者优于前者，因为后者可以将为按钮绑定事件放在onCreate函数中执行。在实验的过程中学习了ListView和adapter实现一个能响应事件的列表过程。在实现之前，需要为ListView指定布局，在我的源码中我使用了一个ImageView和TextView组建来构成ListView的一项，并且分别为它们指定好id。在MainActivity中定义了一个存放HashMap的ArrayList,将你要显示的资源存放在HashMap中，并将map添加到ArrayList的对象里。然后调用ArrayList对象setAdapter接口函数，列表就创建好了。值得学习的是实例化SimpleAdapter的构造函数，它有5个参数，第一个是指定上下文，第二个是指定将要显示的资源，第三个是指定ListView的布局，第四个是ListView布局所用组建的id构成的String数组，第五个是它们对应的int型的资源标识构成的数组。然后是为ListView绑定点击事件，要使用到setOnItemClickListener，参数为实现了AdapterView.OnItemClickListener接口的对象。</span><br></pre></td></tr></table></figure>
+<h2 id="第二次实验"><a href="#第二次实验" class="headerlink" title="第二次实验"></a>第二次实验</h2><p>这次实验对于我来说是一次具有特殊意义的实验，基于实验一的进一步开发，虽然花费了不少时间，但是也获得了不少的收获。在为按钮添加单击事件的问题上，我除了尝试了在布局文件中设置onClick属性在Activity中添加响应函数以外，还学习了用setOnClickListener添加按钮点击事件，并且我觉得在效率上后者优于前者，因为后者可以将为按钮绑定事件放在onCreate函数中执行。在实验的过程中学习了ListView和adapter实现一个能响应事件的列表过程。在实现之前，需要为ListView指定布局，在我的源码中我使用了一个ImageView和TextView组建来构成ListView的一项，并且分别为它们指定好id。在MainActivity中定义了一个存放HashMap的ArrayList,将你要显示的资源存放在HashMap中，并将map添加到ArrayList的对象里。然后调用ArrayList对象setAdapter接口函数，列表就创建好了。值得学习的是实例化SimpleAdapter的构造函数，它有5个参数，第一个是指定上下文，第二个是指定将要显示的资源，第三个是指定ListView的布局，第四个是ListView布局所用组建的id构成的String数组，第五个是它们对应的int型的资源标识构成的数组。然后是为ListView绑定点击事件，要使用到setOnItemClickListener，参数为实现了AdapterView.OnItemClickListener接口的对象。</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -209,7 +210,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-05-16T18:38:28.766Z" itemprop="dateUpdated">2019-05-17 02:38:28</time>
+    最后更新时间：<time datetime="2019-06-01T07:51:41.954Z" itemprop="dateUpdated">2019-06-01 15:51:41</time>
 </span><br>
 
 
