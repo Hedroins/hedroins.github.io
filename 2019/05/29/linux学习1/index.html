@@ -37,7 +37,7 @@
 <meta property="og:description" content="1.linux操作系统将所有的物理设备都视作一个文件。 2.SATA/USB/SCSI等磁盘接口都是使用SCSI模块来驱动的，接口的磁盘的设备都是/dev/sd[a-p]的格式，IDE接口的磁盘在linux系统中的名称为/dev/hd[a-d]  IDE接口电缆可以同时链接两个磁盘设备，一个为主设备，一个为从设备。 3.计算机开启操作系统的步骤：首先计算机启动时会执行嵌入在主板的CMOS存储器中的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="d:/blog/source/_posts/flow.png">
-<meta property="og:updated_time" content="2019-05-30T12:07:01.918Z">
+<meta property="og:updated_time" content="2019-06-02T07:34:04.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux学习1">
 <meta name="twitter:description" content="1.linux操作系统将所有的物理设备都视作一个文件。 2.SATA/USB/SCSI等磁盘接口都是使用SCSI模块来驱动的，接口的磁盘的设备都是/dev/sd[a-p]的格式，IDE接口的磁盘在linux系统中的名称为/dev/hd[a-d]  IDE接口电缆可以同时链接两个磁盘设备，一个为主设备，一个为从设备。 3.计算机开启操作系统的步骤：首先计算机启动时会执行嵌入在主板的CMOS存储器中的">
@@ -198,7 +198,7 @@
             <p><strong>1.linux操作系统将所有的物理设备都视作一个文件。</strong></p>
 <p><strong>2.SATA/USB/SCSI等磁盘接口都是使用SCSI模块来驱动的，接口的磁盘的设备都是/dev/sd[a-p]的格式，IDE接口的磁盘在linux系统中的名称为/dev/hd[a-d]</strong>  IDE接口电缆可以同时链接两个磁盘设备，一个为主设备，一个为从设备。</p>
 <p>3.<strong>计算机开启操作系统的步骤：首先计算机启动时会执行嵌入在主板的CMOS存储器中的BIOS程序。BIOS会分析计算机里面有哪些·存储设备·，我们以硬盘为例,BIOS会根据用户的设置去取得能够开机的硬盘（比如U盘启动，光盘启动等）并且到该硬盘里面去读取第一个扇区的MBR位置。</strong></p>
-<p><strong>MBR这个仅有446字节的硬盘容量里面会放置最基本的引导加载程序，此时BIOS就功成圆满，而接下来就是MBR内的引导加载程序的工作了。</strong></p>
+<p><strong>MBR这个仅有446字节的硬盘容量里面会放置最基本的引导加载程序，此时BIOS就功成圆满，而接下来就是MBR内的引导加载程序的工作了(无论有几块硬盘MBR始终只有一个)。</strong></p>
 <p><strong>4.引导加载程序的目的是在加载内核文件，由于引导加载程序是在操作系统安装时提供的，所以它会识别硬盘内的文件系统格式，因此就能够读取内核文件。</strong></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -215,7 +215,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-05-30T12:07:01.918Z" itemprop="dateUpdated">2019-05-30 20:07:01</time>
+    最后更新时间：<time datetime="2019-06-02T07:34:04.330Z" itemprop="dateUpdated">2019-06-02 15:34:04</time>
 </span><br>
 
 
