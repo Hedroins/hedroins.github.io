@@ -28,15 +28,18 @@
     
     
     <meta name="keywords" content="JS对象">
-    <meta name="keywords" content="JS对象">
+    <meta name="description" content="对象概述生成方法对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。 1234var obj = &amp;#123;  foo: &apos;Hello&apos;,  bar: &apos;World&apos;&amp;#125;; 键名对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。 如果键名是数值，会被自动转为字符串。 如果键名不符合标识名的条件（比如第一个字符为数">
+<meta name="keywords" content="JS对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js学习之对象">
 <meta property="og:url" content="http://hedroins.github.io/2019/06/01/js学习之对象/index.html">
 <meta property="og:site_name" content="Hedroins">
+<meta property="og:description" content="对象概述生成方法对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。 1234var obj = &amp;#123;  foo: &apos;Hello&apos;,  bar: &apos;World&apos;&amp;#125;; 键名对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。 如果键名是数值，会被自动转为字符串。 如果键名不符合标识名的条件（比如第一个字符为数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-01T07:57:51.244Z">
+<meta property="og:updated_time" content="2019-06-01T09:00:49.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习之对象">
+<meta name="twitter:description" content="对象概述生成方法对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。 1234var obj = &amp;#123;  foo: &apos;Hello&apos;,  bar: &apos;World&apos;&amp;#125;; 键名对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。 如果键名是数值，会被自动转为字符串。 如果键名不符合标识名的条件（比如第一个字符为数">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -171,6 +174,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">对象概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">生成方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#键名"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">键名</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象的引用"><span class="post-toc-number">2.</span> <span class="post-toc-text">对象的引用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#表达式还是语句产生歧义"><span class="post-toc-number">3.</span> <span class="post-toc-text">表达式还是语句产生歧义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#属性的操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">属性的操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#读取属性"><span class="post-toc-number">5.</span> <span class="post-toc-text">读取属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#属性赋值"><span class="post-toc-number">6.</span> <span class="post-toc-text">属性赋值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查看所有属性"><span class="post-toc-number">7.</span> <span class="post-toc-text">查看所有属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#delete命令"><span class="post-toc-number">8.</span> <span class="post-toc-text">delete命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#in运算符"><span class="post-toc-number">9.</span> <span class="post-toc-text">in运算符</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-js学习之对象" class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -190,7 +200,60 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h1 id="对象概述"><a href="#对象概述" class="headerlink" title="对象概述"></a>对象概述</h1><h2 id="生成方法"><a href="#生成方法" class="headerlink" title="生成方法"></a>生成方法</h2><p>对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  foo: <span class="string">'Hello'</span>,</span><br><span class="line">  bar: <span class="string">'World'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="键名"><a href="#键名" class="headerlink" title="键名"></a>键名</h2><p>对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。</p>
+<p><strong>如果键名是数值，会被自动转为字符串。</strong></p>
+<p><strong>如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），且也不是数字，则必须加上引号，否则会报错。</strong></p>
+<p><strong><u>对象的每一个键名又称为“属性”（property），它的“键值”可以是任何数据类型。如果一个属性的值为函数，通常把这个属性称为“方法”，它可以像函数那样调用。</u></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  p: <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.p(<span class="number">1</span>) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果属性的值还是一个对象，就形成了链式引用。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = &#123; <span class="attr">bar</span>: <span class="string">'hello'</span> &#125;;</span><br><span class="line"></span><br><span class="line">o1.foo = o2;</span><br><span class="line">o1.foo.bar <span class="comment">// "hello"</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码中，对象<code>o1</code>的属性<code>foo</code>指向对象<code>o2</code>，就可以链式引用<code>o2</code>的属性。</strong></p>
+<p>属性可以动态创建，不必在对象声明时就指定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.foo = <span class="number">123</span>;</span><br><span class="line">obj.foo <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
+<h1 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h1><p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。<strong>修改其中一个变量，会影响到其他所有变量。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果取消某一个变量对于原对象的引用，不会影响到另一个变量</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1 = <span class="number">1</span>;</span><br><span class="line">o2 <span class="comment">// &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>o1</code>和<code>o2</code>指向同一个对象，然后<code>o1</code>的值变为1，这时不会对<code>o2</code>产生影响，<code>o2</code>还是指向原来的那个对象。</p>
+<p>但是，这种引用只局限于对象，如果两个变量指向同一个原始类型的值。那么，变量这时都是值的拷贝。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> y = x;</span><br><span class="line"></span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">y <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码中，当<code>x</code>的值发生变化后，<code>y</code>的值并不变，这就表示<code>y</code>和<code>x</code>并不是指向同一个内存地址。</p>
+<h1 id="表达式还是语句产生歧义"><a href="#表达式还是语句产生歧义" class="headerlink" title="表达式还是语句产生歧义"></a>表达式还是语句产生歧义</h1><p>对象采用大括号表示，这导致了一个问题：如果行首是一个大括号，它到底是表达式还是语句？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">foo</span>: <span class="number">123</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>JavaScript 引擎读到上面这行代码，会发现可能有两种含义。第一种可能是，这是一个表达式，表示一个包含<code>foo</code>属性的对象；第二种可能是，这是一个语句，表示一个代码区块，里面有一个标签<code>foo</code>，指向表达式<code>123</code>。</p>
+<p>为了避免这种歧义，V8 引擎规定，如果行首是大括号，一律解释为对象。不过，为了避免歧义，最好还是在大括号前加上圆括号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123; <span class="attr">foo</span>: <span class="number">123</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>这种差异在<code>eval</code>语句（作用是对字符串求值）中反映得最明显。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">'&#123;foo: 123&#125;'</span>) <span class="comment">// 123</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'(&#123;foo: 123&#125;)'</span>) <span class="comment">// &#123;foo: 123&#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果没有圆括号，<code>eval</code>将其理解为一个代码块；加上圆括号以后，就理解成一个对象。</p>
+<h1 id="属性的操作"><a href="#属性的操作" class="headerlink" title="属性的操作"></a>属性的操作</h1><h1 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h1><p>读取对象的属性，有两种方法，一种是使用点运算符，还有一种是使用方括号运算符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  p: <span class="string">'Hello World'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.p <span class="comment">// "Hello World"</span></span><br><span class="line">obj[<span class="string">'p'</span>] <span class="comment">// "Hello World"</span></span><br></pre></td></tr></table></figure>
+<p>如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理。(数组下标)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  foo: <span class="number">1</span>,</span><br><span class="line">  bar: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.foo  <span class="comment">// 1</span></span><br><span class="line">obj[foo]  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，引用对象<code>obj</code>的<code>foo</code>属性时，如果使用点运算符，<code>foo</code>就是字符串；如果使用方括号运算符，但是不使用引号，那么<code>foo</code>就是一个变量，指向字符串<code>bar</code>。</p>
+<p>数字键可以不加引号，因为会自动转成字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="number">0.7</span>: <span class="string">'Hello World'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj[<span class="string">'0.7'</span>] <span class="comment">// "Hello World"</span></span><br><span class="line">obj[<span class="number">0.7</span>] <span class="comment">// "Hello World"</span></span><br></pre></td></tr></table></figure>
+<p><strong>数值键名不能使用点运算符（因为会被当成小数点），只能使用方括号运算符。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="number">123</span>: <span class="string">'hello world'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj<span class="number">.123</span> <span class="comment">// 报错</span></span><br><span class="line">obj[<span class="number">123</span>] <span class="comment">// "hello world"</span></span><br></pre></td></tr></table></figure>
+<h1 id="属性赋值"><a href="#属性赋值" class="headerlink" title="属性赋值"></a>属性赋值</h1><p>点运算符和方括号运算符，不仅可以用来读取值，还可以用来赋值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj.foo = <span class="string">'Hello'</span>;</span><br><span class="line">obj[<span class="string">'bar'</span>] = <span class="string">'World'</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="查看所有属性"><a href="#查看所有属性" class="headerlink" title="查看所有属性"></a>查看所有属性</h1><p>查看一个对象本身的所有属性，<strong>可以使用<code>Object.keys</code>方法</strong>。</p>
+<h1 id="delete命令"><a href="#delete命令" class="headerlink" title="delete命令"></a>delete命令</h1><p><code>delete</code>命令用于删除对象的属性，删除成功后返回<code>true</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">p</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// ["p"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> obj.p <span class="comment">// true</span></span><br><span class="line">obj.p <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>delete</code>命令删除对象<code>obj</code>的<code>p</code>属性。删除后，再读取<code>p</code>属性就会返回<code>undefined</code>，而且<code>Object.keys</code>方法的返回值也不再包括该属性。</p>
+<p><strong>注意，删除一个不存在的属性，<code>delete</code>不报错，而且返回<code>true</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">delete</span> obj.p <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><strong>只有一种情况，<code>delete</code>命令会返回<code>false</code>，那就是该属性存在，且不得删除。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">'p'</span>, &#123;</span><br><span class="line">  value: <span class="number">123</span>,</span><br><span class="line">  configurable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">obj.p <span class="comment">// 123</span></span><br><span class="line"><span class="keyword">delete</span> obj.p <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码之中，对象<code>obj</code>的<code>p</code>属性是不能删除的，所以<code>delete</code>命令返回<code>false</code></p>
+<p><strong>另外，需要注意的是，<code>delete</code>命令只能删除对象本身的属性，无法删除继承的属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">delete</span> obj.toString <span class="comment">// true</span></span><br><span class="line">obj.toString <span class="comment">// function toString() &#123; [native code] &#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>toString</code>是对象<code>obj</code>继承的属性，虽然<code>delete</code>命令返回<code>true</code>，但该属性并没有被删除，依然存在。这个例子还说明，即使<code>delete</code>返回<code>true</code>，该属性依然可能读取到值。</p>
+<h1 id="in运算符"><a href="#in运算符" class="headerlink" title="in运算符"></a>in运算符</h1><p><code>in</code>运算符用于检查对象是否包含某个属性<strong>（注意，检查的是键名，不是键值）</strong>，如果包含就返回<code>true</code>，否则返回<code>false</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">p</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="string">'p'</span> <span class="keyword">in</span> obj <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -198,7 +261,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-01T07:57:51.244Z" itemprop="dateUpdated">2019-06-01 15:57:51</time>
+    最后更新时间：<time datetime="2019-06-01T09:00:49.399Z" itemprop="dateUpdated">2019-06-01 17:00:49</time>
 </span><br>
 
 
