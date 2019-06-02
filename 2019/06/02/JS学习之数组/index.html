@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之数组 | Hedroins | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JS数组">
+    <meta name="description" content="数组定义1、声明数组时赋值 1var arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]; 2、先声明后赋值 12345var arr = [];arr[0] = &apos;a&apos;;arr[1] = &apos;b&apos;;arr[2] = &apos;c&apos;; 任何类型的数据，都可以放入数组。 123456789var arr = [  &amp;#123;a: 1&amp;#125;,  [1, 2, 3],  function() &amp;#123;retu">
+<meta name="keywords" content="JS数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之数组">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/02/JS学习之数组/index.html">
+<meta property="og:site_name" content="Hedroins">
+<meta property="og:description" content="数组定义1、声明数组时赋值 1var arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]; 2、先声明后赋值 12345var arr = [];arr[0] = &apos;a&apos;;arr[1] = &apos;b&apos;;arr[2] = &apos;c&apos;; 任何类型的数据，都可以放入数组。 123456789var arr = [  &amp;#123;a: 1&amp;#125;,  [1, 2, 3],  function() &amp;#123;retu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-02T12:56:15.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之数组">
+<meta name="twitter:description" content="数组定义1、声明数组时赋值 1var arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]; 2、先声明后赋值 12345var arr = [];arr[0] = &apos;a&apos;;arr[1] = &apos;b&apos;;arr[2] = &apos;c&apos;; 任何类型的数据，都可以放入数组。 123456789var arr = [  &amp;#123;a: 1&amp;#125;,  [1, 2, 3],  function() &amp;#123;retu">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hedroins</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之数组</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之数组</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-02T11:28:15.000Z" itemprop="datePublished" class="page-time">
+  2019-06-02
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">数组定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二维数组的定义"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">二维数组的定义</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组的本质"><span class="post-toc-number">2.</span> <span class="post-toc-text">数组的本质</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#length属性"><span class="post-toc-number">3.</span> <span class="post-toc-text">length属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#in运算符"><span class="post-toc-number">4.</span> <span class="post-toc-text">in运算符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for、while循环遍历数组"><span class="post-toc-number">5.</span> <span class="post-toc-text">for、while循环遍历数组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组的空位"><span class="post-toc-number">6.</span> <span class="post-toc-text">数组的空位</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#类似数组的对象"><span class="post-toc-number">7.</span> <span class="post-toc-text">类似数组的对象</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之数组" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之数组</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-02 19:28:15" datetime="2019-06-02T11:28:15.000Z" itemprop="datePublished">2019-06-02</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数组定义"><a href="#数组定义" class="headerlink" title="数组定义"></a>数组定义</h1><p>1、声明数组时赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br></pre></td></tr></table></figure>
+<p>2、先声明后赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"></span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">'a'</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">'b'</span>;</span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">'c'</span>;</span><br></pre></td></tr></table></figure>
+<p>任何类型的数据，都可以放入数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">  &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;,</span><br><span class="line">  [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="literal">true</span>;&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">arr[<span class="number">0</span>] <span class="comment">// Object &#123;a: 1&#125;</span></span><br><span class="line">arr[<span class="number">1</span>] <span class="comment">// [1, 2, 3]</span></span><br><span class="line">arr[<span class="number">2</span>] <span class="comment">// function ()&#123;return true;&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面数组<code>arr</code>的3个成员依次是对象、数组、函数。</strong></p>
+<h2 id="二维数组的定义"><a href="#二维数组的定义" class="headerlink" title="二维数组的定义"></a>二维数组的定义</h2><p>如果数组的元素还是数组，就形成了多维数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]];</span><br><span class="line">a[<span class="number">0</span>][<span class="number">1</span>] <span class="comment">// 2</span></span><br><span class="line">a[<span class="number">1</span>][<span class="number">1</span>] <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<h1 id="数组的本质"><a href="#数组的本质" class="headerlink" title="数组的本质"></a>数组的本质</h1><p>本质上，<strong>数组属于一种特殊的对象。</strong><code>typeof</code>运算符会返回数组的类型是<code>object</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="comment">// "object"</span></span><br></pre></td></tr></table></figure>
+<p>数组的特殊性体现在，<strong>它的键名是按次序排列的一组整数（0，1，2…）。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(arr)</span><br><span class="line"><span class="comment">// ["0", "1", "2"]</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript 语言规定，对象的键名一律为字符串，所以，数组的键名其实也是字符串。<strong>之所以可以用数值读取，是因为非字符串的键名会被转为字符串</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">arr[<span class="string">'0'</span>] <span class="comment">// 'a'</span></span><br><span class="line">arr[<span class="number">0</span>] <span class="comment">// 'a'</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意，这点在赋值时也成立。如果一个值总是先转成字符串，再进行赋值。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"></span><br><span class="line">a[<span class="number">1.00</span>] = <span class="number">6</span>;</span><br><span class="line">a[<span class="number">1</span>] <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>(<span class="number">1.00</span>) <span class="comment">//'1'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，由于<code>1.00</code>转成字符串是<code>1</code>，所以通过数字键<code>1</code>可以读取值。</p>
+<h1 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h1><p><strong>数组的<code>length</code>属性，返回数组的长度。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].length</span><br></pre></td></tr></table></figure>
+<p>JavaScript 使用一个32位整数，保存数组的元素个数。这意味着，数组成员最多只有 4294967295 个（232 - 1）个，也就是说<code>length</code>属性的最大值就是 4294967295。</p>
+<p><strong>数组的并不一定具有连续性，比如a[9]后面不一定紧跟a[10],可能是a[1000]。如果执行a[1000]=4,用Object.keys()输出键名为9后面紧跟键名为1000。但长度还是为length+1</strong></p>
+<p><strong><code>length</code>属性是可写的。如果人为设置一个小于当前成员个数的值，该数组的成员会自动减少到<code>length</code>设置的值。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [ <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span> ];</span><br><span class="line">arr.length <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line">arr <span class="comment">// ["a", "b"]</span></span><br></pre></td></tr></table></figure>
+<p><strong>清空数组的一个有效方法，就是将<code>length</code>属性设为0。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [ <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span> ];</span><br><span class="line"></span><br><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line">arr <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果人为设置<code>length</code>大于当前元素个数，则数组的成员数量会增加到这个值，新增的位置都是空位。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>];</span><br><span class="line"></span><br><span class="line">a.length = <span class="number">3</span>;</span><br><span class="line">a[<span class="number">1</span>] <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p>当<code>length</code>属性设为大于数组个数时，读取新增的位置都会返回<code>undefined</code>。</p>
+<p>如果人为设置<code>length</code>为不合法的值，JavaScript 会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置负值</span></span><br><span class="line">[].length = <span class="number">-1</span></span><br><span class="line"><span class="comment">// RangeError: Invalid array length</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组元素个数大于等于2的32次方</span></span><br><span class="line">[].length = <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">32</span>)</span><br><span class="line"><span class="comment">// RangeError: Invalid array length</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字符串</span></span><br><span class="line">[].length = <span class="string">'abc'</span></span><br><span class="line"><span class="comment">// RangeError: Invalid array length</span></span><br></pre></td></tr></table></figure>
+<p><strong>值得注意的是，由于数组本质上是一种对象，所以可以为数组添加属性，但是这不影响<code>length</code>属性的值。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"></span><br><span class="line">a[<span class="string">'p'</span>] = <span class="string">'abc'</span>;</span><br><span class="line">a.length <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">2.1</span>] = <span class="string">'abc'</span>;</span><br><span class="line">a.length <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">a<span class="comment">//[p: "abc",2.1: "abc"]</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码将数组的键分别设为字符串和小数，结果都不影响<code>length</code>属性。因为，<code>length</code>属性的值就是等于最大的数字键加1，而这个数组没有整数键，所以<code>length</code>属性保持为<code>0</code>。</strong></p>
+<p>如果数组的键名是添加超出范围的数值，该键名会自动转为字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr[<span class="number">-1</span>] = <span class="string">'a'</span>;</span><br><span class="line">arr[<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">32</span>)] = <span class="string">'b'</span>;</span><br><span class="line"></span><br><span class="line">arr.length <span class="comment">// 0</span></span><br><span class="line">arr[<span class="number">-1</span>] <span class="comment">// "a"</span></span><br><span class="line">arr[<span class="number">4294967296</span>] <span class="comment">// "b"</span></span><br></pre></td></tr></table></figure>
+<h1 id="in运算符"><a href="#in运算符" class="headerlink" title="in运算符"></a>in运算符</h1><p><strong>检查某个键名是否存在的运算符<code>in</code>，适用于对象，也适用于数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [ <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span> ];</span><br><span class="line"><span class="number">2</span> <span class="keyword">in</span> arr  <span class="comment">// true</span></span><br><span class="line"><span class="string">'2'</span> <span class="keyword">in</span> arr <span class="comment">// true</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">in</span> arr <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码表明，<strong>数组存在键名为<code>2</code>的键。由于键名都是字符串，所以数值<code>2</code>会自动转成字符串。</strong></p>
+<p><strong>注意，如果数组的某个位置是空位，<code>in</code>运算符返回<code>false</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr[<span class="number">100</span>] = <span class="string">'a'</span>;</span><br><span class="line"></span><br><span class="line"><span class="number">100</span> <span class="keyword">in</span> arr <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">in</span> arr <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，数组<code>arr</code>只有一个成员<code>arr[100]</code>，其他位置的键名都会返回<code>false</code>。</p>
+<p>#for…in循环和数组的遍历</p>
+<p><code>for...in</code>循环不仅可以遍历对象，也可以遍历数组，毕竟数组只是一种特殊对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>但是，<code>for...in</code>不仅会遍历数组所有的数字键，还会遍历非数字键。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">a.foo = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// foo</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码在遍历数组时，也遍历到了非整数键<code>foo</code>。所以，不推荐使用<code>for...in</code>遍历数组</strong>。</p>
+<p>数组的遍历可以考虑使用<code>for</code>循环或<code>while</code>循环。</p>
+<h1 id="for、while循环遍历数组"><a href="#for、while循环遍历数组" class="headerlink" title="for、while循环遍历数组"></a>for、while循环遍历数组</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// while循环</span></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; a.length) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a[i]);</span><br><span class="line">  i++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> l = a.length;</span><br><span class="line"><span class="keyword">while</span> (l--) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a[l]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>数组的<code>forEach</code>方法，也可以用来遍历数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line">colors.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">color</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(color);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// red</span></span><br><span class="line"><span class="comment">// green</span></span><br><span class="line"><span class="comment">// blue</span></span><br></pre></td></tr></table></figure>
+<h1 id="数组的空位"><a href="#数组的空位" class="headerlink" title="数组的空位"></a>数组的空位</h1><p>当数组的某个位置是空元素，即两个逗号之间没有任何值，我们称该数组存在空位（hole）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, , <span class="number">1</span>];</span><br><span class="line">a.length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>上面代码表明，数组的空位不影响<code>length</code>属性。</p>
+<p><strong>数组最后一个成员后面有一个逗号，这不影响<code>length</code>属性的值，与没有这个逗号时效果一样。</strong></p>
+<p>数组的空位是可以读取的，返回<code>undefined</code>。</p>
+<p><strong>使用<code>delete</code>命令删除一个数组成员，会形成空位，并且不会影响<code>length</code>属性。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> a[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>] <span class="comment">// undefined</span></span><br><span class="line">a.length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p><strong>数组的某个位置是空位，与某个位置是<code>undefined</code>，是不一样的。如果是空位，使用数组的<code>forEach</code>方法、<code>for...in</code>结构、以及<code>Object.keys</code>方法进行遍历，空位都会被跳过。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [, , ,];</span><br><span class="line"></span><br><span class="line">a.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">x, i</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i + <span class="string">'. '</span> + x);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不产生任何输出</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不产生任何输出</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(a)</span><br><span class="line"><span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<p>如果某个位置是<code>undefined</code>，遍历的时候就不会被跳过。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>];</span><br><span class="line"></span><br><span class="line">a.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">x, i</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i + <span class="string">'. '</span> + x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 0. undefined</span></span><br><span class="line"><span class="comment">// 1. undefined</span></span><br><span class="line"><span class="comment">// 2. undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(a)</span><br><span class="line"><span class="comment">// ['0', '1', '2']</span></span><br></pre></td></tr></table></figure>
+<p>这就是说，空位就是数组没有这个元素，所以不会被遍历到，而<code>undefined</code>则表示数组有这个元素，值是<code>undefined</code>，所以遍历不会跳过。</p>
+<h1 id="类似数组的对象"><a href="#类似数组的对象" class="headerlink" title="类似数组的对象"></a>类似数组的对象</h1><p>如果一个对象的所有键名都是正整数或零，并且有<code>length</code>属性，那么这个对象就很像数组，语法上称为“类似数组的对象”（array-like object）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">'a'</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">'b'</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">'c'</span>,</span><br><span class="line">  length: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj[<span class="number">0</span>] <span class="comment">// 'a'</span></span><br><span class="line">obj[<span class="number">1</span>] <span class="comment">// 'b'</span></span><br><span class="line">obj.length <span class="comment">// 3</span></span><br><span class="line">obj.push(<span class="string">'d'</span>) <span class="comment">// TypeError: obj.push is not a function</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>obj</code>就是一个类似数组的对象。<strong>但是，“类似数组的对象”并不是数组，因为它们不具备数组特有的方法。</strong>对象<code>obj</code>没有数组的<code>push</code>方法，使用该方法就会报错。</p>
+<p>“类似数组的对象”的根本特征，就是具有<code>length</code>属性。只要有<code>length</code>属性，就可以认为这个对象类似于数组。但是有一个问题，这种<code>length</code>属性不是动态值，不会随着成员的变化而变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  length: <span class="number">0</span></span><br><span class="line">&#125;;</span><br><span class="line">obj[<span class="number">3</span>] = <span class="string">'d'</span>;</span><br><span class="line">obj.length <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p><strong>典型的“类似数组的对象”是函数的<code>arguments</code>对象，以及大多数 DOM 元素集，还有字符串。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arguments对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">args</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">arguments</span> &#125;</span><br><span class="line"><span class="keyword">var</span> arrayLike = args(<span class="string">'a'</span>, <span class="string">'b'</span>);</span><br><span class="line"></span><br><span class="line">arrayLike[<span class="number">0</span>] <span class="comment">// 'a'</span></span><br><span class="line">arrayLike.length <span class="comment">// 2</span></span><br><span class="line">arrayLike <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// DOM元素集</span></span><br><span class="line"><span class="keyword">var</span> elts = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'h3'</span>);</span><br><span class="line">elts.length <span class="comment">// 3</span></span><br><span class="line">elts <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串</span></span><br><span class="line"><span class="string">'abc'</span>[<span class="number">1</span>] <span class="comment">// 'b'</span></span><br><span class="line"><span class="string">'abc'</span>.length <span class="comment">// 3</span></span><br><span class="line"><span class="string">'abc'</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p><strong>数组的<code>slice</code>方法可以将“类似数组的对象”变成真正的数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="built_in">Array</span>.prototype.slice.call(arrayLike);</span><br></pre></td></tr></table></figure>
+<p>除了转为真正的数组，“类似数组的对象”还有一个办法可以使用数组的方法，就是通过<code>call()</code>把数组的方法放到对象上面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(index + <span class="string">' : '</span> + value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(arrayLike, print);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>arrayLike</code>代表一个类似数组的对象，本来是不可以使用数组的<code>forEach()</code>方法的，但是通过<code>call()</code>，可以把<code>forEach()</code>嫁接到<code>arrayLike</code>上面调用。</p>
+<p>下面的例子就是通过这种方法，在<code>arguments</code>对象上面调用<code>forEach</code>方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// forEach 方法</span><br><span class="line">function logArgs() &#123;</span><br><span class="line">  Array.prototype.forEach.call(arguments, function (elem, i) &#123;</span><br><span class="line">    console.log(i + &apos;. &apos; + elem);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 等同于 for 循环</span><br><span class="line">function logArgs() &#123;</span><br><span class="line">  for (var i = 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">    console.log(i + &apos;. &apos; + arguments[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>字符串也是类似数组的对象，所以也可以用<code>Array.prototype.forEach.call</code>遍历。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(<span class="string">'abc'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(chr);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// a</span></span><br><span class="line"><span class="comment">// b</span></span><br><span class="line"><span class="comment">// c</span></span><br></pre></td></tr></table></figure>
+<p>注意，这种方法比直接使用数组原生的<code>forEach</code>要慢，所以最好还是先将“类似数组的对象”转为真正的数组，然后再直接调用数组的<code>forEach</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="built_in">Array</span>.prototype.slice.call(<span class="string">'abc'</span>);</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">chr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(chr);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// a</span></span><br><span class="line"><span class="comment">// b</span></span><br><span class="line"><span class="comment">// c</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-02T12:56:15.838Z" itemprop="dateUpdated">2019-06-02 20:56:15</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/02/JS学习之数组/" target="_blank" rel="external">http://hedroins.github.io/2019/06/02/JS学习之数组/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="Hedroins">
+            Hedroins
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS数组/">JS数组</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/02/JS学习之数组/&title=《JS学习之数组》 — Hedroins&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/02/JS学习之数组/&title=《JS学习之数组》 — Hedroins&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/02/JS学习之数组/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之数组》 — Hedroins&url=http://hedroins.github.io/2019/06/02/JS学习之数组/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/02/JS学习之数组/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/01/js学习之对象/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js学习之对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hedroins &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/02/JS学习之数组/&title=《JS学习之数组》 — Hedroins&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/02/JS学习之数组/&title=《JS学习之数组》 — Hedroins&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/02/JS学习之数组/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之数组》 — Hedroins&url=http://hedroins.github.io/2019/06/02/JS学习之数组/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/02/JS学习之数组/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/02/JS学习之数组/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
