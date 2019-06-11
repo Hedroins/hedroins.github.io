@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之数据类型转换 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JS数据类型转换">
+    <meta name="description" content="强制转换强制转换主要指使用Number、String和Boolean三个函数，手动将各种类型的值，分布转换成数字、字符串或者布尔值。 Number()原始类型值使用Number函数，可以将任意类型的值转化成数值(NaN也算是数值类型)。 下面分成两种情况讨论，一种是参数是原始类型的值，另一种是参数是对象。 原始类型值的转换规则如下。 12345678910111213141516171819202">
+<meta name="keywords" content="JS数据类型转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之数据类型转换">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="强制转换强制转换主要指使用Number、String和Boolean三个函数，手动将各种类型的值，分布转换成数字、字符串或者布尔值。 Number()原始类型值使用Number函数，可以将任意类型的值转化成数值(NaN也算是数值类型)。 下面分成两种情况讨论，一种是参数是原始类型的值，另一种是参数是对象。 原始类型值的转换规则如下。 12345678910111213141516171819202">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-11T13:30:11.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之数据类型转换">
+<meta name="twitter:description" content="强制转换强制转换主要指使用Number、String和Boolean三个函数，手动将各种类型的值，分布转换成数字、字符串或者布尔值。 Number()原始类型值使用Number函数，可以将任意类型的值转化成数值(NaN也算是数值类型)。 下面分成两种情况讨论，一种是参数是原始类型的值，另一种是参数是对象。 原始类型值的转换规则如下。 12345678910111213141516171819202">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之数据类型转换</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之数据类型转换</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-11T12:59:56.000Z" itemprop="datePublished" class="page-time">
+  2019-06-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#强制转换"><span class="post-toc-number">1.</span> <span class="post-toc-text">强制转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Number"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Number()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原始类型值"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">原始类型值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">对象</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之数据类型转换" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之数据类型转换</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-11 20:59:56" datetime="2019-06-11T12:59:56.000Z" itemprop="datePublished">2019-06-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h1><p><strong>强制转换主要指使用<code>Number</code>、<code>String</code>和<code>Boolean</code>三个函数，手动将各种类型的值，分布转换成数字、字符串或者布尔值。</strong></p>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number()"></a>Number()</h2><h3 id="原始类型值"><a href="#原始类型值" class="headerlink" title="原始类型值"></a>原始类型值</h3><p>使用<code>Number</code>函数，可以将任意类型的值转化成数值(NaN也算是数值类型)。</p>
+<p>下面分成两种情况讨论，<strong>一种是参数是原始类型的值，另一种是参数是对象。</strong></p>
+<p>原始类型值的转换规则如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数值：转换后还是原来的值</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="number">324</span>) <span class="comment">// 324</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串：如果可以被解析为数值，则转换为相应的数值</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'324'</span>) <span class="comment">// 324</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串：如果不可以被解析为数值，返回 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'324abc'</span>) <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 空字符串转为0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布尔值：true 转成 1，false 转成 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// undefined：转成 NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>) <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// null：转成0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p><code>Number</code>函数将字符串转为数值，要比<code>parseInt</code>函数严格很多。基本上，只要有一个字符无法转成数值，整个字符串就会被转为<code>NaN</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'42 cats'</span>) <span class="comment">// 42</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'42 cats'</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>另外，<code>parseInt</code>和<code>Number</code>函数都会自动过滤一个字符串前导和后缀的空格。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'\t\v\r12.34\n'</span>) <span class="comment">// 12</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'\t\v\r12.34\n'</span>) <span class="comment">// 12.34</span></span><br><span class="line"><span class="comment">//根据前面所学出现了七种取整的方法：1.调用parseInt()函数会自动舍去小数部分</span></span><br><span class="line"><span class="comment">//                               2. 12.34|0 //12</span></span><br><span class="line"><span class="comment">//                               3. 12.34^0 //12</span></span><br><span class="line"><span class="comment">//                               4. ~~12.34 //12</span></span><br><span class="line"><span class="comment">//                               5. 12.34&lt;&lt;0 //12</span></span><br><span class="line"><span class="comment">//                               6.  12.34&gt;&gt;0 //12</span></span><br><span class="line"><span class="comment">//                               7. 12.34&gt;&gt;&gt;0 //12</span></span><br></pre></td></tr></table></figure>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p><strong><code>Number</code>方法的参数是对象时，将返回<code>NaN</code>，除非是包含单个数值的数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">5</span>]) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>之所以会这样，是因为<code>Number</code>背后的转换规则比较复杂。</p>
+<p><strong>第一步，调用对象自身的<code>valueOf</code>方法。如果返回原始类型的值，则直接对该值使用<code>Number</code>函数，不再进行后续步骤。</strong></p>
+<p><strong>第二步，如果<code>valueOf</code>方法返回的还是对象，则改为调用对象自身的<code>toString</code>方法。如果<code>toString</code>方法返回原始类型的值，则对该值使用<code>Number</code>函数，不再进行后续步骤。</strong></p>
+<p><strong>第三步，如果<code>toString</code>方法返回的是对象，就报错</strong></p>
+<p>如果<code>toString</code>方法返回的不是原始类型的值，结果就会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(obj)</span><br><span class="line"><span class="comment">// TypeError: Cannot convert object to primitive value</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码的<code>valueOf</code>和<code>toString</code>方法，返回的都是对象，所以转成数值时会报错。</strong></p>
+<p>从上例还可以看到，<code>valueOf</code>和<code>toString</code>方法，都是可以自定义的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(&#123;</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(&#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(&#123;</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码对三个对象使用<code>Number</code>函数。第一个对象返回<code>valueOf</code>方法的值，第二个对象返回<code>toString</code>方法的值，第三个对象表示<code>valueOf</code>方法先于<code>toString</code>方法执行。</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-11T13:30:11.878Z" itemprop="dateUpdated">2019-06-11 21:30:11</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/11/JS学习之数据类型转换/" target="_blank" rel="external">http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS数据类型转换/">JS数据类型转换</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/&title=《JS学习之数据类型转换》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/&title=《JS学习之数据类型转换》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之数据类型转换》 — HeJL&url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/11/JS学习之运算符-续/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之运算符(续)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/&title=《JS学习之数据类型转换》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/&title=《JS学习之数据类型转换》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之数据类型转换》 — HeJL&url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/11/JS学习之数据类型转换/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

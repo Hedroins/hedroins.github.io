@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之运算符(续) | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JS位运算符">
+    <meta name="description" content="位运算符位运算符用于直接对二进制位进行计算，一共有7个。  二进制或运算符（or）：符号为|，表示若两个二进制位都为0，则结果为0，否则为1。  二进制与运算符（and）：符号为&amp;amp;，表示若两个二进制位都为1，则结果为1，否则为0。  二进制否运算符（not）：符号为~，表示对一个二进制位取反。  异或运算符（xor）：符号为^，表示若两个二进制位不相同，则结果为1，否则为0。  左移运算符">
+<meta name="keywords" content="JS位运算符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之运算符(续)">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/11/JS学习之运算符-续/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="位运算符位运算符用于直接对二进制位进行计算，一共有7个。  二进制或运算符（or）：符号为|，表示若两个二进制位都为0，则结果为0，否则为1。  二进制与运算符（and）：符号为&amp;amp;，表示若两个二进制位都为1，则结果为1，否则为0。  二进制否运算符（not）：符号为~，表示对一个二进制位取反。  异或运算符（xor）：符号为^，表示若两个二进制位不相同，则结果为1，否则为0。  左移运算符">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-11T12:57:58.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之运算符(续)">
+<meta name="twitter:description" content="位运算符位运算符用于直接对二进制位进行计算，一共有7个。  二进制或运算符（or）：符号为|，表示若两个二进制位都为0，则结果为0，否则为1。  二进制与运算符（and）：符号为&amp;amp;，表示若两个二进制位都为1，则结果为1，否则为0。  二进制否运算符（not）：符号为~，表示对一个二进制位取反。  异或运算符（xor）：符号为^，表示若两个二进制位不相同，则结果为1，否则为0。  左移运算符">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之运算符(续)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之运算符(续)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-11T08:07:28.000Z" itemprop="datePublished" class="page-time">
+  2019-06-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#位运算符"><span class="post-toc-number">1.</span> <span class="post-toc-text">位运算符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二进制或运算"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">二进制或运算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二进制与运算符"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二进制与运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二进制否运算符"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">二进制否运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异或运算"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">异或运算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#左移运算符"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">左移运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#右移运算符"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">右移运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#带符号位的右移运算符"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">带符号位的右移运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开关作用"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">开关作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他运算符"><span class="post-toc-number">2.</span> <span class="post-toc-text">其他运算符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逗号运算符"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">逗号运算符</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#运算顺序"><span class="post-toc-number">3.</span> <span class="post-toc-text">运算顺序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优先级"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">优先级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#圆括号的作用"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">圆括号的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#左结合与右结合"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">左结合与右结合</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之运算符-续" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之运算符(续)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-11 16:07:28" datetime="2019-06-11T08:07:28.000Z" itemprop="datePublished">2019-06-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h1><p><strong>位运算符用于直接对二进制位进行计算，一共有7个。</strong></p>
+<ul>
+<li><p><strong>二进制或运算符</strong>（or）：符号为<code>|</code>，表示若两个二进制位都为<code>0</code>，则结果为<code>0</code>，否则为<code>1</code>。</p>
+</li>
+<li><p><strong>二进制与运算符</strong>（and）：符号为<code>&amp;</code>，表示若两个二进制位都为1，则结果为1，否则为0。</p>
+</li>
+<li><p><strong>二进制否运算符</strong>（not）：符号为<code>~</code>，表示对一个二进制位取反。</p>
+</li>
+<li><p><strong>异或运算符</strong>（xor）：符号为<code>^</code>，表示若两个二进制位不相同，则结果为1，否则为0。</p>
+</li>
+<li><p><strong>左移运算符</strong>（left shift）：符号为<code>&lt;&lt;</code>，详见下文解释。</p>
+</li>
+<li><p><strong>右移运算符</strong>（right shift）：符号为<code>&gt;&gt;</code>，详见下文解释。</p>
+</li>
+<li><p><strong>带符号位的右移运算符</strong>（zero filled right shift）：符号为<code>&gt;&gt;&gt;</code>，详见下文解释。</p>
+<p>​</p>
+</li>
+</ul>
+<p>这些位运算符直接处理每一个比特位（bit），所以是非常底层的运算，好处是速度极快，缺点是很不直观，许多场合不能使用它们，否则会使代码难以理解和查错。</p>
+<p><strong>==位运算符只对整数起作用，如果一个运算子不是整数，会自动转为整数后再执行。==</strong>另外，<strong>虽然在 JavaScript 内部，数值都是以64位浮点数的形式储存，但是做位运算的时候，是以32位带符号的整数进行运算的，并且返回值也是一个32位带符号的整数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i = i | <span class="number">0</span>; <span class="comment">//将i转为32位的整数</span></span><br></pre></td></tr></table></figure>
+<p>上面这行代码的意思，就是将<code>i</code>（不管是整数或小数）转为32位整数。</p>
+<p><strong>==利用这个特性，可以写出一个函数，将任意数值转为32位整数。==</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toInt32</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x | <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>上面这个函数将任意值与<code>0</code>进行一次或运算，这个位运算会自动将一个值转为32位整数。</strong>下面是这个函数的用法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">toInt32(<span class="number">1.001</span>) <span class="comment">// 1</span></span><br><span class="line">toInt32(<span class="number">1.999</span>) <span class="comment">// 1</span></span><br><span class="line">toInt32(<span class="number">1</span>) <span class="comment">// 1</span></span><br><span class="line">toInt32(<span class="number">-1</span>) <span class="comment">// -1</span></span><br><span class="line">toInt32(<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">32</span>) + <span class="number">1</span>) <span class="comment">// 1</span></span><br><span class="line">toInt32(<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">32</span>) - <span class="number">1</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>toInt32</code>可以将小数转为整数。对于一般的整数，返回值不会有任何变化。<strong>对于大于2的32次方的整数，大于32位的数位都会被舍去。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">31</span>)|<span class="number">0</span> <span class="comment">//-2147483648</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">31</span>)|<span class="number">1</span> <span class="comment">//-2147483647</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">32</span>)|<span class="number">0</span> <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+<p>上面运算结果表示一个数值能按位或位运算的临界点是2^32^.</p>
+<h2 id="二进制或运算"><a href="#二进制或运算" class="headerlink" title="二进制或运算"></a>二进制或运算</h2><p><strong>二进制或运算符（<code>|</code>）逐位比较两个运算子，两个二进制位之中只要有一个为<code>1</code>，就返回<code>1</code>，否则返回<code>0</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> | <span class="number">3</span> <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>0</code>和<code>3</code>的二进制形式分别是<code>00</code>和<code>11</code>，所以进行二进制或运算会得到<code>11</code>（即<code>3</code>）。</p>
+<p><strong>==位运算只对整数有效，遇到小数时，会将小数部分舍去，只保留整数部分。==</strong>所以，将一个小数与<code>0</code>进行二进制或运算，等同于对该数去除小数部分，即取整数位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.9</span> | <span class="number">0</span> <span class="comment">// 2</span></span><br><span class="line"><span class="number">-2.9</span> | <span class="number">0</span> <span class="comment">// -2</span></span><br></pre></td></tr></table></figure>
+<p><strong>这种取整方法不适用超过32位整数最大值<code>2147483647</code>(2^31^-1)的数</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2147483649.4</span> | <span class="number">0</span>;<span class="comment">// -2147483647</span></span><br></pre></td></tr></table></figure>
+<h2 id="二进制与运算符"><a href="#二进制与运算符" class="headerlink" title="二进制与运算符"></a>二进制与运算符</h2><p>二进制与运算符（<code>&amp;</code>）的规则是逐位比较两个运算子，两个二进制位之中只要有一个位为<code>0</code>，就返回<code>0</code>，否则返回<code>1</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> &amp; <span class="number">3</span> <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，0（二进制<code>00</code>）和3（二进制<code>11</code>）进行二进制与运算会得到<code>00</code>（即<code>0</code>）。</p>
+<h2 id="二进制否运算符"><a href="#二进制否运算符" class="headerlink" title="二进制否运算符"></a>二进制否运算符</h2><p><strong>二进制否运算符（<code>~</code>）将每个二进制位都变为相反值（<code>0</code>变为<code>1</code>，<code>1</code>变为<code>0</code>）</strong>。它的返回结果有时比较难理解，因为涉及到计算机内部的数值表示机制。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~ <span class="number">3</span> <span class="comment">// -4</span></span><br></pre></td></tr></table></figure>
+<p>之所以会有这样的结果，是因为位运算时，JavaScirpt 内部将所有的运算子都转为32位的二进制整数再进行运算。</p>
+<p><code>3</code>的32位整数形式是<code>00000000000000000000000000000011</code>，二进制否运算以后得到<code>11111111111111111111111111111100</code>。由于第一位（符号位）是1，所以这个数是一个负数。JavaScript 内部采用补码形式表示负数，即需要将这个数减去1，再取一次反，然后加上负号，才能得到这个负数对应的10进制值。这个数减去1等于<code>11111111111111111111111111111011</code>，再取一次反得到<code>00000000000000000000000000000100</code>，再加上负号就是<code>-4</code>。考虑到这样的过程比较麻烦<strong>，可以简单记忆成，一个数与自身的取反值相加，等于-1。</strong></p>
+<p><strong>对一个整数连续两次二进制否运算，得到它自身。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~<span class="number">3</span> <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p><strong>所有的位运算都只对整数有效。二进制否运算遇到小数时，也会将小数部分舍去，只保留整数部分</strong>。所以，对一个小数连续进行两次二进制否运算，能达到取整效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~~<span class="number">2.9</span> <span class="comment">// 2</span></span><br><span class="line">~~<span class="number">47.11</span> <span class="comment">// 47</span></span><br><span class="line">~~<span class="number">1.9999</span> <span class="comment">// 1</span></span><br><span class="line">~~<span class="number">3</span> <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用二进制否运算取整，是所有取整方法中最快的一种。</strong></p>
+<p><strong>对字符串进行二进制否运算，JavaScript 引擎会先调用<code>Number</code>函数，将字符串转为数值。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相当于~Number('011')</span></span><br><span class="line">~<span class="string">'011'</span>  <span class="comment">// -12</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于~Number('42 cats')</span></span><br><span class="line">~<span class="string">'42 cats'</span> <span class="comment">// -1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于~Number('0xcafebabe')</span></span><br><span class="line">~<span class="string">'0xcafebabe'</span> <span class="comment">// 889275713</span></span><br></pre></td></tr></table></figure>
+<p>对于其他类型的值，二进制否运算也是先用<code>Number</code>转为数值，然后再进行处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相当于 ~Number([])</span></span><br><span class="line">~[] <span class="comment">// -1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于 ~Number(NaN)</span></span><br><span class="line">~<span class="literal">NaN</span> <span class="comment">// -1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于 ~Number(null)</span></span><br><span class="line">~<span class="literal">null</span> <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<h2 id="异或运算"><a href="#异或运算" class="headerlink" title="异或运算"></a>异或运算</h2><p>异或运算（<code>^</code>）在两个二进制位不同时返回<code>1</code>，相同时返回<code>0</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 ^ 3 // 3</span><br></pre></td></tr></table></figure>
+<p>上面表达式中，<code>0</code>（二进制<code>00</code>）与<code>3</code>（二进制<code>11</code>）进行异或运算，它们每一个二进制位都不同，所以得到<code>11</code>（即<code>3</code>）。</p>
+<p><strong>“异或运算”有一个特殊运用，连续对两个数<code>a</code>和<code>b</code>进行三次异或运算，<code>a^=b; b^=a; a^=b;</code>，可以<a href="http://en.wikipedia.org/wiki/XOR_swap_algorithm" target="_blank" rel="noopener">互换</a>它们的值。</strong>这意味着，使用“异或运算”可以在不引入临时变量的前提下，互换两个变量的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">99</span>;</span><br><span class="line"></span><br><span class="line">a ^= b, b ^= a, a ^= b;</span><br><span class="line"></span><br><span class="line">a <span class="comment">// 99</span></span><br><span class="line">b <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<p><strong>这是互换两个变量的值的最快方法。</strong></p>
+<p><strong>异或运算也可以用来取整。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12.9</span> ^ <span class="number">0</span> <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+<h2 id="左移运算符"><a href="#左移运算符" class="headerlink" title="左移运算符"></a>左移运算符</h2><p><strong>左移运算符（<code>&lt;&lt;</code>）表示将一个数的二进制值向左移动指定的位数，尾部补<code>0</code>，即乘以<code>2</code>的指定次方（最高位即符号位不参与移动）</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 4 的二进制形式为100，</span></span><br><span class="line"><span class="comment">// 左移一位为1000（即十进制的8）</span></span><br><span class="line"><span class="comment">// 相当于乘以2的1次方</span></span><br><span class="line"><span class="number">4</span> &lt;&lt; <span class="number">1</span></span><br><span class="line"><span class="comment">// 8</span></span><br><span class="line"></span><br><span class="line"><span class="number">-4</span> &lt;&lt; <span class="number">1</span></span><br><span class="line"><span class="comment">// -8</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>-4</code>左移一位得到<code>-8</code>，是因为<code>-4</code>的二进制形式是<code>11111111111111111111111111111100</code>，左移一位后得到<code>11111111111111111111111111111000</code>，该数转为十进制（减去1后取反，再加上负号）即为<code>-8</code>。</p>
+<p><strong>如果左移0位，就相当于将该数值转为32位整数，等同于取整，对于正数和负数都有效。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13.5</span> &lt;&lt; <span class="number">0</span></span><br><span class="line"><span class="comment">// 13</span></span><br><span class="line"></span><br><span class="line"><span class="number">-13.5</span> &lt;&lt; <span class="number">0</span></span><br><span class="line"><span class="comment">// -13</span></span><br></pre></td></tr></table></figure>
+<p>左移运算符用于二进制数值非常方便。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color = &#123;<span class="attr">r</span>: <span class="number">186</span>, <span class="attr">g</span>: <span class="number">218</span>, <span class="attr">b</span>: <span class="number">85</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// RGB to HEX</span></span><br><span class="line"><span class="comment">// (1 &lt;&lt; 24)的作用为保证结果是6位数</span></span><br><span class="line"><span class="keyword">var</span> rgb2hex = <span class="function"><span class="keyword">function</span>(<span class="params">r, g, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'#'</span> + ((<span class="number">1</span> &lt;&lt; <span class="number">24</span>) + (r &lt;&lt; <span class="number">16</span>) + (g &lt;&lt; <span class="number">8</span>) + b)</span><br><span class="line">    .toString(<span class="number">16</span>) <span class="comment">// 先转成十六进制，然后返回字符串</span></span><br><span class="line">    .substr(<span class="number">1</span>);   <span class="comment">// 去除字符串的最高位，返回后面六个字符串</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rgb2hex(color.r, color.g, color.b)</span><br><span class="line"><span class="comment">// "#bada55"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//toString(整数)表示将数用多少进制表示</span></span><br><span class="line"><span class="comment">//(12).toString(20)将12用20进制表示</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码使用左移运算符，将颜色的 RGB 值转为 HEX 值。</strong></p>
+<h2 id="右移运算符"><a href="#右移运算符" class="headerlink" title="右移运算符"></a>右移运算符</h2><p><strong>右移运算符（<code>&gt;&gt;</code>）表示将一个数的二进制值向右移动指定的位数，头部补<code>0</code>，即除以<code>2</code>的指定次方（最高位即符号位不参与移动）。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> &gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// 因为4的二进制形式为 00000000000000000000000000000100，</span></span><br><span class="line"><span class="comment">// 右移一位得到 00000000000000000000000000000010，</span></span><br><span class="line"><span class="comment">// 即为十进制的2</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="number">-4</span> &gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="comment">// -2</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// 因为-4的二进制形式为 11111111111111111111111111111100，</span></span><br><span class="line"><span class="comment">// 右移一位，头部补1，得到 11111111111111111111111111111110,</span></span><br><span class="line"><span class="comment">// 即为十进制的-2</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>右移运算可以模拟 2 的整除运算。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> &gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 相当于 5 / 2 = 2</span></span><br><span class="line"></span><br><span class="line"><span class="number">21</span> &gt;&gt; <span class="number">2</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 相当于 21 / 4 = 5</span></span><br><span class="line"></span><br><span class="line"><span class="number">21</span> &gt;&gt; <span class="number">3</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 相当于 21 / 8 = 2</span></span><br><span class="line"></span><br><span class="line"><span class="number">21</span> &gt;&gt; <span class="number">4</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 相当于 21 / 16 = 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="带符号位的右移运算符"><a href="#带符号位的右移运算符" class="headerlink" title="带符号位的右移运算符"></a>带符号位的右移运算符</h2><p><strong>带符号位的右移运算符（<code>&gt;&gt;&gt;</code>）表示将一个数的二进制形式向右移动，包括符号位也参与移动，头部补<code>0</code>，</strong> 所以，该运算总是得到正值。对于正数，该运算的结果与右移运算符（<code>&gt;&gt;</code>）完全一致，区别主要在于负数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> &gt;&gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="number">-4</span> &gt;&gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="comment">// 2147483646</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// 因为-4的二进制形式为11111111111111111111111111111100，</span></span><br><span class="line"><span class="comment">// 带符号位的右移一位，得到01111111111111111111111111111110，</span></span><br><span class="line"><span class="comment">// 即为十进制的2147483646。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>这个运算实际上将一个值转为32位无符号整数。</p>
+<p>查看一个负整数在计算机内部的储存形式，最快的方法就是使用这个运算符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-1</span> &gt;&gt;&gt; <span class="number">0</span> <span class="comment">// 4294967295</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码表示，<code>-1</code>作为32位整数时，内部的储存形式使用无符号整数格式解读，值为 4294967295（即<code>(2^32)-1</code>，等于<code>11111111111111111111111111111111</code>）。</strong></p>
+<h2 id="开关作用"><a href="#开关作用" class="headerlink" title="开关作用"></a>开关作用</h2><p><strong>位运算符可以用作设置对象属性的开关。</strong></p>
+<p>假定某个对象有四个开关，每个开关都是一个变量。那么，可以设置一个四位的二进制数，它的每个位对应一个开关。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> FLAG_A = <span class="number">1</span>; <span class="comment">// 0001</span></span><br><span class="line"><span class="keyword">var</span> FLAG_B = <span class="number">2</span>; <span class="comment">// 0010</span></span><br><span class="line"><span class="keyword">var</span> FLAG_C = <span class="number">4</span>; <span class="comment">// 0100</span></span><br><span class="line"><span class="keyword">var</span> FLAG_D = <span class="number">8</span>; <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+<p>上面代码设置 A、B、C、D 四个开关，每个开关分别占有一个二进制位。</p>
+<p>然后，就可以用二进制与运算检验，当前设置是否打开了指定开关。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> flags = <span class="number">5</span>; <span class="comment">// 二进制的0101</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (flags &amp; FLAG_C) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0101 &amp; 0100 =&gt; 0100 =&gt; true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码检验是否打开了开关<code>C</code>。如果打开，会返回<code>true</code>，否则返回<code>false</code>。</p>
+<p>现在假设需要打开<code>A</code>、<code>B</code>、<code>D</code>三个开关，我们可以构造一个掩码变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mask = FLAG_A | FLAG_B | FLAG_D;</span><br><span class="line"><span class="comment">// 0001 | 0010 | 1000 =&gt; 1011</span></span><br></pre></td></tr></table></figure>
+<p>上面代码对<code>A</code>、<code>B</code>、<code>D</code>三个变量进行二进制或运算，得到掩码值为二进制的<code>1011</code>。</p>
+<p>有了掩码，二进制或运算可以确保打开指定的开关。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flags = flags | mask;</span><br></pre></td></tr></table></figure>
+<p>二进制与运算可以将当前设置中凡是与开关设置不一样的项，全部关闭。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flags = flags &amp; mask;</span><br></pre></td></tr></table></figure>
+<p>异或运算可以切换（toggle）当前设置，即第一次执行可以得到当前设置的相反值，再执行一次又得到原来的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flags = flags ^ mask;</span><br></pre></td></tr></table></figure>
+<p>二进制否运算可以翻转当前设置，即原设置为<code>0</code>，运算后变为<code>1</code>；原设置为<code>1</code>，运算后变为<code>0</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flags = ~flags;</span><br></pre></td></tr></table></figure>
+<h1 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h1><p><strong><code>void</code>运算符的作用是执行一个表达式，然后不返回任何值，或者说返回<code>undefined</code></strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="number">0</span> <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">void</span>(<span class="number">0</span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p>上面是<code>void</code>运算符的两种写法，都正确。建议采用后一种形式，即总是使用圆括号。<strong>因为<code>void</code>运算符的优先性很高，如果不使用括号，容易造成错误的结果。比如，<code>void 4 + 7</code>实际上等同于<code>(void 4) + 7</code>。</strong></p>
+<p>这个运算符的主要用途是浏览器的书签工具（bookmarklet），以及在超级链接中插入代码防止网页跳转。</p>
+<p>请看下面的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello World'</span>);</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;a href="http:/</span><span class="regexp">/example.com" onclick="f(); return false;"&gt;点击&lt;/</span>a&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，点击链接后，<strong>会先执行<code>onclick</code>的代码，由于<code>onclick</code>返回<code>false</code>，所以浏览器不会跳转到 example.com。</strong></p>
+<p><strong><code>void</code>运算符可以取代上面的写法。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript: void(f())"</span>&gt;文字&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是一个更实际的例子，用户点击链接提交表单，但是不产生页面跳转。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript: void(document.form.submit())"</span>&gt;</span><br><span class="line">  提交</span><br><span class="line">&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h2><p><strong>逗号运算符用于对两个表达式求值，并返回后一个表达式的值。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span>, <span class="string">'b'</span> <span class="comment">// "b"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> y = (x++, <span class="number">10</span>);</span><br><span class="line">x <span class="comment">// 1</span></span><br><span class="line">y <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，逗号运算符返回后一个表达式的值。</p>
+<h1 id="运算顺序"><a href="#运算顺序" class="headerlink" title="运算顺序"></a>运算顺序</h1><h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> + <span class="number">5</span> * <span class="number">6</span> <span class="comment">// 34</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码中，<strong>乘法运算符（<code>*</code>）的优先性高于加法运算符（<code>+</code>），所以先执行乘法，再执行加法.</strong></p>
+<h2 id="圆括号的作用"><a href="#圆括号的作用" class="headerlink" title="圆括号的作用"></a>圆括号的作用</h2><p>1.圆括号（()）可以用来提高运算的优先级。</p>
+<p>2.另一种是跟在函数的后面，作用是调用函数。</p>
+<p><strong>圆括号之中，只能放置表达式，如果将语句放在圆括号之中，就会报错。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">var</span> a = <span class="number">1</span>)</span><br><span class="line"><span class="comment">// SyntaxError: Unexpected token var</span></span><br></pre></td></tr></table></figure>
+<h2 id="左结合与右结合"><a href="#左结合与右结合" class="headerlink" title="左结合与右结合"></a>左结合与右结合</h2><p><strong>对于优先级别相同的运算符，大多数情况，计算顺序总是从左到右，这叫做运算符的“左结合”（left-to-right associativity），即从左边开始计算。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x + y + z</span><br></pre></td></tr></table></figure>
+<p><strong>但是少数运算符的计算顺序是从右到左，即从右边开始计算，这叫做运算符的“右结合”（right-to-left associativity）。其中，最主要的是赋值运算符（<code>=</code>）和三元条件运算符（<code>?:</code>）。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = x = y = z;</span><br><span class="line">q = a ? b : c ? d : e ? f : g;</span><br></pre></td></tr></table></figure>
+<p>上面代码的运算结果，相当于下面的样子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = (x = (y = z));</span><br><span class="line">q = a ? b : (c ? d : (e ? f : g));</span><br></pre></td></tr></table></figure>
+<p>上面的两行代码，各有三个等号运算符和三个三元运算符，都是先计算最右边的那个运算符。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-11T12:57:58.385Z" itemprop="dateUpdated">2019-06-11 20:57:58</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/11/JS学习之运算符-续/" target="_blank" rel="external">http://hedroins.github.io/2019/06/11/JS学习之运算符-续/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS位运算符/">JS位运算符</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/&title=《JS学习之运算符(续)》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/&title=《JS学习之运算符(续)》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之运算符(续)》 — HeJL&url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/11/JS学习之数据类型转换/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS学习之数据类型转换</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/09/git教程9-9/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git教程9(9)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/&title=《JS学习之运算符(续)》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/&title=《JS学习之运算符(续)》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之运算符(续)》 — HeJL&url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/11/JS学习之运算符-续/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
