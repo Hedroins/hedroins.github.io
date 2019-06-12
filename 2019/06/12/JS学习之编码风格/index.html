@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之编码风格 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JS编码风格">
+    <meta name="description" content="区块建议总是使用大括号表示区块。 因为有的结构单行语句可以不用大括号。 行尾的分号首先，以下三种情况，语法规定本来就不需要在结尾添加分号。 （1）for 和 while 循环 （2）分支语句：if，switch，try （3）函数的声明语句 注意，函数表达式仍然要使用分号。 12var f = function f() &amp;#123;&amp;#125;; 以上三种情况，如果使用了分号，并不会出错。因为，解">
+<meta name="keywords" content="JS编码风格">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之编码风格">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/12/JS学习之编码风格/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="区块建议总是使用大括号表示区块。 因为有的结构单行语句可以不用大括号。 行尾的分号首先，以下三种情况，语法规定本来就不需要在结尾添加分号。 （1）for 和 while 循环 （2）分支语句：if，switch，try （3）函数的声明语句 注意，函数表达式仍然要使用分号。 12var f = function f() &amp;#123;&amp;#125;; 以上三种情况，如果使用了分号，并不会出错。因为，解">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T11:55:38.741Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之编码风格">
+<meta name="twitter:description" content="区块建议总是使用大括号表示区块。 因为有的结构单行语句可以不用大括号。 行尾的分号首先，以下三种情况，语法规定本来就不需要在结尾添加分号。 （1）for 和 while 循环 （2）分支语句：if，switch，try （3）函数的声明语句 注意，函数表达式仍然要使用分号。 12var f = function f() &amp;#123;&amp;#125;; 以上三种情况，如果使用了分号，并不会出错。因为，解">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之编码风格</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之编码风格</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-12T11:23:21.000Z" itemprop="datePublished" class="page-time">
+  2019-06-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#区块"><span class="post-toc-number">1.</span> <span class="post-toc-text">区块</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#行尾的分号"><span class="post-toc-number">2.</span> <span class="post-toc-text">行尾的分号</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分号的自动添加"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">分号的自动添加</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全局变量"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">全局变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变量声明"><span class="post-toc-number">3.</span> <span class="post-toc-text">变量声明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#相等和严格相等"><span class="post-toc-number">4.</span> <span class="post-toc-text">相等和严格相等</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自增自减运算符"><span class="post-toc-number">5.</span> <span class="post-toc-text">自增自减运算符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#switch…case结构"><span class="post-toc-number">6.</span> <span class="post-toc-text">switch…case结构</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之编码风格" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之编码风格</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-12 19:23:21" datetime="2019-06-12T11:23:21.000Z" itemprop="datePublished">2019-06-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><p><strong>建议总是使用大括号表示区块。</strong> 因为有的结构单行语句可以不用大括号。</p>
+<h1 id="行尾的分号"><a href="#行尾的分号" class="headerlink" title="行尾的分号"></a>行尾的分号</h1><p>首先，以下三种情况，语法规定本来就不需要在结尾添加分号。</p>
+<p><strong>（1）for 和 while 循环</strong></p>
+<p><strong>（2）分支语句：if，switch，try</strong></p>
+<p><strong>（3）函数的声明语句</strong></p>
+<p>注意，函数表达式仍然要使用分号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>以上三种情况，如果使用了分号，并不会出错。因为，解释引擎会把这个分号解释为空语句。</strong></p>
+<h2 id="分号的自动添加"><a href="#分号的自动添加" class="headerlink" title="分号的自动添加"></a>分号的自动添加</h2><p>如果没有使用分号，大多数情况下，JavaScript 会自动添加。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>如果下一行的开始可以与本行的结尾连在一起解释，JavaScript 就不会自动添加分号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 等同于 var a = 3</span></span><br><span class="line"><span class="keyword">var</span></span><br><span class="line">a</span><br><span class="line">=</span><br><span class="line"><span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于 'abc'.length</span></span><br><span class="line"><span class="string">'abc'</span></span><br><span class="line">.length</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于 return a + b;</span></span><br><span class="line"><span class="keyword">return</span> a +</span><br><span class="line">b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于 obj.foo(arg1, arg2);</span></span><br><span class="line">obj.foo(arg1,</span><br><span class="line">arg2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于 3 * 2 + 10 * (27 / 6)</span></span><br><span class="line"><span class="number">3</span> * <span class="number">2</span></span><br><span class="line">+</span><br><span class="line"><span class="number">10</span> * (<span class="number">27</span> / <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>上面代码都会多行放在一起解释，不会每一行自动添加分号。这些例子还是比较容易看出来的，但是下面这个例子就不那么容易看出来了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = y</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">x = y(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;...&#125;)();</span><br></pre></td></tr></table></figure>
+<p>下面是更多不会自动添加分号的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引擎解释为 c(d+e)</span></span><br><span class="line"><span class="keyword">var</span> a = b + c</span><br><span class="line">(d+e).toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引擎解释为 a = b/hi/g.exec(c).map(d)</span></span><br><span class="line"><span class="comment">// 正则表达式的斜杠，会当作除法运算符</span></span><br><span class="line">a = b</span><br><span class="line">/hi/g.exec(c).map(d);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解释为'b'['red', 'green']，</span></span><br><span class="line"><span class="comment">// 即把字符串当作一个数组，按索引取值</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">'b'</span></span><br><span class="line">[<span class="string">'red'</span>, <span class="string">'green'</span>].forEach(<span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解释为 function (x) &#123; return x &#125;(a++)</span></span><br><span class="line"><span class="comment">// 即调用匿名函数，结果f等于0</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x &#125;</span><br><span class="line">(a++)</span><br></pre></td></tr></table></figure>
+<p>只有下一行的开始与本行的结尾，无法放在一起解释，JavaScript 引擎才会自动添加分号。</p>
+<p><strong>如果一行的起首是“自增”（<code>++</code>）或“自减”（<code>--</code>）运算符，则它们的前面会自动添加分号。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = b = c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">a</span><br><span class="line">++</span><br><span class="line">b</span><br><span class="line">--</span><br><span class="line">c</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a, b, c)</span><br><span class="line"><span class="comment">// 1 2 0</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果<code>continue</code>、<code>break</code>、<code>return</code>和<code>throw</code>这四个语句后面，直接跟换行符，则会自动添加分号。</strong></p>
+<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>建议避免使用全局变量。如果不得不使用，可以考虑用大写字母表示变量名，这样更容易看出这是全局变量，比如<code>UPPER_CASE</code>。</p>
+<h1 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h1><p>avaScript 会自动将变量声明”提升“（hoist）到代码块（block）的头部。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!x) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span> (!x) &#123;</span><br><span class="line">  x = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这意味着，变量<code>x</code>是<code>if</code>代码块之前就存在了。为了避免可能出现的问题，最好把变量声明都放在代码块的头部。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写成</span></span><br><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这样的写法，就容易看出存在一个全局的循环变量<code>i</code>。</p>
+<p><strong>另外，所有函数都应该在使用之前定义。函数内部的变量声明，都应该放在函数的头部。</strong></p>
+<h1 id="相等和严格相等"><a href="#相等和严格相等" class="headerlink" title="相等和严格相等"></a>相等和严格相等</h1><p>相等运算符会自动转换变量类型，造成很多意想不到的情况。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> == <span class="string">''</span><span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> == <span class="literal">true</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span> == <span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line"><span class="number">0</span> == <span class="string">'0'</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">'false'</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">'0'</span> <span class="comment">// true</span></span><br><span class="line"><span class="string">' \t\r\n '</span> == <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>因此，建议不要使用相等运算符（<code>==</code>），只使用严格相等运算符（<code>===</code>）。</p>
+<h1 id="自增自减运算符"><a href="#自增自减运算符" class="headerlink" title="自增自减运算符"></a>自增自减运算符</h1><p>自增（<code>++</code>）和自减（<code>--</code>）运算符，放在变量的前面或后面，返回的值不一样，很容易发生错误。事实上，所有的<code>++</code>运算符都可以用<code>+= 1</code>代替。</p>
+<h1 id="switch…case结构"><a href="#switch…case结构" class="headerlink" title="switch…case结构"></a>switch…case结构</h1><p><code>witch...case</code>结构要求，在每一个<code>case</code>的最后一行必须是<code>break</code>语句，否则会接着运行下一个<code>case</code>。这样不仅容易忘记，还会造成代码的冗长。</p>
+<p>而且，<code>switch...case</code>不使用大括号，不利于代码形式的统一。此外，这种结构类似于<code>goto</code>语句，容易造成程序流程的混乱，使得代码结构混乱不堪，不符合面向对象编程的原则。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function doAction(action) &#123;</span><br><span class="line">  switch (action) &#123;</span><br><span class="line">    case &apos;hack&apos;:</span><br><span class="line">      return &apos;hack&apos;;</span><br><span class="line">      break;</span><br><span class="line">    case &apos;slash&apos;:</span><br><span class="line">      return &apos;slash&apos;;</span><br><span class="line">      break;</span><br><span class="line">    case &apos;run&apos;:</span><br><span class="line">      return &apos;run&apos;;</span><br><span class="line">      break;</span><br><span class="line">    default:</span><br><span class="line">      throw new Error(&apos;Invalid action.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码建议改写成对象结构。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAction</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> actions = &#123;</span><br><span class="line">    <span class="string">'hack'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'hack'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'slash'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'slash'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'run'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'run'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> actions[action] !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Invalid action.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> actions[action]();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，建议<code>switch...case</code>结构可以用对象结构代替。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-12T11:55:38.741Z" itemprop="dateUpdated">2019-06-12 19:55:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/12/JS学习之编码风格/" target="_blank" rel="external">http://hedroins.github.io/2019/06/12/JS学习之编码风格/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS编码风格/">JS编码风格</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/&title=《JS学习之编码风格》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/&title=《JS学习之编码风格》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/12/JS学习之编码风格/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之编码风格》 — HeJL&url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/12/JS学习之Object对象/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS学习之Object对象</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/12/JS学习之错误处理机制/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之错误处理机制</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/&title=《JS学习之编码风格》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/&title=《JS学习之编码风格》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/12/JS学习之编码风格/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之编码风格》 — HeJL&url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/12/JS学习之编码风格/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/12/JS学习之编码风格/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
