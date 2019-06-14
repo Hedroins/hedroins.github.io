@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之Array对象的实例方法1 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Array对象的实例方法">
+    <meta name="description" content="实例方法valueOf(),toString()valueOf方法是一个所有对象都拥有的方法，表示对该对象求值。不同对象的valueOf方法不尽一致，数组的valueOf方法返回数组本身。 12var arr = [1, 2, 3];arr.valueOf() // [1, 2, 3] toString方法也是对象的通用方法，数组的toString方法返回数组的字符串形式。 12345var ar">
+<meta name="keywords" content="Array对象的实例方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之Array对象的实例方法1">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="实例方法valueOf(),toString()valueOf方法是一个所有对象都拥有的方法，表示对该对象求值。不同对象的valueOf方法不尽一致，数组的valueOf方法返回数组本身。 12var arr = [1, 2, 3];arr.valueOf() // [1, 2, 3] toString方法也是对象的通用方法，数组的toString方法返回数组的字符串形式。 12345var ar">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-13T13:24:24.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之Array对象的实例方法1">
+<meta name="twitter:description" content="实例方法valueOf(),toString()valueOf方法是一个所有对象都拥有的方法，表示对该对象求值。不同对象的valueOf方法不尽一致，数组的valueOf方法返回数组本身。 12var arr = [1, 2, 3];arr.valueOf() // [1, 2, 3] toString方法也是对象的通用方法，数组的toString方法返回数组的字符串形式。 12345var ar">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之Array对象的实例方法1</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之Array对象的实例方法1</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-13T12:17:02.000Z" itemprop="datePublished" class="page-time">
+  2019-06-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实例方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#valueOf-toString"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">valueOf(),toString()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#push-pop"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">push(),pop()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#shift-，unshift"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">shift()，unshift()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#join"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">join()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#concat"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">concat()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#concat-浅拷贝"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">concat()浅拷贝</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#reverse"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">reverse()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#slice"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">slice()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#slice方法的一个重要应用"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">slice方法的一个重要应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#splice"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">splice()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sort"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">sort()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义sort-的排序方法"><span class="post-toc-number">1.9.1.</span> <span class="post-toc-text">自定义sort()的排序方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#map"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">map()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#forEach-方法"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">forEach()方法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="w-JS学习之Array对象的实例方法1" class="post-article article-type-w fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之Array对象的实例方法1</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-13 20:17:02" datetime="2019-06-13T12:17:02.000Z" itemprop="datePublished">2019-06-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h1><h2 id="valueOf-toString"><a href="#valueOf-toString" class="headerlink" title="valueOf(),toString()"></a>valueOf(),toString()</h2><p><strong><code>valueOf</code>方法是一个所有对象都拥有的方法，表示对该对象求值</strong>。不同对象的<code>valueOf</code>方法不尽一致，数组的<code>valueOf</code>方法返回数组本身。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.valueOf() <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>toString</code>方法也是对象的通用方法，数组的<code>toString</code>方法返回数组的字符串形式</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.toString() <span class="comment">// "1,2,3"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]];</span><br><span class="line">arr.toString() <span class="comment">// "1,2,3,4,5,6"</span></span><br></pre></td></tr></table></figure>
+<h2 id="push-pop"><a href="#push-pop" class="headerlink" title="push(),pop()"></a>push(),pop()</h2><p><strong><code>push</code>方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"></span><br><span class="line">arr.push(<span class="number">1</span>) <span class="comment">// 1</span></span><br><span class="line">arr.push(<span class="string">'a'</span>) <span class="comment">// 2</span></span><br><span class="line">arr.push(<span class="literal">true</span>, &#123;&#125;) <span class="comment">// 4</span></span><br><span class="line">arr <span class="comment">// [1, 'a', true, &#123;&#125;]</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>pop</code>方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">arr.pop() <span class="comment">// 'c'</span></span><br><span class="line">arr <span class="comment">// ['a', 'b']</span></span><br></pre></td></tr></table></figure>
+<p>对空数组使用<code>pop</code>方法，不会报错，而是返回<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].pop() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr.push(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">arr.push(<span class="number">3</span>);</span><br><span class="line">arr.pop();</span><br><span class="line">arr <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>3</code>是最后进入数组的，但是最早离开数组。</p>
+<h2 id="shift-，unshift"><a href="#shift-，unshift" class="headerlink" title="shift()，unshift()"></a>shift()，unshift()</h2><p><strong><code>shift</code>方法用于删除数组的第一个元素</strong>，并返回该元素。注意，该方法会改变原数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">var</span> item;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (item = list.shift()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">list <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<p><code>push</code>和<code>shift</code>结合使用，就构成了“先进先出”的队列结构（queue）。</p>
+<p><strong><code>unshift</code>方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度</strong>。注意，该方法会改变原数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">a.unshift(<span class="string">'x'</span>); <span class="comment">// 4</span></span><br><span class="line">a <span class="comment">// ['x', 'a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>unshift</code>方法可以接受多个参数，这些参数都会添加到目标数组头部。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [ <span class="string">'c'</span>, <span class="string">'d'</span> ];</span><br><span class="line">arr.unshift(<span class="string">'a'</span>, <span class="string">'b'</span>) <span class="comment">// 4</span></span><br><span class="line">arr <span class="comment">// [ 'a', 'b', 'c', 'd' ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><p><strong><code>join</code>方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。</strong>如果不提供参数，默认用逗号分隔。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">a.join(<span class="string">' '</span>) <span class="comment">// '1 2 3 4'</span></span><br><span class="line">a.join(<span class="string">' | '</span>) <span class="comment">// "1 | 2 | 3 | 4"</span></span><br><span class="line">a.join() <span class="comment">// "1,2,3,4"</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果数组成员是<code>undefined</code>或<code>null</code>或空位，会被转成空字符串。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">undefined</span>, <span class="literal">null</span>].join(<span class="string">'#'</span>)</span><br><span class="line"><span class="comment">// '#'</span></span><br><span class="line"></span><br><span class="line">[<span class="string">'a'</span>,, <span class="string">'b'</span>].join(<span class="string">'-'</span>)</span><br><span class="line"><span class="comment">// 'a--b'</span></span><br></pre></td></tr></table></figure>
+<p><strong>通过<code>call</code>方法，这个方法也可以用于字符串或类似数组的对象。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.join.call(<span class="string">'hello'</span>, <span class="string">'-'</span>)</span><br><span class="line"><span class="comment">// "h-e-l-l-o"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="attr">length</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="built_in">Array</span>.prototype.join.call(obj, <span class="string">'-'</span>)</span><br><span class="line"><span class="comment">// 'a-b'</span></span><br></pre></td></tr></table></figure>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h2><p><strong><code>concat</code>方法用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，原数组不变。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'hello'</span>].concat([<span class="string">'world'</span>])</span><br><span class="line"><span class="comment">// ["hello", "world"]</span></span><br><span class="line"></span><br><span class="line">[<span class="string">'hello'</span>].concat([<span class="string">'world'</span>], [<span class="string">'!'</span>])</span><br><span class="line"><span class="comment">// ["hello", "world", "!"]</span></span><br><span class="line"></span><br><span class="line">[].concat(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;, &#123;<span class="attr">b</span>: <span class="number">2</span>&#125;)</span><br><span class="line"><span class="comment">// [&#123; a: 1 &#125;, &#123; b: 2 &#125;]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>].concat(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;)</span><br><span class="line"><span class="comment">// [2, &#123;a: 1&#125;]</span></span><br></pre></td></tr></table></figure>
+<p>除了数组作为参数，<code>concat</code>也接受其他类型的值作为参数，添加到目标数组尾部。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].concat(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<h3 id="concat-浅拷贝"><a href="#concat-浅拷贝" class="headerlink" title="concat()浅拷贝"></a>concat()浅拷贝</h3><p>如果数组成员包括对象，<code>concat</code>方法返回当前数组的一个浅拷贝。<strong>所谓“浅拷贝”，指的是新数组拷贝的是对象的引用。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> oldArray = [obj];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newArray = oldArray.concat();</span><br><span class="line"></span><br><span class="line">obj.a = <span class="number">2</span>;</span><br><span class="line">newArray[<span class="number">0</span>].a <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，原数组包含一个对象，<code>concat</code>方法生成的新数组包含这个对象的引用。所以，<strong>改变原对象以后，新数组跟着改变。</strong></p>
+<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h2><p><strong><code>reverse</code>方法用于颠倒排列数组元素，返回改变后的数组。注意，该方法将改变原数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">a.reverse() <span class="comment">// ["c", "b", "a"]</span></span><br><span class="line">a <span class="comment">// ["c", "b", "a"]</span></span><br></pre></td></tr></table></figure>
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h2><p><strong><code>slice</code>方法用于提取目标数组的一部分，返回一个新数组，原数组不变。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.slice(start, end); <span class="comment">//包含起始位置不包含终止位置的元素</span></span><br></pre></td></tr></table></figure>
+<p><strong>它的第一个参数为起始位置（从0开始），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">a.slice(<span class="number">0</span>) <span class="comment">// ["a", "b", "c"]</span></span><br><span class="line">a.slice(<span class="number">1</span>) <span class="comment">// ["b", "c"]</span></span><br><span class="line">a.slice(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// ["b"]</span></span><br><span class="line">a.slice(<span class="number">2</span>, <span class="number">6</span>) <span class="comment">// ["c"]</span></span><br><span class="line">a.slice() <span class="comment">// ["a", "b", "c"]</span></span><br></pre></td></tr></table></figure>
+<p><u><strong>如果<code>slice</code>方法的参数是负数，则表示倒数计算的位置。</strong></u></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">a.slice(<span class="number">-2</span>) <span class="comment">// ["b", "c"]</span></span><br><span class="line">a.slice(<span class="number">-2</span>, <span class="number">-1</span>) <span class="comment">// ["b"]</span></span><br><span class="line">a.slice(<span class="number">-2</span>,<span class="number">2</span>)   <span class="comment">//["b"]</span></span><br></pre></td></tr></table></figure>
+<p><strong><u>如果第一个参数大于等于数组长度，或者第二个参数小于第一个参数，则返回空数组。</u></strong></p>
+<p><u><strong>slice()截取数组的方向只能从左到右不能从右到左，否则将会返回[]</strong></u></p>
+<h3 id="slice方法的一个重要应用"><a href="#slice方法的一个重要应用" class="headerlink" title="slice方法的一个重要应用"></a>slice方法的一个重要应用</h3><p><strong><code>slice</code>方法的一个重要应用，是将类似数组的对象转为真正的数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.slice.call(&#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="attr">length</span>: <span class="number">2</span> &#125;)</span><br><span class="line"><span class="comment">// ['a', 'b']</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>));</span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h2><p><strong><code>splice</code>方法用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。</strong>注意，该方法会改变原数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.splice(start, count, addElement1, addElement2, ...);</span><br></pre></td></tr></table></figure>
+<p><strong><code>splice</code>的第一个参数是删除的起始位置（从0开始），第二个参数是被删除的元素个数。</strong>如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br><span class="line">a.splice(<span class="number">4</span>, <span class="number">2</span>) <span class="comment">// ["e", "f"]</span></span><br><span class="line">a <span class="comment">// ["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure>
+<p><strong>起始位置如果是负数，就表示从倒数位置开始删除。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br><span class="line">a.splice(<span class="number">-4</span>, <span class="number">2</span>) <span class="comment">// ["c", "d"]</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果只是单纯地插入元素，<code>splice</code>方法的第二个参数可以设为<code>0</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">a.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>) <span class="comment">// []</span></span><br><span class="line">a <span class="comment">// [1, 2, 1, 1]</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果只提供第一个参数，等同于将原数组在指定位置拆分成两个数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">a.splice(<span class="number">2</span>) <span class="comment">// [3, 4]</span></span><br><span class="line">a <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h2><p><strong><code>sort</code>方法对数组成员进行排序，默认是按照字典顺序排序。排序后，原数组将被改变</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>].sort()</span><br><span class="line"><span class="comment">// ['a', 'b', 'c', 'd']</span></span><br><span class="line"></span><br><span class="line">[<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].sort()</span><br><span class="line"><span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">11</span>, <span class="number">101</span>].sort()</span><br><span class="line"><span class="comment">// [101, 11]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>].sort()</span><br><span class="line"><span class="comment">// [10111, 1101, 111]</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>sort</code>方法不是按照大小排序，而是按照字典顺序。也就是说，数值会被先转成字符串，再按照字典顺序进行比较，所以<code>101</code>排在<code>11</code>的前面。</strong></p>
+<h3 id="自定义sort-的排序方法"><a href="#自定义sort-的排序方法" class="headerlink" title="自定义sort()的排序方法"></a>自定义sort()的排序方法</h3><p>如果想让<code>sort</code>方法按照自定义方式排序，可以传入一个函数作为参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[10111, 1101, 111].sort(function (a, b) &#123;</span><br><span class="line">  return a - b;</span><br><span class="line">&#125;)</span><br><span class="line">// [111, 1101, 10111]</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<strong><code>sort</code>的参数函数本身接受两个参数，表示进行比较的两个数组成员。如果该函数的返回值大于<code>0</code>，表示第一个成员排在第二个成员后面；其他情况下，都是第一个元素排在第二个元素前面。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"张三"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"李四"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"王五"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125;</span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span> (<span class="params">o1, o2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> o1.age - o2.age;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#123; name: "李四", age: 24 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: "王五", age: 28  &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: "张三", age: 30 &#125;</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h2><p><strong><code>map</code>方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个<u>新数组</u>返回。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">numbers.map(<span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// [2, 3, 4]</span></span><br><span class="line"></span><br><span class="line">numbers</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>map</code>方法接受一个函数作为参数。该函数调用时，<code>map</code>方法向它传入三个参数：<u>当前成员</u>、<u>当前位置</u>和<u>数组本身</u>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params">elem, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elem * index;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// [0, 2, 6]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>map</code>方法的回调函数有三个参数，<code>elem</code>为当前成员的值，<code>index</code>为当前成员的位置，<code>arr</code>为原数组（<code>[1, 2, 3]</code>）。</p>
+<p><strong><code>map</code>方法还可以接受第二个参数，用来绑定回调函数内部的<code>this</code>变量（详见《this 变量》一章）</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>[e];</span><br><span class="line">&#125;, arr)</span><br><span class="line"><span class="comment">// ['b', 'c']</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果数组有空位，<code>map</code>方法的回调函数在这个位置不会执行，会跳过数组的空位()。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123; <span class="keyword">return</span> <span class="string">'a'</span> &#125;;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">2</span>].map(f) <span class="comment">// ["a", "a", "a"]</span></span><br><span class="line">[<span class="number">1</span>, <span class="literal">null</span>, <span class="number">2</span>].map(f) <span class="comment">// ["a", "a", "a"]</span></span><br><span class="line">[<span class="number">1</span>, , <span class="number">2</span>].map(f) <span class="comment">// ["a", , "a"]</span></span><br></pre></td></tr></table></figure>
+<p>如果数组有空位，<code>map</code>方法的回调函数在这个位置不会执行，会跳过数组的空位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123; <span class="keyword">return</span> <span class="string">'a'</span> &#125;;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">2</span>].map(f) <span class="comment">// ["a", "a", "a"]</span></span><br><span class="line">[<span class="number">1</span>, <span class="literal">null</span>, <span class="number">2</span>].map(f) <span class="comment">// ["a", "a", "a"]</span></span><br><span class="line">[<span class="number">1</span>, , <span class="number">2</span>].map(f) <span class="comment">// ["a", , "a"]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，map方法不会跳过undefined和null，但是会跳过<strong>空位。</strong></p>
+<h2 id="forEach-方法"><a href="#forEach-方法" class="headerlink" title="forEach()方法"></a>forEach()方法</h2><p><code>forEach</code>方法与<code>map</code>方法很相似，也是对数组的所有成员依次执行参数函数。但是，<code>forEach</code>方法不返回值，只用来操作数据。这<strong>就是说，如果数组遍历的目的是为了得到返回值，那么使用<code>map</code>方法，否则使用<code>forEach</code>方法。</strong></p>
+<p><strong><code>forEach</code>的用法与<code>map</code>方法一致，参数是一个函数，该函数同样接受三个参数：当前值、当前位置、整个数组。forEach方法不会改变原数组</strong></p>
+<p><strong>forEach方法也可以接受第二个参数，绑定参数函数的this变量。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> out = [];</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.push(elem * elem);</span><br><span class="line">&#125;, out);</span><br><span class="line"></span><br><span class="line">out <span class="comment">// [1, 4, 9]</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码中，空数组<code>out</code>是<code>forEach</code>方法的第二个参数，结果，回调函数内部的<code>this</code>关键字就指向<code>out</code>。</strong></p>
+<p>，<strong><code>forEach</code>方法无法中断执行，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用<code>for</code>循环</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (arr[i] === <span class="number">2</span>) <span class="keyword">break</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，执行到数组的第二个成员时，就会中断执行。<code>forEach</code>方法做不到这一点。</p>
+<p><code>forEach</code>方法也会跳过数组的空位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(n + <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">2</span>].forEach(log)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="literal">null</span>, <span class="number">2</span>].forEach(log)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, , <span class="number">2</span>].forEach(log)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中<strong>，<code>forEach</code>方法不会跳过<code>undefined</code>和<code>null</code>，但会跳过空位。</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-13T13:24:24.518Z" itemprop="dateUpdated">2019-06-13 21:24:24</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/13/JS学习之Array对象的实例方法1/" target="_blank" rel="external">http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array对象的实例方法/">Array对象的实例方法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/&title=《JS学习之Array对象的实例方法1》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/&title=《JS学习之Array对象的实例方法1》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Array对象的实例方法1》 — HeJL&url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/13/JS学习之Array对象的实例方法2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS学习之Array对象的实例方法2</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/13/JS学习之Array对象/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之Array对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/&title=《JS学习之Array对象的实例方法1》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/&title=《JS学习之Array对象的实例方法1》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Array对象的实例方法1》 — HeJL&url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法1/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

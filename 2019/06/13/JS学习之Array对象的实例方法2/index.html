@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之Array对象的实例方法2 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="接上Array对象的实例方法1">
+    <meta name="description" content="filter()filter方法用于过滤数组成员，满足条件的成员组成一个新数组返回。 它的参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。 1234[1, 2, 3, 4, 5].filter(function (elem) &amp;#123;  return (elem &amp;gt; 3);&amp;#125;)// [4, 5] 1234var ar">
+<meta name="keywords" content="接上Array对象的实例方法1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之Array对象的实例方法2">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="filter()filter方法用于过滤数组成员，满足条件的成员组成一个新数组返回。 它的参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。 1234[1, 2, 3, 4, 5].filter(function (elem) &amp;#123;  return (elem &amp;gt; 3);&amp;#125;)// [4, 5] 1234var ar">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-14T02:39:15.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之Array对象的实例方法2">
+<meta name="twitter:description" content="filter()filter方法用于过滤数组成员，满足条件的成员组成一个新数组返回。 它的参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。 1234[1, 2, 3, 4, 5].filter(function (elem) &amp;#123;  return (elem &amp;gt; 3);&amp;#125;)// [4, 5] 1234var ar">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之Array对象的实例方法2</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之Array对象的实例方法2</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-13T13:26:46.000Z" itemprop="datePublished" class="page-time">
+  2019-06-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#filter"><span class="post-toc-number">1.</span> <span class="post-toc-text">filter()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#some-every"><span class="post-toc-number">2.</span> <span class="post-toc-text">some(),every()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#reduce-reduceRight"><span class="post-toc-number">3.</span> <span class="post-toc-text">reduce(),reduceRight()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#indexOf-lastIndexOf"><span class="post-toc-number">4.</span> <span class="post-toc-text">indexOf(),lastIndexOf()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链式使用"><span class="post-toc-number">5.</span> <span class="post-toc-text">链式使用</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之Array对象的实例方法2" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之Array对象的实例方法2</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-13 21:26:46" datetime="2019-06-13T13:26:46.000Z" itemprop="datePublished">2019-06-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h2><p><strong><code>filter</code>方法用于过滤数组成员，满足条件的成员组成一个新数组返回。</strong></p>
+<p>它的<strong>参数是一个函数</strong>，所有数组成员依次执行该函数，返回<strong>结果为<code>true</code>的成员组成一个新数组返回</strong>。<strong>该方法不会改变原数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].filter(<span class="function"><span class="keyword">function</span> (<span class="params">elem</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (elem &gt; <span class="number">3</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [4, 5]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="string">'a'</span>, <span class="literal">false</span>];</span><br><span class="line"></span><br><span class="line">arr.filter(<span class="built_in">Boolean</span>)</span><br><span class="line"><span class="comment">// [1, "a"]</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>filter</code>方法返回数组<code>arr</code>里面所有布尔值为<code>true</code>的成员。</strong></p>
+<p><code>filter</code>方法的参数函数可以接受三个参数：<strong>当前成员，当前位置和整个数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].filter(<span class="function"><span class="keyword">function</span> (<span class="params">elem, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> index % <span class="number">2</span> === <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// [1, 3, 5]</span></span><br></pre></td></tr></table></figure>
+<p><code>filter</code>方法还可以接受第二个参数，用来绑定参数函数内部的<code>this</code>变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">MAX</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> myFilter = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (item &gt; <span class="keyword">this</span>.MAX) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">9</span>];</span><br><span class="line">arr.filter(myFilter, obj) <span class="comment">// [8, 4, 9]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，过滤器<code>myFilter</code>内部有<code>this</code>变量，它可以被<code>filter</code>方法的第二个参数<code>obj</code>绑定，返回大于<code>3</code>的成员。</p>
+<h2 id="some-every"><a href="#some-every" class="headerlink" title="some(),every()"></a>some(),every()</h2><p>这两个方法类似“断言”（assert），<strong>返回一个布尔值，表示判断数组成员是否符合某种条件</strong>。</p>
+<p><strong>它们接受一个函数作为参数，所有数组成员依次执行该函数。该函数接受三个参数：<u>当前成员</u>、<u>当前位置</u>和<u>整个数组</u>，然后返回一个布尔值。</strong></p>
+<p><strong><code>some</code>方法是只要一个成员的返回值是<code>true</code>，则整个<code>some</code>方法的返回值就是<code>true</code>，</strong>否则返回<code>false</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr.some(<span class="function"><span class="keyword">function</span> (<span class="params">elem, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elem &gt;= <span class="number">3</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果数组<code>arr</code>有一个成员大于等于3，<code>some</code>方法就返回<code>true</code>。</p>
+<p><strong><code>every</code>方法是所有成员的返回值都是<code>true</code>，整个<code>every</code>方法才返回<code>true</code>，否则返回<code>false</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr.every(<span class="function"><span class="keyword">function</span> (<span class="params">elem, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elem &gt;= <span class="number">3</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>注意，<strong>对于空数组，<code>some</code>方法返回<code>false</code>，<code>every</code>方法返回<code>true</code>，回调函数都不会执行。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEven</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x % <span class="number">2</span> === <span class="number">0</span> &#125;</span><br><span class="line"></span><br><span class="line">[].some(isEven) <span class="comment">// false</span></span><br><span class="line">[].every(isEven) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><code>some</code>和<code>every</code>方法还可以接受第二个参数，用来绑定参数函数内部的<code>this</code>变量。</p>
+<h2 id="reduce-reduceRight"><a href="#reduce-reduceRight" class="headerlink" title="reduce(),reduceRight()"></a>reduce(),reduceRight()</h2><p><strong><code>reduce</code>方法和<code>reduceRight</code>方法依次处理数组的每个成员，最终累计为一个值。它们的差别是，<code>reduce</code>是从左到右处理（从第一个成员到最后一个成员），<code>reduceRight</code>则是从右到左（从最后一个成员到第一个成员）</strong>，其他完全一样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b);</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 1 2</span></span><br><span class="line"><span class="comment">// 3 3</span></span><br><span class="line"><span class="comment">// 6 4</span></span><br><span class="line"><span class="comment">// 10 5</span></span><br><span class="line"><span class="comment">//最后结果：15</span></span><br></pre></td></tr></table></figure>
+<p><code>reduce</code>方法和<code>reduceRight</code>方法的第一个参数都是一个函数。该函数接受以下四个参数。</p>
+<ol>
+<li>累积变量，默认为数组的第一个成员</li>
+<li>当前变量，默认为数组的第二个成员</li>
+<li>当前位置（从0开始）</li>
+<li>原数组</li>
+</ol>
+<p>这四个参数之中，<u>只有前两个是必须的，后两个则是可选的。</u></p>
+<p><u>如果要对累积变量指定初值，可以把它放在<code>reduce</code>方法和<code>reduceRight</code>方法的第二个参数。</u></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;, <span class="number">10</span>);</span><br><span class="line"><span class="comment">// 25</span></span><br></pre></td></tr></table></figure>
+<p>上面代码指定参数<code>a</code>的初值为10，<strong>所以数组从10开始累加，最终结果为25。注意，这时<code>b</code>是从数组的第一个成员开始遍历。</strong></p>
+<p>上面的第二个参数相当于设定了默认值，处理空数组时尤其有用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">prev, cur</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[].reduce(add)</span><br><span class="line"><span class="comment">// TypeError: Reduce of empty array with no initial value</span></span><br><span class="line">[].reduce(add, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>下面是一个<code>reduceRight</code>方法的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">substract</span>(<span class="params">prev, cur</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> prev - cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].reduce(substract) <span class="comment">// 0</span></span><br><span class="line">[<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].reduceRight(substract) <span class="comment">// -4</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>reduce</code>方法相当于<code>3</code>减去<code>2</code>再减去<code>1</code>，<code>reduceRight</code>方法相当于<code>1</code>减去<code>2</code>再减去<code>3</code>。</p>
+<p>由于这两个方法会遍历数组，所以实际上还可以用来做一些遍历相关的操作。比如，找出字符长度最长的数组成员。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongest</span>(<span class="params">entries</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> entries.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">longest, entry</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> entry.length &gt; longest.length ? entry : longest;</span><br><span class="line">  &#125;, <span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findLongest([<span class="string">'aaa'</span>, <span class="string">'bb'</span>, <span class="string">'c'</span>]) <span class="comment">// "aaa"</span></span><br></pre></td></tr></table></figure>
+<h2 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf(),lastIndexOf()"></a>indexOf(),lastIndexOf()</h2><p><strong><code>indexOf</code>方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回<code>-1</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">a.indexOf(<span class="string">'b'</span>) <span class="comment">// 1</span></span><br><span class="line">a.indexOf(<span class="string">'y'</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>indexOf</code>方法还可以接受第二个参数，表示搜索的开始位置。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].indexOf(<span class="string">'a'</span>, <span class="number">1</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>lastIndexOf</code>方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回<code>-1</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>];</span><br><span class="line">a.lastIndexOf(<span class="number">2</span>) <span class="comment">// 3</span></span><br><span class="line">a.lastIndexOf(<span class="number">7</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p><strong><u>注意，这两个方法不能用来搜索NaN的位置，即它们无法确定数组成员是否包含NaN。</u></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">NaN</span>].indexOf(<span class="literal">NaN</span>) <span class="comment">// -1</span></span><br><span class="line">[<span class="literal">NaN</span>].lastIndexOf(<span class="literal">NaN</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p><strong>这是因为这两个方法内部，使用严格相等运算符（<code>===</code>）进行比较，而<code>NaN</code>是唯一一个不等于自身的值。</strong></p>
+<h2 id="链式使用"><a href="#链式使用" class="headerlink" title="链式使用"></a>链式使用</h2><p><strong>上面这些数组方法之中，有不少返回的还是数组，所以可以链式使用。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> users = [</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'tom'</span>, <span class="attr">email</span>: <span class="string">'tom@example.com'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'peter'</span>, <span class="attr">email</span>: <span class="string">'peter@example.com'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">users</span><br><span class="line">.map(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> user.email;</span><br><span class="line">&#125;)</span><br><span class="line">.filter(<span class="function"><span class="keyword">function</span> (<span class="params">email</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^t/</span>.test(email);</span><br><span class="line">&#125;)</span><br><span class="line">.forEach(<span class="built_in">console</span>.log);</span><br><span class="line"><span class="comment">// "tom@example.com"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，先产生一个所有 Email 地址组成的数组，然后再过滤出以<code>t</code>开头的 Email 地址。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-14T02:39:15.488Z" itemprop="dateUpdated">2019-06-14 10:39:15</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/13/JS学习之Array对象的实例方法2/" target="_blank" rel="external">http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/接上Array对象的实例方法1/">接上Array对象的实例方法1</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/&title=《JS学习之Array对象的实例方法2》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/&title=《JS学习之Array对象的实例方法2》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Array对象的实例方法2》 — HeJL&url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/13/JS学习之Array对象的实例方法1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之Array对象的实例方法1</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/&title=《JS学习之Array对象的实例方法2》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/&title=《JS学习之Array对象的实例方法2》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Array对象的实例方法2》 — HeJL&url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/13/JS学习之Array对象的实例方法2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
