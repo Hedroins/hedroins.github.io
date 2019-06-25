@@ -28,15 +28,18 @@
     
     
     <meta name="keywords" content>
-    <meta name="keywords" content="Myblog">
+    <meta name="description" content="GROUP BY 语句GROUP BY 语句用于结合合计函数，根据一个或多个列对结果集进行分组。 SQL GROUP BY 语法1234SELECT column_name, aggregate_function(column_name)FROM table_nameWHERE column_name operator valueGROUP BY column_name SQL GROUP BY">
+<meta name="keywords" content="Myblog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL函数3">
 <meta property="og:url" content="http://hedroins.github.io/2019/06/19/SQL函数3/index.html">
 <meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="GROUP BY 语句GROUP BY 语句用于结合合计函数，根据一个或多个列对结果集进行分组。 SQL GROUP BY 语法1234SELECT column_name, aggregate_function(column_name)FROM table_nameWHERE column_name operator valueGROUP BY column_name SQL GROUP BY">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-19T03:06:12.002Z">
+<meta property="og:updated_time" content="2019-06-25T10:48:14.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL函数3">
+<meta name="twitter:description" content="GROUP BY 语句GROUP BY 语句用于结合合计函数，根据一个或多个列对结果集进行分组。 SQL GROUP BY 语法1234SELECT column_name, aggregate_function(column_name)FROM table_nameWHERE column_name operator valueGROUP BY column_name SQL GROUP BY">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -171,6 +174,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GROUP-BY-语句"><span class="post-toc-number">1.</span> <span class="post-toc-text">GROUP BY 语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-GROUP-BY-语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">SQL GROUP BY 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-GROUP-BY-实例"><span class="post-toc-number">2.</span> <span class="post-toc-text">SQL GROUP BY 实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GROUP-BY-一个以上的列"><span class="post-toc-number">3.</span> <span class="post-toc-text">GROUP BY 一个以上的列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HAVING-子句"><span class="post-toc-number">4.</span> <span class="post-toc-text">HAVING 子句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-HAVING-语法"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">SQL HAVING 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-HAVING-实例"><span class="post-toc-number">5.</span> <span class="post-toc-text">SQL HAVING 实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-UCASE-语法"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">SQL UCASE() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LCASE-函数"><span class="post-toc-number">6.</span> <span class="post-toc-text">LCASE() 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-LCASE-语法"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">SQL LCASE() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MID-函数"><span class="post-toc-number">7.</span> <span class="post-toc-text">MID() 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-MID-语法"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">SQL MID() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LEN-函数"><span class="post-toc-number">8.</span> <span class="post-toc-text">LEN() 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-LEN-语法"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">SQL LEN() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ROUND-函数"><span class="post-toc-number">9.</span> <span class="post-toc-text">ROUND() 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-ROUND-语法"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">SQL ROUND() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NOW-函数"><span class="post-toc-number">10.</span> <span class="post-toc-text">NOW() 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-NOW-语法"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">SQL NOW() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-NOW-实例"><span class="post-toc-number">11.</span> <span class="post-toc-text">SQL NOW() 实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FORMAT-函数"><span class="post-toc-number">12.</span> <span class="post-toc-text">FORMAT() 函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-FORMAT-语法"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">SQL FORMAT() 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-FORMAT-实例"><span class="post-toc-number">13.</span> <span class="post-toc-text">SQL FORMAT() 实例</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-SQL函数3" class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -190,7 +200,594 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h2 id="GROUP-BY-语句"><a href="#GROUP-BY-语句" class="headerlink" title="GROUP BY 语句"></a>GROUP BY 语句</h2><p>GROUP BY 语句用于结合合计函数，根据一个或多个列对结果集进行分组。</p>
+<h3 id="SQL-GROUP-BY-语法"><a href="#SQL-GROUP-BY-语法" class="headerlink" title="SQL GROUP BY 语法"></a>SQL GROUP BY 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name, aggregate_function(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">operator</span> <span class="keyword">value</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name</span><br></pre></td></tr></table></figure>
+<h2 id="SQL-GROUP-BY-实例"><a href="#SQL-GROUP-BY-实例" class="headerlink" title="SQL GROUP BY 实例"></a>SQL GROUP BY 实例</h2><p>我们拥有下面这个 “Orders” 表：</p>
+<table>
+<thead>
+<tr>
+<th>O_Id</th>
+<th>OrderDate</th>
+<th>OrderPrice</th>
+<th>Customer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2008/12/29</td>
+<td>1000</td>
+<td>Bush</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2008/11/23</td>
+<td>1600</td>
+<td>Carter</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2008/10/05</td>
+<td>700</td>
+<td>Bush</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2008/09/28</td>
+<td>300</td>
+<td>Bush</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2008/08/06</td>
+<td>2000</td>
+<td>Adams</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2008/07/21</td>
+<td>100</td>
+<td>Carter</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望查找每个客户的总金额（总订单）。</p>
+<p>我们想要使用 GROUP BY 语句对客户进行组合。</p>
+<p>我们使用下列 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>Customer</th>
+<th>SUM(OrderPrice)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bush</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>Carter</td>
+<td>1700</td>
+</tr>
+<tr>
+<td>Adams</td>
+<td>2000</td>
+</tr>
+</tbody>
+</table>
+<p>很棒吧，对不对？</p>
+<p>让我们看一下如果省略 GROUP BY 会出现什么情况：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>Customer</th>
+<th>SUM(OrderPrice)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bush</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Carter</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Bush</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Bush</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Adams</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Carter</td>
+<td>5700</td>
+</tr>
+</tbody>
+</table>
+<p>上面的结果集不是我们需要的。</p>
+<p>那么为什么不能使用上面这条 SELECT 语句呢？解释如下：上面的 SELECT 语句指定了两列（Customer 和 SUM(OrderPrice)）。”SUM(OrderPrice)” 返回一个单独的值（”OrderPrice” 列的总计），而 “Customer” 返回 6 个值（每个值对应 “Orders” 表中的每一行）。因此，我们得不到正确的结果。不过，您已经看到了，GROUP BY 语句解决了这个问题。</p>
+<h2 id="GROUP-BY-一个以上的列"><a href="#GROUP-BY-一个以上的列" class="headerlink" title="GROUP BY 一个以上的列"></a>GROUP BY 一个以上的列</h2><p>我们也可以对一个以上的列应用 GROUP BY 语句，就像这样：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,OrderDate,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer,OrderDate</span><br></pre></td></tr></table></figure>
+<h2 id="HAVING-子句"><a href="#HAVING-子句" class="headerlink" title="HAVING 子句"></a>HAVING 子句</h2><p>在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。</p>
+<h3 id="SQL-HAVING-语法"><a href="#SQL-HAVING-语法" class="headerlink" title="SQL HAVING 语法"></a>SQL HAVING 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name, aggregate_function(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">operator</span> <span class="keyword">value</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name</span><br><span class="line"><span class="keyword">HAVING</span> aggregate_function(column_name) <span class="keyword">operator</span> <span class="keyword">value</span></span><br></pre></td></tr></table></figure>
+<h2 id="SQL-HAVING-实例"><a href="#SQL-HAVING-实例" class="headerlink" title="SQL HAVING 实例"></a>SQL HAVING 实例</h2><p>我们拥有下面这个 “Orders” 表：</p>
+<table>
+<thead>
+<tr>
+<th>O_Id</th>
+<th>OrderDate</th>
+<th>OrderPrice</th>
+<th>Customer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2008/12/29</td>
+<td>1000</td>
+<td>Bush</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2008/11/23</td>
+<td>1600</td>
+<td>Carter</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2008/10/05</td>
+<td>700</td>
+<td>Bush</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2008/09/28</td>
+<td>300</td>
+<td>Bush</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2008/08/06</td>
+<td>2000</td>
+<td>Adams</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2008/07/21</td>
+<td>100</td>
+<td>Carter</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望查找订单总金额少于 2000 的客户。</p>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&lt;<span class="number">2000</span></span><br></pre></td></tr></table></figure>
+<p>结果集类似：</p>
+<table>
+<thead>
+<tr>
+<th>Customer</th>
+<th>SUM(OrderPrice)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carter</td>
+<td>1700</td>
+</tr>
+</tbody>
+</table>
+<p>现在我们希望查找客户 “Bush” 或 “Adams” 拥有超过 1500 的订单总金额。</p>
+<p>我们在 SQL 语句中增加了一个普通的 WHERE 子句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">WHERE</span> Customer=<span class="string">'Bush'</span> <span class="keyword">OR</span> Customer=<span class="string">'Adams'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&gt;<span class="number">1500</span></span><br></pre></td></tr></table></figure>
+<p>结果集：</p>
+<table>
+<thead>
+<tr>
+<th>Customer</th>
+<th>SUM(OrderPrice)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bush</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>Adams</td>
+<td>2000SE() 函数</td>
+</tr>
+</tbody>
+</table>
+<p>UCASE 函数把字段的值转换为大写。</p>
+<h3 id="SQL-UCASE-语法"><a href="#SQL-UCASE-语法" class="headerlink" title="SQL UCASE() 语法"></a>SQL UCASE() 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UCASE</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UCASE</span>(LastName) <span class="keyword">as</span> LastName,FirstName <span class="keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>LastName</th>
+<th>FirstName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADAMS</td>
+<td>John</td>
+</tr>
+<tr>
+<td>BUSH</td>
+<td>George</td>
+</tr>
+<tr>
+<td>CARTER</td>
+<td>Thomas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="LCASE-函数"><a href="#LCASE-函数" class="headerlink" title="LCASE() 函数"></a>LCASE() 函数</h2><p>LCASE 函数把字段的值转换为小写。</p>
+<h3 id="SQL-LCASE-语法"><a href="#SQL-LCASE-语法" class="headerlink" title="SQL LCASE() 语法"></a>SQL LCASE() 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LCASE</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LCASE</span>(LastName) <span class="keyword">as</span> LastName,FirstName <span class="keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>LastName</th>
+<th>FirstName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adams</td>
+<td>John</td>
+</tr>
+<tr>
+<td>bush</td>
+<td>George</td>
+</tr>
+<tr>
+<td>carter</td>
+<td>Thomas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MID-函数"><a href="#MID-函数" class="headerlink" title="MID() 函数"></a>MID() 函数</h2><p>MID 函数用于从文本字段中提取字符。</p>
+<h3 id="SQL-MID-语法"><a href="#SQL-MID-语法" class="headerlink" title="SQL MID() 语法"></a>SQL MID() 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MID</span>(column_name,<span class="keyword">start</span>[,<span class="keyword">length</span>]) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<p>我们拥有下面这个 “Persons” 表：</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>LastName</th>
+<th>FirstName</th>
+<th>Address</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Adams</td>
+<td>John</td>
+<td>Oxford Street</td>
+<td>London</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bush</td>
+<td>George</td>
+<td>Fifth Avenue</td>
+<td>New York</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carter</td>
+<td>Thomas</td>
+<td>Changan Street</td>
+<td>Beijing</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望从 “City” 列中提取前 3 个字符。</p>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MID</span>(City,<span class="number">1</span>,<span class="number">3</span>) <span class="keyword">as</span> SmallCity <span class="keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>SmallCity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lon</td>
+</tr>
+<tr>
+<td>New</td>
+</tr>
+<tr>
+<td>Bei</td>
+</tr>
+</tbody>
+</table>
+<h2 id="LEN-函数"><a href="#LEN-函数" class="headerlink" title="LEN() 函数"></a>LEN() 函数</h2><p>LEN 函数返回文本字段中值的长度。</p>
+<h3 id="SQL-LEN-语法"><a href="#SQL-LEN-语法" class="headerlink" title="SQL LEN() 语法"></a>SQL LEN() 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEN</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<p>我们拥有下面这个 “Persons” 表：</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>LastName</th>
+<th>FirstName</th>
+<th>Address</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Adams</td>
+<td>John</td>
+<td>Oxford Street</td>
+<td>London</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bush</td>
+<td>George</td>
+<td>Fifth Avenue</td>
+<td>New York</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carter</td>
+<td>Thomas</td>
+<td>Changan Street</td>
+<td>Beijing</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望取得 “City” 列中值的长度。</p>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEN</span>(City) <span class="keyword">as</span> LengthOfCity <span class="keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>LengthOfCity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+</tr>
+<tr>
+<td>8</td>
+</tr>
+<tr>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ROUND-函数"><a href="#ROUND-函数" class="headerlink" title="ROUND() 函数"></a>ROUND() 函数</h2><p>ROUND 函数用于把数值字段舍入为指定的小数位数。</p>
+<h3 id="SQL-ROUND-语法"><a href="#SQL-ROUND-语法" class="headerlink" title="SQL ROUND() 语法"></a>SQL ROUND() 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ROUND</span>(column_name,decimals) <span class="keyword">FROM</span> table_nam</span><br></pre></td></tr></table></figure>
+<p>参数描述column_name必需。要舍入的字段。decimals必需。规定要返回的小数位数。</p>
+<p>我们拥有下面这个 “Products” 表：</p>
+<table>
+<thead>
+<tr>
+<th>Prod_Id</th>
+<th>ProductName</th>
+<th>Unit</th>
+<th>UnitPrice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>gold</td>
+<td>1000 g</td>
+<td>32.35</td>
+</tr>
+<tr>
+<td>2</td>
+<td>silver</td>
+<td>1000 g</td>
+<td>11.56</td>
+</tr>
+<tr>
+<td>3</td>
+<td>copper</td>
+<td>1000 g</td>
+<td>6.85</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望把名称和价格舍入为最接近的整数。</p>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName, <span class="keyword">ROUND</span>(UnitPrice,<span class="number">0</span>) <span class="keyword">as</span> UnitPrice <span class="keyword">FROM</span> Products</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>ProductName</th>
+<th>UnitPrice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gold</td>
+<td>32</td>
+</tr>
+<tr>
+<td>silver</td>
+<td>12</td>
+</tr>
+<tr>
+<td>copper</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="NOW-函数"><a href="#NOW-函数" class="headerlink" title="NOW() 函数"></a>NOW() 函数</h2><p>NOW 函数返回当前的日期和时间。</p>
+<p>提示：如果您在使用 Sql Server 数据库，请使用 getdate() 函数来获得当前的日期时间。</p>
+<h3 id="SQL-NOW-语法"><a href="#SQL-NOW-语法" class="headerlink" title="SQL NOW() 语法"></a>SQL NOW() 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NOW</span>() <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<h2 id="SQL-NOW-实例"><a href="#SQL-NOW-实例" class="headerlink" title="SQL NOW() 实例"></a>SQL NOW() 实例</h2><p>我们拥有下面这个 “Products” 表：</p>
+<table>
+<thead>
+<tr>
+<th>Prod_Id</th>
+<th>ProductName</th>
+<th>Unit</th>
+<th>UnitPrice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>gold</td>
+<td>1000 g</td>
+<td>32.35</td>
+</tr>
+<tr>
+<td>2</td>
+<td>silver</td>
+<td>1000 g</td>
+<td>11.56</td>
+</tr>
+<tr>
+<td>3</td>
+<td>copper</td>
+<td>1000 g</td>
+<td>6.85</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望显示当天的日期所对应的名称和价格。</p>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName, UnitPrice, <span class="keyword">Now</span>() <span class="keyword">as</span> PerDate <span class="keyword">FROM</span> Products</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>ProductName</th>
+<th>UnitPrice</th>
+<th>PerDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gold</td>
+<td>32.35</td>
+<td>12/29/2008 11:36:05 AM</td>
+</tr>
+<tr>
+<td>silver</td>
+<td>11.56</td>
+<td>12/29/2008 11:36:05 AM</td>
+</tr>
+<tr>
+<td>copper</td>
+<td>6.85</td>
+<td>12/29/2008 11:36:05 AM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="FORMAT-函数"><a href="#FORMAT-函数" class="headerlink" title="FORMAT() 函数"></a>FORMAT() 函数</h2><p>FORMAT 函数用于对字段的显示进行格式化。</p>
+<h3 id="SQL-FORMAT-语法"><a href="#SQL-FORMAT-语法" class="headerlink" title="SQL FORMAT() 语法"></a>SQL FORMAT() 语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT FORMAT(column_name,format) FROM table_name</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column_name</td>
+<td>必需。要格式化的字段。</td>
+</tr>
+<tr>
+<td>format</td>
+<td>必需。规定格式。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SQL-FORMAT-实例"><a href="#SQL-FORMAT-实例" class="headerlink" title="SQL FORMAT() 实例"></a>SQL FORMAT() 实例</h2><p>我们拥有下面这个 “Products” 表：</p>
+<table>
+<thead>
+<tr>
+<th>Prod_Id</th>
+<th>ProductName</th>
+<th>Unit</th>
+<th>UnitPrice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>gold</td>
+<td>1000 g</td>
+<td>32.35</td>
+</tr>
+<tr>
+<td>2</td>
+<td>silver</td>
+<td>1000 g</td>
+<td>11.56</td>
+</tr>
+<tr>
+<td>3</td>
+<td>copper</td>
+<td>1000 g</td>
+<td>6.85</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们希望显示每天日期所对应的名称和价格（日期的显示格式是 “YYYY-MM-DD”）。</p>
+<p>我们使用如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName, UnitPrice, <span class="keyword">FORMAT</span>(<span class="keyword">Now</span>(),<span class="string">'YYYY-MM-DD'</span>) <span class="keyword">as</span> PerDate</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>ProductName</th>
+<th>UnitPrice</th>
+<th>PerDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gold</td>
+<td>32.35</td>
+<td>12/29/2008</td>
+</tr>
+<tr>
+<td>silver</td>
+<td>11.56</td>
+<td>12/29/2008</td>
+</tr>
+<tr>
+<td>copper</td>
+<td>6.85</td>
+<td>12/29/2008</td>
+</tr>
+</tbody>
+</table>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -198,7 +795,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-19T03:06:12.002Z" itemprop="dateUpdated">2019-06-19 11:06:12</time>
+    最后更新时间：<time datetime="2019-06-25T10:48:14.341Z" itemprop="dateUpdated">2019-06-25 18:48:14</time>
 </span><br>
 
 
@@ -277,14 +874,7 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/06/25/SQL函数4/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">SQL函数4</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
