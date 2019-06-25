@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="HeJL">
 <meta property="og:description" content="java基础部分1 、一个”.java” 源文件中是否可以包括多个类（不是内部类）？有什么限制？    答：可以有多个类，但只能有一个 public 的类，并且 public 的类名必须与文件名相一致 2、java中”&amp;amp;&amp;amp;”和”&amp;amp;”的区别？ 答：相同点：都表示与操作，只有两边都为true结果才为true，有一方为false,结果就为false。 ​        不同点：”">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-04T09:26:48.306Z">
+<meta property="og:updated_time" content="2019-06-19T14:42:40.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java面试题型总结">
 <meta name="twitter:description" content="java基础部分1 、一个”.java” 源文件中是否可以包括多个类（不是内部类）？有什么限制？    答：可以有多个类，但只能有一个 public 的类，并且 public 的类名必须与文件名相一致 2、java中”&amp;amp;&amp;amp;”和”&amp;amp;”的区别？ 答：相同点：都表示与操作，只有两边都为true结果才为true，有一方为false,结果就为false。 ​        不同点：”">
@@ -177,7 +177,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#java基础部分"><span class="post-toc-number">1.</span> <span class="post-toc-text">java基础部分</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#java基础部分"><span class="post-toc-number">1.</span> <span class="post-toc-text">java基础部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#在方法体内部定义的内部类："><span class="post-toc-number">1.0.0.0.1.</span> <span class="post-toc-text">在方法体内部定义的内部类：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#在方法体内部定义的内部类：-1"><span class="post-toc-number">1.0.0.0.2.</span> <span class="post-toc-text">在方法体内部定义的内部类：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Static-Nested-Class"><span class="post-toc-number">1.0.0.0.3.</span> <span class="post-toc-text">Static Nested Class:</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -220,6 +220,30 @@
 <p><strong>答：因为将一个数左移 n 位，就相当于乘以了2的 n 次方，那么，一个数乘以8只要将其左移3位</strong><br><strong>即可，而位运算 cpu 直接支持的，效率最高，所以，2乘以8等於几的最效率的方法是2 &lt;&lt; 3。</strong></p>
 <p>8 、使用 final 关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？</p>
 <p>答：<strong>使用 final 关键字修饰一个变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的。例如，对于如下语句：final StringBuffer a=new StringBuffer(“immutable”);执行如下语句将报告编译期错误：</strong><br><strong>a=new StringBuffer(“”);但是，执行如下语句则可以通过编译：a.append(“ broken!”);</strong></p>
+<p>9.如果一个类没有自定义equals方法则，它默认继承Object对象的equals方法，此时“==”和equals的效果是一样的。</p>
+<p>10、静态变量和实例变量的区别是，在语法定义上，静态变量要加static关键字而实例变量不需要加。在程序运行时，实例变量属于某个对象，必须先创建了实例对象，实例变量才会被分配空间。静态变量不属于任何一个实例对象，它属于类所以又叫类变量。只要程序加载类的字节码，静态变量就会被分配空间。</p>
+<p>11、1.<strong>内部类就是定义在内部定义的类，内部类中不能定义静态成员。</strong></p>
+<p>​         2.内部类可以直接访问外部类中的成员变量。</p>
+<p>​          3.内部类可以定义在外部类的方法外面，也可以定义在外部类的方法里面</p>
+<h5 id="在方法体内部定义的内部类："><a href="#在方法体内部定义的内部类：" class="headerlink" title="在方法体内部定义的内部类："></a>在方法体内部定义的内部类：</h5><p>​          4.在方法体外面定义的内部类的访问类型可以是4种（类似于在类中定义成员变量4种访问类型)</p>
+<p>​          <strong>5.在方法外部定义的内部类的4种访问访问类型决定它对其他类的可见性，如果在外面要定    义内部类的实例对象，需要先创建外部类的实例对象，然后用这个外部类实例对象去创建内部类的实例对象。Outer outer = new Outer(); Outer.Inner1 inner1 = outer.new Innner1();   </strong></p>
+<h5 id="在方法体内部定义的内部类：-1"><a href="#在方法体内部定义的内部类：-1" class="headerlink" title="在方法体内部定义的内部类："></a>在方法体内部定义的内部类：</h5><p>​           6.在方法体内部定义的内部类前面不能有访问类型修饰符（就好像方法中定义局部变量一样，但可以使用final和abstract修饰符。</p>
+<p>​           7.这种内部类对其他类是不可见的其他类无法引用，这种内部类可以访问方法体中的加final局部变量。</p>
+<p>​     </p>
+<h5 id="Static-Nested-Class"><a href="#Static-Nested-Class" class="headerlink" title="Static Nested Class:"></a>Static Nested Class:</h5><p>​            8.在方法外部定义的内部类前面加上Static关键字，从而成为Static  Nested Class  它不再具有内部类的特性。</p>
+<p>​           9.Static Nested Class 可以被定义成Public,protected,不写，private四种类型。而普通类只能被定义成public, friendly类型</p>
+<p>​         10.引用Static Nested Class 类的名称为“外部类名.内部类名”。假设 Inner 是定义在 Outer 类中的 Static Nested Class，那么可以使用如下语句创建 Inner 类： Outer.Inner inner = newOuter.Inner(); </p>
+<p>​           11.<strong>由于 static Nested Class 不依赖于外部类的实例对象，所以，static Nested Class能访问 外部类的非 static成员变量(不能直接访问，需要创建外部类实例才能访问非静态变量)。</strong></p>
+<p>​            12.在外部类中访问Static Nested Class 时，可以直接使用 Static Nested Class 的名字，而不 需要加上外部类的名字了，在 Static Nested Class 中也可以直接引用外部类的 static 的成员 变量，不需要加上外部类的名字。 </p>
+<p>​            13.<strong>在静态方法中定义的内部类也是Static Nested  Class , 这时候不能在类的前面加static关键字，静态方法中的Static Nested Class  可以 直接访问外部类中的 static 的成员变量，还可以访问静态方法中的局部变量，但是，该局部 变量前必须加 final 修饰符。</strong></p>
+<p>12.内部类可以引用外部类的成员变量，<strong>但如果是静态内部类的只能引用外部类的静态成员变量。</strong></p>
+<p>13、匿名内部类可以通过继承其他类，或者可以通过实现接口来实现。</p>
+<p>14.下面程序的输出结果是多少？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">Date</span></span>&#123;    </span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;   </span><br><span class="line"></span><br><span class="line">     <span class="keyword">new</span> Test().test();   </span><br><span class="line"></span><br><span class="line">  &#125;        </span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123; </span><br><span class="line"></span><br><span class="line">System.out.println(<span class="keyword">super</span>.getClass().getName()); </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是:Test</p>
+<p>15.String不是最基本的数据类型，基本数据类型有8个，<strong>byte,int,char,boolean,long,float,double,short.</strong>     <strong>java.lang.String 类是 final 类型的，因此不可以继承这个类、不能修改这个类</strong>。为了提高效 率节省空间，我们应该用 StringBuffer 类。</p>
+<p>16、String s = “Hello”;s = s + “ world!”;  执行后原来的String对象中的内容没有改变，变得是s存储的地址变了，原来指向”Hello”,现在指向了”Hello world!”,原来的对象还存在内存中。通过上面的说明，我们很容易导出另一个结论，如果经常对字符串进行各种各样的修改，或 者说，不可预见的修改，那么使用 String 来代表字符串的话会引起很大的内存开销。因为 String 对象建立之后不能再改变，所以对于每一个不同的字符串，都需要一个 String 对象来 表示。这时，应该考虑使用 StringBuffer类，它允许修改，而不是每个不同的字符串都要生 成一个新的对象。并且，这两种类的对象转换十分容易。 同同时，我们还可以知道，如果要使用内容相同的字符串，不必每次都 new 一个 String。例 如我们要在构造器中对一个名叫 s 的 String 引用变量进行初始化，把它设置为初始值，应当这样做： public class Demo { private String s; … public Demo { s = “Initial Value”; } … } 而非 s = new String(“Initial Value”); 后者每次都会调用构造器，生成新对象，性能低下且内存开销大，并且没有意义，因为 String 对象不可改变，所以对于内容相同的字符串，只要一个 String 对象来表示就可以了。也就 说，多次调用上面的构造器创建多个对象，他们的 String 类型属性 s 都指向同一个对象。 上面的结论还基于这样一个事实：<strong>对于字符串常量，如果内容相同，Java 认为它们代表同 一个 String 对象。</strong></p>
+<p>17、String类是final类故不可以继承。</p>
 
         </div>
 
@@ -228,7 +252,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-04T09:26:48.306Z" itemprop="dateUpdated">2019-06-04 17:26:48</time>
+    最后更新时间：<time datetime="2019-06-19T14:42:40.998Z" itemprop="dateUpdated">2019-06-19 22:42:40</time>
 </span><br>
 
 
