@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之Date对象 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="date对象">
+    <meta name="description" content="概述Date对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。 1、普通函数用法Date对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。 12Date()// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot; 注意，即使带有参数，Date作为普通函数使用时，">
+<meta name="keywords" content="date对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之Date对象">
+<meta property="og:url" content="http://hedroins.github.io/2019/07/20/JS学习之Date对象/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="概述Date对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。 1、普通函数用法Date对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。 12Date()// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot; 注意，即使带有参数，Date作为普通函数使用时，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-21T06:16:49.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之Date对象">
+<meta name="twitter:description" content="概述Date对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。 1、普通函数用法Date对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。 12Date()// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot; 注意，即使带有参数，Date作为普通函数使用时，">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之Date对象</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之Date对象</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-20T01:20:14.000Z" itemprop="datePublished" class="page-time">
+  2019-07-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1、普通函数用法"><span class="post-toc-number">2.</span> <span class="post-toc-text">1、普通函数用法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2、构造函数的用法"><span class="post-toc-number">3.</span> <span class="post-toc-text">2、构造函数的用法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#静态方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Date-now（）方法返回距离时间零点的毫秒数（1970年1月1日）"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Date.now（）方法返回距离时间零点的毫秒数（1970年1月1日）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Date-parse-用来解析日期字符串，返回该时间距离时间零点的毫秒数"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Date.parse() 用来解析日期字符串，返回该时间距离时间零点的毫秒数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Date-UTC-接受年月日等变量作为参数返回距离时间零点的毫秒数"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Date.UTC() 接受年月日等变量作为参数返回距离时间零点的毫秒数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实例方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-valueOf-返回实例对象距离时间零点（1970年1月1日00-00-00-UTC）对应的毫秒数"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">Date.prototype.valueOf()返回实例对象距离时间零点（1970年1月1日00:00:00 UTC）对应的毫秒数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#to类方法"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">to类方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toString-返回一个完整的日期字符串"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">Date.prototype.toString() 返回一个完整的日期字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toUTCString-返回对应的世界标准时间"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">Date.prototype.toUTCString() 返回对应的世界标准时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toISOString-返回对应时间的ISO8601写法"><span class="post-toc-number">5.1.3.</span> <span class="post-toc-text">Date.prototype.toISOString()返回对应时间的ISO8601写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toJSON-返回json格式ISO8601时间字符串"><span class="post-toc-number">5.1.4.</span> <span class="post-toc-text">Date.prototype.toJSON()返回json格式ISO8601时间字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toDateString-方法返回日期字符串（不含小时、分和秒）"><span class="post-toc-number">5.1.5.</span> <span class="post-toc-text">Date.prototype.toDateString() 方法返回日期字符串（不含小时、分和秒）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toTimeString-返回时间字符串不含年月日"><span class="post-toc-number">5.1.6.</span> <span class="post-toc-text">Date.prototype.toTimeString()返回时间字符串不含年月日</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toLocaleDateString-返回时间的当地格式的写法（不含时分秒）"><span class="post-toc-number">5.1.7.</span> <span class="post-toc-text">Date.prototype.toLocaleDateString()返回时间的当地格式的写法（不含时分秒）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-toLocaleTimeString-返回当地格式的时间写法不含年月日"><span class="post-toc-number">5.1.8.</span> <span class="post-toc-text">Date.prototype.toLocaleTimeString() 返回当地格式的时间写法不含年月日</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#get类方法"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">get类方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#set类方法"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">set类方法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之Date对象" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之Date对象</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-20 09:20:14" datetime="2019-07-20T01:20:14.000Z" itemprop="datePublished">2019-07-20</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><code>Date</code>对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。</p>
+<h1 id="1、普通函数用法"><a href="#1、普通函数用法" class="headerlink" title="1、普通函数用法"></a>1、普通函数用法</h1><p><code>Date</code>对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>()</span><br><span class="line"><span class="comment">// "Tue Dec 01 2015 09:34:43 GMT+0800 (CST)"</span></span><br></pre></td></tr></table></figure>
+<p>注意，即使带有参数，<code>Date</code>作为普通函数使用时，返回的还是当前时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>(<span class="number">2000</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// "Tue Dec 01 2015 09:34:43 GMT+0800 (CST)"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码说明，无论有没有参数，直接调用<code>Date</code>总是返回当前时间。</p>
+<h1 id="2、构造函数的用法"><a href="#2、构造函数的用法" class="headerlink" title="2、构造函数的用法"></a>2、构造函数的用法</h1><p><code>Date</code>还可以当作构造函数使用。对它使用<code>new</code>命令，会返回一个<code>Date</code>对象的实例。如果不加参数，实例代表的就是当前时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+<p><code>Date</code>实例有一个独特的地方。<u>其他对象求值的时候，都是默认调用<code>.valueOf()</code>方法，但是<code>Date</code>实例求值的时候，默认调用的是<code>toString()</code>方法。</u>这导致对<code>Date</code>实例求值，返回的是一个字符串，代表该实例对应的时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">today</span><br><span class="line"><span class="comment">// "Tue Dec 01 2015 09:34:43 GMT+0800 (CST)"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">today.toString()</span><br><span class="line"><span class="comment">// "Tue Dec 01 2015 09:34:43 GMT+0800 (CST)"</span></span><br></pre></td></tr></table></figure>
+<p>作为构造函数时，<code>Date</code>对象可以接受多种格式的参数，返回一个该参数对应的时间实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数为时间零点开始计算的毫秒数</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1378218728000</span>)</span><br><span class="line"><span class="comment">// Tue Sep 03 2013 22:32:08 GMT+0800 (CST)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数为日期字符串</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'January 6, 2013'</span>);</span><br><span class="line"><span class="comment">// Sun Jan 06 2013 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数为多个整数，</span></span><br><span class="line"><span class="comment">// 代表年、月、日、小时、分钟、秒、毫秒</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>第一点，参数可以是负整数，代表1970年元旦之前的时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">-1378218728000</span>)</span><br><span class="line"><span class="comment">// Fri Apr 30 1926 17:27:52 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>第二点，只要是能被<code>Date.parse()</code>方法解析的字符串，都可以当作参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2013-2-15'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2013/2/15'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'02/15/2013'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2013-FEB-15'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'FEB, 15, 2013'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'FEB 15, 2013'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'Feberuary, 15, 2013'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'Feberuary 15, 2013'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'15 Feb 2013'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'15, Feberuary, 2013'</span>)</span><br><span class="line"><span class="comment">// Fri Feb 15 2013 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>上面多种日期字符串的写法，返回的都是同一个时间。</p>
+<p>第三，参数为年、月、日等多个整数时，年和月是不能省略的，其他参数都可以省略的。也就是说，这时至少需要两个参数，因为如果只使用“年”这一个参数，<code>Date</code>会将其解释为毫秒数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>)</span><br><span class="line"><span class="comment">// Thu Jan 01 1970 08:00:02 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，2013被解释为毫秒数，而不是年份</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>最后，各个参数的取值范围如下。</p>
+<ul>
+<li>年：使用四位数年份，比如<code>2000</code>。如果写成两位数或个位数，则加上<code>1900</code>，即<code>10</code>代表1910年。如果是负数，表示公元前。</li>
+<li>月：<code>0</code>表示一月，依次类推，<code>11</code>表示12月。</li>
+<li>日：<code>1</code>到<code>31</code>。</li>
+<li>小时：<code>0</code>到<code>23</code>。</li>
+<li>分钟：<code>0</code>到<code>59</code>。</li>
+<li>秒：<code>0</code>到<code>59</code></li>
+<li>毫秒：<code>0</code>到<code>999</code>。</li>
+</ul>
+<p>注意，月份从<code>0</code>开始计算，但是，天数从<code>1</code>开始计算。另外，除了日期的默认值为<code>1</code>，小时、分钟、秒钟和毫秒的默认值都是<code>0</code>。</p>
+<p>这些参数如果超出了正常范围，会被自动折算。比如，如果月设为<code>15</code>，就折算为下一年的4月。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">15</span>)</span><br><span class="line"><span class="comment">// Tue Apr 01 2014 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// Mon Dec 31 2012 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p><u>上面代码的第二个例子，日期设为<code>0</code>，就代表上个月的最后一天。</u></p>
+<p>参数还可以使用负数，表示扣去的时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">-1</span>)</span><br><span class="line"><span class="comment">// Sat Dec 01 2012 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">-1</span>)</span><br><span class="line"><span class="comment">// Sun Dec 30 2012 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>参数还可以使用负数，表示扣去的时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">-1</span>)</span><br><span class="line"><span class="comment">// Sat Dec 01 2012 00:00:00 GMT+0800 (CST)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2013</span>, <span class="number">0</span>, <span class="number">-1</span>)</span><br><span class="line"><span class="comment">// Sun Dec 30 2012 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，分别对月和日使用了负数，表示从基准日扣去相应的时间。</p>
+<h1 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h1><h2 id="Date-now（）方法返回距离时间零点的毫秒数（1970年1月1日）"><a href="#Date-now（）方法返回距离时间零点的毫秒数（1970年1月1日）" class="headerlink" title="Date.now（）方法返回距离时间零点的毫秒数（1970年1月1日）"></a>Date.now（）方法返回距离时间零点的毫秒数（1970年1月1日）</h2><h2 id="Date-parse-用来解析日期字符串，返回该时间距离时间零点的毫秒数"><a href="#Date-parse-用来解析日期字符串，返回该时间距离时间零点的毫秒数" class="headerlink" title="Date.parse() 用来解析日期字符串，返回该时间距离时间零点的毫秒数"></a>Date.parse() 用来解析日期字符串，返回该时间距离时间零点的毫秒数</h2><p>日期字符串应该符合 RFC 2822 和 ISO 8061 这两个标准，即<code>YYYY-MM-DDTHH:mm:ss.sssZ</code>格式，其中最后的<code>Z</code>表示时区。但是，其他格式也可以被解析，请看下面的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'Aug 9, 1995'</span>)</span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'January 26, 2011 13:51:50'</span>)</span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'Mon, 25 Dec 1995 13:30:00 GMT'</span>)</span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'Mon, 25 Dec 1995 13:30:00 +0430'</span>)</span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'2011-10-10'</span>)</span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'2011-10-10T14:48:00'</span>)</span><br></pre></td></tr></table></figure>
+<p>如果不按照格式将返回NaN</p>
+<h2 id="Date-UTC-接受年月日等变量作为参数返回距离时间零点的毫秒数"><a href="#Date-UTC-接受年月日等变量作为参数返回距离时间零点的毫秒数" class="headerlink" title="Date.UTC() 接受年月日等变量作为参数返回距离时间零点的毫秒数"></a>Date.UTC() 接受年月日等变量作为参数返回距离时间零点的毫秒数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line"><span class="built_in">Date</span>.UTC(year, month[, date[, hrs[, min[, sec[, ms]]]]])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法</span></span><br><span class="line"><span class="built_in">Date</span>.UTC(<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">567</span>)</span><br><span class="line"><span class="comment">// 1293847384567</span></span><br></pre></td></tr></table></figure>
+<p>该方法的参数用法与<code>Date</code>构造函数完全一致，比如月从<code>0</code>开始计算，日期从<code>1</code>开始计算。<u>区别在于<code>Date.UTC</code>方法的参数，会被解释为 UTC 时间（世界标准时间），<code>Date</code>构造函数的参数会被解释为当前时区的时间。</u></p>
+<h1 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h1><h3 id="Date-prototype-valueOf-返回实例对象距离时间零点（1970年1月1日00-00-00-UTC）对应的毫秒数"><a href="#Date-prototype-valueOf-返回实例对象距离时间零点（1970年1月1日00-00-00-UTC）对应的毫秒数" class="headerlink" title="Date.prototype.valueOf()返回实例对象距离时间零点（1970年1月1日00:00:00 UTC）对应的毫秒数"></a>Date.prototype.valueOf()返回实例对象距离时间零点（1970年1月1日00:00:00 UTC）对应的毫秒数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">d.valueOf() <span class="comment">// 1362790014817</span></span><br><span class="line">d.getTime() <span class="comment">// 1362790014817</span></span><br></pre></td></tr></table></figure>
+<p>预期为数值的场合，Date实例会自动调用该方法。</p>
+<h2 id="to类方法"><a href="#to类方法" class="headerlink" title="to类方法"></a>to类方法</h2><h3 id="Date-prototype-toString-返回一个完整的日期字符串"><a href="#Date-prototype-toString-返回一个完整的日期字符串" class="headerlink" title="Date.prototype.toString() 返回一个完整的日期字符串"></a>Date.prototype.toString() 返回一个完整的日期字符串</h3><h3 id="Date-prototype-toUTCString-返回对应的世界标准时间"><a href="#Date-prototype-toUTCString-返回对应的世界标准时间" class="headerlink" title="Date.prototype.toUTCString() 返回对应的世界标准时间"></a>Date.prototype.toUTCString() 返回对应的世界标准时间</h3><h3 id="Date-prototype-toISOString-返回对应时间的ISO8601写法"><a href="#Date-prototype-toISOString-返回对应时间的ISO8601写法" class="headerlink" title="Date.prototype.toISOString()返回对应时间的ISO8601写法"></a>Date.prototype.toISOString()返回对应时间的ISO8601写法</h3><h3 id="Date-prototype-toJSON-返回json格式ISO8601时间字符串"><a href="#Date-prototype-toJSON-返回json格式ISO8601时间字符串" class="headerlink" title="Date.prototype.toJSON()返回json格式ISO8601时间字符串"></a>Date.prototype.toJSON()返回json格式ISO8601时间字符串</h3><h3 id="Date-prototype-toDateString-方法返回日期字符串（不含小时、分和秒）"><a href="#Date-prototype-toDateString-方法返回日期字符串（不含小时、分和秒）" class="headerlink" title="Date.prototype.toDateString() 方法返回日期字符串（不含小时、分和秒）"></a>Date.prototype.toDateString() 方法返回日期字符串（不含小时、分和秒）</h3><h3 id="Date-prototype-toTimeString-返回时间字符串不含年月日"><a href="#Date-prototype-toTimeString-返回时间字符串不含年月日" class="headerlink" title="Date.prototype.toTimeString()返回时间字符串不含年月日"></a>Date.prototype.toTimeString()返回时间字符串不含年月日</h3><h3 id="Date-prototype-toLocaleDateString-返回时间的当地格式的写法（不含时分秒）"><a href="#Date-prototype-toLocaleDateString-返回时间的当地格式的写法（不含时分秒）" class="headerlink" title="Date.prototype.toLocaleDateString()返回时间的当地格式的写法（不含时分秒）"></a>Date.prototype.toLocaleDateString()返回时间的当地格式的写法（不含时分秒）</h3><h3 id="Date-prototype-toLocaleTimeString-返回当地格式的时间写法不含年月日"><a href="#Date-prototype-toLocaleTimeString-返回当地格式的时间写法不含年月日" class="headerlink" title="Date.prototype.toLocaleTimeString() 返回当地格式的时间写法不含年月日"></a>Date.prototype.toLocaleTimeString() 返回当地格式的时间写法不含年月日</h3><h2 id="get类方法"><a href="#get类方法" class="headerlink" title="get类方法"></a>get类方法</h2><p><code>Date</code>对象提供了一系列<code>get*</code>方法，用来获取实例对象某个方面的值。</p>
+<ul>
+<li><code>getTime()</code>：返回实例距离1970年1月1日00:00:00的毫秒数，等同于<code>valueOf</code>方法。</li>
+<li><code>getDate()</code>：返回实例对象对应每个月的几号（从1开始）。</li>
+<li><code>getDay()</code>：返回星期几，星期日为0，星期一为1，以此类推。</li>
+<li><code>getYear()</code>：返回距离1900的年数。</li>
+<li><code>getFullYear()</code>：返回四位的年份。</li>
+<li><code>getMonth()</code>：返回月份（0表示1月，11表示12月）。</li>
+<li><code>getHours()</code>：返回小时（0-23）。</li>
+<li><code>getMilliseconds()</code>：返回毫秒（0-999）。</li>
+<li><code>getMinutes()</code>：返回分钟（0-59）。</li>
+<li><code>getSeconds()</code>：返回秒（0-59）。</li>
+<li><code>getTimezoneOffset()</code>：返回当前时间与 UTC 的时区差异，以分钟表示，返回结果考虑到了夏令时因素。</li>
+</ul>
+<p><strong>所有这些<code>get*</code>方法返回的都是整数，不同方法返回值的范围不一样。</strong></p>
+<ul>
+<li>分钟和秒：0 到 59</li>
+<li>小时：0 到 23</li>
+<li>星期：0（星期天）到 6（星期六）</li>
+<li>日期：1 到 31</li>
+<li>月份：0（一月）到 11（十二月）</li>
+<li><strong>年份：距离1900年的年数</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'January 6, 2013'</span>);</span><br><span class="line"></span><br><span class="line">d.getDate() <span class="comment">// 6</span></span><br><span class="line">d.getMonth() <span class="comment">// 0</span></span><br><span class="line">d.getYear() <span class="comment">// 113</span></span><br><span class="line">d.getFullYear() <span class="comment">// 2013</span></span><br><span class="line">d.getTimezoneOffset() <span class="comment">// -480</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，最后一行返回<code>-480</code>，即 UTC 时间减去当前时间，单位是分钟。<code>-480</code>表示 UTC 比当前时间少480分钟，即当前时区比 UTC 早8个小时。</p>
+<p>下面是一个例子，计算本年度还剩下多少天。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">leftDays</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">var</span> endYear = <span class="keyword">new</span> <span class="built_in">Date</span>(today.getFullYear(), <span class="number">11</span>, <span class="number">31</span>, <span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>, <span class="number">999</span>);</span><br><span class="line">  <span class="keyword">var</span> msPerDay = <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.round((endYear.getTime() - today.getTime()) / msPerDay);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这些<code>get*</code>方法返回的都是当前时区的时间，<code>Date</code>对象还提供了这些方法对应的 UTC（世界标准时间） 版本，用来返回 UTC 时间。</p>
+<ul>
+<li><p><code>getUTCDate()</code></p>
+</li>
+<li><p><code>getUTCFullYear()</code></p>
+</li>
+<li><p><code>getUTCMonth()</code></p>
+</li>
+<li><p><code>getUTCDay()</code></p>
+</li>
+<li><p><code>getUTCHours()</code></p>
+</li>
+<li><p><code>getUTCMinutes()</code></p>
+</li>
+<li><p><code>getUTCSeconds()</code></p>
+</li>
+<li><p><code>getUTCMilliseconds()</code></p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="set类方法"><a href="#set类方法" class="headerlink" title="set类方法"></a>set类方法</h2><ul>
+<li><code>setDate(date)</code>：设置实例对象对应的每个月的几号（1-31），返回改变后毫秒时间戳。</li>
+<li><code>setYear(year)</code>: <strong>设置距离1900年的年数。</strong></li>
+<li><code>setFullYear(year [, month, date])</code>：设置四位年份。</li>
+<li><code>setHours(hour [, min, sec, ms])</code>：设置小时（0-23）。</li>
+<li><code>setMilliseconds()</code>：设置毫秒（0-999）。</li>
+<li><code>setMinutes(min [, sec, ms])</code>：设置分钟（0-59）。</li>
+<li><code>setMonth(month [, date])</code>：设置月份（0-11）。</li>
+<li><code>setSeconds(sec [, ms])</code>：设置秒（0-59）。</li>
+<li><code>setTime(milliseconds)</code>：设置毫秒时间戳。</li>
+</ul>
+<p><code>set*</code>方法的参数都会自动折算。以<code>setDate</code>为例，如果参数超过当月的最大天数，则向下一个月顺延，如果参数是负数，表示从上个月的最后一天开始减去的天数。</p>
+<p><code>set*</code>系列方法除了<code>setTime()</code>和<code>setYear()</code>，都有对应的 UTC 版本，即设置 UTC 时区的时间。</p>
+<ul>
+<li><code>setUTCDate()</code></li>
+<li><code>setUTCFullYear()</code></li>
+<li><code>setUTCHours()</code></li>
+<li><code>setUTCMilliseconds()</code></li>
+<li><code>setUTCMinutes()</code></li>
+<li><code>setUTCMonth()</code></li>
+<li><code>setUTCSeconds()</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'January 6, 2013'</span>);</span><br><span class="line">d.getUTCHours() <span class="comment">// 16</span></span><br><span class="line">d.setUTCHours(<span class="number">22</span>) <span class="comment">// 1357423200000</span></span><br><span class="line">d <span class="comment">// Sun Jan 06 2013 06:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，本地时区（东八时区）的1月6日0点0分，是 UTC 时区的前一天下午16点。设为 UTC 时区的22点以后，就变为本地时区的上午6点。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-21T06:16:49.712Z" itemprop="dateUpdated">2019-07-21 14:16:49</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/07/20/JS学习之Date对象/" target="_blank" rel="external">http://hedroins.github.io/2019/07/20/JS学习之Date对象/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/date对象/">date对象</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/&title=《JS学习之Date对象》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/&title=《JS学习之Date对象》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/07/20/JS学习之Date对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Date对象》 — HeJL&url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/20/JS学习之Math对象/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之Math对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/&title=《JS学习之Date对象》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/&title=《JS学习之Date对象》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/07/20/JS学习之Date对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Date对象》 — HeJL&url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/07/20/JS学习之Date对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/07/20/JS学习之Date对象/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
