@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之JSON对象 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JSON对象">
+    <meta name="description" content="JSON格式JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式，目的是取代繁琐笨重的 XML 格式。 JSON与xml相比的优势书写简单，一目了然；符合 JavaScript 原生语法，可以由解释引擎直接处理，不用另外添加解析代码。 每个 JSON 对象就是一个值，可能是一个数组或对象，也可能是一个原始类型的值。总之，只能是一个值，不能是两个">
+<meta name="keywords" content="JSON对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之JSON对象">
+<meta property="og:url" content="http://hedroins.github.io/2019/07/22/JS学习之JSON对象/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="JSON格式JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式，目的是取代繁琐笨重的 XML 格式。 JSON与xml相比的优势书写简单，一目了然；符合 JavaScript 原生语法，可以由解释引擎直接处理，不用另外添加解析代码。 每个 JSON 对象就是一个值，可能是一个数组或对象，也可能是一个原始类型的值。总之，只能是一个值，不能是两个">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-23T04:48:48.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之JSON对象">
+<meta name="twitter:description" content="JSON格式JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式，目的是取代繁琐笨重的 XML 格式。 JSON与xml相比的优势书写简单，一目了然；符合 JavaScript 原生语法，可以由解释引擎直接处理，不用另外添加解析代码。 每个 JSON 对象就是一个值，可能是一个数组或对象，也可能是一个原始类型的值。总之，只能是一个值，不能是两个">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之JSON对象</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之JSON对象</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-22T14:55:16.000Z" itemprop="datePublished" class="page-time">
+  2019-07-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JSON格式"><span class="post-toc-number">1.</span> <span class="post-toc-text">JSON格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON与xml相比的优势"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">JSON与xml相比的优势</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON对值的类型和格式的规定"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">JSON对值的类型和格式的规定</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JSON对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">JSON对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON-stringify-用于将一个值转为-JSON-字符串。该字符串符合-JSON-格式，并且可以被JSON-parse方法还原。"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">JSON.stringify():用于将一个值转为 JSON 字符串。该字符串符合 JSON 格式，并且可以被JSON.parse方法还原。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如果对象的属性是undefined、函数或-XML-对象，该属性会被JSON-stringify过滤。"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">如果对象的属性是undefined、函数或 XML 对象，该属性会被JSON.stringify过滤。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如果数组的成员是undefined、函数或-XML-对象，则这些值被转成null。"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">如果数组的成员是undefined、函数或 XML 对象，则这些值被转成null。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正则对象会被转成空对象。"><span class="post-toc-number">2.0.4.</span> <span class="post-toc-text">正则对象会被转成空对象。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON-stringify方法会忽略对象的不可遍历属性。"><span class="post-toc-number">2.0.5.</span> <span class="post-toc-text">JSON.stringify方法会忽略对象的不可遍历属性。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON-stringify的第二个参数：JSON-stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性（只对对象有效，对数组无效）。"><span class="post-toc-number">2.0.6.</span> <span class="post-toc-text">JSON.stringify的第二个参数：JSON.stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性（只对对象有效，对数组无效）。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二个参数还可以是一个函数，用来更改JSON-stringify的返回值，-注意，这个处理函数是递归处理所有的键"><span class="post-toc-number">2.0.7.</span> <span class="post-toc-text">第二个参数还可以是一个函数，用来更改JSON.stringify的返回值， 注意，这个处理函数是递归处理所有的键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如果处理函数返回undefined或没有返回值，则该属性会被忽略。"><span class="post-toc-number">2.0.8.</span> <span class="post-toc-text">如果处理函数返回undefined或没有返回值，则该属性会被忽略。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON-stringify-方法的第三个参数：用于增加返回的-JSON-字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。"><span class="post-toc-number">2.0.9.</span> <span class="post-toc-text">JSON.stringify()方法的第三个参数：用于增加返回的 JSON 字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数对象的toJSON方法：如果参数对象有自定义的toJSON方法，那么JSON-stringify会使用这个方法的返回值作为参数，而忽略原对象的其他属性。"><span class="post-toc-number">2.0.10.</span> <span class="post-toc-text">参数对象的toJSON方法：如果参数对象有自定义的toJSON方法，那么JSON.stringify会使用这个方法的返回值作为参数，而忽略原对象的其他属性。</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JSON-parse-方法：用于将-JSON-字符串转换成对应的值。"><span class="post-toc-number">3.</span> <span class="post-toc-text">JSON.parse()方法：用于将 JSON 字符串转换成对应的值。</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之JSON对象" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之JSON对象</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-22 22:55:16" datetime="2019-07-22T14:55:16.000Z" itemprop="datePublished">2019-07-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="JSON格式"><a href="#JSON格式" class="headerlink" title="JSON格式"></a>JSON格式</h1><p>JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式，目的是取代繁琐笨重的 XML 格式。</p>
+<h2 id="JSON与xml相比的优势"><a href="#JSON与xml相比的优势" class="headerlink" title="JSON与xml相比的优势"></a>JSON与xml相比的优势</h2><p><strong>书写简单，一目了然</strong>；<strong>符合 JavaScript 原生语法，可以由解释引擎直接处理，不用另外添加解析代码</strong>。</p>
+<p>每个 JSON 对象就是一个值，可能是一个数组或对象，也可能是一个原始类型的值。<strong>总之，只能是一个值，不能是两个或更多的值。</strong></p>
+<h2 id="JSON对值的类型和格式的规定"><a href="#JSON对值的类型和格式的规定" class="headerlink" title="JSON对值的类型和格式的规定"></a>JSON对值的类型和格式的规定</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、复合类型的值只能是数组或对象，不能是函数、正则表达式对象、日期对象。</span><br><span class="line"></span><br><span class="line">2、原始类型的值只有四种：字符串、数值（必须以十进制表示）、布尔值和null（不能使用NaN, Infinity, -Infinity和undefined）。</span><br><span class="line"></span><br><span class="line">3、字符串必须使用双引号表示，不能使用单引号。</span><br><span class="line"></span><br><span class="line">4、对象的键名必须放在双引号里面。</span><br><span class="line"></span><br><span class="line">5、数组或对象最后一个成员的后面，不能加逗号。</span><br></pre></td></tr></table></figure>
+<p><u><strong>注意，<code>null</code>、空数组和空对象都是合法的 JSON 值。</strong></u></p>
+<h1 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h1><p><code>JSON</code>对象是 JavaScript 的原生对象，用来处理 JSON 格式数据。它有两个静态方法：<code>JSON.stringify()</code>和<code>JSON.parse()</code>。</p>
+<h3 id="JSON-stringify-用于将一个值转为-JSON-字符串。该字符串符合-JSON-格式，并且可以被JSON-parse方法还原。"><a href="#JSON-stringify-用于将一个值转为-JSON-字符串。该字符串符合-JSON-格式，并且可以被JSON-parse方法还原。" class="headerlink" title="JSON.stringify():用于将一个值转为 JSON 字符串。该字符串符合 JSON 格式，并且可以被JSON.parse方法还原。"></a>JSON.stringify():用于将一个值转为 JSON 字符串。该字符串符合 JSON 格式，并且可以被<code>JSON.parse</code>方法还原。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="string">'abc'</span>) <span class="comment">// ""abc""</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="number">1</span>) <span class="comment">// "1"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="literal">false</span>) <span class="comment">// "false"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify([]) <span class="comment">// "[]"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123;&#125;) <span class="comment">// "&#123;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify([<span class="number">1</span>, <span class="string">"false"</span>, <span class="literal">false</span>])</span><br><span class="line"><span class="comment">// '[1,"false",false]'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">name</span>: <span class="string">"张三"</span> &#125;)</span><br><span class="line"><span class="comment">// '&#123;"name":"张三"&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码将各种类型的值，转成 JSON 字符串。</p>
+<p><strong>注意，对于原始类型的字符串，转换结果会带双引号。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="string">'foo'</span>) === <span class="string">"foo"</span> <span class="comment">// false</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="string">'foo'</span>) === <span class="string">"\"foo\""</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，字符串<code>foo</code>，被转成了<code>&quot;\&quot;foo&quot;\&quot;</code>。这是因为将来还原的时候，内层双引号可以让 JavaScript 引擎知道，这是一个字符串，而不是其他类型的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="literal">false</span>) <span class="comment">// "false"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="string">'false'</span>) <span class="comment">// "\"false\""</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<strong>如果不是内层的双引号，将来还原的时候，引擎就无法知道原始值是布尔值还是字符串。</strong></p>
+<h3 id="如果对象的属性是undefined、函数或-XML-对象，该属性会被JSON-stringify过滤。"><a href="#如果对象的属性是undefined、函数或-XML-对象，该属性会被JSON-stringify过滤。" class="headerlink" title="如果对象的属性是undefined、函数或 XML 对象，该属性会被JSON.stringify过滤。"></a><strong>如果对象的属性是<code>undefined</code>、函数或 XML 对象，该属性会被<code>JSON.stringify</code>过滤。</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="literal">undefined</span>,</span><br><span class="line">  b: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// "&#123;&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>obj</code>的<code>a</code>属性是<code>undefined</code>，而<code>b</code>属性是一个函数，结果都被<code>JSON.stringify</code>过滤。</p>
+<h3 id="如果数组的成员是undefined、函数或-XML-对象，则这些值被转成null。"><a href="#如果数组的成员是undefined、函数或-XML-对象，则这些值被转成null。" class="headerlink" title="如果数组的成员是undefined、函数或 XML 对象，则这些值被转成null。"></a>如果数组的成员是<code>undefined</code>、函数或 XML 对象，则这些值被转成<code>null</code>。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="literal">undefined</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;];</span><br><span class="line"><span class="built_in">JSON</span>.stringify(arr) <span class="comment">// "[null,null]"</span></span><br></pre></td></tr></table></figure>
+<h3 id="正则对象会被转成空对象。"><a href="#正则对象会被转成空对象。" class="headerlink" title="正则对象会被转成空对象。"></a>正则对象会被转成空对象。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// "&#123;&#125;"</span></span><br></pre></td></tr></table></figure>
+<h3 id="JSON-stringify方法会忽略对象的不可遍历属性。"><a href="#JSON-stringify方法会忽略对象的不可遍历属性。" class="headerlink" title="JSON.stringify方法会忽略对象的不可遍历属性。"></a>JSON.stringify方法会忽略对象的不可遍历属性。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  <span class="string">'foo'</span>: &#123;</span><br><span class="line">    value: <span class="number">1</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'bar'</span>: &#123;</span><br><span class="line">    value: <span class="number">2</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj); <span class="comment">// "&#123;"foo":1&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>bar</code>是<code>obj</code>对象的不可遍历属性，<code>JSON.stringify</code>方法会忽略这个属性。</p>
+<h3 id="JSON-stringify的第二个参数：JSON-stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性（只对对象有效，对数组无效）。"><a href="#JSON-stringify的第二个参数：JSON-stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性（只对对象有效，对数组无效）。" class="headerlink" title="JSON.stringify的第二个参数：JSON.stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性（只对对象有效，对数组无效）。"></a>JSON.stringify的第二个参数：JSON.stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性（只对对象有效，对数组无效）。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="string">'prop1'</span>: <span class="string">'value1'</span>,</span><br><span class="line">  <span class="string">'prop2'</span>: <span class="string">'value2'</span>,</span><br><span class="line">  <span class="string">'prop3'</span>: <span class="string">'value3'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> selectedProperties = [<span class="string">'prop1'</span>, <span class="string">'prop2'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj, selectedProperties)</span><br><span class="line"><span class="comment">// "&#123;"prop1":"value1","prop2":"value2"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>这个类似白名单的数组，只对对象的属性有效，对数组无效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify([<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'0'</span>])</span><br><span class="line"><span class="comment">// "["a","b"]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123;<span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>&#125;, [<span class="string">'0'</span>])</span><br><span class="line"><span class="comment">// "&#123;"0":"a"&#125;"</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二个参数还可以是一个函数，用来更改JSON-stringify的返回值，-注意，这个处理函数是递归处理所有的键"><a href="#第二个参数还可以是一个函数，用来更改JSON-stringify的返回值，-注意，这个处理函数是递归处理所有的键" class="headerlink" title="第二个参数还可以是一个函数，用来更改JSON.stringify的返回值， 注意，这个处理函数是递归处理所有的键"></a>第二个参数还可以是一个函数，用来更改<code>JSON.stringify</code>的返回值， 注意，这个处理函数是递归处理所有的键</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"number"</span>) &#123;</span><br><span class="line">    value = <span class="number">2</span> * value;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;"a": 2,"b": 4&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"number"</span>) &#123;</span><br><span class="line">    value = <span class="number">2</span> * value;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify([<span class="number">1</span>,<span class="number">2</span>], f)</span><br><span class="line"><span class="comment">//"[2,4]"</span></span><br></pre></td></tr></table></figure>
+<p>这个处理函数是递归处理所有的键。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"["</span>+ key +<span class="string">"]:"</span> + value);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br><span class="line"><span class="comment">// []:[object Object]</span></span><br><span class="line"><span class="comment">// [a]:[object Object]</span></span><br><span class="line"><span class="comment">// [b]:1</span></span><br><span class="line"><span class="comment">// '&#123;"a":&#123;"b":1&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象<code>o</code>一共会被<code>f</code>函数处理三次，最后那行是<code>JSON.stringify</code>的输出。第一次键名为空，键值是整个对象<code>o</code>；第二次键名为<code>a</code>，键值是<code>{b: 1}</code>；第三次键名为<code>b</code>，键值为1。</p>
+<p><strong>递归处理中，每一次处理的对象，都是前一次返回的值</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(o, f)</span><br></pre></td></tr></table></figure>
+<p>上面代码中，f函数修改了对象o，接着JSON.stringify方法就递归处理修改后的对象o。</p>
+<h3 id="如果处理函数返回undefined或没有返回值，则该属性会被忽略。"><a href="#如果处理函数返回undefined或没有返回值，则该属性会被忽略。" class="headerlink" title="如果处理函数返回undefined或没有返回值，则该属性会被忽略。"></a>如果处理函数返回<code>undefined</code>或没有返回值，则该属性会被忽略。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span>(value) === <span class="string">"string"</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">a</span>: <span class="string">"abc"</span>, <span class="attr">b</span>: <span class="number">123</span> &#125;, f)</span><br><span class="line"><span class="comment">// '&#123;"b": 123&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>a</code>属性经过处理后，返回<code>undefined</code>，于是该属性被忽略了。</p>
+<h3 id="JSON-stringify-方法的第三个参数：用于增加返回的-JSON-字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。"><a href="#JSON-stringify-方法的第三个参数：用于增加返回的-JSON-字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。" class="headerlink" title="JSON.stringify()方法的第三个参数：用于增加返回的 JSON 字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。"></a>JSON.stringify()方法的第三个参数：用于增加返回的 JSON 字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">p1</span>: <span class="number">1</span>, <span class="attr">p2</span>: <span class="number">2</span> &#125;, <span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"&#123;</span></span><br><span class="line"><span class="comment">  "p1": 1,</span></span><br><span class="line"><span class="comment">  "p2": 2</span></span><br><span class="line"><span class="comment">&#125;"</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; <span class="attr">p1</span>:<span class="number">1</span>, <span class="attr">p2</span>:<span class="number">2</span> &#125;, <span class="literal">null</span>, <span class="string">'|-'</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">"&#123;</span></span><br><span class="line"><span class="comment">|-"p1": 1,</span></span><br><span class="line"><span class="comment">|-"p2": 2</span></span><br><span class="line"><span class="comment">&#125;"</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="参数对象的toJSON方法：如果参数对象有自定义的toJSON方法，那么JSON-stringify会使用这个方法的返回值作为参数，而忽略原对象的其他属性。"><a href="#参数对象的toJSON方法：如果参数对象有自定义的toJSON方法，那么JSON-stringify会使用这个方法的返回值作为参数，而忽略原对象的其他属性。" class="headerlink" title="参数对象的toJSON方法：如果参数对象有自定义的toJSON方法，那么JSON.stringify会使用这个方法的返回值作为参数，而忽略原对象的其他属性。"></a>参数对象的toJSON方法：如果参数对象有自定义的<code>toJSON</code>方法，那么<code>JSON.stringify</code>会使用这个方法的返回值作为参数，而忽略原对象的其他属性。</h3><p>下面是一个普通的对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> fullName()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)</span><br><span class="line"><span class="comment">// "&#123;"firstName":"三","lastName":"张","fullName":"张三"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>现在，为这个对象加上<code>toJSON</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">'三'</span>,</span><br><span class="line">  lastName: <span class="string">'张'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> fullName()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  toJSON: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      name: <span class="keyword">this</span>.lastName + <span class="keyword">this</span>.firstName</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(user)</span><br><span class="line"><span class="comment">// "&#123;"name":"张三"&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>JSON.stringify</code>发现参数对象有<code>toJSON</code>方法，就直接使用这个方法的返回值作为参数，而忽略原对象的其他参数。</p>
+<p><code>Date</code>对象就有一个自己的<code>toJSON</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2015-01-01'</span>);</span><br><span class="line">date.toJSON() <span class="comment">// "2015-01-01T00:00:00.000Z"</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(date) <span class="comment">// ""2015-01-01T00:00:00.000</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>toJSON</code>方法的一个应用是，将正则对象自动转为字符串。因为<code>JSON.stringify</code>默认不能转换正则对象，但是设置了<code>toJSON</code>方法以后，就可以转换正则对象了。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  reg: <span class="regexp">/foo/</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj) <span class="comment">// "&#123;"reg":&#123;&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 toJSON 方法时</span></span><br><span class="line"><span class="built_in">RegExp</span>.prototype.toJSON = <span class="built_in">RegExp</span>.prototype.toString;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="regexp">/foo/</span>) <span class="comment">// ""/foo/""</span></span><br></pre></td></tr></table></figure>
+<p>上面代码在正则对象的原型上面部署了<code>toJSON</code>方法，将其指向<code>toString</code>方法，因此遇到转换成<code>JSON</code>时，正则对象就先调用<code>toJSON</code>方法转为字符串，然后再被<code>JSON.stingify</code>方法处理。</p>
+<h1 id="JSON-parse-方法：用于将-JSON-字符串转换成对应的值。"><a href="#JSON-parse-方法：用于将-JSON-字符串转换成对应的值。" class="headerlink" title="JSON.parse()方法：用于将 JSON 字符串转换成对应的值。"></a>JSON.parse()方法：用于将 JSON 字符串转换成对应的值。</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;&#125;'</span>) <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'true'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'"foo"'</span>) <span class="comment">// "foo"</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'[1, 5, "false"]'</span>) <span class="comment">// [1, 5, "false"]</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'null'</span>) <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">JSON</span>.parse(<span class="string">'&#123;"name": "张三"&#125;'</span>);</span><br><span class="line">o.name <span class="comment">// 张三</span></span><br></pre></td></tr></table></figure>
+<p>如果传入的字符串不是有效的 JSON 格式，<code>JSON.parse</code>方法将报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">"'String'"</span>) <span class="comment">// illegal single quotes</span></span><br><span class="line"><span class="comment">// SyntaxError: Unexpected token ILLEGAL</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，双引号字符串中是一个单引号字符串，因为单引号字符串不符合 JSON 格式，所以报错。<strong>（json格式中的字符串只能用双引号包含，不能用单引号包含）</strong></p>
+<p><code>JSON.parse</code>方法可以接受一个处理函数，作为第二个参数，用法与<code>JSON.stringify</code>方法类似。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">'a'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> value + <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;"a": 1, "b": 2&#125;'</span>, f)</span><br><span class="line"><span class="comment">// &#123;a: 11, b: 2&#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>JSON.parse</code>的第二个参数是一个函数，如果键名是<code>a</code>，该函数会将键值加上10。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-23T04:48:48.163Z" itemprop="dateUpdated">2019-07-23 12:48:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/07/22/JS学习之JSON对象/" target="_blank" rel="external">http://hedroins.github.io/2019/07/22/JS学习之JSON对象/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON对象/">JSON对象</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/&title=《JS学习之JSON对象》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/&title=《JS学习之JSON对象》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之JSON对象》 — HeJL&url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/21/JS学习之RegExp对象/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之RegExp对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/&title=《JS学习之JSON对象》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/&title=《JS学习之JSON对象》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之JSON对象》 — HeJL&url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/07/22/JS学习之JSON对象/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
