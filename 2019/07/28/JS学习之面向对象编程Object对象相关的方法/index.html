@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之面向对象编程Object对象相关的方法 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Object对象相关的方法">
+    <meta name="description" content="Object.getPrototypeOf()：方法返回参数对象的原型。123var F = function () &amp;#123;&amp;#125;;var f = new F();Object.getPrototypeOf(f) === F.prototype // true 几种特殊的对象原型123456789// 空对象的原型是 Object.prototypeObject.getPrototyp">
+<meta name="keywords" content="Object对象相关的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之面向对象编程Object对象相关的方法">
+<meta property="og:url" content="http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="Object.getPrototypeOf()：方法返回参数对象的原型。123var F = function () &amp;#123;&amp;#125;;var f = new F();Object.getPrototypeOf(f) === F.prototype // true 几种特殊的对象原型123456789// 空对象的原型是 Object.prototypeObject.getPrototyp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-28T16:05:20.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之面向对象编程Object对象相关的方法">
+<meta name="twitter:description" content="Object.getPrototypeOf()：方法返回参数对象的原型。123var F = function () &amp;#123;&amp;#125;;var f = new F();Object.getPrototypeOf(f) === F.prototype // true 几种特殊的对象原型123456789// 空对象的原型是 Object.prototypeObject.getPrototyp">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream">
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之面向对象编程Object对象相关的方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之面向对象编程Object对象相关的方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-28T01:49:48.000Z" itemprop="datePublished" class="page-time">
+  2019-07-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-getPrototypeOf-：方法返回参数对象的原型。"><span class="post-toc-number">1.</span> <span class="post-toc-text">Object.getPrototypeOf()：方法返回参数对象的原型。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几种特殊的对象原型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">几种特殊的对象原型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-setPrototypeOf-为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">Object.setPrototypeOf():为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用Object-setPrototypeOf-模拟new命令"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">用Object.setPrototypeOf()模拟new命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-create-该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。"><span class="post-toc-number">3.</span> <span class="post-toc-text">Object.create(): 该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面三种方式生成的新对象是等价的"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下面三种方式生成的新对象是等价的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-isPrototypeOf-用来判断该对象是否为参数对象的原型"><span class="post-toc-number">4.</span> <span class="post-toc-text">Object.prototype.isPrototypeOf():用来判断该对象是否为参数对象的原型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-proto-返回该对象的原型，该属性可读写"><span class="post-toc-number">5.</span> <span class="post-toc-text">Object.prototype.__proto__:返回该对象的原型，该属性可读写</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取原型对象方法的比较"><span class="post-toc-number">6.</span> <span class="post-toc-text">获取原型对象方法的比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取实例对象的三种方法"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">获取实例对象的三种方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-getOwnPropertyNames-返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。"><span class="post-toc-number">7.</span> <span class="post-toc-text">Object.getOwnPropertyNames():返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-hasOwnProperty-用于判断某个属性定义在对象自身，还是定义在原型链上。"><span class="post-toc-number">8.</span> <span class="post-toc-text">Object.prototype.hasOwnProperty():用于判断某个属性定义在对象自身，还是定义在原型链上。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#in运算符：它不区分该属性是对象自己的属性，还是继承的属性"><span class="post-toc-number">9.</span> <span class="post-toc-text">in运算符：它不区分该属性是对象自己的属性，还是继承的属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）"><span class="post-toc-number">10.</span> <span class="post-toc-text">for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）"><span class="post-toc-number">10.0.0.1.</span> <span class="post-toc-text">在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法"><span class="post-toc-number">10.0.0.2.</span> <span class="post-toc-text">获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象的拷贝"><span class="post-toc-number">11.</span> <span class="post-toc-text">对象的拷贝</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之面向对象编程Object对象相关的方法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之面向对象编程Object对象相关的方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-28 09:49:48" datetime="2019-07-28T01:49:48.000Z" itemprop="datePublished">2019-07-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Object-getPrototypeOf-：方法返回参数对象的原型。"><a href="#Object-getPrototypeOf-：方法返回参数对象的原型。" class="headerlink" title="Object.getPrototypeOf()：方法返回参数对象的原型。"></a>Object.getPrototypeOf()：方法返回参数对象的原型。</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(f) === F.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="几种特殊的对象原型"><a href="#几种特殊的对象原型" class="headerlink" title="几种特殊的对象原型"></a>几种特殊的对象原型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空对象的原型是 Object.prototype</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(&#123;&#125;) === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.prototype 的原型是 null</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(<span class="built_in">Object</span>.prototype) === <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数的原型是 Function.prototype</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(f) === <span class="built_in">Function</span>.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h1 id="Object-setPrototypeOf-为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象"><a href="#Object-setPrototypeOf-为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象" class="headerlink" title="Object.setPrototypeOf():为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象"></a>Object.setPrototypeOf():为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123;<span class="attr">x</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(a, b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(a) === b <span class="comment">// true</span></span><br><span class="line">a.x <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="用Object-setPrototypeOf-模拟new命令"><a href="#用Object-setPrototypeOf-模拟new命令" class="headerlink" title="用Object.setPrototypeOf()模拟new命令"></a>用Object.setPrototypeOf()模拟new命令</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.foo = <span class="string">'bar'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="built_in">Object</span>.setPrototypeOf(&#123;&#125;, F.prototype);</span><br><span class="line">F.call(f);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>new</code>命令新建实例对象，其实可以分成两步。第一步，将一个空对象的原型设为构造函数的<code>prototype</code>属性（上例是<code>F.prototype</code>）；第二步，将构造函数内部的<code>this</code>绑定这个空对象，然后执行构造函数，使得定义在<code>this</code>上面的方法和属性（上例是<code>this.foo</code>），都转移到这个空对象上。</p>
+<h1 id="Object-create-该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。"><a href="#Object-create-该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。" class="headerlink" title="Object.create(): 该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。"></a>Object.create(): 该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原型对象</span></span><br><span class="line"><span class="keyword">var</span> A = &#123;</span><br><span class="line">  print: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例对象</span></span><br><span class="line"><span class="keyword">var</span> B = <span class="built_in">Object</span>.create(A);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(B) === A <span class="comment">// true</span></span><br><span class="line">B.print() <span class="comment">// hello</span></span><br><span class="line">B.print === A.print <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>Object.create</code>方法以<code>A</code>对象为原型，生成了<code>B</code>对象。<code>B</code>继承了<code>A</code>的所有属性和方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Object</span>.create !== <span class="string">'function'</span>) &#123;</span><br><span class="line">  <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    F.prototype = obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码表明，<code>Object.create</code>方法的实质是新建一个空的构造函数<code>F</code>，然后让<code>F.prototype</code>属性指向参数对象<code>obj</code>，最后返回一个<code>F</code>的实例，从而实现让该实例继承<code>obj</code>的属性。</p>
+<h2 id="下面三种方式生成的新对象是等价的"><a href="#下面三种方式生成的新对象是等价的" class="headerlink" title="下面三种方式生成的新对象是等价的"></a>下面三种方式生成的新对象是等价的</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = <span class="built_in">Object</span>.create(&#123;&#125;);</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype);</span><br><span class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+<p>如果想要生成一个不继承任何属性（比如没有<code>toString</code>和<code>valueOf</code>方法）的对象，可以将<code>Object.create</code>的参数设为<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">obj.valueOf()</span><br><span class="line"><span class="comment">// TypeError: Object [object Object] has no method 'valueOf'</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>Object.create</code>方法的时候，必须提供对象原型，即参数不能为空，或者不是对象，否则会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create()</span><br><span class="line"><span class="comment">// TypeError: Object prototype may only be an Object or null</span></span><br><span class="line"><span class="built_in">Object</span>.create(<span class="number">123</span>)</span><br><span class="line"><span class="comment">// TypeError: Object prototype may only be an Object or</span></span><br></pre></td></tr></table></figure>
+<h2 id><a href="#" class="headerlink" title=" "></a> </h2><p><code>Object.create</code>方法生成的新对象，动态继承了原型。在原型上添加或修改任何方法，会立刻反映在新对象之上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">p</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.create(obj1);</span><br><span class="line"></span><br><span class="line">obj1.p = <span class="number">2</span>;</span><br><span class="line">obj2.p <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，修改对象原型obj1会影响到实例对象obj2。</p>
+<p><u><code>Object.create</code>方法还可以接受第二个参数。该参数是一个属性描述对象，它所描述的对象属性，会添加到实例对象，<strong>作为该对象自身的属性。</strong></u></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;&#125;, &#123;</span><br><span class="line">  p1: &#123;</span><br><span class="line">    value: <span class="number">123</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  p2: &#123;</span><br><span class="line">    value: <span class="string">'abc'</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;&#125;);</span><br><span class="line">obj.p1 = <span class="number">123</span>;</span><br><span class="line">obj.p2 = <span class="string">'abc'</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>Object.create方法生成的对象，继承了它的原型对象的构造函数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">Object</span>.create(a);</span><br><span class="line"></span><br><span class="line">b.constructor === A <span class="comment">// true</span></span><br><span class="line">b <span class="keyword">instanceof</span> A <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>b</code>对象的原型是<code>a</code>对象，因此继承了<code>a</code>对象的构造函数<code>A</code>。</p>
+<h1 id="Object-prototype-isPrototypeOf-用来判断该对象是否为参数对象的原型"><a href="#Object-prototype-isPrototypeOf-用来判断该对象是否为参数对象的原型" class="headerlink" title="Object.prototype.isPrototypeOf():用来判断该对象是否为参数对象的原型"></a>Object.prototype.isPrototypeOf():用来判断该对象是否为参数对象的原型</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="built_in">Object</span>.create(o1);</span><br><span class="line"><span class="keyword">var</span> o3 = <span class="built_in">Object</span>.create(o2);</span><br><span class="line"></span><br><span class="line">o2.isPrototypeOf(o3) <span class="comment">// true</span></span><br><span class="line">o1.isPrototypeOf(o3) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>o1</code>和<code>o2</code>都是<code>o3</code>的原型。这表明只要实例对象处在参数对象的原型链上，<code>isPrototypeOf</code>方法都返回<code>true</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf([]) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(<span class="regexp">/xyz/</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(<span class="built_in">Object</span>.create(<span class="literal">null</span>)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，由于<code>Object.prototype</code>处于原型链的最顶端，所以对各种实例都返回<code>true</code>，只有直接继承自<code>null</code>的对象除外。</p>
+<h1 id="Object-prototype-proto-返回该对象的原型，该属性可读写"><a href="#Object-prototype-proto-返回该对象的原型，该属性可读写" class="headerlink" title="Object.prototype.__proto__:返回该对象的原型，该属性可读写"></a>Object.prototype.__proto__:返回该对象的原型，该属性可读写</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> p = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj.__proto__ = p;</span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(obj) === p <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>根据语言标准，<code>__proto__</code>属性只有浏览器才需要部署，其他环境可以没有这个属性。它前后的两根下划线，表明它本质是一个内部属性，不应该对使用者暴露。<u>因此，应该尽量少用这个属性，而是用<code>Object.getPrototypeof()</code>和<code>Object.setPrototypeOf()</code>，进行原型对象的读写操作。</u></p>
+<p>原型链可以用__proto__很直观的表示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> A = &#123;</span><br><span class="line">  name: <span class="string">'张三'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> B = &#123;</span><br><span class="line">  name: <span class="string">'李四'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> proto = &#123;</span><br><span class="line">  print: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">A.__proto__ = proto;</span><br><span class="line">B.__proto__ = proto;</span><br><span class="line"></span><br><span class="line">A.print() <span class="comment">// 张三</span></span><br><span class="line">B.print() <span class="comment">// 李四</span></span><br><span class="line"></span><br><span class="line">A.print === B.print <span class="comment">// true</span></span><br><span class="line">A.print === proto.print <span class="comment">// true</span></span><br><span class="line">B.print === proto.print <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>A</code>对象和<code>B</code>对象的原型都是<code>proto</code>对象，它们都共享<code>proto</code>对象的<code>print</code>方法。也就是说，<code>A</code>和<code>B</code>的<code>print</code>方法，都是在调用<code>proto</code>对象的<code>print</code>方法。</p>
+<h1 id="获取原型对象方法的比较"><a href="#获取原型对象方法的比较" class="headerlink" title="获取原型对象方法的比较"></a>获取原型对象方法的比较</h1><p><code>__proto__</code>属性指向当前对象的原型对象，即构造函数的<code>prototype</code>属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">obj.__proto__ === <span class="built_in">Object</span>.prototype</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">obj.__proto__ === obj.constructor.prototype</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="获取实例对象的三种方法"><a href="#获取实例对象的三种方法" class="headerlink" title="获取实例对象的三种方法"></a>获取实例对象的三种方法</h2><ul>
+<li><code>obj.__proto__</code></li>
+<li><code>obj.constructor.prototype</code></li>
+<li><code>Object.getPrototypeOf(obj)</code></li>
+</ul>
+<p>上面三种方法中，前两种都不是很可靠。</p>
+<p><code>__proto__</code>属性只有浏览器才需要部署，其他环境可以不部署。而<code>obj.constructor.prototype</code>在手动改变原型对象时，可能会失效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> P = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> P();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> C = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">C.prototype = p;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line">c.constructor.prototype === p <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，构造函数<code>C</code>的原型对象被改成了<code>p</code>，但是实例对象的<code>c.constructor.prototype</code>却没有指向<code>p</code>。所以，在改变原型对象时，一般要同时设置<code>constructor</code>属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C.prototype = p;</span><br><span class="line">C.prototype.constructor = C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> C();</span><br><span class="line">c.constructor.prototype === p <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>因此，推荐使用第三种<code>Object.getPrototypeOf</code>方法，获取原型对象。</p>
+<h1 id="Object-getOwnPropertyNames-返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。"><a href="#Object-getOwnPropertyNames-返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。" class="headerlink" title="Object.getOwnPropertyNames():返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。"></a>Object.getOwnPropertyNames():返回一个数组，成员是参数对象本身所有属性的键名，<u>不包含继承的属性键名。</u></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(<span class="built_in">Date</span>)</span><br><span class="line"><span class="comment">// ["parse", "arguments", "UTC", "caller", "name", "prototype", "now", "length"]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>&lt;u&gt;Object.getOwnPropertyNames</code>方法返回<code>Date</code>所有自身的属性名。</p>
+<p>对象本身的属性之中，<u>有的是可以遍历的（enumerable），有的是不可以遍历的。<code>Object.getOwnPropertyNames</code>方法返回所有键名，不管是否可以遍历。只获取那些可以遍历的属性，使用<code>Object.keys</code>方法。</u></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(<span class="built_in">Date</span>) <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<p>上面代码表明，<code>Date</code>对象所有自身的属性，都是不可以遍历的。</p>
+<h1 id="Object-prototype-hasOwnProperty-用于判断某个属性定义在对象自身，还是定义在原型链上。"><a href="#Object-prototype-hasOwnProperty-用于判断某个属性定义在对象自身，还是定义在原型链上。" class="headerlink" title="Object.prototype.hasOwnProperty():用于判断某个属性定义在对象自身，还是定义在原型链上。"></a>Object.prototype.hasOwnProperty():用于判断某个属性定义在对象自身，还是定义在原型链上。</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.hasOwnProperty(<span class="string">'length'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Date</span>.hasOwnProperty(<span class="string">'toString'</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码表明，<code>Date.length</code>（构造函数<code>Date</code>可以接受多少个参数）是<code>Date</code>自身的属性，<code>Date.toString</code>是继承的属性。另外，<code>hasOwnProperty</code>方法是 JavaScript 之中唯一一个处理对象属性时，不会遍历原型链的方法。</p>
+<h1 id="in运算符：它不区分该属性是对象自己的属性，还是继承的属性"><a href="#in运算符：它不区分该属性是对象自己的属性，还是继承的属性" class="headerlink" title="in运算符：它不区分该属性是对象自己的属性，还是继承的属性"></a>in运算符：它不区分该属性是对象自己的属性，还是继承的属性</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'length'</span> <span class="keyword">in</span> <span class="built_in">Date</span> <span class="comment">// true</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> <span class="built_in">Date</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><u><code>in</code>运算符常用于检查一个属性是否存在。</u></p>
+<h1 id="for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）"><a href="#for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）" class="headerlink" title="for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）"></a>for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123; <span class="attr">p1</span>: <span class="number">123</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o2 = <span class="built_in">Object</span>.create(o1, &#123;</span><br><span class="line">  p2: &#123; <span class="attr">value</span>: <span class="string">"abc"</span>, <span class="attr">enumerable</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (p <span class="keyword">in</span> o2) &#123;</span><br><span class="line">  <span class="built_in">console</span>.info(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// p2</span></span><br><span class="line"><span class="comment">// p1</span></span><br></pre></td></tr></table></figure>
+<p>上面对象中，<strong>对象<code>o2</code>的<code>p2</code>属性是自身的（Object.create第二个参数指定的属性描述对象会当做是实例对象自身的属性）</strong>，<code>p1</code>属性是继承的。这两个属性都会被<code>for...in</code>循环遍历。</p>
+<h4 id="在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）"><a href="#在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）" class="headerlink" title="在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）"></a>在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> name <span class="keyword">in</span> object ) &#123;</span><br><span class="line">  <span class="keyword">if</span> ( object.hasOwnProperty(name) ) &#123;</span><br><span class="line">    <span class="comment">/* loop code */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法"><a href="#获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法" class="headerlink" title="获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法"></a>获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritedPropertyNames</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> props = &#123;&#125;;</span><br><span class="line">  <span class="keyword">while</span>(obj) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.getOwnPropertyNames(obj).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">p</span>) </span>&#123;</span><br><span class="line">      props[p] = <span class="literal">true</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    obj = <span class="built_in">Object</span>.getPrototypeOf(obj);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.getOwnPropertyNames(props);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>上面代码依次获取<code>obj</code>对象的每一级原型对象“自身”的属性，从而获取<code>obj</code>对象的“所有”属性，不管是否可遍历。</strong></p>
+<h1 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h1><p>如果要拷贝一个对象，需要做到下面两件事情。</p>
+<ul>
+<li>确保拷贝后的对象，与原对象具有同样的原型。</li>
+<li>确保拷贝后的对象，与原对象具有同样的实例属性。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyObject</span>(<span class="params">orig</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> copy = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(orig));</span><br><span class="line">  copyOwnPropertiesFrom(copy, orig);</span><br><span class="line">  <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyOwnPropertiesFrom</span>(<span class="params">target, source</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span></span><br><span class="line">    .getOwnPropertyNames(source)</span><br><span class="line">    .forEach(<span class="function"><span class="keyword">function</span> (<span class="params">propKey</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> desc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(source, propKey);</span><br><span class="line">      <span class="built_in">Object</span>.defineProperty(target, propKey, desc);</span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另一种更简单的写法，是利用 ES2017 才引入标准的<code>Object.getOwnPropertyDescriptors</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyObject</span>(<span class="params">orig</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.create(</span><br><span class="line">    <span class="built_in">Object</span>.getPrototypeOf(orig),</span><br><span class="line">    <span class="built_in">Object</span>.getOwnPropertyDescriptors(orig)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-28T16:05:20.458Z" itemprop="dateUpdated">2019-07-29 00:05:20</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/07/28/JS学习之面向对象编程Object对象相关的方法/" target="_blank" rel="external">http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Object对象相关的方法/">Object对象相关的方法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/&title=《JS学习之面向对象编程Object对象相关的方法》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/&title=《JS学习之面向对象编程Object对象相关的方法》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之面向对象编程Object对象相关的方法》 — HeJL&url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/27/JS学习之面向对象编程prototype对象/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之面向对象编程prototype对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/&title=《JS学习之面向对象编程Object对象相关的方法》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/&title=《JS学习之面向对象编程Object对象相关的方法》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之面向对象编程Object对象相关的方法》 — HeJL&url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/07/28/JS学习之面向对象编程Object对象相关的方法/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
