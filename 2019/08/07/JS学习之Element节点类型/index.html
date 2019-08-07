@@ -39,8 +39,7 @@
 <meta property="og:image" content="http://hedroins.github.io/.io//blog/source/_posts/JS学习之Element节点类型/Dimensions-client.png">
 <meta property="og:image" content="http://hedroins.github.io/.io//blog/source/_posts/JS学习之Element节点类型/scrollHeight.png">
 <meta property="og:image" content="http://hedroins.github.io/.io//blog/source/_posts/JS学习之Element节点类型/Dimensions-client.png">
-<meta property="og:image" content="http://hedroins.github.io/.io//blog/source/_posts/JS学习之Element节点类型/Dimensions-client.png">
-<meta property="og:updated_time" content="2019-08-07T01:58:22.487Z">
+<meta property="og:updated_time" content="2019-08-07T02:04:04.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS学习之Element节点类型">
 <meta name="twitter:description" content="Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 123var p = document.querySelector(&apos;p&apos;);p.nodeName // &quot;P&quot;p.nodeType // 1 Element对象继承了Node接口，因此Node的属性和方法在Ele">
@@ -307,13 +306,7 @@
             </figure>
 <p>它包括<code>padding</code>，但是不包括<code>border</code>、<code>margin</code>以及水平滚动条的高度（如果有水平滚动条的话），还包括伪元素（<code>::before</code>或<code>::after</code>）的高度。</p>
 <p><strong><code>Element.scrollWidth</code>属性表示当前元素的总宽度（单位像素），其他地方都与<code>scrollHeight</code>属性类似。这两个属性只读。</strong></p>
-<p><strong>整张网页的总高度可以从<code>document.documentElement</code>或<code>docume<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/.io//blog\source\_posts\JS学习之Element节点类型\Dimensions-client.png" alt="Dimensions-client" title>
-                </div>
-                <div class="image-caption">Dimensions-client</div>
-            </figure>nt.body</code>上读取。</strong></p>
+<p><strong>整张网页的总高度可以从<code>document.documentElement</code>或<code>document.body</code>上读取。</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回网页的总高度</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.scrollHeight</span><br><span class="line"><span class="built_in">document</span>.body.scrollHeight</span><br></pre></td></tr></table></figure>
 <p><strong><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -359,7 +352,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-07T01:58:22.487Z" itemprop="dateUpdated">2019-08-07 09:58:22</time>
+    最后更新时间：<time datetime="2019-08-07T02:04:04.800Z" itemprop="dateUpdated">2019-08-07 10:04:04</time>
 </span><br>
 
 
