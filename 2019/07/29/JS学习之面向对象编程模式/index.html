@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -53,7 +53,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +73,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags">
+              <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/Hedroins" target="_blank">
+              <a href="https://github.com/Hedroins" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/custom">
+              <a href="/custom"  >
                 <i class="icon icon-lg icon-link"></i>
                 测试
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/dream">
+              <a href="/dream"  >
                 <i class="icon icon-lg icon-dream"></i>
                 Dream
               </a>
@@ -177,23 +177,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#构造函数的继承"><span class="post-toc-number">1.</span> <span class="post-toc-text">构造函数的继承</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、在子类的构造函数中，调用父类的构造函数"><span class="post-toc-number">1.0.0.1.</span> <span class="post-toc-text">1、在子类的构造函数中，调用父类的构造函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、让子类的原型指向父类的原型，这样子类就可以继承父类的原型。"><span class="post-toc-number">1.0.0.2.</span> <span class="post-toc-text">2、让子类的原型指向父类的原型，这样子类就可以继承父类的原型。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#举个例子"><span class="post-toc-number">1.0.0.3.</span> <span class="post-toc-text">举个例子</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多重继承（javascript本身不支持，但可以采取变通的方法实现）"><span class="post-toc-number">2.</span> <span class="post-toc-text">多重继承（javascript本身不支持，但可以采取变通的方法实现）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-assign-用于将所有可枚举的属性从一个或多个源对象复制到目标对象，它将返回目标对象。"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Object.assign():用于将所有可枚举的属性从一个或多个源对象复制到目标对象，它将返回目标对象。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法1："><span class="post-toc-number">3.2.</span> <span class="post-toc-text">解决办法1：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">问题2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法2"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">解决办法2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3：这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">问题3：这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法3：立即执行函数的写法"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">解决办法3：立即执行函数的写法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块的放大模式"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">模块的放大模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入全局变量"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">输入全局变量</span></a></li></ol></li>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#构造函数的继承"><span class="post-toc-number">1.</span> <span class="post-toc-text">构造函数的继承</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、在子类的构造函数中，调用父类的构造函数"><span class="post-toc-number">1.0.0.1.</span> <span class="post-toc-text">1、在子类的构造函数中，调用父类的构造函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、让子类的原型指向父类的原型，这样子类就可以继承父类的原型。"><span class="post-toc-number">1.0.0.2.</span> <span class="post-toc-text">2、让子类的原型指向父类的原型，这样子类就可以继承父类的原型。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#举个例子"><span class="post-toc-number">1.0.0.3.</span> <span class="post-toc-text">举个例子</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多重继承（javascript本身不支持，但可以采取变通的方法实现）"><span class="post-toc-number">2.</span> <span class="post-toc-text">多重继承（javascript本身不支持，但可以采取变通的方法实现）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-assign-用于将所有可枚举的属性从一个或多个源对象复制到目标对象，它将返回目标对象。"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Object.assign():用于将所有可枚举的属性从一个或多个源对象复制到目标对象，它将返回目标对象。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法1："><span class="post-toc-number">3.2.</span> <span class="post-toc-text">解决办法1：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">问题2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法2"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">解决办法2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3：这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">问题3：这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法3：立即执行函数的写法"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">解决办法3：立即执行函数的写法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块的放大模式"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">模块的放大模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入全局变量"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">输入全局变量</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-JS学习之面向对象编程模式" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-JS学习之面向对象编程模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">JS学习之面向对象编程模式</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-07-29 09:06:38" datetime="2019-07-29T01:06:38.000Z" itemprop="datePublished">2019-07-29</time>
+            <time class="post-time" title="2019-07-29 09:06:38" datetime="2019-07-29T01:06:38.000Z"  itemprop="datePublished">2019-07-29</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -403,7 +404,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -422,10 +424,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -53,7 +53,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,49 +73,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags">
+              <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/Hedroins" target="_blank">
+              <a href="https://github.com/Hedroins" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/custom">
+              <a href="/custom"  >
                 <i class="icon icon-lg icon-link"></i>
                 测试
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/dream">
+              <a href="/dream"  >
                 <i class="icon icon-lg icon-dream"></i>
                 Dream
               </a>
@@ -177,23 +177,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-getPrototypeOf-：方法返回参数对象的原型。"><span class="post-toc-number">1.</span> <span class="post-toc-text">Object.getPrototypeOf()：方法返回参数对象的原型。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几种特殊的对象原型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">几种特殊的对象原型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-setPrototypeOf-为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">Object.setPrototypeOf():为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用Object-setPrototypeOf-模拟new命令"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">用Object.setPrototypeOf()模拟new命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-create-该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。"><span class="post-toc-number">3.</span> <span class="post-toc-text">Object.create(): 该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面三种方式生成的新对象是等价的"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下面三种方式生成的新对象是等价的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-isPrototypeOf-用来判断该对象是否为参数对象的原型"><span class="post-toc-number">4.</span> <span class="post-toc-text">Object.prototype.isPrototypeOf():用来判断该对象是否为参数对象的原型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-proto-返回该对象的原型，该属性可读写"><span class="post-toc-number">5.</span> <span class="post-toc-text">Object.prototype.__proto__:返回该对象的原型，该属性可读写</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取原型对象方法的比较"><span class="post-toc-number">6.</span> <span class="post-toc-text">获取原型对象方法的比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取实例对象的三种方法"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">获取实例对象的三种方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-getOwnPropertyNames-返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。"><span class="post-toc-number">7.</span> <span class="post-toc-text">Object.getOwnPropertyNames():返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-hasOwnProperty-用于判断某个属性定义在对象自身，还是定义在原型链上。"><span class="post-toc-number">8.</span> <span class="post-toc-text">Object.prototype.hasOwnProperty():用于判断某个属性定义在对象自身，还是定义在原型链上。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#in运算符：它不区分该属性是对象自己的属性，还是继承的属性"><span class="post-toc-number">9.</span> <span class="post-toc-text">in运算符：它不区分该属性是对象自己的属性，还是继承的属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）"><span class="post-toc-number">10.</span> <span class="post-toc-text">for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）"><span class="post-toc-number">10.0.0.1.</span> <span class="post-toc-text">在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法"><span class="post-toc-number">10.0.0.2.</span> <span class="post-toc-text">获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象的拷贝"><span class="post-toc-number">11.</span> <span class="post-toc-text">对象的拷贝</span></a></li>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-getPrototypeOf-：方法返回参数对象的原型。"><span class="post-toc-number">1.</span> <span class="post-toc-text">Object.getPrototypeOf()：方法返回参数对象的原型。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几种特殊的对象原型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">几种特殊的对象原型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-setPrototypeOf-为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">Object.setPrototypeOf():为参数对象设置原型，返回该参数对象，它接受两个参数，第一个是现有对象，第二个是原型对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用Object-setPrototypeOf-模拟new命令"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">用Object.setPrototypeOf()模拟new命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-create-该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。"><span class="post-toc-number">3.</span> <span class="post-toc-text">Object.create(): 该方法接受一个对象作为参数，然后，以它为原型，返回一个实例对象。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面三种方式生成的新对象是等价的"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下面三种方式生成的新对象是等价的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#null"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-isPrototypeOf-用来判断该对象是否为参数对象的原型"><span class="post-toc-number">4.</span> <span class="post-toc-text">Object.prototype.isPrototypeOf():用来判断该对象是否为参数对象的原型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-proto-返回该对象的原型，该属性可读写"><span class="post-toc-number">5.</span> <span class="post-toc-text">Object.prototype.__proto__:返回该对象的原型，该属性可读写</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取原型对象方法的比较"><span class="post-toc-number">6.</span> <span class="post-toc-text">获取原型对象方法的比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取实例对象的三种方法"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">获取实例对象的三种方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-getOwnPropertyNames-返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。"><span class="post-toc-number">7.</span> <span class="post-toc-text">Object.getOwnPropertyNames():返回一个数组，成员是参数对象本身所有属性的键名，不包含继承的属性键名。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-prototype-hasOwnProperty-用于判断某个属性定义在对象自身，还是定义在原型链上。"><span class="post-toc-number">8.</span> <span class="post-toc-text">Object.prototype.hasOwnProperty():用于判断某个属性定义在对象自身，还是定义在原型链上。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#in运算符：它不区分该属性是对象自己的属性，还是继承的属性"><span class="post-toc-number">9.</span> <span class="post-toc-text">in运算符：它不区分该属性是对象自己的属性，还是继承的属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）"><span class="post-toc-number">10.</span> <span class="post-toc-text">for…in循环：获取对象的所有可遍历属性（不管是自身的还是继承的）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）"><span class="post-toc-number">10.0.0.1.</span> <span class="post-toc-text">在for…in中获取自身的属性，可以采用hasOwnProperty方法判断（该方法只返回自身的属性，不返回继承的属性）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法"><span class="post-toc-number">10.0.0.2.</span> <span class="post-toc-text">获取对象所有的属性（不管是自身的还是继承的，也不管是否可遍历），可以使用下面的方法</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象的拷贝"><span class="post-toc-number">11.</span> <span class="post-toc-text">对象的拷贝</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-JS学习之面向对象编程Object对象相关的方法" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-JS学习之面向对象编程Object对象相关的方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">JS学习之面向对象编程Object对象相关的方法</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-07-28 09:49:48" datetime="2019-07-28T01:49:48.000Z" itemprop="datePublished">2019-07-28</time>
+            <time class="post-time" title="2019-07-28 09:49:48" datetime="2019-07-28T01:49:48.000Z"  itemprop="datePublished">2019-07-28</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -414,7 +415,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -433,10 +435,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
