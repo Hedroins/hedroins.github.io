@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之属性操作 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="属性操作">
+    <meta name="description" content="HTML 元素包括标签名和若干个键值对，这个键值对就称为“属性”（attribute）。 属性本身是一个对象（Attr对象），但是实际上，这个对象极少使用。一般都是通过元素节点对象（HTMlElement对象）来操作属性。本章介绍如何操作这些属性。 Element.attributes属性返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上。 其他">
+<meta name="keywords" content="属性操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之属性操作">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/07/JS学习之属性操作/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="HTML 元素包括标签名和若干个键值对，这个键值对就称为“属性”（attribute）。 属性本身是一个对象（Attr对象），但是实际上，这个对象极少使用。一般都是通过元素节点对象（HTMlElement对象）来操作属性。本章介绍如何操作这些属性。 Element.attributes属性返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上。 其他">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-07T18:03:55.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之属性操作">
+<meta name="twitter:description" content="HTML 元素包括标签名和若干个键值对，这个键值对就称为“属性”（attribute）。 属性本身是一个对象（Attr对象），但是实际上，这个对象极少使用。一般都是通过元素节点对象（HTMlElement对象）来操作属性。本章介绍如何操作这些属性。 Element.attributes属性返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上。 其他">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之属性操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之属性操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-07T15:27:47.000Z" itemprop="datePublished" class="page-time">
+  2019-08-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Element-attributes属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">Element.attributes属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#元素的标准属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">元素的标准属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#属性操作的方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">属性操作的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Element-getAttribute-方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null。"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Element.getAttribute():方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Element-setAttribute-用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Element.setAttribute():用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Element-hasAttribute-返回一个布尔值，表示当前元素节点是否包含指定属性。"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Element.hasAttribute():返回一个布尔值，表示当前元素节点是否包含指定属性。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Element-removeAttribute-用于从当前元素节点移除属性。"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">Element.removeAttribute():用于从当前元素节点移除属性。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#dataset属性"><span class="post-toc-number">4.</span> <span class="post-toc-text">dataset属性</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之属性操作"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之属性操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-07 23:27:47" datetime="2019-08-07T15:27:47.000Z"  itemprop="datePublished">2019-08-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong>HTML 元素包括标签名和若干个键值对，这个键值对就称为“属性”（attribute）。</strong></p>
+<p>属性本身是一个对象（<code>Attr</code>对象），但是实际上，这个对象极少使用。一般都是通过元素节点对象（<code>HTMlElement</code>对象）来操作属性。本章介绍如何操作这些属性。</p>
+<h1 id="Element-attributes属性"><a href="#Element-attributes属性" class="headerlink" title="Element.attributes属性"></a>Element.attributes属性</h1><p><strong>返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上。</strong></p>
+<p><u>其他类型的节点对象，虽然也有<code>attributes</code>属性，但返回的都是<code>null</code>，因此可以把这个属性视为元素对象独有的。</u></p>
+<p>单个属性可以通过序号引用，也可以通过属性名引用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;body bgcolor="yellow" onload=""&gt;</span></span><br><span class="line"><span class="built_in">document</span>.body.attributes[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">document</span>.body.attributes.bgcolor</span><br><span class="line"><span class="built_in">document</span>.body.attributes[<span class="string">'ONLOAD'</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>注意，上面代码的三种方法，返回的都是属性节点对象，而不是属性值</strong>。</p>
+<p><strong>属性节点对象有<code>name</code>和<code>value</code>属性，对应该属性的属性名和属性值，等同于<code>nodeName</code>属性和<code>nodeValue</code>属性。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML代码为</span></span><br><span class="line"><span class="comment">// &lt;div id="mydiv"&gt;</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="built_in">document</span>.getElementById(<span class="string">'mydiv'</span>);</span><br><span class="line"></span><br><span class="line">n.attributes[<span class="number">0</span>].name <span class="comment">// "id"</span></span><br><span class="line">n.attributes[<span class="number">0</span>].nodeName <span class="comment">// "id"</span></span><br><span class="line"></span><br><span class="line">n.attributes[<span class="number">0</span>].value <span class="comment">// "mydiv"</span></span><br><span class="line">n.attributes[<span class="number">0</span>].nodeValue <span class="comment">// "mydiv"</span></span><br></pre></td></tr></table></figure>
+<p>下面代码可以遍历一个元素节点的所有属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> para = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">document</span>.getElementById(<span class="string">'result'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (para.hasAttributes()) &#123;</span><br><span class="line">  <span class="keyword">var</span> attrs = para.attributes;</span><br><span class="line">  <span class="keyword">var</span> output = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = attrs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    output += attrs[i].name + <span class="string">'-&gt;'</span> + attrs[i].value;</span><br><span class="line">  &#125;</span><br><span class="line">  result.textContent = output;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  result.textContent = <span class="string">'No attributes to show'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="元素的标准属性"><a href="#元素的标准属性" class="headerlink" title="元素的标准属性"></a>元素的标准属性</h1><p>HTML 元素的标准属性（即在标准中定义的属性），会自动成为元素节点对象的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span><br><span class="line">a.id <span class="comment">// "test"</span></span><br><span class="line">a.href <span class="comment">// "http://www.example.com/"</span></span><br></pre></td></tr></table></figure>
+<p><strong>上面代码中，<code>a</code>元素标签的属性<code>id</code>和<code>href</code>，自动成为节点对象的属性。</strong></p>
+<p>这些属性都是可写的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">'myImage'</span>);</span><br><span class="line">img.src = <span class="string">'http://www.example.com/image.jpg'</span>;</span><br></pre></td></tr></table></figure>
+<p>上面的写法，会立刻替换掉<code>img</code>对象的<code>src</code>属性，即会显示另外一张图片。</p>
+<p>这种修改属性的方法，常常用于添加表单的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="built_in">document</span>.forms[<span class="number">0</span>];</span><br><span class="line">f.action = <span class="string">'submit.php'</span>;</span><br><span class="line">f.method = <span class="string">'POST'</span>;</span><br></pre></td></tr></table></figure>
+<p>上面代码为表单添加提交网址和提交方法。</p>
+<p><strong>注意，这种用法虽然可以读写属性，但是无法删除属性，<code>delete</code>运算符在这里不会生效。</strong></p>
+<p>HTML 元素的属性名是大小写不敏感的，但是 JavaScript 对象的属性名是大小写敏感的。转换规则是，转为 JavaScript 属性名时，一律采用小写。如果属性名包括多个单词，则采用骆驼拼写法，即从第二个单词开始，每个单词的首字母采用大写，比如<code>onClick</code>。</p>
+<p><strong>有些 HTML 属性名是 JavaScript 的保留字，转为 JavaScript 属性时，必须改名。主要是以下两个。</strong></p>
+<ul>
+<li><strong><code>for</code>属性改为<code>htmlFor</code></strong></li>
+<li><strong><code>class</code>属性改为`className</strong>`</li>
+</ul>
+<p>另外，HTML 属性值一般都是字符串，但是 JavaScript 属性会自动转换类型。比如，将字符串<code>true</code>转为布尔值，将<code>onClick</code>的值转为一个函数，将<code>style</code>属性的值转为一个<code>CSSStyleDeclaration</code>对象。因此，可以对这些属性赋予各种类型的值。</p>
+<h1 id="属性操作的方法"><a href="#属性操作的方法" class="headerlink" title="属性操作的方法"></a>属性操作的方法</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>元素节点提供四个方法，用来操作属性。</p>
+<ul>
+<li><strong><code>getAttribute()</code></strong></li>
+<li><strong><code>setAttribute()</code></strong></li>
+<li><strong><code>hasAttribute()</code></strong></li>
+<li><strong><code>removeAttribute()</code></strong></li>
+</ul>
+<p><strong>这四个方法对所有属性（包括用户自定义的属性）都适用。</strong></p>
+<p><strong><code>getAttribute()</code>只返回字符串，不会返回其他类型的值。</strong></p>
+<p><strong>这些方法只接受属性的标准名称，不用改写保留字，比如<code>for</code>和<code>class</code>都可以直接使用。另外，这些方法对于属性名是大小写不敏感的。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>];</span><br><span class="line">image.setAttribute(<span class="string">'class'</span>, <span class="string">'myImage'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，setAttribute方法直接使用class作为属性名，不用写成className。</p>
+<h2 id="Element-getAttribute-方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null。"><a href="#Element-getAttribute-方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null。" class="headerlink" title="Element.getAttribute():方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null。"></a>Element.getAttribute():方法返回当前元素节点的指定属性。如果指定属性不存在，则返回<code>null</code>。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML代码为</span></span><br><span class="line"><span class="comment">// &lt;div id="div1" align="left"&gt;</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>);</span><br><span class="line">div.getAttribute(<span class="string">'align'</span>) <span class="comment">// "left"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Element-setAttribute-用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。"><a href="#Element-setAttribute-用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。" class="headerlink" title="Element.setAttribute():用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。"></a>Element.setAttribute():用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>);</span><br><span class="line">d.setAttribute(<span class="string">'align'</span>, <span class="string">'center'</span>);</span><br></pre></td></tr></table></figure>
+<p>下面是对<code>img</code>元素的<code>src</code>属性赋值的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myImage = <span class="built_in">document</span>.querySelector(<span class="string">'img'</span>);</span><br><span class="line">myImage.setAttribute(<span class="string">'src'</span>, <span class="string">'path/to/example.png'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Element-hasAttribute-返回一个布尔值，表示当前元素节点是否包含指定属性。"><a href="#Element-hasAttribute-返回一个布尔值，表示当前元素节点是否包含指定属性。" class="headerlink" title="Element.hasAttribute():返回一个布尔值，表示当前元素节点是否包含指定属性。"></a>Element.hasAttribute():返回一个布尔值，表示当前元素节点是否包含指定属性。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (d.hasAttribute(<span class="string">'align'</span>)) &#123;</span><br><span class="line">  d.setAttribute(<span class="string">'align'</span>, <span class="string">'center'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码检查<code>div</code>节点是否含有<code>align</code>属性。如果有，则设置为居中对齐。</p>
+<h2 id="Element-removeAttribute-用于从当前元素节点移除属性。"><a href="#Element-removeAttribute-用于从当前元素节点移除属性。" class="headerlink" title="Element.removeAttribute():用于从当前元素节点移除属性。"></a>Element.removeAttribute():用于从当前元素节点移除属性。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;div id="div1" align="left" width="200px"&gt;</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>).removeAttribute(<span class="string">'align'</span>);</span><br><span class="line"><span class="comment">// 现在的HTML代码为</span></span><br><span class="line"><span class="comment">// &lt;div id="div1" width="200px"&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="dataset属性"><a href="#dataset属性" class="headerlink" title="dataset属性"></a>dataset属性</h1><p>有时，需要在HTML元素上附加数据，供 JavaScript 脚本使用。一种解决方法是自定义属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"mydiv"</span> foo=<span class="string">"bar"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码为<code>div</code>元素自定义了<code>foo</code>属性，然后可以用<code>getAttribute()</code>和<code>setAttribute()</code>读写这个属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="built_in">document</span>.getElementById(<span class="string">'mydiv'</span>);</span><br><span class="line">n.getAttribute(<span class="string">'foo'</span>) <span class="comment">// bar</span></span><br><span class="line">n.setAttribute(<span class="string">'foo'</span>, <span class="string">'baz'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>这种方法虽然可以达到目的，但是会使得 HTML 元素的属性不符合标准，导致网页代码通不过校验。</strong></p>
+<p><strong>更好的解决方法是，使用标准提供的<code>data-*</code>属性。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"mydiv"</span> data-foo=<span class="string">"bar"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>然后，使用元素节点对象的<code>dataset</code>属性，它指向一个对象，可以用来操作 HTML 元素标签的<code>data-*</code>属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="built_in">document</span>.getElementById(<span class="string">'mydiv'</span>);</span><br><span class="line">n.dataset.foo <span class="comment">// bar</span></span><br><span class="line">n.dataset.foo = <span class="string">'baz'</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，通过<code>dataset.foo</code>读写<code>data-foo</code>属性。</p>
+<p><strong>删除一个<code>data-*</code>属性，可以直接使用<code>delete</code>命令。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="built_in">document</span>.getElementById(<span class="string">'myDiv'</span>).dataset.foo;</span><br></pre></td></tr></table></figure>
+<p><strong>除了<code>dataset</code>属性，也可以用<code>getAttribute(&#39;data-foo&#39;)</code>、<code>removeAttribute(&#39;data-foo&#39;)</code>、<code>setAttribute(&#39;data-foo&#39;)</code>、<code>hasAttribute(&#39;data-foo&#39;)</code>等方法操作<code>data-*</code>属性。</strong></p>
+<p><strong>注意，<code>data-</code>后面的属性名有限制，只能包含字母、数字、连词线（<code>-</code>）、点（<code>.</code>）、冒号（<code>:</code>）和下划线（<code>_</code>)。而且，属性名不应该使用<code>A</code>到<code>Z</code>的大写字母，比如不能有<code>data-helloWorld</code>这样的属性名，而要写成<code>data-hello-world</code>。</strong></p>
+<p><strong>转成<code>dataset</code>的键名时，连词线后面如果跟着一个小写字母，那么连词线会被移除，该小写字母转为大写字母，其他字符不变。反过来，<code>dataset</code>的键名转成属性名时，所有大写字母都会被转成连词线+该字母的小写形式，其他字符不变。比如，<code>dataset.helloWorld</code>会转成<code>data-hello-world</code>。</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-07T18:03:55.007Z" itemprop="dateUpdated">2019-08-08 02:03:55</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/07/JS学习之属性操作/" target="_blank" rel="external">http://hedroins.github.io/2019/08/07/JS学习之属性操作/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/属性操作/">属性操作</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/&title=《JS学习之属性操作》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/&title=《JS学习之属性操作》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/07/JS学习之属性操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之属性操作》 — HeJL&url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/08/JS学习之Text节点和DocumentFragment节点/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS学习之Text节点和DocumentFragment节点</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/07/JS学习之Element节点类型/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之Element节点类型</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/&title=《JS学习之属性操作》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/&title=《JS学习之属性操作》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/07/JS学习之属性操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之属性操作》 — HeJL&url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/07/JS学习之属性操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/07/JS学习之属性操作/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

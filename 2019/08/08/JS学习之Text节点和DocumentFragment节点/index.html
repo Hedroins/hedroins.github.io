@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之Text节点和DocumentFragment节点 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Text节点和DocumentFragment节点">
+    <meta name="description" content="Text节点的概念文本节点（Text）代表元素节点（Element）和属性节点（Attribute）的文本内容。如果一个节点只包含一段文本，那么它就有一个文本子节点，代表该节点的文本内容。 通常我们使用父节点的firstChild、nextSibling等属性获取文本节点，或者使用Document节点的createTextNode方法创造一个文本节点。 123456// 获取文本节点var tex">
+<meta name="keywords" content="Text节点和DocumentFragment节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之Text节点和DocumentFragment节点">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="Text节点的概念文本节点（Text）代表元素节点（Element）和属性节点（Attribute）的文本内容。如果一个节点只包含一段文本，那么它就有一个文本子节点，代表该节点的文本内容。 通常我们使用父节点的firstChild、nextSibling等属性获取文本节点，或者使用Document节点的createTextNode方法创造一个文本节点。 123456// 获取文本节点var tex">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-08T07:23:13.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之Text节点和DocumentFragment节点">
+<meta name="twitter:description" content="Text节点的概念文本节点（Text）代表元素节点（Element）和属性节点（Attribute）的文本内容。如果一个节点只包含一段文本，那么它就有一个文本子节点，代表该节点的文本内容。 通常我们使用父节点的firstChild、nextSibling等属性获取文本节点，或者使用Document节点的createTextNode方法创造一个文本节点。 123456// 获取文本节点var tex">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之Text节点和DocumentFragment节点</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之Text节点和DocumentFragment节点</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-08T06:41:51.000Z" itemprop="datePublished" class="page-time">
+  2019-08-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Text节点的概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">Text节点的概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Text节点的属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">Text节点的属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#data属性"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">data属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wholeText属性当前文本节点与毗邻的文本节点，作为一个整体返回"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">wholeText属性当前文本节点与毗邻的文本节点，作为一个整体返回</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#length属性返回当前文本节点的文本长度"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">length属性返回当前文本节点的文本长度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#nextElementSibling属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回null。"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">nextElementSibling属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回null。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#previousElementSibling属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回null：。"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">previousElementSibling属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回null：。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Text节点的方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Text节点的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑文本节点的方法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">编辑文本节点的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#appendData-在Text节点尾部追加字符串。"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">appendData()在Text节点尾部追加字符串。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#deleteData-删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">deleteData()删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#insertData-在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">insertData():在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#replaceData-用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">replaceData():用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#subStringData-：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">subStringData()：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#remove-用于移除当前Text节点"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">remove()用于移除当前Text节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#splitText-将Text节点一分为二，变成两个毗邻的Text节点。"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">splitText():将Text节点一分为二，变成两个毗邻的Text节点。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父节点的normalize方法可以将毗邻的两个Text节点合并。"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">父节点的normalize方法可以将毗邻的两个Text节点合并。</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DocumentFragment节点"><span class="post-toc-number">4.</span> <span class="post-toc-text">DocumentFragment节点</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之Text节点和DocumentFragment节点"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之Text节点和DocumentFragment节点</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-08 14:41:51" datetime="2019-08-08T06:41:51.000Z"  itemprop="datePublished">2019-08-08</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Text节点的概念"><a href="#Text节点的概念" class="headerlink" title="Text节点的概念"></a>Text节点的概念</h1><p><strong>文本节点（<code>Text</code>）代表元素节点（<code>Element</code>）和属性节点（<code>Attribute</code>）的文本内容。如果一个节点只包含一段文本，那么它就有一个文本子节点，代表该节点的文本内容。</strong></p>
+<p><strong>通常我们使用父节点的<code>firstChild</code>、<code>nextSibling</code>等属性获取文本节点，或者使用<code>Document</code>节点的<code>createTextNode</code>方法创造一个文本节点。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取文本节点</span></span><br><span class="line"><span class="keyword">var</span> textNode = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创造文本节点</span></span><br><span class="line"><span class="keyword">var</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">'Hi'</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'div'</span>).appendChild(textNode);</span><br></pre></td></tr></table></figure>
+<p><strong>浏览器原生提供一个<code>Text</code>构造函数。它返回一个文本节点实例。它的参数就是该文本节点的文本内容。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空字符串</span></span><br><span class="line"><span class="keyword">var</span> text1 = <span class="keyword">new</span> Text();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非空字符串</span></span><br><span class="line"><span class="keyword">var</span> text2 = <span class="keyword">new</span> Text(<span class="string">'This is a text node'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong><u>由于空格也是一个字符，所以哪怕只有一个空格，也会形成文本节点。比如，<code>&lt;p&gt; &lt;/p&gt;</code>包含一个空格，它的子节点就是一个文本节点。</u></strong></p>
+<h1 id="Text节点的属性"><a href="#Text节点的属性" class="headerlink" title="Text节点的属性"></a>Text节点的属性</h1><h2 id="data属性"><a href="#data属性" class="headerlink" title="data属性"></a>data属性</h2><p><strong><code>data</code>属性等同于<code>nodeValue</code>属性</strong>，用来设置或读取文本节点的内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取文本内容</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.data</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.nodeValue</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文本内容</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.data = <span class="string">'Hello World'</span>;<span class="comment">//该属性可读写</span></span><br></pre></td></tr></table></figure>
+<h2 id="wholeText属性当前文本节点与毗邻的文本节点，作为一个整体返回"><a href="#wholeText属性当前文本节点与毗邻的文本节点，作为一个整体返回" class="headerlink" title="wholeText属性当前文本节点与毗邻的文本节点，作为一个整体返回"></a>wholeText属性当前文本节点与毗邻的文本节点，作为一个整体返回</h2><p><strong>大多数情况下，<code>wholeText</code>属性的返回值，与<code>data</code>属性和<code>textContent</code>属性相同</strong>。但是，某些特殊情况会有差异。</p>
+<p>举例来说，HTML 代码如下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"para"</span>&gt;</span>A <span class="tag">&lt;<span class="name">em</span>&gt;</span>B<span class="tag">&lt;/<span class="name">em</span>&gt;</span> C<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这时，文本节点的<code>wholeText</code>属性和<code>data</code>属性，返回值相同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'para'</span>);</span><br><span class="line">el.firstChild.wholeText <span class="comment">// "A "</span></span><br><span class="line">el.firstChild.data <span class="comment">// "A "</span></span><br></pre></td></tr></table></figure>
+<p>但是，一旦移除<code>&lt;em&gt;</code>节点，<code>wholeText</code>属性与<code>data</code>属性就会有差异，因为这时其实<code>&lt;p&gt;</code>节点下面包含了两个毗邻的文本节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">el.removeChild(para.childNodes[<span class="number">1</span>]);</span><br><span class="line">el.firstChild.wholeText <span class="comment">// "A C"</span></span><br><span class="line">el.firstChild.data <span class="comment">// "A "</span></span><br></pre></td></tr></table></figure>
+<h2 id="length属性返回当前文本节点的文本长度"><a href="#length属性返回当前文本节点的文本长度" class="headerlink" title="length属性返回当前文本节点的文本长度"></a>length属性返回当前文本节点的文本长度</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">new</span> Text(<span class="string">'Hello'</span>)).length <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h2 id="nextElementSibling属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回null。"><a href="#nextElementSibling属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回null。" class="headerlink" title="nextElementSibling属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回null。"></a>nextElementSibling属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回<code>null</code>。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 为</span></span><br><span class="line"><span class="comment">// &lt;div&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="keyword">var</span> tn = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>).firstChild;</span><br><span class="line">tn.nextElementSibling</span><br><span class="line"><span class="comment">// &lt;em&gt;World&lt;/em&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="previousElementSibling属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回null：。"><a href="#previousElementSibling属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回null：。" class="headerlink" title="previousElementSibling属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回null：。"></a><code>previousElementSibling</code>属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回<code>null：</code>。</h2><h1 id="Text节点的方法"><a href="#Text节点的方法" class="headerlink" title="Text节点的方法"></a>Text节点的方法</h1><h2 id="编辑文本节点的方法"><a href="#编辑文本节点的方法" class="headerlink" title="编辑文本节点的方法"></a>编辑文本节点的方法</h2><h3 id="appendData-在Text节点尾部追加字符串。"><a href="#appendData-在Text节点尾部追加字符串。" class="headerlink" title="appendData()在Text节点尾部追加字符串。"></a>appendData()在<code>Text</code>节点尾部追加字符串。</h3><h3 id="deleteData-删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。"><a href="#deleteData-删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。" class="headerlink" title="deleteData()删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。"></a>deleteData()删除<code>Text</code>节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。</h3><h3 id="insertData-在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。"><a href="#insertData-在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。" class="headerlink" title="insertData():在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。"></a>insertData():在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。</h3><h3 id="replaceData-用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。"><a href="#replaceData-用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。" class="headerlink" title="replaceData():用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。"></a>replaceData():用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。</h3><h3 id="subStringData-：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。"><a href="#subStringData-：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。" class="headerlink" title="subStringData()：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度。"></a><code>subStringData()</code>：用于获取子字符串，第一个参数为子字符串在<code>Text</code>节点中的开始位置，第二个参数为子字符串长度。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;p&gt;Hello World&lt;/p&gt;</span></span><br><span class="line"><span class="keyword">var</span> pElementText = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild;</span><br><span class="line"></span><br><span class="line">pElementText.appendData(<span class="string">'!'</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello World!</span></span><br><span class="line">pElementText.deleteData(<span class="number">7</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello W</span></span><br><span class="line">pElementText.insertData(<span class="number">7</span>, <span class="string">'Hello '</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello WHello</span></span><br><span class="line">pElementText.replaceData(<span class="number">7</span>, <span class="number">5</span>, <span class="string">'World'</span>);</span><br><span class="line"><span class="comment">// 页面显示 Hello WWorld</span></span><br><span class="line">pElementText.substringData(<span class="number">7</span>, <span class="number">10</span>); </span><br><span class="line"><span class="comment">// 页面显示不变，返回"World "</span></span><br></pre></td></tr></table></figure>
+<h2 id="remove-用于移除当前Text节点"><a href="#remove-用于移除当前Text节点" class="headerlink" title="remove()用于移除当前Text节点"></a>remove()用于移除当前<code>Text</code>节点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;p&gt;Hello World&lt;/p&gt;</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).firstChild.remove()</span><br><span class="line"><span class="comment">// 现在 HTML 代码为</span></span><br><span class="line"><span class="comment">// &lt;p&gt;&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="splitText-将Text节点一分为二，变成两个毗邻的Text节点。"><a href="#splitText-将Text节点一分为二，变成两个毗邻的Text节点。" class="headerlink" title="splitText():将Text节点一分为二，变成两个毗邻的Text节点。"></a>splitText():将<code>Text</code>节点一分为二，变成两个毗邻的<code>Text</code>节点。</h2><p><strong>它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。</strong></p>
+<p><strong>分割后，该方法返回分割位置后方的字符串，而原<code>Text</code>节点变成只包含分割位置前方的字符串。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html 代码为 &lt;p id="p"&gt;foobar&lt;/p&gt;</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>);</span><br><span class="line"><span class="keyword">var</span> textnode = p.firstChild;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newText = textnode.splitText(<span class="number">3</span>);</span><br><span class="line">newText <span class="comment">// "bar"</span></span><br><span class="line">textnode <span class="comment">// "foo"</span></span><br></pre></td></tr></table></figure>
+<h3 id="父节点的normalize方法可以将毗邻的两个Text节点合并。"><a href="#父节点的normalize方法可以将毗邻的两个Text节点合并。" class="headerlink" title="父节点的normalize方法可以将毗邻的两个Text节点合并。"></a>父节点的<code>normalize</code>方法可以将毗邻的两个<code>Text</code>节点合并。</h3><p>接上面的例子，文本节点的<code>splitText</code>方法将一个<code>Text</code>节点分割成两个，父元素的<code>normalize</code>方法可以实现逆操作，将它们合并。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.childNodes.length <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将毗邻的两个 Text 节点合并</span></span><br><span class="line">p.normalize();</span><br><span class="line">p.childNodes.length <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h1 id="DocumentFragment节点"><a href="#DocumentFragment节点" class="headerlink" title="DocumentFragment节点"></a>DocumentFragment节点</h1><p><strong><code>DocumentFragment</code>节点代表一个文档的片段，本身就是一个完整的 DOM 树形结构。</strong></p>
+<p><strong>它没有父节点，<code>parentNode</code>返回<code>null</code></strong> ，但是可以插入任意数量的子节点。它不属于当前文档，操作<code>DocumentFragment</code>节点，要比直接操作 DOM 树快得多。</p>
+<p><strong>它一般用于构建一个 DOM 结构，然后插入当前文档。</strong></p>
+<p><strong><code>document.createDocumentFragment</code>方法，以及浏览器原生的<code>DocumentFragment</code>构造函数，可以创建一个空的<code>DocumentFragment</code>节点。然后再使用其他 DOM 方法，向其添加子节点。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docFrag = <span class="built_in">document</span>.createDocumentFragment();</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> docFrag = <span class="keyword">new</span> DocumentFragment();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">li.textContent = <span class="string">'Hello World'</span>;</span><br><span class="line">docFrag.appendChild(li);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>).appendChild(docFrag);</span><br></pre></td></tr></table></figure>
+<p>注意，<code>DocumentFragment</code>节点本身不能被插入当前文档。当它作为<code>appendChild()</code>、<code>insertBefore()</code>、<code>replaceChild()</code>等方法的参数时，是它的所有子节点插入当前文档，而不是它自身。一旦<code>DocumentFragment</code>节点被添加进当前文档，它自身就变成了空节点（<code>textContent</code>属性为空字符串），可以被再次使用。如果想要保存<code>DocumentFragment</code>节点的内容，可以使用<code>cloneNode</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span></span><br><span class="line">  .queryselector(<span class="string">'ul'</span>)</span><br><span class="line">  .appendChild(docFrag.cloneNode(<span class="literal">true</span>));</span><br></pre></td></tr></table></figure>
+<p>上面这样添加<code>DocumentFragment</code>节点进入当前文档，不会清空<code>DocumentFragment</code>节点。</p>
+<p><strong><code>DocumentFragment</code>节点对象没有自己的属性和方法，全部继承自<code>Node</code>节点和<code>ParentNode</code>接口。也就是说，<code>DocumentFragment</code>节点比<code>Node</code>节点多出以下四个属性。</strong></p>
+<ul>
+<li><strong><code>children</code>：返回一个动态的<code>HTMLCollection</code>集合对象，包括当前<code>DocumentFragment</code>对象的所有子元素节点。</strong></li>
+<li><strong><code>firstElementChild</code>：返回当前<code>DocumentFragment</code>对象的第一个子元素节点，如果没有则返回<code>null</code>。</strong></li>
+<li><strong><code>lastElementChild</code>：返回当前<code>DocumentFragment</code>对象的最后一个子元素节点，如果没有则返回<code>null</code>。</strong></li>
+<li><strong><code>childElementCount</code>：返回当前<code>DocumentFragment</code>对象的所有子元素数量。</strong></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-08T07:23:13.463Z" itemprop="dateUpdated">2019-08-08 15:23:13</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/08/JS学习之Text节点和DocumentFragment节点/" target="_blank" rel="external">http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Text节点和DocumentFragment节点/">Text节点和DocumentFragment节点</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/&title=《JS学习之Text节点和DocumentFragment节点》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/&title=《JS学习之Text节点和DocumentFragment节点》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Text节点和DocumentFragment节点》 — HeJL&url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/07/JS学习之属性操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之属性操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/&title=《JS学习之Text节点和DocumentFragment节点》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/&title=《JS学习之Text节点和DocumentFragment节点》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Text节点和DocumentFragment节点》 — HeJL&url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/08/JS学习之Text节点和DocumentFragment节点/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
