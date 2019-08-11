@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之事件类型2 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="事件类型">
+    <meta name="description" content="MouseEvent 接口的实例方法MouseEvent.getModifierState()返回一个布尔值，表示有没有按下特定的功能键。它的参数是一个表示功能键的字符串 123document.addEventListener(&apos;click&apos;, function (e) &amp;#123;  console.log(e.getModifierState(&apos;CapsLock&apos;));&amp;#125;, fal">
+<meta name="keywords" content="事件类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之事件类型2">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/11/JS学习之事件类型2/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="MouseEvent 接口的实例方法MouseEvent.getModifierState()返回一个布尔值，表示有没有按下特定的功能键。它的参数是一个表示功能键的字符串 123document.addEventListener(&apos;click&apos;, function (e) &amp;#123;  console.log(e.getModifierState(&apos;CapsLock&apos;));&amp;#125;, fal">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-11T08:30:04.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之事件类型2">
+<meta name="twitter:description" content="MouseEvent 接口的实例方法MouseEvent.getModifierState()返回一个布尔值，表示有没有按下特定的功能键。它的参数是一个表示功能键的字符串 123document.addEventListener(&apos;click&apos;, function (e) &amp;#123;  console.log(e.getModifierState(&apos;CapsLock&apos;));&amp;#125;, fal">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之事件类型2</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之事件类型2</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-11T07:11:50.000Z" itemprop="datePublished" class="page-time">
+  2019-08-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MouseEvent-接口的实例方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">MouseEvent 接口的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MouseEvent-getModifierState-返回一个布尔值，表示有没有按下特定的功能键。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">MouseEvent.getModifierState()返回一个布尔值，表示有没有按下特定的功能键。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WheelEvent接口"><span class="post-toc-number">2.</span> <span class="post-toc-text">WheelEvent接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例属性"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">实例属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#键盘事件"><span class="post-toc-number">3.</span> <span class="post-toc-text">键盘事件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeyboardEvent接口"><span class="post-toc-number">4.</span> <span class="post-toc-text">KeyboardEvent接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeyboardEvent的实例属性"><span class="post-toc-number">5.</span> <span class="post-toc-text">KeyboardEvent的实例属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KeyboardEvent-altKey，KeyboardEvent-metaKey-，KeyboardEvent-ctrlKey-KeyboardEvent-shiftKey"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">KeyboardEvent.altKey，KeyboardEvent.metaKey ，KeyboardEvent.ctrlKey , KeyboardEvent.shiftKey</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KeyboardEvent-code属性返回一个字符串，表示当前按下的键的字符串形式-只读"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">KeyboardEvent.code属性返回一个字符串，表示当前按下的键的字符串形式,只读</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KeyboardEvent-key属性返回一个字符串，表示按下的键名。该属性只读"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">KeyboardEvent.key属性返回一个字符串，表示按下的键名。该属性只读</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KeyboardEvent-location属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">KeyboardEvent.location属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KeyboardEvent-repeat返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">KeyboardEvent.repeat返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeyboardEvent的实例方法"><span class="post-toc-number">6.</span> <span class="post-toc-text">KeyboardEvent的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KeyboardEvent-getModifierState-方法返回一个布尔值，表示是否按下或激活指定的功能键。"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">KeyboardEvent.getModifierState()方法返回一个布尔值，表示是否按下或激活指定的功能键。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进度事件：用来描述资源加载的进度"><span class="post-toc-number">7.</span> <span class="post-toc-text">进度事件：用来描述资源加载的进度</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之事件类型2"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之事件类型2</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-11 15:11:50" datetime="2019-08-11T07:11:50.000Z"  itemprop="datePublished">2019-08-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="MouseEvent-接口的实例方法"><a href="#MouseEvent-接口的实例方法" class="headerlink" title="MouseEvent 接口的实例方法"></a>MouseEvent 接口的实例方法</h1><h2 id="MouseEvent-getModifierState-返回一个布尔值，表示有没有按下特定的功能键。"><a href="#MouseEvent-getModifierState-返回一个布尔值，表示有没有按下特定的功能键。" class="headerlink" title="MouseEvent.getModifierState()返回一个布尔值，表示有没有按下特定的功能键。"></a>MouseEvent.getModifierState()返回一个布尔值，表示有没有按下特定的功能键。</h2><p><strong>它的参数是一个表示功能键的字符串</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.getModifierState(<span class="string">'CapsLock'</span>));</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的代码可以了解用户是否按下了大写键。</p>
+<h1 id="WheelEvent接口"><a href="#WheelEvent接口" class="headerlink" title="WheelEvent接口"></a>WheelEvent接口</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>WheelEvent 接口继承了 MouseEvent 实例，代表鼠标滚轮事件的实例对象。目前，鼠标滚轮相关的事件只有一个<code>wheel</code>事件，用户滚动鼠标的滚轮，就生成这个事件的实例。</strong></p>
+<p>浏览器原生提供<code>WheelEvent()</code>构造函数，用来生成<code>WheelEvent</code>实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wheelEvent = <span class="keyword">new</span> WheelEvent(type, options);</span><br></pre></td></tr></table></figure>
+<p><strong>第一个是字符串，表示事件类型，对于滚轮事件来说，这个值目前只能是`wheel</strong><code>。第二个参数是事件的配置对象。该对象的属性除了</code>Event<code>、</code>UIEvent`的配置属性以外，还可以接受以下几个属性，所有属性都是可选的。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><strong><code>WheelEvent</code>事件实例除了具有<code>Event</code>和<code>MouseEvent</code>的实例属性和实例方法，还有一些自己的实例属性，但是没有自己的实例方法。</strong></p>
+<p><strong><u>下面的属性都是只读属性</u>。</strong></p>
+<ul>
+<li><code>WheelEvent.deltaX</code>：数值，表示滚轮的水平滚动量。</li>
+<li><code>WheelEvent.deltaY</code>：数值，表示滚轮的垂直滚动量。</li>
+<li><code>WheelEvent.deltaZ</code>：数值，表示滚轮的 Z 轴滚动量。</li>
+<li><code>WheelEvent.deltaMode</code>：数值，表示上面三个属性的单位，<code>0</code>是像素，<code>1</code>是行，<code>2</code>是页。</li>
+</ul>
+<h1 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h1><p><strong>键盘事件由用户击打键盘触发，主要有<code>keydown</code>、<code>keypress</code>、<code>keyup</code>三个事件，<u>它们都继承了<code>KeyboardEvent</code>接口</u>。</strong></p>
+<ul>
+<li><code>keydown</code>：按下键盘时触发。</li>
+<li><strong><code>keypress</code>：按下有值的键时触发，<u>即按下 Ctrl、Alt、Shift、Meta 这样无值的键，这个事件不会触发</u>。对于有值的键，按下时先触发<code>keydown</code>事件，再触发这个事件。</strong></li>
+<li><code>keyup</code>：松开键盘时触发该事件。</li>
+</ul>
+<p><strong>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。</strong></p>
+<ol>
+<li>keydown</li>
+<li>keypress</li>
+<li>keydown</li>
+<li>keypress</li>
+<li>…（重复以上过程）</li>
+<li>keyup</li>
+</ol>
+<h1 id="KeyboardEvent接口"><a href="#KeyboardEvent接口" class="headerlink" title="KeyboardEvent接口"></a>KeyboardEvent接口</h1><p><strong><code>KeyboardEvent</code>接口用来描述用户与键盘的互动。这个接口继承了<code>Event</code>接口，并且定义了自己的实例属性和实例方法。</strong></p>
+<p>浏览器原生提供<code>KeyboardEvent</code>构造函数，用来新建键盘事件的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> KeyboardEvent(type, options)</span><br></pre></td></tr></table></figure>
+<p><strong>第一个参数是字符串，表示事件类型；第二个参数是一个事件配置对象，该参数可选。除了<code>Event</code>接口提供的属性，还可以配置以下字段，它们都是可选。</strong></p>
+<ul>
+<li><code>key</code>：字符串，当前按下的键，默认为空字符串。</li>
+<li><code>code</code>：字符串，表示当前按下的键的字符串形式，默认为空字符串。</li>
+<li><code>location</code>：整数，当前按下的键的位置，默认为<code>0</code>。</li>
+<li><code>ctrlKey</code>：布尔值，是否按下 Ctrl 键，默认为<code>false</code>。</li>
+<li><code>shiftKey</code>：布尔值，是否按下 Shift 键，默认为<code>false</code>。</li>
+<li><code>altKey</code>：布尔值，是否按下 Alt 键，默认为<code>false</code>。</li>
+<li><code>metaKey</code>：布尔值，是否按下 Meta 键，默认为<code>false</code>。</li>
+<li><code>repeat</code>：布尔值，是否重复按键，默认为<code>false</code>。</li>
+</ul>
+<h1 id="KeyboardEvent的实例属性"><a href="#KeyboardEvent的实例属性" class="headerlink" title="KeyboardEvent的实例属性"></a>KeyboardEvent的实例属性</h1><h2 id="KeyboardEvent-altKey，KeyboardEvent-metaKey-，KeyboardEvent-ctrlKey-KeyboardEvent-shiftKey"><a href="#KeyboardEvent-altKey，KeyboardEvent-metaKey-，KeyboardEvent-ctrlKey-KeyboardEvent-shiftKey" class="headerlink" title="KeyboardEvent.altKey，KeyboardEvent.metaKey ，KeyboardEvent.ctrlKey , KeyboardEvent.shiftKey"></a>KeyboardEvent.altKey，KeyboardEvent.metaKey ，KeyboardEvent.ctrlKey , KeyboardEvent.shiftKey</h2><p>以下属性都是只读属性，返回一个布尔值，表示是否按下对应的键。</p>
+<ul>
+<li><code>KeyboardEvent.altKey</code>：是否按下 Alt 键</li>
+<li><code>KeyboardEvent.ctrlKey</code>：是否按下 Ctrl 键</li>
+<li><code>KeyboardEvent.metaKey</code>：是否按下 meta 键（Mac 系统是一个四瓣的小花，Windows 系统是 windows 键）</li>
+<li><code>KeyboardEvent.shiftKey</code>：是否按下 Shift 键</li>
+</ul>
+<p>下面是一个示例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showChar</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ALT: "</span> + e.altKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"CTRL: "</span> + e.ctrlKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Meta: "</span> + e.metaKey);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Meta: "</span> + e.shiftKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'keydown'</span>, showChar, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="KeyboardEvent-code属性返回一个字符串，表示当前按下的键的字符串形式-只读"><a href="#KeyboardEvent-code属性返回一个字符串，表示当前按下的键的字符串形式-只读" class="headerlink" title="KeyboardEvent.code属性返回一个字符串，表示当前按下的键的字符串形式,只读"></a>KeyboardEvent.code属性返回一个字符串，表示当前按下的键的字符串形式,只读</h2><p>下面是一些常用键的字符串形式，其他键请查<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code#Code_values" target="_blank" rel="noopener">文档</a>。</p>
+<ul>
+<li>数字键0 - 9：返回<code>digital0</code> - <code>digital9</code></li>
+<li>字母键A - z：返回<code>KeyA</code> - <code>KeyZ</code></li>
+<li>功能键F1 - F12：返回 <code>F1</code> - <code>F12</code></li>
+<li>方向键：返回<code>ArrowDown</code>、<code>ArrowUp</code>、<code>ArrowLeft</code>、<code>ArrowRight</code></li>
+<li>Alt 键：返回<code>AltLeft</code>或<code>AltRight</code></li>
+<li>Shift 键：返回<code>ShiftLeft</code>或<code>ShiftRight</code></li>
+<li>Ctrl 键：返回<code>ControLeft</code>或<code>ControlRight</code></li>
+</ul>
+<h2 id="KeyboardEvent-key属性返回一个字符串，表示按下的键名。该属性只读"><a href="#KeyboardEvent-key属性返回一个字符串，表示按下的键名。该属性只读" class="headerlink" title="KeyboardEvent.key属性返回一个字符串，表示按下的键名。该属性只读"></a>KeyboardEvent.key属性返回一个字符串，表示按下的键名。该属性只读</h2><p><strong>如果按下的键代表可打印字符，则返回这个字符，比如数字、字母。</strong></p>
+<p><strong>如果按下的键代表不可打印的特殊字符，则返回预定义的键值，比如 Backspace，Tab，Enter，Shift，Control，Alt，CapsLock，Esc，Spacebar，PageUp，PageDown，End，Home，Left，Right，Up，Down，PrintScreen，Insert，Del，Win，F1～F12，NumLock，Scroll 等。</strong></p>
+<p><strong><u>如果同时按下一个控制键和一个符号键，则返回符号键的键名。比如，按下 Ctrl + a，则返回<code>a</code>；按下 Shift + a，则返回大写的</u><code>A</code>。</strong></p>
+<h2 id="KeyboardEvent-location属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。"><a href="#KeyboardEvent-location属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。" class="headerlink" title="KeyboardEvent.location属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。"></a>KeyboardEvent.location属性返回一个整数，表示按下的键处在键盘的哪一个区域。它可能取以下值。</h2><ul>
+<li>0：处在键盘的主区域，或者无法判断处于哪一个区域。</li>
+<li>1：处在键盘的左侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
+<li>2：处在键盘的右侧，只适用那些有两个位置的键（比如 Ctrl 和 Shift 键）。</li>
+<li>3：处在数字小键盘。</li>
+</ul>
+<h2 id="KeyboardEvent-repeat返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键"><a href="#KeyboardEvent-repeat返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键" class="headerlink" title="KeyboardEvent.repeat返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键"></a>KeyboardEvent.repeat返回一个布尔值，代表该键是否被按着不放，以便判断是否重复这个键</h2><p>即浏览器会持续触发<code>keydown</code>和<code>keypress</code>事件，直到用户松开手为止。</p>
+<h1 id="KeyboardEvent的实例方法"><a href="#KeyboardEvent的实例方法" class="headerlink" title="KeyboardEvent的实例方法"></a>KeyboardEvent的实例方法</h1><h2 id="KeyboardEvent-getModifierState-方法返回一个布尔值，表示是否按下或激活指定的功能键。"><a href="#KeyboardEvent-getModifierState-方法返回一个布尔值，表示是否按下或激活指定的功能键。" class="headerlink" title="KeyboardEvent.getModifierState()方法返回一个布尔值，表示是否按下或激活指定的功能键。"></a>KeyboardEvent.getModifierState()方法返回一个布尔值，表示是否按下或激活指定的功能键。</h2><ul>
+<li><code>Alt</code>：Alt 键</li>
+<li><code>CapsLock</code>：大写锁定键</li>
+<li><code>Control</code>：Ctrl 键</li>
+<li><code>Meta</code>：Meta 键</li>
+<li><code>NumLock</code>：数字键盘开关键</li>
+<li><code>Shift</code>：Shift 键</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  event.getModifierState(<span class="string">'Control'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Alt'</span>) +</span><br><span class="line">  event.getModifierState(<span class="string">'Meta'</span>) &gt; <span class="number">1</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码表示，只要<code>Control</code>、<code>Alt</code>、<code>Meta</code>里面，同时按下任意两个或两个以上的键就返回。</p>
+<h1 id="进度事件：用来描述资源加载的进度"><a href="#进度事件：用来描述资源加载的进度" class="headerlink" title="进度事件：用来描述资源加载的进度"></a>进度事件：用来描述资源加载的进度</h1><p><strong>主要由 AJAX 请求、<code>&lt;img&gt;</code>、<code>&lt;audio&gt;</code>、<code>&lt;video&gt;</code>、<code>&lt;style&gt;</code>、<code>&lt;link&gt;</code>等外部资源的加载触发，继承了<code>ProgressEvent</code>接口。</strong></p>
+<p><strong>它主要包含以下几种事件</strong></p>
+<ul>
+<li><code>abort</code>：外部资源中止加载时（比如用户取消）触发。如果发生错误导致中止，不会触发该事件。</li>
+<li><code>error</code>：由于错误导致外部资源无法加载时触发。</li>
+<li><code>load</code>：外部资源加载成功时触发。</li>
+<li><code>loadstart</code>：外部资源开始加载时触发。</li>
+<li><code>loadend</code>：外部资源停止加载时触发，发生顺序排在<code>error</code>、<code>abort</code>、<code>load</code>等事件的后面。</li>
+<li><code>progress</code>：外部资源加载过程中不断触发。</li>
+<li><code>timeout</code>：加载超时时触发。</li>
+</ul>
+<p><strong>注意，除了资源下载，文件上传也存在这些事件。</strong></p>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">image.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  image.classList.add(<span class="string">'finished'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">image.addEventListener(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  image.style.display = <span class="string">'none'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面代码在图片元素加载完成后，为图片元素添加一个<code>finished</code>的 Class。如果加载失败，就把图片元素的样式设置为不显示。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-11T08:30:04.472Z" itemprop="dateUpdated">2019-08-11 16:30:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/11/JS学习之事件类型2/" target="_blank" rel="external">http://hedroins.github.io/2019/08/11/JS学习之事件类型2/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件类型/">事件类型</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/&title=《JS学习之事件类型2》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/&title=《JS学习之事件类型2》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之事件类型2》 — HeJL&url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/11/JS学习之事件类型/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之事件类型</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/&title=《JS学习之事件类型2》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/&title=《JS学习之事件类型2》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之事件类型2》 — HeJL&url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/11/JS学习之事件类型2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
