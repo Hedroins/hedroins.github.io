@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之事件类型3 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="拖拉事件 ； DataTransfer接口">
+    <meta name="description" content="拖拉事件拖拉的对象有好几种，包括元素节点、图片、链接、选中的文字等等。 除了元素节点默认不可以拖拉，其他都可以直接拖拉。为了让元素节点可拖拉，可以将该节点的draggable属性设为true。 123&amp;lt;div draggable=&quot;true&quot;&amp;gt;  此区域可拖拉&amp;lt;/div&amp;gt; draggable属性可用于任何元素节点，但是图片（&amp;lt;img&amp;gt;）和链接（&amp;lt;a&amp;gt;">
+<meta name="keywords" content="拖拉事件 ； DataTransfer接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之事件类型3">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/12/JS学习之事件类型3/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="拖拉事件拖拉的对象有好几种，包括元素节点、图片、链接、选中的文字等等。 除了元素节点默认不可以拖拉，其他都可以直接拖拉。为了让元素节点可拖拉，可以将该节点的draggable属性设为true。 123&amp;lt;div draggable=&quot;true&quot;&amp;gt;  此区域可拖拉&amp;lt;/div&amp;gt; draggable属性可用于任何元素节点，但是图片（&amp;lt;img&amp;gt;）和链接（&amp;lt;a&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-13T07:49:23.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之事件类型3">
+<meta name="twitter:description" content="拖拉事件拖拉的对象有好几种，包括元素节点、图片、链接、选中的文字等等。 除了元素节点默认不可以拖拉，其他都可以直接拖拉。为了让元素节点可拖拉，可以将该节点的draggable属性设为true。 123&amp;lt;div draggable=&quot;true&quot;&amp;gt;  此区域可拖拉&amp;lt;/div&amp;gt; draggable属性可用于任何元素节点，但是图片（&amp;lt;img&amp;gt;）和链接（&amp;lt;a&amp;gt;">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之事件类型3</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之事件类型3</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-12T08:24:47.000Z" itemprop="datePublished" class="page-time">
+  2019-08-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#拖拉事件"><span class="post-toc-number">1.</span> <span class="post-toc-text">拖拉事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几个注意点"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">几个注意点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DragEvent接口"><span class="post-toc-number">2.</span> <span class="post-toc-text">DragEvent接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DataTransfer接口概述"><span class="post-toc-number">3.</span> <span class="post-toc-text">DataTransfer接口概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-构造函数不接受参数。"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">DataTransfer()构造函数不接受参数。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#应用举例"><span class="post-toc-number">3.1.0.1.</span> <span class="post-toc-text">应用举例</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DataTransfer的实例属性"><span class="post-toc-number">4.</span> <span class="post-toc-text">DataTransfer的实例属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-dropEffect：用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">DataTransfer.dropEffect：用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-effectAllowed：设置本次拖拉中允许的效果。仅用于dragstart事件，其预期事件无效"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">DataTransfer.effectAllowed：设置本次拖拉中允许的效果。仅用于dragstart事件，其预期事件无效</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-files属性是一个-FileList-对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则该属性为空的-FileList-对象。"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">DataTransfer.files属性是一个 FileList 对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则该属性为空的 FileList 对象。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-types属性是一个只读的数组，每个成员是一个字符串，里面是拖拉的数据格式（通常是-MIME-值）。"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">DataTransfer.types属性是一个只读的数组，每个成员是一个字符串，里面是拖拉的数据格式（通常是 MIME 值）。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-items返回一个类似数组的只读对象（DataTransferItemList-实例），每个成员就是本次拖拉的一个对象（DataTransferItem-实例）"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">DataTransfer.items返回一个类似数组的只读对象（DataTransferItemList 实例），每个成员就是本次拖拉的一个对象（DataTransferItem 实例）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DataTransferItemList-实例具有以下的属性和方法。"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">DataTransferItemList 实例具有以下的属性和方法。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DataTransferItem-实例具有以下的属性和方法。"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">DataTransferItem 实例具有以下的属性和方法。</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DataTransfer-的实例方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">DataTransfer 的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-setData-：用来设置拖拉事件所带有的数据。该方法没有返回值。"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">DataTransfer.setData()：用来设置拖拉事件所带有的数据。该方法没有返回值。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-getData-方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">DataTransfer.getData()方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-clearData-方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">DataTransfer.clearData()方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataTransfer-setDragImage-：设置拖拉过程中的提示图片"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">DataTransfer.setDragImage()：设置拖拉过程中的提示图片</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之事件类型3"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之事件类型3</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-12 16:24:47" datetime="2019-08-12T08:24:47.000Z"  itemprop="datePublished">2019-08-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="拖拉事件"><a href="#拖拉事件" class="headerlink" title="拖拉事件"></a>拖拉事件</h1><p><strong>拖拉的对象有好几种，包括元素节点、图片、链接、选中的文字等等。</strong></p>
+<p><strong><u>除了元素节点默认不可以拖拉，其他都可以直接拖拉。为了让元素节点可拖拉，可以将该节点的<code>draggable</code>属性设为<code>true</code>。</u></strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  此区域可拖拉</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>draggable</code>属性可用于任何元素节点，但是<u>图片（<code>&lt;img&gt;</code>）和链接（<code>&lt;a&gt;</code>）不加这个属性，就可以拖拉。</u>对于它们，用到这个属性的时候，往往是将其设为<code>false</code>，防止拖拉这两种元素。</strong></p>
+<p><strong>元素节点设置了可拖拉，就无法再用鼠标选中该节点内部的文字或子节点了。</strong></p>
+<p><strong><u>当元素节点或选中的文本被拖拉时，就会持续触发拖拉事件</u>，包括以下一些事件。</strong></p>
+<ul>
+<li><p><code>drag</code>：拖拉过程中，在被拖拉的节点上持续触发（相隔几百毫秒）。</p>
+<p>​</p>
+</li>
+<li><p><code>dragstart</code>：用户开始拖拉时，在被拖拉的节点上触发，该事件的<code>target</code>属性是被拖拉的节点。通常应该在这个事件的监听函数中，指定拖拉的数据。</p>
+<p>​</p>
+</li>
+<li><p><code>dragend</code>：拖拉结束时（释放鼠标键或按下 ESC 键）在被拖拉的节点上触发，该事件的<code>target</code>属性是被拖拉的节点。它与<code>dragstart</code>事件，在同一个节点上触发。不管拖拉是否跨窗口，或者中途被取消，<code>dragend</code>事件总是会触发的。</p>
+<p>​</p>
+</li>
+<li><p><code>dragenter</code>：拖拉进入当前节点时，在当前节点上触发一次，该事件的<code>target</code>属性是当前节点。通常应该在这个事件的监听函数中，指定是否允许在当前节点放下（drop）拖拉的数据。如果当前节点没有该事件的监听函数，或者监听函数不执行任何操作，就意味着不允许在当前节点放下数据。在视觉上显示拖拉进入当前节点，也是在这个事件的监听函数中设置。</p>
+<p>​</p>
+</li>
+<li><p><code>dragover</code>：拖拉到当前节点上方时，在当前节点上持续触发（相隔几百毫秒），该事件的<code>target</code>属性是当前节点。该事件与<code>dragenter</code>事件的区别是，<code>dragenter</code>事件在进入该节点时触发，然后只要没有离开这个节点，<code>dragover</code>事件会持续触发。</p>
+<p>​</p>
+</li>
+<li><p><code>dragleave</code>：拖拉操作离开当前节点范围时，在当前节点上触发，该事件的<code>target</code>属性是当前节点。如果要在视觉上显示拖拉离开操作当前节点，就在这个事件的监听函数中设置。</p>
+<p>​</p>
+</li>
+<li><p><code>drop</code>：被拖拉的节点或选中的文本，释放到目标节点时，在目标节点上触发。注意，如果当前节点不允许<code>drop</code>，即使在该节点上方松开鼠标键，也不会触发该事件。如果用户按下 ESC 键，取消这个操作，也不会触发该事件。该事件的监听函数负责取出拖拉数据，并进行相关处理。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div.addEventListener(<span class="string">'dragstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.style.backgroundColor = <span class="string">'red'</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">div.addEventListener(<span class="string">'dragend'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.style.backgroundColor = <span class="string">'green'</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>div</code>节点被拖动时，背景色会变为红色，拖动结束，又变回绿色。</p>
+<p>下面是一个例子，展示如何实现将一个节点从当前父节点，拖拉到另一个父节点中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment"> &lt;div class="dropzone"&gt;</span></span><br><span class="line"><span class="comment">   &lt;div id="draggable" draggable="true"&gt;</span></span><br><span class="line"><span class="comment">     该节点可拖拉</span></span><br><span class="line"><span class="comment">   &lt;/div&gt;</span></span><br><span class="line"><span class="comment"> &lt;/div&gt;</span></span><br><span class="line"><span class="comment"> &lt;div class="dropzone"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> &lt;div class="dropzone"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"> &lt;div class="dropzone"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被拖拉节点</span></span><br><span class="line"><span class="keyword">var</span> dragged;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'dragstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 保存被拖拉节点</span></span><br><span class="line">  dragged = event.target;</span><br><span class="line">  <span class="comment">// 被拖拉节点的背景色变透明</span></span><br><span class="line">  event.target.style.opacity = <span class="number">0.5</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'dragend'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 被拖拉节点的背景色恢复正常</span></span><br><span class="line">  event.target.style.opacity = <span class="string">''</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 防止拖拉效果被重置，允许被拖拉的节点放入目标节点</span></span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'dragenter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 目标节点的背景色变紫色</span></span><br><span class="line">  <span class="comment">// 由于该事件会冒泡，所以要过滤节点</span></span><br><span class="line">  <span class="keyword">if</span> (event.target.className === <span class="string">'dropzone'</span>) &#123;</span><br><span class="line">    event.target.style.background = <span class="string">'purple'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'dragleave'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 目标节点的背景色恢复原样</span></span><br><span class="line">  <span class="keyword">if</span> (event.target.className === <span class="string">'dropzone'</span>) &#123;</span><br><span class="line">    event.target.style.background = <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 防止事件默认行为（比如某些元素节点上可以打开链接），</span></span><br><span class="line">  event.preventDefault();</span><br><span class="line">  <span class="keyword">if</span> (event.target.className === <span class="string">'dropzone'</span>) &#123;</span><br><span class="line">    <span class="comment">// 恢复目标节点背景色</span></span><br><span class="line">    event.target.style.background = <span class="string">''</span>;</span><br><span class="line">    <span class="comment">// 将被拖拉节点插入目标节点</span></span><br><span class="line">    dragged.parentNode.removeChild(dragged);</span><br><span class="line">    event.target.appendChild( dragged );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="几个注意点"><a href="#几个注意点" class="headerlink" title="几个注意点"></a>几个注意点</h2><ul>
+<li><p><strong>拖拉过程只触发以上这些拖拉事件，尽管鼠标在移动，但是鼠标事件不会触发。</strong></p>
+<p>​</p>
+</li>
+<li><p><strong>将文件从操作系统拖拉进浏览器，不会触发<code>dragstart</code>和<code>dragend</code>事件。</strong></p>
+<p>​</p>
+</li>
+<li><p><strong><code>dragenter</code>和<code>dragover</code>事件的监听函数，用来取出拖拉的数据（即允许放下被拖拉的元素）。由于网页的大部分区域不适合作为放下拖拉元素的目标节点，所以这两个事件的默认设置为当前节点不允许接受被拖拉的元素。如果想要在目标节点上放下的数据，首先必须阻止这两个事件的默认行为。</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ondragover=<span class="string">"return false"</span>&gt;</span><br><span class="line">&lt;div ondragover=<span class="string">"event.preventDefault()"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果不取消拖拉事件或者阻止默认行为，就不能在<code>div</code>节点上放下被拖拉的节点。</p>
+<h1 id="DragEvent接口"><a href="#DragEvent接口" class="headerlink" title="DragEvent接口"></a>DragEvent接口</h1><p><strong>拖拉事件都继承了DragEvent接口，这个接口又继承了MouseEvent接口和Event接口。</strong></p>
+<p>浏览器原生提供一个<code>DragEvent()</code>构造函数，用来生成拖拉事件的实例对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> DragEvent(type, options)</span><br><span class="line"><span class="comment">//第一个参数是字符串，表示事件的类型，该参数必须；第二个参数是事件的配置对象，用来设置事件的属性，该参数可选。配置对象除了接受MouseEvent接口和Event接口的配置属性，还可以设置dataTransfer属性要么是null，要么是一个DataTransfer接口的实例。</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>DataTransfer</code>的实例对象用来读写拖拉事件中传输的数据。</strong></p>
+<h1 id="DataTransfer接口概述"><a href="#DataTransfer接口概述" class="headerlink" title="DataTransfer接口概述"></a>DataTransfer接口概述</h1><p><strong>所有拖拉事件的实例都有一个<code>DragEvent.dataTransfer</code>属性，用来读写需要传递的数据。这个属性的值是一个<code>DataTransfer</code>接口的实例。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataTrans = <span class="keyword">new</span> DataTransfer();</span><br></pre></td></tr></table></figure>
+<h2 id="DataTransfer-构造函数不接受参数。"><a href="#DataTransfer-构造函数不接受参数。" class="headerlink" title="DataTransfer()构造函数不接受参数。"></a><strong><code>DataTransfer()</code>构造函数不接受参数。</strong></h2><p><strong>拖拉的数据分为数据的种类和数据的值。</strong></p>
+<p><strong>数据的种类是一个 MIME 字符串（比如<code>text/plain</code>、<code>image/jpeg</code>），数据的值是一个字符串。</strong></p>
+<p>一般来说，如果拖拉一段文本，则数据默认就是那段文本；如果拖拉一个链接，则数据默认就是链接的 URL。</p>
+<h4 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h4><p>拖拉事件开始时，开发者可以提供数据类型和数据值。拖拉过程中，开发者通过<code>dragenter</code>和<code>dragover</code>事件的监听函数，检查数据类型，以确定是否允许放下（drop）被拖拉的对象。比如，在只允许放下链接的区域，检查拖拉的数据类型是否为<code>text/uri-list</code>。</p>
+<p>发生<code>drop</code>事件时，监听函数取出拖拉的数据，对其进行处理。</p>
+<h1 id="DataTransfer的实例属性"><a href="#DataTransfer的实例属性" class="headerlink" title="DataTransfer的实例属性"></a>DataTransfer的实例属性</h1><h2 id="DataTransfer-dropEffect：用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。"><a href="#DataTransfer-dropEffect：用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。" class="headerlink" title="DataTransfer.dropEffect：用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。"></a>DataTransfer.dropEffect：用来设置放下（drop）被拖拉节点时的效果，会影响到拖拉经过相关区域时鼠标的形状。</h2><p>它可能取下面的值。</p>
+<ul>
+<li><strong>copy：复制被拖拉的节点</strong></li>
+<li><strong>move：移动被拖拉的节点</strong></li>
+<li><strong>link：创建指向被拖拉的节点的链接</strong></li>
+<li><strong>none：无法放下被拖拉的节点</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">target.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  e.stopPropagation();</span><br><span class="line">  e.dataTransfer.dropEffect = <span class="string">'copy'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，被拖拉元素一旦<code>drop</code>，接受的区域会复制该节点。</p>
+<p>==<code>dropEffect</code>属性一般在<code>dragenter</code>和<code>dragover</code>事件的监听函数中设置，对于<code>dragstart</code>、<code>drag</code>、<code>dragleave</code>这三个事件，该属性不起作用。==</p>
+<p><strong>因为该属性只对接受被拖拉的节点的区域有效，对被拖拉的节点本身是无效的。</strong></p>
+<h2 id="DataTransfer-effectAllowed：设置本次拖拉中允许的效果。仅用于dragstart事件，其预期事件无效"><a href="#DataTransfer-effectAllowed：设置本次拖拉中允许的效果。仅用于dragstart事件，其预期事件无效" class="headerlink" title="DataTransfer.effectAllowed：设置本次拖拉中允许的效果。仅用于dragstart事件，其预期事件无效"></a>DataTransfer.effectAllowed：设置本次拖拉中允许的效果。仅用于dragstart事件，其预期事件无效</h2><p>它可能取下面的值。</p>
+<ul>
+<li><strong>copy：复制被拖拉的节点</strong></li>
+<li><strong>move：移动被拖拉的节点</strong></li>
+<li><strong>link：创建指向被拖拉节点的链接</strong></li>
+<li><strong>copyLink：允许<code>copy</code>或<code>link</code></strong></li>
+<li><strong>copyMove：允许<code>copy</code>或<code>move</code></strong></li>
+<li><strong>linkMove：允许<code>link</code>或<code>move</code></strong></li>
+<li><strong>all：允许所有效果</strong></li>
+<li><strong>none：无法放下被拖拉的节点</strong></li>
+<li><strong>uninitialized：默认值，等同于<code>all</code></strong></li>
+</ul>
+<p>如果某种效果是不允许的，用户就无法在目标节点中达成这种效果。</p>
+<p><strong><u>这个属性与<code>dropEffect</code>属性是同一件事的两个方面。前者设置被拖拉的节点允许的效果，后者设置接受拖拉的区域的效果，它们往往配合使用。</u></strong></p>
+<p><strong><code>dragstart</code>事件的监听函数，可以用来设置这个属性。其他事件的监听函数里面设置这个属性是无效的。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">source.addEventListener(<span class="string">'dragstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.dataTransfer.effectAllowed = <span class="string">'move'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">target.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  ev.dataTransfer.dropEffect = <span class="string">'move'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>只要<code>dropEffect</code>属性和<code>effectAllowed</code>属性之中，有一个为<code>none</code>，就无法在目标节点上完成<code>drop</code>操作。</strong></p>
+<h2 id="DataTransfer-files属性是一个-FileList-对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则该属性为空的-FileList-对象。"><a href="#DataTransfer-files属性是一个-FileList-对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则该属性为空的-FileList-对象。" class="headerlink" title="DataTransfer.files属性是一个 FileList 对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则该属性为空的 FileList 对象。"></a>DataTransfer.files属性是一个 FileList 对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则该属性为空的 FileList 对象。</h2><p>下面就是一个接收拖拉文件的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;div id="output" style="min-height: 200px;border: 1px solid black;"&gt;</span></span><br><span class="line"><span class="comment">//   文件拖拉到这里</span></span><br><span class="line"><span class="comment">// &lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>);</span><br><span class="line"></span><br><span class="line">div.addEventListener(<span class="string">"dragenter"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">  div.textContent = <span class="string">''</span>;</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">div.addEventListener(<span class="string">"dragover"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">div.addEventListener(<span class="string">"drop"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">  event.preventDefault();</span><br><span class="line">  <span class="keyword">var</span> files = event.dataTransfer.files;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; files.length; i++) &#123;</span><br><span class="line">    div.textContent += files[i].name + <span class="string">' '</span> + files[i].size + <span class="string">'字节\n'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>上面代码中，通过<code>dataTransfer.files</code>属性读取被拖拉的文件的信息。如果想要读取文件内容，就要使用<code>FileReader</code>对象。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">div.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  e.stopPropagation();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> fileList = e.dataTransfer.files;</span><br><span class="line">  <span class="keyword">if</span> (fileList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> file = fileList[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">    reader.onloadend = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (e.target.readyState === FileReader.DONE) &#123;</span><br><span class="line">        <span class="keyword">var</span> content = reader.result;</span><br><span class="line">        div.innerHTML = <span class="string">'File: '</span> + file.name + <span class="string">'\n\n'</span> + content;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    reader.readAsBinaryString(file);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="DataTransfer-types属性是一个只读的数组，每个成员是一个字符串，里面是拖拉的数据格式（通常是-MIME-值）。"><a href="#DataTransfer-types属性是一个只读的数组，每个成员是一个字符串，里面是拖拉的数据格式（通常是-MIME-值）。" class="headerlink" title="DataTransfer.types属性是一个只读的数组，每个成员是一个字符串，里面是拖拉的数据格式（通常是 MIME 值）。"></a>DataTransfer.types属性是<u>一个只读的数组</u>，每个成员是一个字符串，里面是拖拉的数据格式（通常是 MIME 值）。</h2><p>比如，如果拖拉的是文字，对应的成员就是<code>text/plain</code>。</p>
+<p>下面是一个例子，通过检查<code>dataTransfer</code>属性的类型，决定是否允许在当前节点执行<code>drop</code>操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">contains</span>(<span class="params">list, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; list.length; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span>(list[i] === value) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doDragOver</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> isLink = contains(event.dataTransfer.types, <span class="string">'text/uri-list'</span>);</span><br><span class="line">  <span class="keyword">if</span> (isLink) event.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，只有当被拖拉的节点是一个链接时，才允许在当前节点放下。</p>
+<h2 id="DataTransfer-items返回一个类似数组的只读对象（DataTransferItemList-实例），每个成员就是本次拖拉的一个对象（DataTransferItem-实例）"><a href="#DataTransfer-items返回一个类似数组的只读对象（DataTransferItemList-实例），每个成员就是本次拖拉的一个对象（DataTransferItem-实例）" class="headerlink" title="DataTransfer.items返回一个类似数组的只读对象（DataTransferItemList 实例），每个成员就是本次拖拉的一个对象（DataTransferItem 实例）"></a>DataTransfer.items返回一个类似数组的只读对象（DataTransferItemList 实例），每个成员就是本次拖拉的一个对象（DataTransferItem 实例）</h2><p><strong>如果本次拖拉不包含对象，则返回一个空对象。</strong></p>
+<h3 id="DataTransferItemList-实例具有以下的属性和方法。"><a href="#DataTransferItemList-实例具有以下的属性和方法。" class="headerlink" title="DataTransferItemList 实例具有以下的属性和方法。"></a>DataTransferItemList 实例具有以下的属性和方法。</h3><ul>
+<li><code>length</code>：返回成员的数量</li>
+<li><code>add(data, type)</code>：增加一个指定内容和类型（比如<code>text/html</code>和<code>text/plain</code>）的字符串作为成员</li>
+<li><code>add(file)</code>：<code>add</code>方法的另一种用法，增加一个文件作为成员</li>
+<li><code>remove(index)</code>：移除指定位置的成员</li>
+<li><code>clear()</code>：移除所有的成员</li>
+</ul>
+<h3 id="DataTransferItem-实例具有以下的属性和方法。"><a href="#DataTransferItem-实例具有以下的属性和方法。" class="headerlink" title="DataTransferItem 实例具有以下的属性和方法。"></a>DataTransferItem 实例具有以下的属性和方法。</h3><ul>
+<li><code>kind</code>：返回成员的种类（<code>string</code>还是<code>file</code>）。</li>
+<li><code>type</code>：返回成员的类型（通常是 MIME 值）。</li>
+<li><code>getAsFile()</code>：如果被拖拉是文件，返回该文件，否则返回<code>null</code>。</li>
+<li><code>getAsString(callback)</code>：如果被拖拉的是字符串，将该字符传入指定的回调函数处理。该方法是异步的，所以需要传入回调函数。</li>
+</ul>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">if</span> (e.dataTransfer.items != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; e.dataTransfer.items.length; i++) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e.dataTransfer.items[i].kind + <span class="string">': '</span> + e.dataTransfer.items[i].type);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="DataTransfer-的实例方法"><a href="#DataTransfer-的实例方法" class="headerlink" title="DataTransfer 的实例方法"></a>DataTransfer 的实例方法</h1><h2 id="DataTransfer-setData-：用来设置拖拉事件所带有的数据。该方法没有返回值。"><a href="#DataTransfer-setData-：用来设置拖拉事件所带有的数据。该方法没有返回值。" class="headerlink" title="DataTransfer.setData()：用来设置拖拉事件所带有的数据。该方法没有返回值。"></a>DataTransfer.setData()：用来设置拖拉事件所带有的数据。该方法没有返回值。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.dataTransfer.setData(<span class="string">'text/plain'</span>, <span class="string">'Text to drag'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码为当前的拖拉事件加入纯文本数据。</p>
+<p><strong>该方法接受两个参数，都是字符串。第一个参数表示数据类型（比如<code>text/plain</code>），第二个参数是具体数据。</strong></p>
+<p><strong>如果指定类型的数据在<code>dataTransfer</code>属性不存在，那么这些数据将被加入，否则原有的数据将被新数据替换。</strong></p>
+<p><strong><u>如果是拖拉文本框或者拖拉选中的文本，会默认将对应的文本数据，添加到<code>dataTransfer</code>属性，不用手动指定。</u></strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  aaa</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>面代码中，拖拉这个<code>&lt;div&gt;</code>元素会自动带上文本数据<code>aaa</code>。</p>
+<p><strong>使用<code>setData</code>方法，可以替换到原有数据。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">draggable</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">ondragstart</span>=<span class="string">"event.dataTransfer.setData('text/plain', 'bbb')"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  aaa</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，拖拉数据实际上是<code>bbb</code>，而不是<code>aaa</code>。</p>
+<p>下面是添加其他类型的数据。由于<code>text/plain</code>是最普遍支持的格式，为了保证兼容性，建议最后总是保存一份纯文本格式的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = event.dataTransfer;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加链接</span></span><br><span class="line">dt.setData(<span class="string">'text/uri-list'</span>, <span class="string">'http://www.example.com'</span>);</span><br><span class="line">dt.setData(<span class="string">'text/plain'</span>, <span class="string">'http://www.example.com'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加 HTML 代码</span></span><br><span class="line">dt.setData(<span class="string">'text/html'</span>, <span class="string">'Hello there, &lt;strong&gt;stranger&lt;/strong&gt;'</span>);</span><br><span class="line">dt.setData(<span class="string">'text/plain'</span>, <span class="string">'Hello there, &lt;strong&gt;stranger&lt;/strong&gt;'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加图像的 URL</span></span><br><span class="line">dt.setData(<span class="string">'text/uri-list'</span>, imageurl);</span><br><span class="line">dt.setData(<span class="string">'text/plain'</span>, imageurl);</span><br></pre></td></tr></table></figure>
+<p>可以一次提供多种格式的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = event.dataTransfer;</span><br><span class="line">dt.setData(<span class="string">'application/x-bookmark'</span>, bookmarkString);</span><br><span class="line">dt.setData(<span class="string">'text/uri-list'</span>, <span class="string">'http://www.example.com'</span>);</span><br><span class="line">dt.setData(<span class="string">'text/plain'</span>, <span class="string">'http://www.example.com'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，通过在同一个事件上面，存放三种类型的数据，使得拖拉事件可以在不同的对象上面，<code>drop</code>不同的值。注意，第一种格式是一个自定义格式，浏览器默认无法读取，这意味着，只有某个部署了特定代码的节点，才可能<code>drop</code>（读取到）这个数据。</p>
+<h2 id="DataTransfer-getData-方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。"><a href="#DataTransfer-getData-方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。" class="headerlink" title="DataTransfer.getData()方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用setData方法添加的数据）。"></a>DataTransfer.getData()方法接受一个字符串（表示数据类型）作为参数，返回事件所带的指定类型的数据（通常是用<code>setData</code>方法添加的数据）。</h2><p><strong>如果指定类型的数据不存在，则返回空字符串。通常只有<code>drop</code>事件触发后，才能取出数据。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onDrop</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> data = event.dataTransfer.getData(<span class="string">'text/plain'</span>);</span><br><span class="line">  event.target.textContent = data;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码取出拖拉事件的文本数据，将其替换成当前节点的文本内容。</p>
+<p><u>注意，这时还必须取消浏览器的默认行为，因为假如用户拖拉的是一个链接，浏览器默认会在当前窗口打开这个链接。</u></p>
+<p><code>getData</code>方法返回的是一个字符串，如果其中包含多项数据，就必须手动解析。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doDrop</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> lines = event.dataTransfer.getData(<span class="string">'text/uri-list'</span>).split(<span class="string">'\n'</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> line <span class="keyword">of</span> lines) &#123;</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    link.href = line;</span><br><span class="line">    link.textContent = line;</span><br><span class="line">    event.target.appendChild(link);</span><br><span class="line">  &#125;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>getData</code>方法返回的是一组链接，就必须自行解析。</p>
+<p>类型值指定为<code>URL</code>，可以取出第一个有效链接。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> link = event.dataTransfer.getData(<span class="string">'URL'</span>);</span><br></pre></td></tr></table></figure>
+<p>下面的例子是从多种类型的数据里面取出数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doDrop</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> types = event.dataTransfer.types;</span><br><span class="line">  <span class="keyword">var</span> supportedTypes = [<span class="string">'text/uri-list'</span>, <span class="string">'text/plain'</span>];</span><br><span class="line">  types = supportedTypes.filter(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123; types.includes(value) &#125;);</span><br><span class="line">  <span class="keyword">if</span> (types.length) &#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.dataTransfer.getData(types[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="DataTransfer-clearData-方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。"><a href="#DataTransfer-clearData-方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。" class="headerlink" title="DataTransfer.clearData()方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。"></a>DataTransfer.clearData()方法接受一个字符串（表示数据类型）作为参数，删除事件所带的指定类型的数据。</h2><p><strong>如果没有指定类型，则删除所有数据。</strong></p>
+<p><strong>如果指定类型不存在，则调用该方法不会产生任何效果。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.dataTransfer.clearData(<span class="string">'text/uri-list'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码清除事件所带的<code>text/uri-list</code>类型的数据。</p>
+<p><strong>该方法不会移除拖拉的文件，因此调用该方法后，<code>DataTransfer.types</code>属性可能依然会返回<code>Files</code>类型（前提是存在文件拖拉）。</strong></p>
+<p><strong>注意，该方法只能在<code>dragstart</code>事件的监听函数之中使用，因为这是拖拉操作的数据唯一可写的时机。</strong></p>
+<h2 id="DataTransfer-setDragImage-：设置拖拉过程中的提示图片"><a href="#DataTransfer-setDragImage-：设置拖拉过程中的提示图片" class="headerlink" title="DataTransfer.setDragImage()：设置拖拉过程中的提示图片"></a>DataTransfer.setDragImage()：设置拖拉过程中的提示图片</h2><p>拖动过程中（<code>dragstart</code>事件触发后），浏览器会显示一张图片跟随鼠标一起移动，表示被拖动的节点。这张图片是自动创造的，通常显示为被拖动节点的外观，不需要自己动手设置。</p>
+<p><strong><code>DataTransfer.setDragImage()</code>方法可以自定义这张图片。它接受三个参数。第一个是<code>&lt;img&gt;</code>节点或者<code>&lt;canvas&gt;</code>节点，如果省略或为<code>null</code>，则使用被拖动的节点的外观；第二个和第三个参数为鼠标相对于该图片左上角的横坐标和右坐标。</strong></p>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* HTML 代码如下</span></span><br><span class="line"><span class="comment"> &lt;div id="drag-with-image" class="dragdemo" draggable="true"&gt;</span></span><br><span class="line"><span class="comment">   drag me</span></span><br><span class="line"><span class="comment"> &lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'drag-with-image'</span>);</span><br><span class="line">div.addEventListener(<span class="string">'dragstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">  img.src = <span class="string">'http://path/to/img'</span>;</span><br><span class="line">  e.dataTransfer.setDragImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-13T07:49:23.266Z" itemprop="dateUpdated">2019-08-13 15:49:23</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/12/JS学习之事件类型3/" target="_blank" rel="external">http://hedroins.github.io/2019/08/12/JS学习之事件类型3/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拖拉事件-；-DataTransfer接口/">拖拉事件 ； DataTransfer接口</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/&title=《JS学习之事件类型3》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/&title=《JS学习之事件类型3》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之事件类型3》 — HeJL&url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/13/JS学习之事件类型4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS学习之事件类型4</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/11/JS学习之事件类型2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之事件类型2</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/&title=《JS学习之事件类型3》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/&title=《JS学习之事件类型3》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之事件类型3》 — HeJL&url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/12/JS学习之事件类型3/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
