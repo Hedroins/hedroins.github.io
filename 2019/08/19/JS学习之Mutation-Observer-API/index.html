@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之Mutation Observer API | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="DOM的监听">
+    <meta name="description" content="概述Mutation Observer API 用来监视 DOM 变动。DOM 的任何变动，比如节点的增减、属性的变动、文本内容的变动，这个 API 都可以得到通知。 与事件的区分事件是同步触发，也就是说，DOM 的变动立刻会触发相应的事件；Mutation Observer 则是异步触发，DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发。 Mutation Observ">
+<meta name="keywords" content="DOM的监听">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之Mutation Observer API">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="概述Mutation Observer API 用来监视 DOM 变动。DOM 的任何变动，比如节点的增减、属性的变动、文本内容的变动，这个 API 都可以得到通知。 与事件的区分事件是同步触发，也就是说，DOM 的变动立刻会触发相应的事件；Mutation Observer 则是异步触发，DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发。 Mutation Observ">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-19T07:33:15.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之Mutation Observer API">
+<meta name="twitter:description" content="概述Mutation Observer API 用来监视 DOM 变动。DOM 的任何变动，比如节点的增减、属性的变动、文本内容的变动，这个 API 都可以得到通知。 与事件的区分事件是同步触发，也就是说，DOM 的变动立刻会触发相应的事件；Mutation Observer 则是异步触发，DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发。 Mutation Observ">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之Mutation Observer API</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之Mutation Observer API</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-19T07:07:32.000Z" itemprop="datePublished" class="page-time">
+  2019-08-19
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与事件的区分"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">与事件的区分</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MutationObserver构造函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">MutationObserver构造函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MutationObserver的实例方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">MutationObserver的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#observe（）：用来启动监听，它接受两个参数。"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">observe（）：用来启动监听，它接受两个参数。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#disconnect-，takeRecords（）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">disconnect()，takeRecords（）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MutationRecord-对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">MutationRecord 对象</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用实例"><span class="post-toc-number">5.</span> <span class="post-toc-text">应用实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子元素的变动"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">子元素的变动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性的变动"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">属性的变动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#取代-DOMContentLoaded-事件"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">取代 DOMContentLoaded 事件</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之Mutation-Observer-API"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之Mutation Observer API</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-19 15:07:32" datetime="2019-08-19T07:07:32.000Z"  itemprop="datePublished">2019-08-19</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>Mutation Observer API 用来监视 DOM 变动。DOM 的任何变动，比如节点的增减、属性的变动、文本内容的变动，这个 API 都可以得到通知。</strong></p>
+<h3 id="与事件的区分"><a href="#与事件的区分" class="headerlink" title="与事件的区分"></a>与事件的区分</h3><p>事件是同步触发，也就是说，DOM 的变动立刻会触发相应的事件；Mutation Observer 则是异步触发，DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发。</p>
+<p>Mutation Observer 有以下特点。</p>
+<ul>
+<li><strong>它等待所有脚本任务完成后，才会运行（即异步触发方式）。</strong></li>
+<li><strong>它把 DOM 变动记录封装成一个数组进行处理，而不是一条条个别处理 DOM 变动。</strong></li>
+<li><strong>它既可以观察 DOM 的所有类型变动，也可以指定只观察某一类变动。</strong></li>
+</ul>
+<h1 id="MutationObserver构造函数"><a href="#MutationObserver构造函数" class="headerlink" title="MutationObserver构造函数"></a>MutationObserver构造函数</h1><p>新建一个观察器实例，同时指定这个实例的回调函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> MutationObserver(callback);</span><br></pre></td></tr></table></figure>
+<p><strong>回调函数接受两个参数，第一个是变动数组，第二个是观察器实例</strong></p>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span> (<span class="params">mutations, observer</span>) </span>&#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(mutation);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="MutationObserver的实例方法"><a href="#MutationObserver的实例方法" class="headerlink" title="MutationObserver的实例方法"></a>MutationObserver的实例方法</h1><h2 id="observe（）：用来启动监听，它接受两个参数。"><a href="#observe（）：用来启动监听，它接受两个参数。" class="headerlink" title="observe（）：用来启动监听，它接受两个参数。"></a>observe（）：用来启动监听，它接受两个参数。</h2><ul>
+<li>第一个参数：所要观察的 DOM 节点</li>
+<li>第二个参数：一个配置对象，指定所要观察的特定变动</li>
+</ul>
+<p><strong>这两个参数都是必须的不可以省略。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> article = <span class="built_in">document</span>.querySelector(<span class="string">'article'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  options = &#123;</span><br><span class="line">  <span class="string">'childList'</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">'attributes'</span>:<span class="literal">true</span></span><br><span class="line">&#125; ;</span><br><span class="line"></span><br><span class="line">observer.observe(article, options);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>observe</code>方法接受两个参数，第一个是所要观察的DOM元素是<code>article</code>，第二个是所要观察的变动类型（子节点变动和属性变动）。</p>
+<p>观察器所能观察的 DOM 变动类型（即上面代码的<code>options</code>对象），有以下几种。</p>
+<ul>
+<li><strong>childList</strong>：子节点的变动（指新增，删除或者更改）。</li>
+<li><strong>attributes</strong>：属性的变动。</li>
+<li><strong>characterData</strong>：节点内容或节点文本的变动。</li>
+</ul>
+<p>除了变动类型，<code>options</code>对象还可以设定以下属性：</p>
+<ul>
+<li><code>subtree</code>：布尔值，表示是否将该观察器应用于该节点的所有后代节点。</li>
+</ul>
+<ul>
+<li><code>attributeOldValue</code>：布尔值，表示观察<code>attributes</code>变动时，是否需要记录变动前的属性值。</li>
+</ul>
+<ul>
+<li><code>characterDataOldValue</code>：布尔值，表示观察<code>characterData</code>变动时，是否需要记录变动前的值。</li>
+</ul>
+<ul>
+<li><code>attributeFilter</code>：数组，表示需要观察的特定属性（比如<code>[&#39;class&#39;,&#39;src&#39;]</code>）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始监听文档根节点（即&lt;html&gt;标签）的变动</span></span><br><span class="line">mutationObserver.observe(<span class="built_in">document</span>.documentElement, &#123;</span><br><span class="line">  attributes: <span class="literal">true</span>,</span><br><span class="line">  characterData: <span class="literal">true</span>,</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span>,</span><br><span class="line">  attributeOldValue: <span class="literal">true</span>,</span><br><span class="line">  characterDataOldValue: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>对一个节点添加观察器，就像使用<code>addEventListener</code>方法一样，<strong>多次添加同一个观察器是无效的，回调函数依然只会触发一次。但是，如果指定不同的<code>options</code>对象，就会被当作两个不同的观察器。</strong></p>
+<p>下面的例子是观察新增的子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> insertedNodes = [];</span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span>(<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">  mutations.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; mutation.addedNodes.length; i++)</span><br><span class="line">      insertedNodes.push(mutation.addedNodes[i]);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">observer.observe(<span class="built_in">document</span>, &#123; <span class="attr">childList</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(insertedNodes);</span><br></pre></td></tr></table></figure>
+<h2 id="disconnect-，takeRecords（）"><a href="#disconnect-，takeRecords（）" class="headerlink" title="disconnect()，takeRecords（）"></a>disconnect()，takeRecords（）</h2><p><strong><code>disconnect</code>方法用来停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observer.disconnect();</span><br></pre></td></tr></table></figure>
+<p><strong><code>takeRecords</code>方法用来清除变动记录，即不再处理未处理的变动。该方法返回变动记录的数组</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observer.takeRecords();</span><br></pre></td></tr></table></figure>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存所有没有被观察器处理的变动</span></span><br><span class="line"><span class="keyword">var</span> changes = mutationObserver.takeRecords();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止观察</span></span><br><span class="line">mutationObserver.disconnect();</span><br></pre></td></tr></table></figure>
+<h1 id="MutationRecord-对象"><a href="#MutationRecord-对象" class="headerlink" title="MutationRecord 对象"></a>MutationRecord 对象</h1><p><strong>DOM 每次发生变化，就会生成一条变动记录（MutationRecord 实例），该实例包含了与变动相关的所有信息。</strong>Mutation Observer 处理的就是一个个MutationRecord实例所组成的数组。</p>
+<p><code>MutationRecord</code>对象包含了DOM的相关信息，有如下属性：</p>
+<ul>
+<li><code>type</code>：观察的变动类型（<code>attribute</code>、<code>characterData</code>或者<code>childList</code>）。</li>
+</ul>
+<ul>
+<li><code>target</code>：发生变动的DOM节点。</li>
+</ul>
+<ul>
+<li><code>addedNodes</code>：新增的DOM节点。</li>
+</ul>
+<ul>
+<li><code>removedNodes</code>：删除的DOM节点。</li>
+</ul>
+<ul>
+<li><code>previousSibling</code>：前一个同级节点，如果没有则返回<code>null</code>。</li>
+</ul>
+<ul>
+<li><code>nextSibling</code>：下一个同级节点，如果没有则返回<code>null</code>。</li>
+</ul>
+<ul>
+<li><code>attributeName</code>：发生变动的属性。如果设置了<code>attributeFilter</code>，则只返回预先指定的属性。</li>
+</ul>
+<ul>
+<li><code>oldValue</code>：变动前的值。这个属性只对<code>attribute</code>和<code>characterData</code>变动有效，如果发生<code>childList</code>变动，则返回<code>null</code>。</li>
+</ul>
+<h1 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h1><h2 id="子元素的变动"><a href="#子元素的变动" class="headerlink" title="子元素的变动"></a>子元素的变动</h2><p>下面的例子说明如何读取变动记录。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span> (<span class="params">records</span>)</span>&#123;</span><br><span class="line">  records.map(<span class="function"><span class="keyword">function</span>(<span class="params">record</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Mutation type: '</span> + record.type);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Mutation target: '</span> + record.target);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mo = <span class="keyword">new</span> MutationObserver(callback);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">  <span class="string">'childList'</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">'subtree'</span>: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">mo.observe(<span class="built_in">document</span>.body, option);</span><br></pre></td></tr></table></figure>
+<p>上面代码的观察器，观察<code>&lt;body&gt;</code>的所有下级节点（<code>childList</code>表示观察子节点，<code>subtree</code>表示观察后代节点）的变动。回调函数会在控制台显示所有变动的类型和目标节点。</p>
+<h2 id="属性的变动"><a href="#属性的变动" class="headerlink" title="属性的变动"></a>属性的变动</h2><p>下面的例子说明如何追踪属性的变动。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span> (<span class="params">records</span>) </span>&#123;</span><br><span class="line">  records.map(<span class="function"><span class="keyword">function</span> (<span class="params">record</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Previous attribute value: '</span> + record.oldValue);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mo = <span class="keyword">new</span> MutationObserver(callback);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'#my_element'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  <span class="string">'attributes'</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">'attributeOldValue'</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mo.observe(element, options);</span><br></pre></td></tr></table></figure>
+<p>上面代码先设定追踪属性变动（<code>&#39;attributes&#39;: true</code>），然后设定记录变动前的值。实际发生变动时，会将变动前的值显示在控制台。</p>
+<h2 id="取代-DOMContentLoaded-事件"><a href="#取代-DOMContentLoaded-事件" class="headerlink" title="取代 DOMContentLoaded 事件"></a>取代 DOMContentLoaded 事件</h2><p><strong>网页加载的时候，DOM 节点的生成会产生变动记录，因此只要观察 DOM 的变动，就能在第一时间触发相关事件，因此也就没有必要使用<code>DOMContentLoaded</code>事件。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> MutationObserver(callback);</span><br><span class="line">observer.observe(<span class="built_in">document</span>.documentElement, &#123;</span><br><span class="line">  childList: <span class="literal">true</span>,</span><br><span class="line">  subtree: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，监听<code>document.documentElement</code>（即HTML节点）的子节点的变动，<code>subtree</code>属性指定监听还包括后代节点。因此，任意一个网页元素一旦生成，就能立刻被监听到。</p>
+<p>下面的代码，使用<code>MutationObserver</code>对象封装一个监听 DOM 生成的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">win</span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> listeners = [];</span><br><span class="line">  <span class="keyword">var</span> doc = win.document;</span><br><span class="line">  <span class="keyword">var</span> MutationObserver = win.MutationObserver || win.WebKitMutationObserver;</span><br><span class="line">  <span class="keyword">var</span> observer;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">ready</span>(<span class="params">selector, fn</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 储存选择器和回调函数</span></span><br><span class="line">    listeners.push(&#123;</span><br><span class="line">      selector: selector,</span><br><span class="line">      fn: fn</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">if</span>(!observer)&#123;</span><br><span class="line">      <span class="comment">// 监听document变化</span></span><br><span class="line">      observer = <span class="keyword">new</span> MutationObserver(check);</span><br><span class="line">      observer.observe(doc.documentElement, &#123;</span><br><span class="line">        childList: <span class="literal">true</span>,</span><br><span class="line">        subtree: <span class="literal">true</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查该节点是否已经在DOM中</span></span><br><span class="line">    check();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 检查是否匹配已储存的节点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; listeners.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> listener = listeners[i];</span><br><span class="line">      <span class="comment">// 检查指定节点是否有匹配</span></span><br><span class="line">      <span class="keyword">var</span> elements = doc.querySelectorAll(listener.selector);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; elements.length; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> element = elements[j];</span><br><span class="line">        <span class="comment">// 确保回调函数只会对该元素调用一次</span></span><br><span class="line">        <span class="keyword">if</span>(!element.ready)&#123;</span><br><span class="line">          element.ready = <span class="literal">true</span>;</span><br><span class="line">          <span class="comment">// 对该节点调用回调函数</span></span><br><span class="line">          listener.fn.call(element, element);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对外暴露ready</span></span><br><span class="line">  win.ready = ready;</span><br><span class="line"></span><br><span class="line">&#125;)(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">ready(<span class="string">'.foo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-19T07:33:15.836Z" itemprop="dateUpdated">2019-08-19 15:33:15</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/19/JS学习之Mutation-Observer-API/" target="_blank" rel="external">http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM的监听/">DOM的监听</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/&title=《JS学习之Mutation Observer API》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/&title=《JS学习之Mutation Observer API》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Mutation Observer API》 — HeJL&url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/20/JS学习之浏览器环境概述/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JS学习之浏览器环境概述</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/18/JS学习之CSS操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之CSS操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/&title=《JS学习之Mutation Observer API》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/&title=《JS学习之Mutation Observer API》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之Mutation Observer API》 — HeJL&url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/19/JS学习之Mutation-Observer-API/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
