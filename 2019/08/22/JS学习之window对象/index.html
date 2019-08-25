@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之window对象 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="BOM之window对象">
+    <meta name="description" content="概述浏览器里面，window对象（注意，w为小写）指当前的浏览器窗口。它也是当前页面的顶层对象，即最高一层的对象，所有其他对象都是它的下属。一个变量如果未声明，那么默认就是顶层对象的属性。 12a = 1;window.a // 1 window对象的属性window.name是一个字符串，表示当前浏览器窗口的名字窗口不一定需要名字，这个属性主要配合超链接和表单的target属性使用。 123wi">
+<meta name="keywords" content="BOM之window对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之window对象">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/22/JS学习之window对象/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="概述浏览器里面，window对象（注意，w为小写）指当前的浏览器窗口。它也是当前页面的顶层对象，即最高一层的对象，所有其他对象都是它的下属。一个变量如果未声明，那么默认就是顶层对象的属性。 12a = 1;window.a // 1 window对象的属性window.name是一个字符串，表示当前浏览器窗口的名字窗口不一定需要名字，这个属性主要配合超链接和表单的target属性使用。 123wi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://hedroins.github.io/2019/08/22/JS学习之window对象/SRJH1[PJBIBJ5]@QJ0C%7BPOL.png">
+<meta property="og:updated_time" content="2019-08-25T08:03:19.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之window对象">
+<meta name="twitter:description" content="概述浏览器里面，window对象（注意，w为小写）指当前的浏览器窗口。它也是当前页面的顶层对象，即最高一层的对象，所有其他对象都是它的下属。一个变量如果未声明，那么默认就是顶层对象的属性。 12a = 1;window.a // 1 window对象的属性window.name是一个字符串，表示当前浏览器窗口的名字窗口不一定需要名字，这个属性主要配合超链接和表单的target属性使用。 123wi">
+<meta name="twitter:image" content="http://hedroins.github.io/2019/08/22/JS学习之window对象/SRJH1[PJBIBJ5]@QJ0C%7BPOL.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之window对象</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之window对象</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-22T12:35:07.000Z" itemprop="datePublished" class="page-time">
+  2019-08-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#window对象的属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">window对象的属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-name是一个字符串，表示当前浏览器窗口的名字"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">window.name是一个字符串，表示当前浏览器窗口的名字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-closed返回一个布尔值，表示窗口是否关闭。"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">window.closed返回一个布尔值，表示窗口是否关闭。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-opener表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">window.opener表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-self-window-window都指向窗口本身。这两个属性只读。"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">window.self,window.window都指向窗口本身。这两个属性只读。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-frames-window-length"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">window.frames,window.length</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-frameElement主要用于当前窗口嵌在另一个网页的情况（嵌入-lt-object-gt-、-lt-iframe-gt-或-lt-embed-gt-元素），返回当前窗口所在的那个元素节点。"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">window.frameElement主要用于当前窗口嵌在另一个网页的情况（嵌入&lt;object&gt;、&lt;iframe&gt;或&lt;embed&gt;元素），返回当前窗口所在的那个元素节点。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-top属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">window.top属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-parent属性指向父窗口。如果当前窗口没有父窗口，window-parent指向自身。"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">window.parent属性指向父窗口。如果当前窗口没有父窗口，window.parent指向自身。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-status"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">window.status</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-devicePixelRatio"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">window.devicePixelRatio</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#位置大小属性"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">位置大小属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（1）window-screenX，window-screenY"><span class="post-toc-number">2.11.1.</span> <span class="post-toc-text">（1）window.screenX，window.screenY</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（2）-window-innerHeight，window-innerWidth"><span class="post-toc-number">2.11.2.</span> <span class="post-toc-text">（2） window.innerHeight，window.innerWidth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（3）window-outerHeight，window-outerWidth"><span class="post-toc-number">2.11.3.</span> <span class="post-toc-text">（3）window.outerHeight，window.outerWidth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（4）window-scrollX，window-scrollY"><span class="post-toc-number">2.11.4.</span> <span class="post-toc-text">（4）window.scrollX，window.scrollY</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（5）window-pageXOffset，window-pageYOffset"><span class="post-toc-number">2.11.5.</span> <span class="post-toc-text">（5）window.pageXOffset，window.pageYOffset</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件属性"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">组件属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全局对象属性"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">全局对象属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-isSecureContext"><span class="post-toc-number">2.14.</span> <span class="post-toc-text">window.isSecureContext</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Screen对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">Screen对象</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Navigator对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">Navigator对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-userAgent-属性返回浏览器的-User-Agent-字符串，表示浏览器的厂商和版本信息。"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Navigator.userAgent:属性返回浏览器的 User Agent 字符串，表示浏览器的厂商和版本信息。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-plugins属性返回一个类似数组的对象，成员是-Plugin-实例对象，表示浏览器安装的插件，比如-Flash、ActiveX-等。"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Navigator.plugins属性返回一个类似数组的对象，成员是 Plugin 实例对象，表示浏览器安装的插件，比如 Flash、ActiveX 等。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-platform返回用户的操作系统信息，比如MacIntel、Win32、Linux-x86-64等-。"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Navigator.platform返回用户的操作系统信息，比如MacIntel、Win32、Linux x86_64等 。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-onLine返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Navigator.onLine返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-language-Navigator-languages"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">Navigator.language ,  Navigator.languages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-geolocation-属性返回一个-Geolocation-对象，包含用户地理位置的信息。"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">Navigator.geolocation:属性返回一个 Geolocation 对象，包含用户地理位置的信息。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-cookieEnabled属性返回一个布尔值，表示浏览器的-Cookie-功能是否打开。"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">Navigator.cookieEnabled属性返回一个布尔值，表示浏览器的 Cookie 功能是否打开。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-javaEnabled-方法返回一个布尔值，表示浏览器是否能运行-Java-Applet-小程序。"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">Navigator.javaEnabled():方法返回一个布尔值，表示浏览器是否能运行 Java Applet 小程序。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Navigator-sendBeacon-方法用于向服务器异步发送数据"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">Navigator.sendBeacon()方法用于向服务器异步发送数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#window对象的方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">window对象的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-alert-window-prompt-window-confirm"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">window.alert() , window.prompt(), window.confirm()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#window-prompt-方法弹出的对话框，提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。"><span class="post-toc-number">5.1.0.1.</span> <span class="post-toc-text">window.prompt()方法弹出的对话框，提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#window-confirm-方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户是否同意。"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">window.confirm()方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户是否同意。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-open-window-close-，window-stop"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">window.open(), window.close()，window.stop()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#window-open方法用于新建另一个浏览器窗口，类似于浏览器菜单的新建窗口选项。它会返回新窗口的引用，如果无法新建窗口，则返回null。"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">window.open方法用于新建另一个浏览器窗口，类似于浏览器菜单的新建窗口选项。它会返回新窗口的引用，如果无法新建窗口，则返回null。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#window-close方法用于关闭当前窗口，一般只用来关闭window-open方法新建的窗口。"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">window.close方法用于关闭当前窗口，一般只用来关闭window.open方法新建的窗口。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#window-stop-方法完全等同于单击浏览器的停止按钮，会停止加载图像、视频等正在或等待加载的对象。"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">window.stop()方法完全等同于单击浏览器的停止按钮，会停止加载图像、视频等正在或等待加载的对象。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-moveTo-，window-moveBy"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">window.moveTo()，window.moveBy()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-resizeTo-方法用于缩放窗口到指定大小。-window-resizeBy-方法用于缩放窗口。"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">window.resizeTo()方法用于缩放窗口到指定大小。, window.resizeBy()方法用于缩放窗口。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-scrollTo-，window-scroll-，window-scrollBy"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">window.scrollTo()，window.scroll()，window.scrollBy()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-print-会跳出打印对话框，与用户点击菜单里面的“打印”命令效果相同。"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">window.print()会跳出打印对话框，与用户点击菜单里面的“打印”命令效果相同。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-focus-window-blur"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">window.focus(),window.blur()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-getSelection-返回一个Selection对象，表示用户现在选中的文本。"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">window.getSelection():返回一个Selection对象，表示用户现在选中的文本。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-getComputedStyle-window-matchMedia"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">window.getComputedStyle();window.matchMedia()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多窗口操作"><span class="post-toc-number">6.</span> <span class="post-toc-text">多窗口操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#窗口的引用"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">窗口的引用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#iframe元素"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">iframe元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window-frames属性"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">window.frames属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事件"><span class="post-toc-number">7.</span> <span class="post-toc-text">事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#load事件和onload属性"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">load事件和onload属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#error事件和onerror属性"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">error事件和onerror属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#window对象的事件监听属性总汇"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">window对象的事件监听属性总汇</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL的编码和解码"><span class="post-toc-number">8.</span> <span class="post-toc-text">URL的编码和解码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#encodeURL-用于转码整个-URL。它的参数是一个字符串，代表整个-URL。它会将元字符和语义字符之外的字符，都进行转义。"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">encodeURL()用于转码整个 URL。它的参数是一个字符串，代表整个 URL。它会将元字符和语义字符之外的字符，都进行转义。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#encodeURIComponent-方法用于转码-URL-的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个-URL。它接受一个参数，就是-URL-的片段。"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">encodeURIComponent()方法用于转码 URL 的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个 URL。它接受一个参数，就是 URL 的片段。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与之对应的是decodeURL-用于整个url解码，decodeURLComponent-用于部分URL解码。"><span class="post-toc-number">8.2.1.</span> <span class="post-toc-text">与之对应的是decodeURL()用于整个url解码，decodeURLComponent()用于部分URL解码。</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之window对象"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之window对象</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-22 20:35:07" datetime="2019-08-22T12:35:07.000Z"  itemprop="datePublished">2019-08-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>浏览器里面，<code>window</code>对象（注意，<code>w</code>为小写）指当前的浏览器窗口。它也是当前页面的顶层对象，即最高一层的对象，所有其他对象都是它的下属。一个变量如果未声明，那么默认就是顶层对象的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">window</span>.a <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h1 id="window对象的属性"><a href="#window对象的属性" class="headerlink" title="window对象的属性"></a>window对象的属性</h1><h2 id="window-name是一个字符串，表示当前浏览器窗口的名字"><a href="#window-name是一个字符串，表示当前浏览器窗口的名字" class="headerlink" title="window.name是一个字符串，表示当前浏览器窗口的名字"></a>window.name是一个字符串，表示当前浏览器窗口的名字</h2><p>窗口不一定需要名字，这个属性主要配合超链接和表单的target属性使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.name = <span class="string">'Hello World!'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.name)</span><br><span class="line"><span class="comment">// "Hello World!"</span></span><br></pre></td></tr></table></figure>
+<p><strong>只要浏览器窗口不关闭，这个属性是不会消失的。(就算是新载入页面，刷新页面也不会消失)</strong></p>
+<h2 id="window-closed返回一个布尔值，表示窗口是否关闭。"><a href="#window-closed返回一个布尔值，表示窗口是否关闭。" class="headerlink" title="window.closed返回一个布尔值，表示窗口是否关闭。"></a>window.closed返回一个布尔值，表示窗口是否关闭。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.closed <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>这种检查意义不大，因为只要能运行代码，当前窗口肯定没有关闭。这个属性一般用来检查，使用脚本打开的新窗口是否关闭。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ((popup !== <span class="literal">null</span>) &amp;&amp; !popup.closed) &#123;</span><br><span class="line">  <span class="comment">// 窗口仍然打开着</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="window-opener表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。"><a href="#window-opener表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。" class="headerlink" title="window.opener表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。"></a>window.opener表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.open().opener === <span class="built_in">window</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面表达式会打开一个新窗口，然后返回true。</p>
+<p><strong>通过<code>opener</code>属性，可以获得父窗口的全局属性和方法，但只限于两个窗口同源的情况（参见《同源限制》一章），且其中一个窗口由另一个打开。<code>&lt;a&gt;</code>元素添加<code>rel=&quot;noopener&quot;</code>属性，可以防止新打开的窗口获取父窗口。</strong></p>
+<h2 id="window-self-window-window都指向窗口本身。这两个属性只读。"><a href="#window-self-window-window都指向窗口本身。这两个属性只读。" class="headerlink" title="window.self,window.window都指向窗口本身。这两个属性只读。"></a>window.self,window.window都指向窗口本身。这两个属性只读。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.self === <span class="built_in">window</span> <span class="comment">// true</span></span><br><span class="line"><span class="built_in">window</span>.window === <span class="built_in">window</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="window-frames-window-length"><a href="#window-frames-window-length" class="headerlink" title="window.frames,window.length"></a>window.frames,window.length</h2><p><strong><code>window.frames</code>属性返回一个类似数组的对象，成员为页面内所有框架窗口，包括<code>frame</code>元素和<code>iframe</code>元素。<code>window.frames[0]</code>表示页面中第一个框架窗口。</strong></p>
+<p>如果<code>iframe</code>元素设置了<code>id</code>或<code>name</code>属性，那么就可以用属性值，引用这个<code>iframe</code>窗口。比如<code>&lt;iframe name=&quot;myIFrame&quot;&gt;</code>可以用<code>frames[&#39;myIFrame&#39;]</code>或者<code>frames.myIFrame</code>来引用。</p>
+<p><code>frames</code>属性实际上是<code>window</code>对象的别名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frames === <span class="built_in">window</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>window.length</code>属性返回当前网页包含的框架总数。如果当前网页不包含<code>frame</code>和<code>iframe</code>元素，那么<code>window.length</code>就返回<code>0</code>。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.frames.length === <span class="built_in">window</span>.length <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码表示，window.frames.length与window.length应该是相等的。</p>
+<h2 id="window-frameElement主要用于当前窗口嵌在另一个网页的情况（嵌入-lt-object-gt-、-lt-iframe-gt-或-lt-embed-gt-元素），返回当前窗口所在的那个元素节点。"><a href="#window-frameElement主要用于当前窗口嵌在另一个网页的情况（嵌入-lt-object-gt-、-lt-iframe-gt-或-lt-embed-gt-元素），返回当前窗口所在的那个元素节点。" class="headerlink" title="window.frameElement主要用于当前窗口嵌在另一个网页的情况（嵌入&lt;object&gt;、&lt;iframe&gt;或&lt;embed&gt;元素），返回当前窗口所在的那个元素节点。"></a>window.frameElement主要用于当前窗口嵌在另一个网页的情况（嵌入<code>&lt;object&gt;</code>、<code>&lt;iframe&gt;</code>或<code>&lt;embed&gt;</code>元素），返回当前窗口所在的那个元素节点。</h2><p><strong>如果当前窗口是顶层窗口，或者所嵌入的那个网页不是同源的，该属性返回null。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码如下</span></span><br><span class="line"><span class="comment">// &lt;iframe src="about.html"&gt;&lt;/iframe&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面的脚本在 about.html 里面</span></span><br><span class="line"><span class="keyword">var</span> frameEl = <span class="built_in">window</span>.frameElement;</span><br><span class="line"><span class="keyword">if</span> (frameEl) &#123;</span><br><span class="line">  frameEl.src = <span class="string">'other.html'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="window-top属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。"><a href="#window-top属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。" class="headerlink" title="window.top属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。"></a>window.top属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。</h2><h2 id="window-parent属性指向父窗口。如果当前窗口没有父窗口，window-parent指向自身。"><a href="#window-parent属性指向父窗口。如果当前窗口没有父窗口，window-parent指向自身。" class="headerlink" title="window.parent属性指向父窗口。如果当前窗口没有父窗口，window.parent指向自身。"></a>window.parent属性指向父窗口。如果当前窗口没有父窗口，window.parent指向自身。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.parent !== <span class="built_in">window</span>.top) &#123;</span><br><span class="line">  <span class="comment">// 表明当前窗口嵌入不止一层</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="window-status"><a href="#window-status" class="headerlink" title="window.status"></a>window.status</h2><p><code>window.status</code>属性用于读写浏览器状态栏的文本。但是，现在很多浏览器都不允许改写状态栏文本，所以使用这个方法不一定有效。</p>
+<h2 id="window-devicePixelRatio"><a href="#window-devicePixelRatio" class="headerlink" title="window.devicePixelRatio"></a>window.devicePixelRatio</h2><p><strong><code>window.devicePixelRatio</code>属性返回一个数值，表示一个 CSS 像素的大小与一个物理像素的大小之间的比率。也就是说，它表示一个 CSS 像素由多少个物理像素组成。</strong>它可以用于判断用户的显示环境，如果这个比率较大，就表示用户正在使用高清屏幕，因此可以显示较大像素的图片。</p>
+<h2 id="位置大小属性"><a href="#位置大小属性" class="headerlink" title="位置大小属性"></a>位置大小属性</h2><h3 id="（1）window-screenX，window-screenY"><a href="#（1）window-screenX，window-screenY" class="headerlink" title="（1）window.screenX，window.screenY"></a><strong>（1）window.screenX，window.screenY</strong></h3><p><strong><code>window.screenX</code>和<code>window.screenY</code>属性，返回浏览器窗口左上角相对于当前屏幕左上角的水平距离和垂直距离（单位像素）。这两个属性只读。</strong></p>
+<h3 id="（2）-window-innerHeight，window-innerWidth"><a href="#（2）-window-innerHeight，window-innerWidth" class="headerlink" title="（2） window.innerHeight，window.innerWidth"></a><strong>（2） window.innerHeight，window.innerWidth</strong></h3><p><code>window.innerHeight</code>和<code>window.innerWidth</code>属性，<strong>返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport）的大小（单位像素）。这两个属性只读。</strong></p>
+<h3 id="（3）window-outerHeight，window-outerWidth"><a href="#（3）window-outerHeight，window-outerWidth" class="headerlink" title="（3）window.outerHeight，window.outerWidth"></a><strong>（3）window.outerHeight，window.outerWidth</strong></h3><p><strong><code>window.outerHeight</code>和<code>window.outerWidth</code>属性返回浏览器窗口的高度和宽度，包括浏览器菜单和边框（单位像素）。这两个属性只读。</strong></p>
+<h3 id="（4）window-scrollX，window-scrollY"><a href="#（4）window-scrollX，window-scrollY" class="headerlink" title="（4）window.scrollX，window.scrollY"></a><strong>（4）window.scrollX，window.scrollY</strong></h3><p><strong><code>window.scrollX</code>属性返回页面的水平滚动距离，<code>window.scrollY</code>属性返回页面的垂直滚动距离，单位都为像素。这两个属性只读。</strong></p>
+<p>注意，这两个属性的返回值不是整数，而是双精度浮点数。如果页面没有滚动，它们的值就是<code>0</code>。</p>
+<p>举例来说，如果用户向下拉动了垂直滚动条75像素，那么<code>window.pageYOffset</code>就是75左右。用户水平向右拉动水平滚动条200像素，<code>window.pageXOffset</code>就是200左右。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.scrollY &lt; <span class="number">75</span>) &#123;</span><br><span class="line">  <span class="built_in">window</span>.scroll(<span class="number">0</span>, <span class="number">75</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，如果页面向下滚动的距离小于75像素，那么页面向下滚动75像素。</p>
+<h3 id="（5）window-pageXOffset，window-pageYOffset"><a href="#（5）window-pageXOffset，window-pageYOffset" class="headerlink" title="（5）window.pageXOffset，window.pageYOffset"></a><strong>（5）window.pageXOffset，window.pageYOffset</strong></h3><p><strong><code>window.pageXOffset</code>属性和<code>window.pageYOffset</code>属性，是<code>window.scrollX</code>和<code>window.scrollY</code>别名。</strong></p>
+<h2 id="组件属性"><a href="#组件属性" class="headerlink" title="组件属性"></a>组件属性</h2><ul>
+<li><code>window.locationbar</code>：地址栏对象</li>
+<li><code>window.menubar</code>：菜单栏对象</li>
+<li><code>window.scrollbar</code>：窗口的滚动条对象</li>
+<li><code>window.toolbar</code>：工具栏对象</li>
+<li><code>window.statusbar</code>：状态栏对象</li>
+<li><code>window.personalbar</code>：用户安装的个人工具栏对象</li>
+</ul>
+<p><strong>这些对象的<code>visible</code>属性是一个布尔值，表示这些组件是否可见。这些属性只读。</strong></p>
+<h2 id="全局对象属性"><a href="#全局对象属性" class="headerlink" title="全局对象属性"></a>全局对象属性</h2><p>全局对象属性指向一些浏览器原生的全局对象。</p>
+<ul>
+<li><code>window.document</code>：指向<code>document</code>对象。注意，这个属性有同源限制。只有来自同源的脚本才能读取这个属性。</li>
+</ul>
+<ul>
+<li><code>window.location</code>：指向<code>Location</code>对象，用于获取当前窗口的 URL 信息。它等同于<code>document.location</code>属性</li>
+</ul>
+<ul>
+<li><code>window.navigator</code>：指向<code>Navigator</code>对象，用于获取环境信息。</li>
+</ul>
+<ul>
+<li><code>window.history</code>：指向<code>History</code>对象，表示浏览器的浏览历史。</li>
+</ul>
+<ul>
+<li><code>window.localStorage</code>：指向本地储存的 localStorage 数据。</li>
+</ul>
+<ul>
+<li><code>window.sessionStorage</code>：指向本地储存的 sessionStorage 数据。</li>
+</ul>
+<ul>
+<li><code>window.console</code>：指向<code>console</code>对象，用于操作控制台。</li>
+</ul>
+<ul>
+<li><code>window.screen</code>：指向<code>Screen</code>对象，表示屏幕信息。</li>
+</ul>
+<h2 id="window-isSecureContext"><a href="#window-isSecureContext" class="headerlink" title="window.isSecureContext"></a>window.isSecureContext</h2><p><code>window.isSecureContext</code>属性返回一个布尔值，表示当前窗口是否处在加密环境。如果是 HTTPS 协议，就是<code>true</code>，否则就是<code>false</code>。</p>
+<h1 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a>Screen对象</h1><p>Screen 对象表示当前窗口所在的屏幕，提供显示设备的信息window.screen属性指向这个对象。</p>
+<p>该对象有下面的属性。</p>
+<ul>
+<li><code>Screen.height</code>：浏览器窗口所在的屏幕的高度（单位像素）。除非调整显示器的分辨率，否则这个值可以看作常量，不会发生变化。显示器的分辨率与浏览器设置无关，缩放网页并不会改变分辨率。</li>
+</ul>
+<ul>
+<li><code>Screen.width</code>：浏览器窗口所在的屏幕的宽度（单位像素）。</li>
+</ul>
+<ul>
+<li><code>Screen.availHeight</code>：浏览器窗口可用的屏幕高度（单位像素）。因为部分空间可能不可用，比如系统的任务栏或者 Mac 系统屏幕底部的 Dock 区，这个属性等于<code>height</code>减去那些被系统组件的高度。</li>
+</ul>
+<ul>
+<li><code>Screen.availWidth</code>：浏览器窗口可用的屏幕宽度（单位像素）。</li>
+</ul>
+<ul>
+<li><code>Screen.pixelDepth</code>：整数，表示屏幕的色彩位数，比如<code>24</code>表示屏幕提供24位色彩。</li>
+</ul>
+<ul>
+<li><code>Screen.colorDepth</code>：<code>Screen.pixelDepth</code>的别名。严格地说，colorDepth 表示应用程序的颜色深度，pixelDepth 表示屏幕的颜色深度，绝大多数情况下，它们都是同一件事。</li>
+</ul>
+<ul>
+<li><code>Screen.orientation</code>：返回一个对象，表示屏幕的方向。该对象的<code>type</code>属性是一个字符串，表示屏幕的具体方向，<code>landscape-primary</code>表示横放，<code>landscape-secondary</code>表示颠倒的横放，<code>portrait-primary</code>表示竖放，<code>portrait-secondary</code>。</li>
+</ul>
+<p>下面是Screen.orientation的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.screen.orientation</span><br><span class="line"><span class="comment">// &#123; angle: 0, type: "landscape-primary", onchange: null &#125;</span></span><br></pre></td></tr></table></figure>
+<p>下面的例子保证屏幕分辨率大于 1024 x 768。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.screen.width &gt;= <span class="number">1024</span> &amp;&amp; <span class="built_in">window</span>.screen.height &gt;= <span class="number">768</span>) &#123;</span><br><span class="line">  <span class="comment">// 分辨率不低于 1024x768</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是根据屏幕的宽度，将用户导向不同网页的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((screen.width &lt;= <span class="number">800</span>) &amp;&amp; (screen.height &lt;= <span class="number">600</span>)) &#123;</span><br><span class="line">  <span class="built_in">window</span>.location.replace(<span class="string">'small.html'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">window</span>.location.replace(<span class="string">'wide.html'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h1><p><strong><code>window.navigator</code>属性指向一个包含浏览器信息的 Navigator 对象。脚本通过这个属性了解用户使用的是哪一种浏览器。</strong></p>
+<h2 id="Navigator-userAgent-属性返回浏览器的-User-Agent-字符串，表示浏览器的厂商和版本信息。"><a href="#Navigator-userAgent-属性返回浏览器的-User-Agent-字符串，表示浏览器的厂商和版本信息。" class="headerlink" title="Navigator.userAgent:属性返回浏览器的 User Agent 字符串，表示浏览器的厂商和版本信息。"></a>Navigator.userAgent:属性返回浏览器的 User Agent 字符串，表示浏览器的厂商和版本信息。</h2><p>下面是 Chrome 浏览器的<code>userAgent</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">navigator.userAgent</span><br><span class="line"><span class="comment">// "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/29.0.1547.57 Safari/537.36"</span></span><br></pre></td></tr></table></figure>
+<p><strong>一般不再通过userAgent识别浏览器了，而是使用“功能识别”方法，即逐一测试当前浏览器是否支持要用到的 JavaScript 功能。</strong></p>
+<p>不过，通过<code>userAgent</code>可以大致准确地识别手机浏览器，方法就是测试是否包含<code>mobi</code>字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="regexp">/mobi/i</span>.test(ua)) &#123;</span><br><span class="line">  <span class="comment">// 手机浏览器</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 非手机浏览器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果想要识别所有移动设备的浏览器，可以测试更多的特征字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mobi|android|touch|mini/i.test(ua)</span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-plugins属性返回一个类似数组的对象，成员是-Plugin-实例对象，表示浏览器安装的插件，比如-Flash、ActiveX-等。"><a href="#Navigator-plugins属性返回一个类似数组的对象，成员是-Plugin-实例对象，表示浏览器安装的插件，比如-Flash、ActiveX-等。" class="headerlink" title="Navigator.plugins属性返回一个类似数组的对象，成员是 Plugin 实例对象，表示浏览器安装的插件，比如 Flash、ActiveX 等。"></a>Navigator.plugins属性返回<u>一个类似数组的对象</u>，成员是 Plugin 实例对象，表示浏览器安装的插件，比如 Flash、ActiveX 等。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pluginsLength = navigator.plugins.length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; pluginsLength; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(navigator.plugins[i].name);</span><br><span class="line">  <span class="built_in">console</span>.log(navigator.plugins[i].filename);</span><br><span class="line">  <span class="built_in">console</span>.log(navigator.plugins[i].description);</span><br><span class="line">  <span class="built_in">console</span>.log(navigator.plugins[i].version);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-platform返回用户的操作系统信息，比如MacIntel、Win32、Linux-x86-64等-。"><a href="#Navigator-platform返回用户的操作系统信息，比如MacIntel、Win32、Linux-x86-64等-。" class="headerlink" title="Navigator.platform返回用户的操作系统信息，比如MacIntel、Win32、Linux x86_64等 。"></a>Navigator.platform返回用户的操作系统信息，比如MacIntel、Win32、Linux x86_64等 。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">navigator.platform</span><br><span class="line"><span class="comment">// "Linux x86_64"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-onLine返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。"><a href="#Navigator-onLine返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。" class="headerlink" title="Navigator.onLine返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。"></a>Navigator.onLine返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.onLine <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>有时，浏览器可以连接局域网，但是局域网不能连通外网。这时，<strong>有的浏览器的<code>onLine</code>属性会返回<code>true</code>，所以不能假定只要是<code>true</code>，用户就一定能访问互联网。</strong>不过，<strong>如果是<code>false</code>，可以断定用户一定离线。</strong></p>
+<p>####<u>用户变成在线会触发<code>online</code>事件，变成离线会触发<code>offline</code>事件</u></p>
+<p><strong>可以通过<code>window.ononline</code>和<code>window.onoffline</code>指定这两个事件的回调函数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'offline'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'offline'</span>); &#125;);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'online'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'online'</span>); &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-language-Navigator-languages"><a href="#Navigator-language-Navigator-languages" class="headerlink" title="Navigator.language ,  Navigator.languages"></a>Navigator.language ,  Navigator.languages</h2><p>Navigator.language属性返回一个字符串，表示浏览器的首选语言。该属性只读。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.language <span class="comment">// "en"</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>Navigator.languages</code>属性返回一个数组，表示用户可以接受的语言 </strong></p>
+<p><strong><code>Navigator.language</code>总是这个数组的第一个成员。HTTP 请求头信息的<code>Accept-Language</code>字段，就来自这个数组。 </strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.languages  <span class="comment">// ["en-US", "en", "zh-CN", "zh", "zh-TW"]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-geolocation-属性返回一个-Geolocation-对象，包含用户地理位置的信息。"><a href="#Navigator-geolocation-属性返回一个-Geolocation-对象，包含用户地理位置的信息。" class="headerlink" title="Navigator.geolocation:属性返回一个 Geolocation 对象，包含用户地理位置的信息。"></a>Navigator.geolocation:属性返回一个 Geolocation 对象，包含用户地理位置的信息。</h2><p><strong>注意，该 API 只有在 HTTPS 协议下可用，否则调用下面方法时会报错。</strong></p>
+<p>Geolocation 对象提供下面三个方法。</p>
+<ul>
+<li><p><strong>Geolocation.getCurrentPosition()：得到用户的当前位置</strong></p>
+<p>​</p>
+</li>
+<li><p><strong>Geolocation.watchPosition()：监听用户位置变化</strong></p>
+</li>
+</ul>
+<ul>
+<li><strong>Geolocation.clearWatch()：取消<code>watchPosition()</code>方法指定的监听函数</strong></li>
+</ul>
+<p>注意，调用这三个方法时，浏览器会跳出一个对话框，要求用户给予授权。</p>
+<h2 id="Navigator-cookieEnabled属性返回一个布尔值，表示浏览器的-Cookie-功能是否打开。"><a href="#Navigator-cookieEnabled属性返回一个布尔值，表示浏览器的-Cookie-功能是否打开。" class="headerlink" title="Navigator.cookieEnabled属性返回一个布尔值，表示浏览器的 Cookie 功能是否打开。"></a>Navigator.cookieEnabled属性返回一个布尔值，表示浏览器的 Cookie 功能是否打开。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.cookieEnabled <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>注意，这个属性反映的是浏览器总的特性，与是否储存某个具体的网站的 Cookie 无关。用户可以设置某个网站不得储存 Cookie，这时<code>cookieEnabled</code>返回的还是<code>true</code>。</p>
+<h2 id="Navigator-javaEnabled-方法返回一个布尔值，表示浏览器是否能运行-Java-Applet-小程序。"><a href="#Navigator-javaEnabled-方法返回一个布尔值，表示浏览器是否能运行-Java-Applet-小程序。" class="headerlink" title="Navigator.javaEnabled():方法返回一个布尔值，表示浏览器是否能运行 Java Applet 小程序。"></a>Navigator.javaEnabled():方法返回一个布尔值，表示浏览器是否能运行 Java Applet 小程序。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.javaEnabled() <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-sendBeacon-方法用于向服务器异步发送数据"><a href="#Navigator-sendBeacon-方法用于向服务器异步发送数据" class="headerlink" title="Navigator.sendBeacon()方法用于向服务器异步发送数据"></a>Navigator.sendBeacon()方法用于向服务器异步发送数据</h2><h1 id="window对象的方法"><a href="#window对象的方法" class="headerlink" title="window对象的方法"></a>window对象的方法</h1><h2 id="window-alert-window-prompt-window-confirm"><a href="#window-alert-window-prompt-window-confirm" class="headerlink" title="window.alert() , window.prompt(), window.confirm()"></a>window.alert() , window.prompt(), window.confirm()</h2><p><strong><code>window.alert()</code>、<code>window.prompt()</code>、<code>window.confirm()</code>都是浏览器与用户互动的全局方法,</strong> <strong>它们会弹出不同的对话框，要求用户做出回应</strong>。注意，这三个方法弹出的对话框，都是浏览器统一规定的式样，无法定制。</p>
+<p><strong><code>window.alert()</code>方法弹出的对话框，只有一个“确定”按钮，<u>往往用来通知用户某些信息。</u></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.alert(<span class="string">'Hello World'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>对话框弹出期间，浏览器窗口处于冻结状态，如果不点“确定”按钮，用户什么也干不了。</strong></p>
+<p><strong>window.alert()方法的参数只能是字符串，没法使用CSS样式，但是可以用\n指定换行。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">'本条提示\n分成两行'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="window-prompt-方法弹出的对话框，提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。"><a href="#window-prompt-方法弹出的对话框，提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。" class="headerlink" title="window.prompt()方法弹出的对话框，提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。"></a>window.prompt()方法弹出的对话框，提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。</h4><p>它往往用来获取用户输入的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = prompt(<span class="string">'您的年龄？'</span>, <span class="number">25</span>)</span><br></pre></td></tr></table></figure>
+<p>上面代码会跳出一个对话框，文字提示为“您的年龄？”，要求用户在对话框中输入自己的年龄（默认显示25）。用户填入的值，会作为返回值存入变量<code>result</code>。</p>
+<p><code>window.prompt()</code>的返回值有两种情况，可能是字符串（有可能是空字符串），也有可能是<code>null</code>。具体分成三种情况。</p>
+<ol>
+<li>用户输入信息，并点击“确定”，则用户输入的信息就是返回值。</li>
+<li>用户没有输入信息，直接点击“确定”，则输入框的默认值就是返回值。</li>
+<li>用户点击了“取消”（或者按了 ESC 按钮），则返回值是<code>null</code>。</li>
+</ol>
+<p><code>window.prompt()</code>方法的第二个参数是可选的，但是最好总是提供第二个参数，作为输入框的默认值。</p>
+<h3 id="window-confirm-方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户是否同意。"><a href="#window-confirm-方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户是否同意。" class="headerlink" title="window.confirm()方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户是否同意。"></a><code>window.confirm()</code>方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户是否同意。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = confirm(<span class="string">'你最近好吗？'</span>);</span><br></pre></td></tr></table></figure>
+<p><code>confirm</code>方法返回一个布尔值，如果用户点击“确定”，返回<code>true</code>；如果用户点击“取消”，则返回<code>false</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> okay = confirm(<span class="string">'Please confirm this message.'</span>);</span><br><span class="line"><span class="keyword">if</span> (okay) &#123;</span><br><span class="line">  <span class="comment">// 用户按下“确定”</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 用户按下“取消”</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>confirm</code>的一个用途是，用户离开当前页面时，弹出一个对话框，问用户是否真的要离开。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onunload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">window</span>.confirm(<span class="string">'你确定要离开当面页面吗？'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>上面这三个方法都具有堵塞效应，一旦弹出对话框，整个页面就是暂停执行，等待用户做出反应。</strong></p>
+<h2 id="window-open-window-close-，window-stop"><a href="#window-open-window-close-，window-stop" class="headerlink" title="window.open(), window.close()，window.stop()"></a>window.open(), window.close()，window.stop()</h2><h3 id="window-open方法用于新建另一个浏览器窗口，类似于浏览器菜单的新建窗口选项。它会返回新窗口的引用，如果无法新建窗口，则返回null。"><a href="#window-open方法用于新建另一个浏览器窗口，类似于浏览器菜单的新建窗口选项。它会返回新窗口的引用，如果无法新建窗口，则返回null。" class="headerlink" title="window.open方法用于新建另一个浏览器窗口，类似于浏览器菜单的新建窗口选项。它会返回新窗口的引用，如果无法新建窗口，则返回null。"></a><code>window.open</code>方法用于新建另一个浏览器窗口，类似于浏览器菜单的新建窗口选项。它会返回新窗口的引用，如果无法新建窗口，则返回<code>null</code>。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open(<span class="string">'somefile.html'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码会让浏览器弹出一个新建窗口，网址是当前域名下的<code>somefile.html</code>。</p>
+<p><strong><code>open</code>方法一共可以接受三个参数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.open(url, windowName, [windowFeatures])</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>url</code>：字符串，表示新窗口的网址。如果省略，默认网址就是<code>about:blank</code>。</li>
+<li><code>windowName</code>：字符串，表示新窗口的名字。如果该名字的窗口已经存在，则占用该窗口，不再新建窗口。如果省略，就默认使用<code>_blank</code>，表示新建一个没有名字的窗口。</li>
+<li><code>windowFeatures</code>：字符串，内容为逗号分隔的键值对（详见下文），表示新窗口的参数，比如有没有提示栏、工具条等等。如果省略，则默认打开一个完整 UI 的新窗口。如果新建的是一个已经存在的窗口，则该参数不起作用，浏览器沿用以前窗口的参数。</li>
+</ul>
+<p>下面是一个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open(</span><br><span class="line">  <span class="string">'somepage.html'</span>,</span><br><span class="line">  <span class="string">'DefinitionsWindows'</span>,</span><br><span class="line">  <span class="string">'height=200,width=200,location=no,status=yes,resizable=yes,scrollbars=yes'</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面代码表示，打开的新窗口高度和宽度都为200像素，没有地址栏和滚动条，但有状态栏，允许用户调整大小。</p>
+<p>第三个参数能设置的属性如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/08/22/JS学习之window对象/SRJH1[PJBIBJ5]@QJ0C{POL.png" alt="SRJH1PJBIBJ5@QJ0C{POL" title>
+                </div>
+                <div class="image-caption">SRJH1PJBIBJ5@QJ0C{POL</div>
+            </figure>
+<p>对于那些可以打开和关闭的属性，设为<code>yes</code>或<code>1</code>或不设任何值就表示打开，比如<code>status=yes</code>、<code>status=1</code>、<code>status</code>都会得到同样的结果。</p>
+<p>如果想设为关闭，不用写<code>no</code>，而是直接省略这个属性即可。也就是说，如果在第三个参数中设置了一部分属性，其他没有被设置的<code>yes/no</code>属性都会被设成<code>no</code>，</p>
+<p>只有titlebar和关闭按钮除外（它们的值默认为yes）。</p>
+<p><strong>注意，如果新窗口和父窗口不是同源的（即不在同一个域），它们彼此不能窗口对象获取对方的内部属性。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w = <span class="built_in">window</span>.open();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'已经打开新窗口'</span>);</span><br><span class="line">w.location = <span class="string">'http://example.com'</span>;</span><br></pre></td></tr></table></figure>
+<p>上面代码先打开一个新窗口，然后在该窗口弹出一个对话框，再将网址导向example.com。</p>
+<h3 id="window-close方法用于关闭当前窗口，一般只用来关闭window-open方法新建的窗口。"><a href="#window-close方法用于关闭当前窗口，一般只用来关闭window-open方法新建的窗口。" class="headerlink" title="window.close方法用于关闭当前窗口，一般只用来关闭window.open方法新建的窗口。"></a><code>window.close</code>方法用于关闭当前窗口，一般只用来关闭<code>window.open</code>方法新建的窗口。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">popup.close()</span><br></pre></td></tr></table></figure>
+<p><strong>该方法只对顶层窗口有效，iframe框架之中的窗口使用该方法无效。</strong></p>
+<h3 id="window-stop-方法完全等同于单击浏览器的停止按钮，会停止加载图像、视频等正在或等待加载的对象。"><a href="#window-stop-方法完全等同于单击浏览器的停止按钮，会停止加载图像、视频等正在或等待加载的对象。" class="headerlink" title="window.stop()方法完全等同于单击浏览器的停止按钮，会停止加载图像、视频等正在或等待加载的对象。"></a><code>window.stop()</code>方法完全等同于单击浏览器的停止按钮，会停止加载图像、视频等正在或等待加载的对象。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.stop()</span><br></pre></td></tr></table></figure>
+<h2 id="window-moveTo-，window-moveBy"><a href="#window-moveTo-，window-moveBy" class="headerlink" title="window.moveTo()，window.moveBy()"></a>window.moveTo()，window.moveBy()</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.moveTo(<span class="number">100</span>, <span class="number">200</span>)<span class="comment">/*window.moveTo()方法用于移动浏览器窗口到指定位置。它接受两个参数，分别是窗口左上角距离屏幕左上角的水平距离和垂直距离，单位为像素。*/</span></span><br></pre></td></tr></table></figure>
+<p>上面代码将窗口移动到屏幕<code>(100, 200)</code>的位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.moveBy(<span class="number">25</span>, <span class="number">50</span>)<span class="comment">/*window.moveBy方法将窗口移动到一个相对位置。它接受两个参数，分布是窗口左上角向右移动的水平距离和向下移动的垂直距离，单位为像素。*/</span></span><br></pre></td></tr></table></figure>
+<p>上面代码将窗口向右移动25像素、向下移动50像素。</p>
+<p><strong>为了防止有人滥用这两个方法，随意移动用户的窗口，目前只有一种情况，浏览器允许用脚本移动窗口：该窗口是用<code>window.open</code>方法新建的，并且它所在的 Tab 页是当前窗口里面唯一的。除此以外的情况，使用上面两个方法都是无效的。</strong></p>
+<h2 id="window-resizeTo-方法用于缩放窗口到指定大小。-window-resizeBy-方法用于缩放窗口。"><a href="#window-resizeTo-方法用于缩放窗口到指定大小。-window-resizeBy-方法用于缩放窗口。" class="headerlink" title="window.resizeTo()方法用于缩放窗口到指定大小。, window.resizeBy()方法用于缩放窗口。"></a>window.resizeTo()方法用于缩放窗口到指定大小。, window.resizeBy()方法用于缩放窗口。</h2><p><strong>window.resizeTo()它接受两个参数，<u>第一个是缩放后的窗口宽度（<code>outerWidth</code>属性，包含滚动条、标题栏等等）</u>，<u>第二个是缩放后的窗口高度（<code>outerHeight</code>属性）。</u></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.resizeTo(</span><br><span class="line">  <span class="built_in">window</span>.screen.availWidth / <span class="number">2</span>,</span><br><span class="line">  <span class="built_in">window</span>.screen.availHeight / <span class="number">2</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>上面代码将当前窗口缩放到，屏幕可用区域的一半宽度和高度。</p>
+<p><strong><code>window.resizeBy()</code>方法用于缩放窗口。<u>它与<code>window.resizeTo()</code>的区别是，它按照相对的量缩放，<code>window.resizeTo()</code>需要给出缩放后的绝对大小。</u></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.resizeBy(<span class="number">-200</span>, <span class="number">-200</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="window-scrollTo-，window-scroll-，window-scrollBy"><a href="#window-scrollTo-，window-scroll-，window-scrollBy" class="headerlink" title="window.scrollTo()，window.scroll()，window.scrollBy()"></a>window.scrollTo()，window.scroll()，window.scrollBy()</h2><p><strong><code>window.scrollTo</code>方法用于将文档滚动到指定位置。它接受两个参数，表示滚动后位于窗口左上角的页面坐标。</strong></p>
+<p>它也可以接受一个配置对象作为参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.scrollTo(options)</span><br></pre></td></tr></table></figure>
+<p>配置对象<code>options</code>有三个属性。</p>
+<ul>
+<li><strong><code>top</code>：滚动后页面左上角的垂直坐标，即 y 坐标。</strong></li>
+<li><strong><code>left</code>：滚动后页面左上角的水平坐标，即 x 坐标。</strong></li>
+<li><strong><code>behavior</code>：字符串，表示滚动的方式，有三个可能值（<code>smooth</code>、<code>instant</code>、<code>auto</code>），默认值为<code>auto</code>。</strong></li>
+</ul>
+<p><u><strong>window.scroll()方法是window.scrollTo()方法的别名。</strong></u></p>
+<p><strong><code>window.scrollBy()</code>方法用于将网页滚动指定距离（单位像素）。它接受两个参数：水平向右滚动的像素，垂直向下滚动的像素。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.scrollBy(<span class="number">0</span>, <span class="built_in">window</span>.innerHeight)</span><br></pre></td></tr></table></figure>
+<p>上面代码用于将网页向下滚动一屏。</p>
+<p>如果不是要滚动整个文档，而是要滚动某个元素，可以使用下面三个属性和方法。</p>
+<ul>
+<li><strong>Element.scrollTop</strong></li>
+<li><strong>Element.scrollLeft</strong></li>
+<li><strong>Element.scrollIntoView()</strong></li>
+</ul>
+<h2 id="window-print-会跳出打印对话框，与用户点击菜单里面的“打印”命令效果相同。"><a href="#window-print-会跳出打印对话框，与用户点击菜单里面的“打印”命令效果相同。" class="headerlink" title="window.print()会跳出打印对话框，与用户点击菜单里面的“打印”命令效果相同。"></a>window.print()会跳出打印对话框，与用户点击菜单里面的“打印”命令效果相同。</h2><p>非桌面设备（比如手机）可能没有打印功能，这时可以这样判断。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.print === <span class="string">'function'</span>) &#123;</span><br><span class="line">  <span class="comment">// 支持打印功能</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="window-focus-window-blur"><a href="#window-focus-window-blur" class="headerlink" title="window.focus(),window.blur()"></a>window.focus(),window.blur()</h2><p><strong>window.focus()方法会激活窗口，使其获得焦点，出现在其他窗口的前面</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open(<span class="string">'popup.html'</span>, <span class="string">'Popup Window'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ((popup !== <span class="literal">null</span>) &amp;&amp; !popup.closed) &#123;</span><br><span class="line">  popup.focus();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码先检查<code>popup</code>窗口是否依然存在，确认后激活该窗口。</p>
+<p><code>window.blur()</code>方法将焦点从窗口移除。</p>
+<p>当前窗口获得焦点时，会触发<code>focus</code>事件；当前窗口失去焦点时，会触发<code>blur</code>事件。</p>
+<h2 id="window-getSelection-返回一个Selection对象，表示用户现在选中的文本。"><a href="#window-getSelection-返回一个Selection对象，表示用户现在选中的文本。" class="headerlink" title="window.getSelection():返回一个Selection对象，表示用户现在选中的文本。"></a>window.getSelection():返回一个<code>Selection</code>对象，表示用户现在选中的文本。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selObj = <span class="built_in">window</span>.getSelection();</span><br></pre></td></tr></table></figure>
+<p>使用<code>Selction</code>对象的<code>toString</code>方法可以得到选中的文本。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selectedText = selObj.toString();</span><br></pre></td></tr></table></figure>
+<h2 id="window-getComputedStyle-window-matchMedia"><a href="#window-getComputedStyle-window-matchMedia" class="headerlink" title="window.getComputedStyle();window.matchMedia()"></a>window.getComputedStyle();window.matchMedia()</h2><p><code>window.getComputedStyle()</code>方法接受一个元素节点作为参数，返回一个包含该元素的最终样式信息的对象，详见《CSS 操作》一章。</p>
+<p><code>window.matchMedia()</code>方法用来检查 CSS 的<code>mediaQuery</code>语句，详见《CSS 操作》一章</p>
+<h1 id="多窗口操作"><a href="#多窗口操作" class="headerlink" title="多窗口操作"></a>多窗口操作</h1><p>由于网页可以使用<code>iframe</code>元素，嵌入其他网页，因此一个网页之中会形成多个窗口。如果子窗口之中又嵌入别的网页，就会形成多级窗口。</p>
+<h2 id="窗口的引用"><a href="#窗口的引用" class="headerlink" title="窗口的引用"></a>窗口的引用</h2><p><strong>各个窗口之中的脚本，可以引用其他窗口。浏览器提供了一些特殊变量，用来返回其他窗口。</strong></p>
+<ul>
+<li><code>top</code>：顶层窗口，即最上层的那个窗口</li>
+<li><code>parent</code>：父窗口</li>
+<li><code>self</code>：当前窗口，即自身</li>
+</ul>
+<p>下面代码可以判断，当前窗口是否为顶层窗口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (window.top === window.self) &#123;</span><br><span class="line">  // 当前窗口是顶层窗口</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  // 当前窗口是子窗口</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的代码让父窗口的访问历史后退一次。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.parent.history.back();</span><br></pre></td></tr></table></figure>
+<p><strong>与这些变量对应，浏览器还提供一些特殊的窗口名，供<code>window.open()</code>方法、<code>&lt;a&gt;</code>标签、<code>&lt;form&gt;</code>标签等引用。</strong></p>
+<ul>
+<li><code>_top</code>：顶层窗口</li>
+<li><code>_parent</code>：父窗口</li>
+<li><code>_blank</code>：新窗口</li>
+</ul>
+<p>下面代码就表示在顶层窗口打开链接。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"somepage.html"</span> <span class="attr">target</span>=<span class="string">"_top"</span>&gt;</span>Link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="iframe元素"><a href="#iframe元素" class="headerlink" title="iframe元素"></a>iframe元素</h2><p>对于<code>iframe</code>嵌入的窗口，<u><code>document.getElementById</code>方法可以拿到该窗口的 DOM 节点，然后使用<code>contentWindow</code>属性获得<code>iframe</code>节点包含的<code>window</code>对象。</u></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'theFrame'</span>);</span><br><span class="line"><span class="keyword">var</span> frameWindow = frame.contentWindow;</span><br></pre></td></tr></table></figure>
+<p> \<iframe>元素的contentDocument属性，可以拿到子窗口的document对象</iframe></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'theFrame'</span>);</span><br><span class="line"><span class="keyword">var</span> frameDoc = frame.contentDocument;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> frameDoc = frame.contentWindow.document;</span><br></pre></td></tr></table></figure>
+<p><strong><code>&lt;iframe&gt;</code>元素遵守同源政策，<u>只有当父窗口与子窗口在同一个域时，两者之间才可以用脚本通信，否则只有使用<code>window.postMessage</code>方法。</u></strong></p>
+<p><strong><code>&lt;iframe&gt;</code>窗口内部，使用<code>window.parent</code>引用父窗口。如果当前页面没有父窗口，则<code>window.parent</code>属性返回自身。</strong></p>
+<p><strong>可以通过<code>window.parent</code>是否等于<code>window.self</code>，判断当前窗口是否为<code>iframe</code>窗口。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.parent !== <span class="built_in">window</span>.self) &#123;</span><br><span class="line">  <span class="comment">// 当前窗口是子窗口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><code>&lt;iframe&gt;</code>窗口的<code>window</code>对象，有一个<code>frameElement</code>属性，返回<code>&lt;iframe&gt;</code>在父窗口中的 DOM 节点。对于非嵌入的窗口，该属性等于<code>null</code>。</strong></p>
+<h2 id="window-frames属性"><a href="#window-frames属性" class="headerlink" title="window.frames属性"></a>window.frames属性</h2><p><strong>window.frames属性返回一个类似数组的对象，成员是所有子窗口的window对象。</strong></p>
+<p>可以使用这个属性，实现窗口之间的互相引用。比如，<code>frames[0]</code>返回第一个子窗口，<code>frames[1].frames[2]</code>返回第二个子窗口内部的第三个子窗口，<code>parent.frames[1]</code>返回父窗口的第二个子窗口。</p>
+<p>另外，如果<code>&lt;iframe&gt;</code>元素设置了<code>name</code>或<code>id</code>属性，那么属性值会自动成为全局变量，并且可以通过<code>window.frames</code>属性引用，返回子窗口的<code>window</code>对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML 代码为 &lt;iframe id="myFrame"&gt;</span></span><br><span class="line"><span class="built_in">window</span>.myFrame <span class="comment">// [HTMLIFrameElement]</span></span><br><span class="line">frames.myframe === myFrame <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>另外<strong>，<code>name</code>属性的值会自动成为子窗口的名称，可以用在<code>window.open</code>方法的第二个参数，或者<code>&lt;a&gt;</code>和<code>&lt;frame&gt;</code>标签的<code>target</code>属性。</strong></p>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><p><strong>window对象可以接收以下事件。</strong></p>
+<h2 id="load事件和onload属性"><a href="#load事件和onload属性" class="headerlink" title="load事件和onload属性"></a>load事件和onload属性</h2><p><strong>load事件发生在文档在浏览器窗口加载完毕时，</strong><code>window.onload</code>属性可以指定这个事件的回调函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'example'</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; elements.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> elt = elements[i];</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面代码在网页加载完毕后，获取指定元素并进行处理。</p>
+<h2 id="error事件和onerror属性"><a href="#error事件和onerror属性" class="headerlink" title="error事件和onerror属性"></a>error事件和onerror属性</h2><p><strong>浏览器脚本发生错误时，会触发<code>window</code>对象的<code>error</code>事件。我们可以通过<code>window.onerror</code>属性对该事件指定回调函数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span> (<span class="params">message, filename, lineno, colno, error</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"出错了！--&gt; %s"</span>, error.stack);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>出错信息</li>
+<li>出错脚本的网址</li>
+<li>行号</li>
+<li>列号</li>
+<li>错误对象</li>
+</ul>
+<p>老式浏览器只支持前三个参数。</p>
+<p>并不是所有的错误，都会触发 JavaScript 的<code>error</code>事件（即让 JavaScript 报错）。一般来说，只有 JavaScript 脚本的错误，才会触发这个事件，而像资源文件不存在之类的错误，都不会触发。</p>
+<p>下面是一个例子，如果整个页面未捕获错误超过3个，就显示警告。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">msg, url, line</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (onerror.num++ &gt; onerror.max) &#123;</span><br><span class="line">    alert(<span class="string">'ERROR: '</span> + msg + <span class="string">'\n'</span> + url + <span class="string">':'</span> + line);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">onerror.max = <span class="number">3</span>;</span><br><span class="line">onerror.num = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，如果脚本网址与网页网址不在同一个域（比如使用了 CDN），浏览器根本不会提供详细的出错信息，只会提示出错，错误类型是“Script error.”，行号为0，其他信息都没有。这是浏览器防止向外部脚本泄漏信息。一个解决方法是在脚本所在的服务器，设置<code>Access-Control-Allow-Origin</code>的 HTTP 头信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *</span><br></pre></td></tr></table></figure>
+<p>然后，在网页的<code>&lt;script&gt;</code>标签中设置<code>crossorigin</code>属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script crossorigin=<span class="string">"anonymous"</span> src=<span class="string">"//example.com/file.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>上面代码的<code>crossorigin=&quot;anonymous&quot;</code>表示，读取文件不需要身份信息，即不需要 cookie 和 HTTP 认证信息。如果设为<code>crossorigin=&quot;use-credentials&quot;</code>，就表示浏览器会上传 cookie 和 HTTP 认证信息，同时还需要服务器端打开 HTTP 头信息<code>Access-Control-Allow-Credentials</code>。</p>
+<h2 id="window对象的事件监听属性总汇"><a href="#window对象的事件监听属性总汇" class="headerlink" title="window对象的事件监听属性总汇"></a>window对象的事件监听属性总汇</h2><p>除了具备元素节点都有的 GlobalEventHandlers 接口，<code>window</code>对象还具有以下的事件监听函数属性。</p>
+<ul>
+<li><code>window.onafterprint</code>：<code>afterprint</code>事件的监听函数。</li>
+<li><code>window.onbeforeprint</code>：<code>beforeprint</code>事件的监听函数。</li>
+<li><code>window.onbeforeunload</code>：<code>beforeunload</code>事件的监听函数。</li>
+<li><code>window.onhashchange</code>：<code>hashchange</code>事件的监听函数。</li>
+<li><code>window.onlanguagechange</code>: <code>languagechange</code>的监听函数。</li>
+<li><code>window.onmessage</code>：<code>message</code>事件的监听函数。</li>
+<li><code>window.onmessageerror</code>：<code>MessageError</code>事件的监听函数。</li>
+<li><code>window.onoffline</code>：<code>offline</code>事件的监听函数。</li>
+<li><code>window.ononline</code>：<code>online</code>事件的监听函数。</li>
+<li><code>window.onpagehide</code>：<code>pagehide</code>事件的监听函数。</li>
+<li><code>window.onpageshow</code>：<code>pageshow</code>事件的监听函数。</li>
+<li><code>window.onpopstate</code>：<code>popstate</code>事件的监听函数。</li>
+<li><code>window.onstorage</code>：<code>storage</code>事件的监听函数。</li>
+<li><code>window.onunhandledrejection</code>：未处理的 Promise 对象的<code>reject</code>事件的监听函数。</li>
+<li><code>window.onunload</code>：<code>unload</code>事件的监听函数。</li>
+</ul>
+<h1 id="URL的编码和解码"><a href="#URL的编码和解码" class="headerlink" title="URL的编码和解码"></a>URL的编码和解码</h1><p><strong>网页的 URL 只能包含合法的字符，这可以分成两类。</strong></p>
+<ul>
+<li><strong>URL 元字符：分号（<code>;</code>），逗号（’,’），斜杠（<code>/</code>），问号（<code>?</code>），冒号（<code>:</code>），at（<code>@</code>），<code>&amp;</code>，等号（<code>=</code>），加号（<code>+</code>），美元符号（<code>$</code>），井号（<code>#</code>）</strong></li>
+<li><strong>语义字符：<code>a-z</code>，<code>A-Z</code>，<code>0-9</code>，连词号（<code>-</code>），下划线（<code>_</code>），点（<code>.</code>），感叹号（<code>!</code>），波浪线（<code>~</code>），星号（<code>*</code>），单引号（<code>\`</code>），圆括号（<code>()</code>）</strong></li>
+</ul>
+<p>除了以上字符，其他字符出现在 URL 之中都必须转义。</p>
+<p><strong>JavaScript 提供四个 URL 的编码/解码方法。</strong></p>
+<ul>
+<li><code>encodeURI()</code></li>
+<li><code>encodeURIComponent()</code></li>
+<li><code>decodeURI()</code></li>
+<li><code>decodeURIComponent()</code></li>
+</ul>
+<h2 id="encodeURL-用于转码整个-URL。它的参数是一个字符串，代表整个-URL。它会将元字符和语义字符之外的字符，都进行转义。"><a href="#encodeURL-用于转码整个-URL。它的参数是一个字符串，代表整个-URL。它会将元字符和语义字符之外的字符，都进行转义。" class="headerlink" title="encodeURL()用于转码整个 URL。它的参数是一个字符串，代表整个 URL。它会将元字符和语义字符之外的字符，都进行转义。"></a>encodeURL()用于转码整个 URL。<u>它的参数是一个字符串，代表整个 URL。</u>它会将元字符和语义字符之外的字符，都进行转义。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>(<span class="string">'http://www.example.com/q=春节'</span>)</span><br><span class="line"><span class="comment">// "http://www.example.com/q=%E6%98%A5%E8%8A%82"</span></span><br></pre></td></tr></table></figure>
+<h2 id="encodeURIComponent-方法用于转码-URL-的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个-URL。它接受一个参数，就是-URL-的片段。"><a href="#encodeURIComponent-方法用于转码-URL-的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个-URL。它接受一个参数，就是-URL-的片段。" class="headerlink" title="encodeURIComponent()方法用于转码 URL 的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个 URL。它接受一个参数，就是 URL 的片段。"></a>encodeURIComponent()<u>方法用于转码 URL 的组成部分</u>，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，<u>它不能用于转码整个 URL。它接受一个参数，就是 URL 的片段。</u></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURIComponent</span>(<span class="string">'春节'</span>)</span><br><span class="line"><span class="comment">// "%E6%98%A5%E8%8A%82"</span></span><br><span class="line"><span class="built_in">encodeURIComponent</span>(<span class="string">'http://www.example.com/q=春节'</span>)</span><br><span class="line"><span class="comment">// "http%3A%2F%2Fwww.example.com%2Fq%3D%E6%98%A5%E8%8A%82"</span></span><br></pre></td></tr></table></figure>
+<h3 id="与之对应的是decodeURL-用于整个url解码，decodeURLComponent-用于部分URL解码。"><a href="#与之对应的是decodeURL-用于整个url解码，decodeURLComponent-用于部分URL解码。" class="headerlink" title="与之对应的是decodeURL()用于整个url解码，decodeURLComponent()用于部分URL解码。"></a>与之对应的是decodeURL()用于整个url解码，decodeURLComponent()用于部分URL解码。</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-25T08:03:19.844Z" itemprop="dateUpdated">2019-08-25 16:03:19</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/22/JS学习之window对象/" target="_blank" rel="external">http://hedroins.github.io/2019/08/22/JS学习之window对象/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM之window对象/">BOM之window对象</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/22/JS学习之window对象/&title=《JS学习之window对象》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/22/JS学习之window对象/&title=《JS学习之window对象》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/22/JS学习之window对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之window对象》 — HeJL&url=http://hedroins.github.io/2019/08/22/JS学习之window对象/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/22/JS学习之window对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/20/JS学习之浏览器环境概述/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之浏览器环境概述</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/22/JS学习之window对象/&title=《JS学习之window对象》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/22/JS学习之window对象/&title=《JS学习之window对象》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/22/JS学习之window对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之window对象》 — HeJL&url=http://hedroins.github.io/2019/08/22/JS学习之window对象/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/22/JS学习之window对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/22/JS学习之window对象/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
