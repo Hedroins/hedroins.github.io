@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS学习之web Storage：浏览器数据存储机制 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web storage">
+    <meta name="description" content="概述Storage 接口用于脚本在浏览器保存数据。 两个对象部署了这个接口：window.sessionStorage和window.localStorage。 sessionStorage保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空； localStorage保存的数据长期存在，下一次访问该网站的时候，网页可以直接读取以前保存的数据。除了保存期限的长">
+<meta name="keywords" content="web storage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习之web Storage：浏览器数据存储机制">
+<meta property="og:url" content="http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="概述Storage 接口用于脚本在浏览器保存数据。 两个对象部署了这个接口：window.sessionStorage和window.localStorage。 sessionStorage保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空； localStorage保存的数据长期存在，下一次访问该网站的时候，网页可以直接读取以前保存的数据。除了保存期限的长">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-28T06:26:12.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS学习之web Storage：浏览器数据存储机制">
+<meta name="twitter:description" content="概述Storage 接口用于脚本在浏览器保存数据。 两个对象部署了这个接口：window.sessionStorage和window.localStorage。 sessionStorage保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空； localStorage保存的数据长期存在，下一次访问该网站的时候，网页可以直接读取以前保存的数据。除了保存期限的长">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS学习之web Storage：浏览器数据存储机制</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS学习之web Storage：浏览器数据存储机制</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-28T05:55:36.000Z" itemprop="datePublished" class="page-time">
+  2019-08-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#属性和方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">属性和方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Storage-setItem-用于存入数据。"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Storage.setItem()用于存入数据。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Storage-getItem-方法用于读取数据。它只有一个参数，就是键名"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Storage.getItem()方法用于读取数据。它只有一个参数，就是键名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Storage-removeItem-方法用于清除某个键名对应的键值。"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Storage.removeItem()方法用于清除某个键名对应的键值。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Storage-clear-方法用于清除所有保存的数据。该方法的返回值是undefined。"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Storage.clear()方法用于清除所有保存的数据。该方法的返回值是undefined。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Storage-key-接受一个整数作为参数（从零开始），返回该位置对应的键值"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Storage.key()接受一个整数作为参数（从零开始），返回该位置对应的键值</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#storage-事件"><span class="post-toc-number">3.</span> <span class="post-toc-text">storage 事件</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS学习之web-Storage：浏览器数据存储机制"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS学习之web Storage：浏览器数据存储机制</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-28 13:55:36" datetime="2019-08-28T05:55:36.000Z"  itemprop="datePublished">2019-08-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>Storage 接口用于脚本在浏览器保存数据。</strong></p>
+<p><strong><u>两个对象部署了这个接口：window.sessionStorage和window.localStorage。</u></strong></p>
+<p><strong><u><code>sessionStorage</code>保存的数据用于浏览器的一次会话（session）</u>，当会话结束（通常是窗口关闭），数据被清空；</strong></p>
+<p><strong><code>localStorage</code>保存的数据长期存在，下一次访问该网站的时候，网页可以直接读取以前保存的数据。除了保存期限的长短不同，这两个对象的其他方面都一致。</strong></p>
+<p><strong><u>保存的数据都以“键值对”的形式存在。</u>也就是说，每一项数据都有一个键名和对应的值。所有的数据都是以文本格式保存。</strong></p>
+<p><strong>Firefox 的存储空间由一级域名决定，而其他浏览器没有这个限制。也就是说，Firefox 中，<code>a.example.com</code>和<code>b.example.com</code>共享 5MB 的存储空间。</strong>另外，<strong>与 Cookie 一样，它们也受同域限制。某个网页存入的数据，只有同域下的网页才能读取，如果跨域操作会报错。</strong></p>
+<h1 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h1><p><strong>Storage 接口只有一个属性。Storage.length：返回保存的数据项个数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'foo'</span>, <span class="string">'a'</span>);</span><br><span class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'bar'</span>, <span class="string">'b'</span>);</span><br><span class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'baz'</span>, <span class="string">'c'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.localStorage.length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>该接口提供5个方法。</p>
+<h2 id="Storage-setItem-用于存入数据。"><a href="#Storage-setItem-用于存入数据。" class="headerlink" title="Storage.setItem()用于存入数据。"></a>Storage.setItem()用于存入数据。</h2><p>它接受两个参数，第一个是键名，第二个是保存的数据。如果键名已经存在，该方法会更新已有的键值。该方法没有返回值。</p>
+<p><strong><code>Storage.setItem()</code>两个参数都是字符串。</strong>如果不是字符串，会自动转成字符串，再存入浏览器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.setItem(<span class="number">3</span>, &#123; <span class="attr">foo</span>: <span class="number">1</span> &#125;);</span><br><span class="line"><span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'3'</span>) <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果储存空间已满，该方法会抛错。</strong></p>
+<p>写入不一定要用这个方法，直接赋值也是可以的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面三种写法等价</span></span><br><span class="line"><span class="built_in">window</span>.localStorage.foo = <span class="string">'123'</span>;</span><br><span class="line"><span class="built_in">window</span>.localStorage[<span class="string">'foo'</span>] = <span class="string">'123'</span>;</span><br><span class="line"><span class="built_in">window</span>.localStorage.setItem(<span class="string">'foo'</span>, <span class="string">'123'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Storage-getItem-方法用于读取数据。它只有一个参数，就是键名"><a href="#Storage-getItem-方法用于读取数据。它只有一个参数，就是键名" class="headerlink" title="Storage.getItem()方法用于读取数据。它只有一个参数，就是键名"></a>Storage.getItem()方法用于读取数据。它只有一个参数，就是键名</h2><p>如果键名不存在，该方法返回<code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'key'</span>)</span><br><span class="line"><span class="built_in">window</span>.localStorage.getItem(<span class="string">'key'</span>)</span><br></pre></td></tr></table></figure>
+<p>键名应该是一个字符串，否则会被自动转为字符串。</p>
+<h2 id="Storage-removeItem-方法用于清除某个键名对应的键值。"><a href="#Storage-removeItem-方法用于清除某个键名对应的键值。" class="headerlink" title="Storage.removeItem()方法用于清除某个键名对应的键值。"></a>Storage.removeItem()方法用于清除某个键名对应的键值。</h2><p>它接受键名作为参数，如果键名不存在，该方法不会做任何事情。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>);</span><br><span class="line">localStorage.removeItem(<span class="string">'key'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Storage-clear-方法用于清除所有保存的数据。该方法的返回值是undefined。"><a href="#Storage-clear-方法用于清除所有保存的数据。该方法的返回值是undefined。" class="headerlink" title="Storage.clear()方法用于清除所有保存的数据。该方法的返回值是undefined。"></a>Storage.clear()方法用于清除所有保存的数据。该方法的返回值是undefined。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.clear()</span><br><span class="line"><span class="built_in">window</span>.localStorage.clear()</span><br></pre></td></tr></table></figure>
+<h2 id="Storage-key-接受一个整数作为参数（从零开始），返回该位置对应的键值"><a href="#Storage-key-接受一个整数作为参数（从零开始），返回该位置对应的键值" class="headerlink" title="Storage.key()接受一个整数作为参数（从零开始），返回该位置对应的键值"></a>Storage.key()接受一个整数作为参数（从零开始），返回该位置对应的键值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br><span class="line"><span class="built_in">window</span>.sessionStorage.key(<span class="number">0</span>) <span class="comment">// "key"</span></span><br></pre></td></tr></table></figure>
+<p>结合使用<code>Storage.length</code>属性和<code>Storage.key()</code>方法，可以遍历所有的键。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">window</span>.localStorage.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(localStorage.key(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="storage-事件"><a href="#storage-事件" class="headerlink" title="storage 事件"></a>storage 事件</h1><p><strong>Storage 接口储存的数据发生变化时，会触发 storage 事件，可以指定这个事件的监听函数。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, onStorageChange);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>StorageEvent.key</code>：字符串，表示发生变动的键名。如果 storage 事件是由<code>clear()</code>方法引起，该属性返回<code>null</code>。</li>
+</ul>
+<ul>
+<li><code>StorageEvent.newValue</code>：字符串，表示新的键值。如果 storage 事件是由<code>clear()</code>方法或删除该键值对引发的，该属性返回<code>null</code>。</li>
+</ul>
+<ul>
+<li><code>Storage.oldValue</code>：字符串，表示旧的键值。如果该键值对是新增的，该属性返回<code>null</code>。</li>
+</ul>
+<ul>
+<li><code>Storage.storageArea</code>：对象，返回键值对所在的整个对象。也说是说，可以从这个属性上面拿到当前域名储存的所有键值对。</li>
+</ul>
+<ul>
+<li><code>Storage.url</code>：字符串，表示原始触发 storage 事件的那个网页的网址。</li>
+</ul>
+<p>下面是<code>StorageEvent.key</code>属性的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onStorageChange</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, onStorageChange);</span><br></pre></td></tr></table></figure>
+<p>注意，该事件有一个很特别的地方，就是它不在导致数据变化的当前页面触发，而是在同一个域名的其他窗口触发。也就是说，如果浏览器只打开一个窗口，可能观察不到这个事件。比如同时打开多个窗口，当其中的一个窗口导致储存的数据发生改变时，只有在其他窗口才能观察到监听函数的执行。可以通过这种机制，实现多个窗口之间的通信。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-28T06:26:12.611Z" itemprop="dateUpdated">2019-08-28 14:26:12</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/" target="_blank" rel="external">http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web-storage/">web storage</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/&title=《JS学习之web Storage：浏览器数据存储机制》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/&title=《JS学习之web Storage：浏览器数据存储机制》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之web Storage：浏览器数据存储机制》 — HeJL&url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/27/JS学习之Cookie/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之Cookie</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/&title=《JS学习之web Storage：浏览器数据存储机制》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/&title=《JS学习之web Storage：浏览器数据存储机制》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS学习之web Storage：浏览器数据存储机制》 — HeJL&url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/08/28/JS学习之web-Storage：浏览器数据存储机制/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
