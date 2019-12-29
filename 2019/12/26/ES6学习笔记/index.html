@@ -36,8 +36,8 @@
 <meta property="og:site_name" content="HeJL">
 <meta property="og:description" content="1、ES5中只存在全局作用域和函数作用域，ES6中还存在块级作用域。2                                                                                             polyfill              3 let声明的变量不存在变量提升，在同一作用域中不允许重名。const声明的变量必须初始化，其余情">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/ES6学习笔记/babel-polyfill.png">
-<meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/ES6学习笔记/54AD%W6~$DDT5O~3%QAZI%5.png">
+<meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/babel-polyfill.png">
+<meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/54AD%W6~$DDT5O~3%QAZI%5.png">
 <meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/blog/source/_posts/ES6学习笔记/TIM图片20191227000402.jpg">
 <meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/blog/source/_posts/ES6学习笔记/TIM图片20191227000545.jpg">
 <meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/blog/source/_posts/ES6学习笔记/TIM图片20191227001048.jpg">
@@ -52,11 +52,11 @@
 <meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/blog/source/_posts/ES6学习笔记/TIM图片20191227002948.jpg">
 <meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/blog/source/_posts/ES6学习笔记/TIM图片20191227003048.jpg">
 <meta property="og:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/blog/source/_posts/ES6学习笔记/TIM图片20191227003138.jpg">
-<meta property="og:updated_time" content="2019-12-29T15:18:43.661Z">
+<meta property="og:updated_time" content="2019-12-29T15:23:16.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记">
 <meta name="twitter:description" content="1、ES5中只存在全局作用域和函数作用域，ES6中还存在块级作用域。2                                                                                             polyfill              3 let声明的变量不存在变量提升，在同一作用域中不允许重名。const声明的变量必须初始化，其余情">
-<meta name="twitter:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/ES6学习笔记/babel-polyfill.png">
+<meta name="twitter:image" content="http://hedroins.github.io/2019/12/26/ES6学习笔记/babel-polyfill.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -221,14 +221,14 @@
             <h3 id="1、ES5中只存在全局作用域和函数作用域，ES6中还存在块级作用域。"><a href="#1、ES5中只存在全局作用域和函数作用域，ES6中还存在块级作用域。" class="headerlink" title="1、ES5中只存在全局作用域和函数作用域，ES6中还存在块级作用域。"></a>1、ES5中只存在全局作用域和函数作用域，ES6中还存在块级作用域。</h3><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2019/12/26/ES6学习笔记/ES6学习笔记\babel-polyfill.png" alt="polyfill" title>
+                    <img src="/2019/12/26/ES6学习笔记/babel-polyfill.png" alt="polyfill" title>
                 </div>
                 <div class="image-caption">polyfill</div>
             </figure>
 <h3 id="3-let声明的变量不存在变量提升，在同一作用域中不允许重名。const声明的变量必须初始化，其余情况与let相同，const不能被赋值"><a href="#3-let声明的变量不存在变量提升，在同一作用域中不允许重名。const声明的变量必须初始化，其余情况与let相同，const不能被赋值" class="headerlink" title="3 let声明的变量不存在变量提升，在同一作用域中不允许重名。const声明的变量必须初始化，其余情况与let相同，const不能被赋值"></a>3 let声明的变量不存在变量提升，在同一作用域中不允许重名。const声明的变量必须初始化，其余情况与let相同，const不能被赋值</h3><h3 id="4、暂时死区：由于let-声明的变量不存在变量提升，所以在同一作用域下在变量声明之前引用会报错，就算是typeof也会报错"><a href="#4、暂时死区：由于let-声明的变量不存在变量提升，所以在同一作用域下在变量声明之前引用会报错，就算是typeof也会报错" class="headerlink" title="4、暂时死区：由于let 声明的变量不存在变量提升，所以在同一作用域下在变量声明之前引用会报错，就算是typeof也会报错"></a>4、暂时死区：由于let 声明的变量不存在变量提升，所以在同一作用域下在变量声明之前引用会报错，就算是typeof也会报错</h3><h3 id="5、ES5里if-语句不构成一个作用域，在里面声明的变量会发生变量提升"><a href="#5、ES5里if-语句不构成一个作用域，在里面声明的变量会发生变量提升" class="headerlink" title="5、ES5里if 语句不构成一个作用域，在里面声明的变量会发生变量提升"></a>5、ES5里if 语句不构成一个作用域，在里面声明的变量会发生变量提升</h3><h3 id="6、ES6浏览器块级作用域中声明函数的处理流程。"><a href="#6、ES6浏览器块级作用域中声明函数的处理流程。" class="headerlink" title="6、ES6浏览器块级作用域中声明函数的处理流程。"></a>6、ES6浏览器块级作用域中声明函数的处理流程。</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2019/12/26/ES6学习笔记/ES6学习笔记\54AD%W6~$DDT5O~3%QAZI%5.png" alt="ddd" title>
+                    <img src="/2019/12/26/ES6学习笔记/54AD%W6~$DDT5O~3%QAZI%5.png" alt="ddd" title>
                 </div>
                 <div class="image-caption">ddd</div>
             </figure>
@@ -319,7 +319,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-29T15:18:43.661Z" itemprop="dateUpdated">2019-12-29 23:18:43</time>
+    最后更新时间：<time datetime="2019-12-29T15:23:16.511Z" itemprop="dateUpdated">2019-12-29 23:23:16</time>
 </span><br>
 
 
