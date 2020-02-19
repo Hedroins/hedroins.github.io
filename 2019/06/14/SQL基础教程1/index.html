@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SQL基础教程1 | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="SQL教程一">
+    <meta name="description" content="SQL能做什么 SQL 面向数据库执行查询  SQL 可从数据库取回数据  SQL 可在数据库中插入新的记录  SQL 可更新数据库中的数据  SQL 可从数据库删除记录  SQL 可创建新数据库  SQL 可在数据库中创建新表  SQL 可在数据库中创建存储过程  SQL 可在数据库中创建视图  SQL 可以设置表、存储过程和视图的权限 SQL语法下面的例子是一个名为 “Persons” 的表：">
+<meta name="keywords" content="SQL教程一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL基础教程1">
+<meta property="og:url" content="http://hedroins.github.io/2019/06/14/SQL基础教程1/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="SQL能做什么 SQL 面向数据库执行查询  SQL 可从数据库取回数据  SQL 可在数据库中插入新的记录  SQL 可更新数据库中的数据  SQL 可从数据库删除记录  SQL 可创建新数据库  SQL 可在数据库中创建新表  SQL 可在数据库中创建存储过程  SQL 可在数据库中创建视图  SQL 可以设置表、存储过程和视图的权限 SQL语法下面的例子是一个名为 “Persons” 的表：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-14T11:52:22.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL基础教程1">
+<meta name="twitter:description" content="SQL能做什么 SQL 面向数据库执行查询  SQL 可从数据库取回数据  SQL 可在数据库中插入新的记录  SQL 可更新数据库中的数据  SQL 可从数据库删除记录  SQL 可创建新数据库  SQL 可在数据库中创建新表  SQL 可在数据库中创建存储过程  SQL 可在数据库中创建视图  SQL 可以设置表、存储过程和视图的权限 SQL语法下面的例子是一个名为 “Persons” 的表：">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SQL基础教程1</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SQL基础教程1</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-14T11:39:58.000Z" itemprop="datePublished" class="page-time">
+  2019-06-14
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL能做什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">SQL能做什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">SQL语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL-DML和DDL"><span class="post-toc-number">3.</span> <span class="post-toc-text">SQL DML和DDL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL-SELECT-语句"><span class="post-toc-number">4.</span> <span class="post-toc-text">SQL SELECT 语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-SELECT-语法"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">SQL SELECT 语法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-SELECT-DISTINCT-语句"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">SQL SELECT DISTINCT 语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法："><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">语法：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-DISTINCT-关键词"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">使用 DISTINCT 关键词</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结果："><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">结果：</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-SQL基础教程1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SQL基础教程1</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-14 19:39:58" datetime="2019-06-14T11:39:58.000Z"  itemprop="datePublished">2019-06-14</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="SQL能做什么"><a href="#SQL能做什么" class="headerlink" title="SQL能做什么"></a>SQL能做什么</h1><ul>
+<li><p>SQL 面向数据库执行查询</p>
+</li>
+<li><p>SQL 可从数据库取回数据</p>
+</li>
+<li><p>SQL 可在数据库中插入新的记录</p>
+</li>
+<li><p>SQL 可更新数据库中的数据</p>
+</li>
+<li><p>SQL 可从数据库删除记录</p>
+</li>
+<li><p>SQL 可创建新数据库</p>
+</li>
+<li><p>SQL 可在数据库中创建新表</p>
+</li>
+<li><p>SQL 可在数据库中创建存储过程</p>
+</li>
+<li><p>SQL 可在数据库中创建视图</p>
+</li>
+<li><p>SQL 可以设置表、存储过程和视图的权限</p>
+<h1 id="SQL语法"><a href="#SQL语法" class="headerlink" title="SQL语法"></a>SQL语法</h1><p>下面的例子是一个名为 “Persons” 的表：</p>
+<p>| Id   | LastName | FirstName | Address        | City     |<br>| —- | ——– | ——— | ————– | ——– |<br>| 1    | Adams    | John      | Oxford Street  | London   |<br>| 2    | Bush     | George    | Fifth Avenue   | New York |<br>| 3    | Carter   | Thomas    | Changan Street | Beijing  |</p>
+<p>上面的表包含三条记录（每一条对应一个人）和五个列（Id、姓、名、地址和城市）。</p>
+<p>​</p>
+</li>
+</ul>
+<p>下面的语句从表中选取 LastName 列的数据：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> LastName <span class="keyword">FROM</span> Persons</span><br></pre></td></tr></table></figure>
+<p>结果集类似这样：</p>
+<table>
+<thead>
+<tr>
+<th>LastName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adams</td>
+</tr>
+<tr>
+<td>Bush</td>
+</tr>
+<tr>
+<td>Carter</td>
+</tr>
+</tbody>
+</table>
+<p>一定要记住，<strong><em>SQL 对大小写不敏感</em>！</strong></p>
+<h1 id="SQL-DML和DDL"><a href="#SQL-DML和DDL" class="headerlink" title="SQL DML和DDL"></a>SQL DML和DDL</h1><p>可以把 SQL 分为两个部分：<strong>数据操作语言 (DML) 和 数据定义语言 (DDL)。</strong></p>
+<p><strong>查询和更新指令构成了 SQL 的 DML 部分：</strong></p>
+<ul>
+<li><u><strong><em>SELECT</em> - 从数据库表中获取数据</strong></u></li>
+<li><u><strong><em>UPDATE</em> - 更新数据库表中的数据</strong></u></li>
+<li><u><strong><em>DELETE</em> - 从数据库表中删除数据</strong></u></li>
+<li><u><strong><em>INSERT INTO</em> - 向数据库表中插入数据</strong></u></li>
+</ul>
+<p><strong>SQL 中最重要的 DDL 语句:</strong></p>
+<ul>
+<li><p><u><strong><em>CREATE DATABASE</em> - 创建新数据库</strong></u></p>
+</li>
+<li><p><u><strong><em>ALTER DATABASE</em> - 修改数据库</strong></u></p>
+</li>
+<li><p><u><strong><em>CREATE TABLE</em> - 创建新表</strong></u></p>
+</li>
+<li><p><u><strong><em>ALTER TABLE</em> - 变更（改变）数据库表</strong></u></p>
+</li>
+<li><p><u><strong><em>DROP TABLE</em> - 删除表</strong></u></p>
+</li>
+<li><p><u><strong><em>CREATE INDEX</em> - 创建索引（搜索键）</strong></u></p>
+</li>
+<li><p><u><strong><em>DROP INDEX</em> - 删除索引</strong></u></p>
+<h1 id="SQL-SELECT-语句"><a href="#SQL-SELECT-语句" class="headerlink" title="SQL SELECT 语句"></a>SQL SELECT 语句</h1><h3 id="SQL-SELECT-语法"><a href="#SQL-SELECT-语法" class="headerlink" title="SQL SELECT 语法"></a>SQL SELECT 语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 列名称 <span class="keyword">FROM</span> 表名称</span><br></pre></td></tr></table></figure>
+<p>以及：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> 表名称</span><br></pre></td></tr></table></figure>
+<p>注释：SQL 语句对大小写不敏感。SELECT 等效于 select。</p>
+</li>
+</ul>
+<h2 id="SQL-SELECT-DISTINCT-语句"><a href="#SQL-SELECT-DISTINCT-语句" class="headerlink" title="SQL SELECT DISTINCT 语句"></a>SQL SELECT DISTINCT 语句</h2><p><strong>在表中，可能会包含重复值。这并不成问题，不过，有时您也许希望仅仅列出不同（distinct）的值。</strong></p>
+<p>关键词 DISTINCT 用于返回唯一不同的值。</p>
+<h3 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> 列名称 <span class="keyword">FROM</span> 表名称</span><br></pre></td></tr></table></figure>
+<h2 id="使用-DISTINCT-关键词"><a href="#使用-DISTINCT-关键词" class="headerlink" title="使用 DISTINCT 关键词"></a>使用 DISTINCT 关键词</h2><p>如果要从 “Company” 列中选取所有的值，我们需要使用 SELECT 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Company <span class="keyword">FROM</span> Orders</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM</td>
+</tr>
+<tr>
+<td>W3School</td>
+</tr>
+<tr>
+<td>Apple</td>
+</tr>
+<tr>
+<td>W3School</td>
+</tr>
+</tbody>
+</table>
+<p>如需从 Company” 列中仅选取唯一不同的值，我们需要使用 SELECT DISTINCT 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Company <span class="keyword">FROM</span> Orders</span><br></pre></td></tr></table></figure>
+<h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><table>
+<thead>
+<tr>
+<th>Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM</td>
+</tr>
+<tr>
+<td>W3School</td>
+</tr>
+<tr>
+<td>Apple</td>
+</tr>
+</tbody>
+</table>
+<p>现在，在结果集中，<strong>“W3School” 仅被列出了一次。</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-14T11:52:22.795Z" itemprop="dateUpdated">2019-06-14 19:52:22</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/06/14/SQL基础教程1/" target="_blank" rel="external">http://hedroins.github.io/2019/06/14/SQL基础教程1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL教程一/">SQL教程一</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/14/SQL基础教程1/&title=《SQL基础教程1》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/14/SQL基础教程1/&title=《SQL基础教程1》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/14/SQL基础教程1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL基础教程1》 — HeJL&url=http://hedroins.github.io/2019/06/14/SQL基础教程1/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/14/SQL基础教程1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/14/SQL基础教程2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SQL基础教程2</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/13/JS学习之Array对象的实例方法2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS学习之Array对象的实例方法2</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/06/14/SQL基础教程1/&title=《SQL基础教程1》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/06/14/SQL基础教程1/&title=《SQL基础教程1》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/06/14/SQL基础教程1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL基础教程1》 — HeJL&url=http://hedroins.github.io/2019/06/14/SQL基础教程1/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/06/14/SQL基础教程1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/06/14/SQL基础教程1/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

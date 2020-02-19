@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>工程实践4总结(1) | HeJL | just,Try!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="工程实践4">
+    <meta name="description" content="springBoot的配置文件：application.properties在配置参数时对空格很敏感，所以在每一个配置参数的后面都要注意不要留空格！！！ 12#配置端口号server.port=8080 配置数据库信息： 12345678910#配置数据库信息spring.datasource.type=com.alibaba.druid.pool.DruidDataSourcespring.da">
+<meta name="keywords" content="工程实践4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工程实践4总结(1)">
+<meta property="og:url" content="http://hedroins.github.io/2019/05/05/工程实践4总结-1/index.html">
+<meta property="og:site_name" content="HeJL">
+<meta property="og:description" content="springBoot的配置文件：application.properties在配置参数时对空格很敏感，所以在每一个配置参数的后面都要注意不要留空格！！！ 12#配置端口号server.port=8080 配置数据库信息： 12345678910#配置数据库信息spring.datasource.type=com.alibaba.druid.pool.DruidDataSourcespring.da">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-16T18:42:10.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工程实践4总结(1)">
+<meta name="twitter:description" content="springBoot的配置文件：application.properties在配置参数时对空格很敏感，所以在每一个配置参数的后面都要注意不要留空格！！！ 12#配置端口号server.port=8080 配置数据库信息： 12345678910#配置数据库信息spring.datasource.type=com.alibaba.druid.pool.DruidDataSourcespring.da">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">HeJL</h5>
+          <a href="mailto:1047867332@qq.com" title="1047867332@qq.com" class="mail">1047867332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Hedroins" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/dream"  >
+                <i class="icon icon-lg icon-dream"></i>
+                Dream
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">工程实践4总结(1)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">工程实践4总结(1)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-05T00:33:21.000Z" itemprop="datePublished" class="page-time">
+  2019-05-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-工程实践4总结-1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">工程实践4总结(1)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-05 08:33:21" datetime="2019-05-05T00:33:21.000Z"  itemprop="datePublished">2019-05-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>springBoot的配置文件：application.properties在配置参数时对空格很敏感，所以在每一个配置参数的后面都要注意不要留空格！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#配置端口号</span><br><span class="line">server.port=8080</span><br></pre></td></tr></table></figure>
+<p>配置数据库信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#配置数据库信息</span><br><span class="line">spring.datasource.type=com.alibaba.druid.pool.DruidDataSource</span><br><span class="line">spring.datasource.url = jdbc:mysql://localhost:3306/meetingsystem?useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">spring.datasource.username = root</span><br><span class="line">spring.datasource.password = 123456</span><br><span class="line">spring.datasource.driverClassName =com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.maxActive=20</span><br><span class="line">spring.datasource.maxIdle=8</span><br><span class="line">spring.datasource.minIdle=8</span><br><span class="line">spring.datasource.initialSize=10</span><br></pre></td></tr></table></figure>
+<p>引入数据源(druid)需要引入pom依赖；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>thymeleaf模板配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#thymelea模板配置</span><br><span class="line">spring.thymeleaf.prefix=classpath:/templates/</span><br><span class="line">spring.thymeleaf.suffix=.html</span><br><span class="line">spring.thymeleaf.mode=LEGACYHTML5</span><br><span class="line">spring.thymeleaf.encoding=utf-8</span><br><span class="line">spring.thymeleaf.servlet.content-type=text/html</span><br><span class="line">spring.thymeleaf.cache=false</span><br><span class="line">spring.resources.chain.strategy.content.enabled=true</span><br><span class="line">spring.resources.chain.strategy.content.paths=/**</span><br></pre></td></tr></table></figure>
+<p>要不严格校验HTML5要引入依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sourceforge.nekohtml<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>nekohtml<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>SpringBoot使用Thymeleaf模板注意要声明xml命名空间：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在引用资源或链接时都要以“th”开头，然后用“@{}”包裹绝对路径。</p>
+<p><strong>在SpringBoot项目中将”/META-INF/resources”,”/resources/“,”/static/“,”/public/“都默认映射为本项目的根’/‘.</strong></p>
+<p>th:if属性可以根据一个条件判断，要显示的内容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">th:if</span>=<span class="string">"$&#123;session.msusers&#125;==null"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">class</span>=<span class="string">"loginandregisty"</span> &gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"toLogin"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"toRegister"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:if</span>=<span class="string">"$&#123;session.msusers&#125;!=null"</span> <span class="attr">class</span>=<span class="string">"loginandregisty"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">th:text</span>=<span class="string">"$&#123;session.msusers.username&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"toLogout"</span>&gt;</span>注销<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果对象为空则显示第一个div,非空显示第二个div.</p>
+<p><strong>thymeleaf使用CDATA标签。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script th:inline=<span class="string">"javascript"</span>&gt;</span><br><span class="line">   <span class="comment">/*&lt;![CDATA[*/</span></span><br><span class="line">           <span class="keyword">var</span> loginUrl=<span class="comment">/*[[@&#123;/login&#125;]]*/</span>;</span><br><span class="line">           <span class="keyword">var</span> loginToIndex=<span class="comment">/*[[@&#123;/toIndex&#125;]]*/</span>;</span><br><span class="line">  <span class="comment">/*]]&gt;*/</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以将一个动作的url声明为一个变量。注意使用CDATA标签要加 <strong>th:inline=”javascript”</strong></p>
+<p><strong>Kaptcha实现验证码的功能。</strong></p>
+<p>controller—-kaptchacontroller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Kaptchacontrollor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Producer captchaProducer;</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/getKaptchaImage"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getKaptchaImage</span><span class="params">(HttpServletResponse response, HttpSession session)</span><span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        response.setDateHeader(<span class="string">"Expires"</span>,<span class="number">0</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Cache-Control"</span>,<span class="string">"no-store,no-cache,must-revalidate"</span>);</span><br><span class="line">        response.addHeader(<span class="string">"Cache-Control"</span>,<span class="string">"post-check=0,pre-check=0"</span>);</span><br><span class="line">        response.setHeader(<span class="string">"Pragma"</span>,<span class="string">"no-cache"</span>);</span><br><span class="line">        response.setContentType(<span class="string">"image/jpeg"</span>);</span><br><span class="line">        String capText=captchaProducer.createText();</span><br><span class="line">        session.setAttribute(Constants.KAPTCHA_SESSION_KEY,capText);</span><br><span class="line">        BufferedImage bi=captchaProducer.createImage(capText);</span><br><span class="line">        ServletOutputStream out=response.getOutputStream();</span><br><span class="line">        ImageIO.write(bi,<span class="string">"jpg"</span>,out);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            out.flush();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            out.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>config层—–Kaptchacontroller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KaptchaController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span>(name=<span class="string">"captchaProducer"</span>)</span><br><span class="line"> <span class="function"><span class="keyword">public</span> DefaultKaptcha <span class="title">getKaptchaBean</span><span class="params">()</span></span>&#123;</span><br><span class="line"> DefaultKaptcha defaultKaptcha=<span class="keyword">new</span> DefaultKaptcha();</span><br><span class="line"> Properties properties=<span class="keyword">new</span> Properties();</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.border"</span>, <span class="string">"no"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.border.color"</span>, <span class="string">"105,179,90"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.textproducer.font.color"</span>, <span class="string">"blue"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.image.width"</span>, <span class="string">"130"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.image.height"</span>, <span class="string">"45"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.session.key"</span>, <span class="string">"code"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.textproducer.char.length"</span>, <span class="string">"4"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.textproducer.font.names"</span>, <span class="string">"宋体,楷体,微软雅黑"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.textproducer.char.string"</span>, <span class="string">"0123456789"</span>);</span><br><span class="line"> properties.setProperty(<span class="string">"kaptcha.noise.impl"</span>, <span class="string">"com.google.code.kaptcha.impl.NoNoise"</span>);</span><br><span class="line"> Config config=<span class="keyword">new</span> Config(properties);</span><br><span class="line"> defaultKaptcha.setConfig(config);</span><br><span class="line"> <span class="keyword">return</span> defaultKaptcha;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主controller实现验证：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//verifyCodeExpected为解析出的验证码，verifyCodeActual为用户填写的验证码，比较两者是否相等。</span></span><br><span class="line">String verifyCodeExpected =(String)session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);</span><br><span class="line">String verifyCodeActual =ms_users.getValidatacode();</span><br><span class="line"><span class="keyword">if</span>(verifyCodeActual==<span class="keyword">null</span>||!verifyCodeActual.equals(verifyCodeExpected))&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"validatacode_error"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按钮实现验证码切换：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"layui-btn layui-btn-lg"</span> <span class="attr">onclick</span>=<span class="string">"getElementById('Code').src='../getKaptchaImage?d='+new Date()*1;return false"</span>&gt;</span>获取验证码<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>json转对象技术—–fastjson</p>
+<p>依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//param 为前端传给后端的json文本对象，Ms_Users为要转换成的实体类。</span></span><br><span class="line">Ms_Users ms_users = JSON.parseObject(param, <span class="keyword">new</span> TypeReference&lt;Ms_Users&gt;() &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-05-16T18:42:10.932Z" itemprop="dateUpdated">2019-05-17 02:42:10</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/05/工程实践4总结-1/" target="_blank" rel="external">http://hedroins.github.io/2019/05/05/工程实践4总结-1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hedroins.github.io">
+            <img src="/img/avatar.jpg" alt="HeJL">
+            HeJL
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工程实践4/">工程实践4</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/&title=《工程实践4总结(1)》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/&title=《工程实践4总结(1)》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/05/05/工程实践4总结-1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工程实践4总结(1)》 — HeJL&url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/16/javascript学习1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">javascript学习1(变量--条件语句)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/28/layui学习心得（一）/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">layui学习心得（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>HeJL &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/&title=《工程实践4总结(1)》 — HeJL&pic=http://hedroins.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/&title=《工程实践4总结(1)》 — HeJL&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hedroins.github.io/2019/05/05/工程实践4总结-1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工程实践4总结(1)》 — HeJL&url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/&via=http://hedroins.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hedroins.github.io/2019/05/05/工程实践4总结-1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hedroins.github.io/2019/05/05/工程实践4总结-1/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
